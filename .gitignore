@@ -3,5 +3,6 @@ __pycache__/
 .DS_Store
 build/
 .venv/
+node_modules/
 *.kicad_prl
 *-backups/

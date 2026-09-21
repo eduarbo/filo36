@@ -2,6 +2,8 @@
 
 La revisión E sustituye la carcasa ancha del render anterior. Los archivos actuales son **un estudio mecánico nominal**, para revisar forma y disposición; aún no un kit listo para fabricar.
 
+**[Visor 3D por capas](https://eduarbo.github.io/filo36/)** · [Abrir offline, exportar GLB o usar FreeCAD](viewer.md).
+
 | Cota del modelo | Valor |
 |---|---:|
 | Bahía electrónica | 24 mm, antes 33,52 mm |

@@ -2,6 +2,8 @@
 
 **36 teclas. Líneas angulares. Un split para construir a tu manera.**
 
+**[Explorar en 3D →](https://eduarbo.github.io/filo36/)** · Gira el teclado, oculta capas y separa el stack. [Guía, descarga offline y FreeCAD](docs/viewer.md).
+
 ![Filo36 revE con bahía estrecha, dos pantallas y KLP Lamé](docs/images/revE-assembled.png)
 
 *Nuevo estudio CAD revE: bahía de 24 mm, stack vertical y tapa electrónica independiente. Cables y montaje físico pendientes.*

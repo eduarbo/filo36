@@ -23,3 +23,7 @@ Filo36 es el nombre provisional; también se consideran Sesgo36 y Brizna36.
 La carcasa ancha de revD fue descartada. Su render permanece únicamente en el historial del repositorio; no representa la dirección actual. El nuevo CAD revE usa una bahía de 24 mm, dos pantallas sobre los micros y tapa electrónica independiente. La portada y las vistas de detalle se generan desde sus piezas STEP/STL. Se comprobó que las envolventes modeladas no invaden la carcasa ni se solapan entre sí; el cable de batería aún debe resolverse.
 
 La bahía es **28,4% más estrecha**. El ancho máximo de cada mitad queda aproximadamente en 126,2 mm: el pulgar conserva su posición y sigue determinando buena parte de ese máximo. El stack aumenta la altura local de electrónica de 16 mm en la revD izquierda a 19 mm; el plate permanece a 7,6 mm.
+
+## Inspección 3D
+
+Se añade un [visor interactivo por capas](viewer.md), con rotación completa, mitades seleccionables, vistas ortográficas y separación reversible de piezas. Usa las mismas mallas revE, sin cambiar la geometría. La extensión superior de la cubierta se explica con cotas; la siguiente revisión física sigue pendiente.

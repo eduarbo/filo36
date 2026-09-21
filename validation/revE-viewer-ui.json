@@ -1,0 +1,20 @@
+{
+  "viewer_sha256": "abdb059968580b58b98290388cb97d5661087c18846d8ec16d3dbff9e6cd0cbc",
+  "target": "local file with all HTTP(S) requests blocked",
+  "browser": "152.0.7977.76",
+  "desktop": true,
+  "narrow_viewport_emulation": true,
+  "physical_phone_tested": false,
+  "all_12_layer_filters": true,
+  "half_filters": true,
+  "orbit_drag": true,
+  "bottom_view": true,
+  "full_reset_pixel_identical": true,
+  "glb_objects": 166,
+  "glb_keycaps": 36,
+  "glb_units": "metres",
+  "runtime_errors": [],
+  "offline_network_requests": 0,
+  "playwright": "1.62.1",
+  "review": "Two independent read-only reviews agreed on a self-contained HTML viewer, Pages access and STEP desktop fallback. Implementation passed the stated functional acceptance."
+}

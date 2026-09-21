@@ -12,6 +12,9 @@ Filo36 es un proyecto derivado, desarrollado por Eduardo Ruiz. Su identidad, car
 | `design/layout.json` y `docs/images/layout.svg` | Derivados de las coordenadas de Piantor | GPL-3.0; se elimina la columna exterior de cada mitad y se traslada el origen, sin cambiar centros relativos ni ángulos |
 | `docs/images/revE-*.png` y `keycaps/*.stl` | Render del prototipo derivado; keycaps [KLP Lamé de braindefender](https://github.com/braindefender/KLP-Lame-Keycaps), commit `4a67a824232d3054c61599ea047c56a340faaba2` | CC-BY-SA-4.0; mallas Choc Stem + Choc Size sin modificar, dispuestas y coloreadas en los renders. Hashes y rutas originales en [keycaps/sources.json](keycaps/sources.json) |
 | CAD derivado, herramientas y documentación propias | Eduardo Ruiz / colaboradores de Filo36 | GPL-3.0-or-later, salvo los materiales identificados arriba |
+| Motor 3D incluido en `docs/index.html` | [Three.js](https://github.com/mrdoob/three.js), versión 0.180.0 | MIT; aviso completo en [LICENSES/Three-MIT.txt](LICENSES/Three-MIT.txt) y dentro del HTML descargable |
+
+El visor incorpora las mallas Piantor derivadas y KLP Lamé con las mismas licencias indicadas arriba. El HTML contiene los avisos completos y la exportación GLB conserva créditos y enlaces a fuentes/licencias en sus metadatos. El código propio del visor está en `viewer/`, bajo GPL-3.0-or-later; esbuild es una herramienta de compilación fijada en el lockfile.
 
 El texto GPL está en [LICENSE](LICENSE); CC-BY-SA-4.0 está en [LICENSES/CC-BY-SA-4.0.txt](LICENSES/CC-BY-SA-4.0.txt). Los hashes de las fuentes originales figuran en [sources/manifest.json](sources/manifest.json).
 
