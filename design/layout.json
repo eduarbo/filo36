@@ -1,0 +1,371 @@
+{
+  "source_commit": "cd847afb4f9a86e8c1c8e36f243140644013afb2",
+  "units": "mm",
+  "halves": {
+    "left": [
+      {
+        "ref": "K01",
+        "source_x": 92.0,
+        "source_y": 70.0,
+        "x": 30.0,
+        "y": 29.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 1
+      },
+      {
+        "ref": "K02",
+        "source_x": 110.0,
+        "source_y": 58.0,
+        "x": 48.0,
+        "y": 17.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 2
+      },
+      {
+        "ref": "K03",
+        "source_x": 128.0,
+        "source_y": 53.0,
+        "x": 66.0,
+        "y": 12.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 3
+      },
+      {
+        "ref": "K04",
+        "source_x": 146.0,
+        "source_y": 58.0,
+        "x": 84.0,
+        "y": 17.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 4
+      },
+      {
+        "ref": "K05",
+        "source_x": 164.0,
+        "source_y": 60.0,
+        "x": 102.0,
+        "y": 19.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 5
+      },
+      {
+        "ref": "K11",
+        "source_x": 92.0,
+        "source_y": 87.0,
+        "x": 30.0,
+        "y": 46.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 1
+      },
+      {
+        "ref": "K12",
+        "source_x": 110.0,
+        "source_y": 75.0,
+        "x": 48.0,
+        "y": 34.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 2
+      },
+      {
+        "ref": "K13",
+        "source_x": 128.0,
+        "source_y": 70.0,
+        "x": 66.0,
+        "y": 29.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 3
+      },
+      {
+        "ref": "K14",
+        "source_x": 146.0,
+        "source_y": 75.0,
+        "x": 84.0,
+        "y": 34.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 4
+      },
+      {
+        "ref": "K15",
+        "source_x": 164.0,
+        "source_y": 77.0,
+        "x": 102.0,
+        "y": 36.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 5
+      },
+      {
+        "ref": "K21",
+        "source_x": 92.0,
+        "source_y": 104.0,
+        "x": 30.0,
+        "y": 63.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 1
+      },
+      {
+        "ref": "K22",
+        "source_x": 110.0,
+        "source_y": 92.0,
+        "x": 48.0,
+        "y": 51.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 2
+      },
+      {
+        "ref": "K23",
+        "source_x": 128.0,
+        "source_y": 87.0,
+        "x": 66.0,
+        "y": 46.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 3
+      },
+      {
+        "ref": "K24",
+        "source_x": 146.0,
+        "source_y": 92.0,
+        "x": 84.0,
+        "y": 51.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 4
+      },
+      {
+        "ref": "K25",
+        "source_x": 164.0,
+        "source_y": 94.0,
+        "x": 102.0,
+        "y": 53.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 5
+      },
+      {
+        "ref": "K30",
+        "source_x": 141.0,
+        "source_y": 113.0,
+        "x": 79.0,
+        "y": 72.0,
+        "angle": 5.0,
+        "row": 3,
+        "col": 0
+      },
+      {
+        "ref": "K31",
+        "source_x": 163.0,
+        "source_y": 114.0,
+        "x": 101.0,
+        "y": 73.0,
+        "angle": -10.0,
+        "row": 3,
+        "col": 1
+      },
+      {
+        "ref": "K32",
+        "source_x": 184.0,
+        "source_y": 121.0,
+        "x": 122.0,
+        "y": 80.0,
+        "angle": -25.0,
+        "row": 3,
+        "col": 2
+      }
+    ],
+    "right": [
+      {
+        "ref": "K01",
+        "source_x": 177.24,
+        "source_y": 70.0,
+        "x": 130.0,
+        "y": 29.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 1
+      },
+      {
+        "ref": "K02",
+        "source_x": 159.24,
+        "source_y": 58.0,
+        "x": 112.0,
+        "y": 17.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 2
+      },
+      {
+        "ref": "K03",
+        "source_x": 141.24,
+        "source_y": 53.0,
+        "x": 94.0,
+        "y": 12.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 3
+      },
+      {
+        "ref": "K04",
+        "source_x": 123.24,
+        "source_y": 58.0,
+        "x": 76.0,
+        "y": 17.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 4
+      },
+      {
+        "ref": "K05",
+        "source_x": 105.24,
+        "source_y": 60.0,
+        "x": 58.0,
+        "y": 19.0,
+        "angle": 0.0,
+        "row": 0,
+        "col": 5
+      },
+      {
+        "ref": "K11",
+        "source_x": 177.24,
+        "source_y": 87.0,
+        "x": 130.0,
+        "y": 46.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 1
+      },
+      {
+        "ref": "K12",
+        "source_x": 159.24,
+        "source_y": 75.0,
+        "x": 112.0,
+        "y": 34.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 2
+      },
+      {
+        "ref": "K13",
+        "source_x": 141.24,
+        "source_y": 70.0,
+        "x": 94.0,
+        "y": 29.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 3
+      },
+      {
+        "ref": "K14",
+        "source_x": 123.24,
+        "source_y": 75.0,
+        "x": 76.0,
+        "y": 34.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 4
+      },
+      {
+        "ref": "K15",
+        "source_x": 105.24,
+        "source_y": 77.0,
+        "x": 58.0,
+        "y": 36.0,
+        "angle": 0.0,
+        "row": 1,
+        "col": 5
+      },
+      {
+        "ref": "K21",
+        "source_x": 177.24,
+        "source_y": 104.0,
+        "x": 130.0,
+        "y": 63.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 1
+      },
+      {
+        "ref": "K22",
+        "source_x": 159.24,
+        "source_y": 92.0,
+        "x": 112.0,
+        "y": 51.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 2
+      },
+      {
+        "ref": "K23",
+        "source_x": 141.24,
+        "source_y": 87.0,
+        "x": 94.0,
+        "y": 46.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 3
+      },
+      {
+        "ref": "K24",
+        "source_x": 123.24,
+        "source_y": 92.0,
+        "x": 76.0,
+        "y": 51.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 4
+      },
+      {
+        "ref": "K25",
+        "source_x": 105.24,
+        "source_y": 94.0,
+        "x": 58.0,
+        "y": 53.0,
+        "angle": 0.0,
+        "row": 2,
+        "col": 5
+      },
+      {
+        "ref": "K30",
+        "source_x": 128.24,
+        "source_y": 113.0,
+        "x": 81.0,
+        "y": 72.0,
+        "angle": -5.0,
+        "row": 3,
+        "col": 0
+      },
+      {
+        "ref": "K31",
+        "source_x": 106.24,
+        "source_y": 114.0,
+        "x": 59.0,
+        "y": 73.0,
+        "angle": 10.0,
+        "row": 3,
+        "col": 1
+      },
+      {
+        "ref": "K32",
+        "source_x": 85.24,
+        "source_y": 121.0,
+        "x": 38.0,
+        "y": 80.0,
+        "angle": 25.0,
+        "row": 3,
+        "col": 2
+      }
+    ]
+  },
+  "variant": "36-key: physical outer column K00/K10/K20 removed; retained coordinates unchanged"
+}

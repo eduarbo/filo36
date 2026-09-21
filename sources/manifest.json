@@ -1,0 +1,19 @@
+{
+  "upstream": "https://github.com/beekeeb/piantor",
+  "commit": "cd847afb4f9a86e8c1c8e36f243140644013afb2",
+  "files": {
+    "sources/piantor/left.kicad_pcb": "9e4333e7cbea29ddf55aef41336867b514ba896b76d31e6b5a08a6b9183c3a9d",
+    "sources/piantor/right.kicad_pcb": "826b62655115570ad1638f098d91beca60fb76c8bf23565d422663a4e6422db9",
+    "design/layout.json": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3"
+  },
+  "license_sources": {
+    "LICENSES/Keebio-MIT.txt": {
+      "url": "https://raw.githubusercontent.com/keebio/Keebio-Parts.pretty/063565dcba9a8ee807d49772de0ed75ecaedcc26/LICENSE",
+      "sha256": "4a77bc17e5a276301b99b590ea44a69a0638f7e9b0f3c3245fe1a16d794e0e2e"
+    },
+    "LICENSES/TPCWare-KiCad.txt": {
+      "url": "https://raw.githubusercontent.com/ncarandini/KiCad-RP-Pico/dc6f9b9f213dc36eebce626aa9ee72a333fa0db3/LICENSE",
+      "sha256": "6eba07de7f840be08f87c3fc4d53f08c940d9b02693d6a5e58174e00934ef05f"
+    }
+  }
+}

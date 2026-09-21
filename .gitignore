@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+build/
+.venv/
+*.kicad_prl
+*-backups/
