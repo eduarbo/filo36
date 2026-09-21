@@ -1,0 +1,26 @@
+{
+  "keycaps/normal.stl": {
+    "upstream": "https://github.com/braindefender/KLP-Lame-Keycaps",
+    "commit": "4a67a824232d3054c61599ea047c56a340faaba2",
+    "path": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Normal.stl",
+    "sha256": "2e4110f314d848bbacc23585e3002b648e5eb094501d98d206db821867381a53",
+    "license": "CC-BY-SA-4.0",
+    "changes": "none"
+  },
+  "keycaps/normal_homing.stl": {
+    "upstream": "https://github.com/braindefender/KLP-Lame-Keycaps",
+    "commit": "4a67a824232d3054c61599ea047c56a340faaba2",
+    "path": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Normal_Homing.stl",
+    "sha256": "ef7c5c9940daf78d8a8fd95efc2a9772a37394e26b74d56319f4b5b7609ea441",
+    "license": "CC-BY-SA-4.0",
+    "changes": "none"
+  },
+  "keycaps/thumb.stl": {
+    "upstream": "https://github.com/braindefender/KLP-Lame-Keycaps",
+    "commit": "4a67a824232d3054c61599ea047c56a340faaba2",
+    "path": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Thumb.stl",
+    "sha256": "20e8239ce4836e22906220a39ae17a55e584107240a0b00571f4132b9e26054c",
+    "license": "CC-BY-SA-4.0",
+    "changes": "none"
+  }
+}

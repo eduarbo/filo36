@@ -1,0 +1,219 @@
+{
+  "scope": "Nominal mechanical CAD, not hardware acceptance",
+  "halves": {
+    "left": {
+      "case_vs_components_mm3": {
+        "battery": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "mcu": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "display": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "jst": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "reset": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "slider": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "mcu-sockets": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "cradle": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "mcu-riser": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "display-sled": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        }
+      },
+      "components_vs_components_mm3": {
+        "battery / mcu": 0.0,
+        "battery / display": 0.0,
+        "battery / jst": 0.0,
+        "battery / reset": 0.0,
+        "battery / slider": 0.0,
+        "battery / mcu-sockets": 0.0,
+        "battery / cradle": 0.0,
+        "battery / mcu-riser": 0.0,
+        "battery / display-sled": 0.0,
+        "mcu / display": 0.0,
+        "mcu / jst": 0.0,
+        "mcu / reset": 0.0,
+        "mcu / slider": 0.0,
+        "mcu / mcu-sockets": 0.0,
+        "mcu / cradle": 0.0,
+        "mcu / mcu-riser": 0.0,
+        "mcu / display-sled": 0.0,
+        "display / jst": 0.0,
+        "display / reset": 0.0,
+        "display / slider": 0.0,
+        "display / mcu-sockets": 0.0,
+        "display / cradle": 0.0,
+        "display / mcu-riser": 0.0,
+        "display / display-sled": 0.0,
+        "jst / reset": 0.0,
+        "jst / slider": 0.0,
+        "jst / mcu-sockets": 0.0,
+        "jst / cradle": 0.0,
+        "jst / mcu-riser": 0.0,
+        "jst / display-sled": 0.0,
+        "reset / slider": 0.0,
+        "reset / mcu-sockets": 0.0,
+        "reset / cradle": 0.0,
+        "reset / mcu-riser": 0.0,
+        "reset / display-sled": 0.0,
+        "slider / mcu-sockets": 0.0,
+        "slider / cradle": 0.0,
+        "slider / mcu-riser": 0.0,
+        "slider / display-sled": 0.0,
+        "mcu-sockets / cradle": 0.0,
+        "mcu-sockets / mcu-riser": 0.0,
+        "mcu-sockets / display-sled": 0.0,
+        "cradle / mcu-riser": 0.0,
+        "cradle / display-sled": 0.0,
+        "mcu-riser / display-sled": 0.0
+      },
+      "nominal_keycap_to_hood_gap_mm": 0.2554779052734375,
+      "key_count": 18,
+      "body_height_mm": 19,
+      "plate_height_mm": 7.6,
+      "bay_width_mm": 24,
+      "unmodeled": "battery cables, solder fillets, exact connectors, RF and physical tolerances"
+    },
+    "right": {
+      "case_vs_components_mm3": {
+        "battery": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "mcu": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "display": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "jst": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "reset": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "slider": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "mcu-sockets": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "cradle": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "mcu-riser": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        },
+        "display-sled": {
+          "tray": 0.0,
+          "key-plate": 0.0,
+          "electronics-lid": 0.0
+        }
+      },
+      "components_vs_components_mm3": {
+        "battery / mcu": 0.0,
+        "battery / display": 0.0,
+        "battery / jst": 0.0,
+        "battery / reset": 0.0,
+        "battery / slider": 0.0,
+        "battery / mcu-sockets": 0.0,
+        "battery / cradle": 0.0,
+        "battery / mcu-riser": 0.0,
+        "battery / display-sled": 0.0,
+        "mcu / display": 0.0,
+        "mcu / jst": 0.0,
+        "mcu / reset": 0.0,
+        "mcu / slider": 0.0,
+        "mcu / mcu-sockets": 0.0,
+        "mcu / cradle": 0.0,
+        "mcu / mcu-riser": 0.0,
+        "mcu / display-sled": 0.0,
+        "display / jst": 0.0,
+        "display / reset": 0.0,
+        "display / slider": 0.0,
+        "display / mcu-sockets": 0.0,
+        "display / cradle": 0.0,
+        "display / mcu-riser": 0.0,
+        "display / display-sled": 0.0,
+        "jst / reset": 0.0,
+        "jst / slider": 0.0,
+        "jst / mcu-sockets": 0.0,
+        "jst / cradle": 0.0,
+        "jst / mcu-riser": 0.0,
+        "jst / display-sled": 0.0,
+        "reset / slider": 0.0,
+        "reset / mcu-sockets": 0.0,
+        "reset / cradle": 0.0,
+        "reset / mcu-riser": 0.0,
+        "reset / display-sled": 0.0,
+        "slider / mcu-sockets": 0.0,
+        "slider / cradle": 0.0,
+        "slider / mcu-riser": 0.0,
+        "slider / display-sled": 0.0,
+        "mcu-sockets / cradle": 0.0,
+        "mcu-sockets / mcu-riser": 0.0,
+        "mcu-sockets / display-sled": 0.0,
+        "cradle / mcu-riser": 0.0,
+        "cradle / display-sled": 0.0,
+        "mcu-riser / display-sled": 0.0
+      },
+      "nominal_keycap_to_hood_gap_mm": 0.2550802230834961,
+      "key_count": 18,
+      "body_height_mm": 19,
+      "plate_height_mm": 7.6,
+      "bay_width_mm": 24,
+      "unmodeled": "battery cables, solder fillets, exact connectors, RF and physical tolerances"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Construcción
 
-La guía paso a paso se publicará con la primera revisión modular comprobada. Este repositorio todavía no entrega Gerbers, STL de carcasa ni UF2 finales de esa revisión.
+La guía paso a paso se publicará con la primera revisión modular comprobada. Los [STEP/STL actuales](cad.md) permiten inspeccionar la forma propuesta; no son una revisión preparada para fabricar. Los Gerbers y UF2 finales siguen pendientes.
 
 El orden previsto es:
 

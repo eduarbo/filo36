@@ -5,8 +5,8 @@
 | Hito | Estado | Evidencia / siguiente paso |
 |---|---|---|
 | Layout de 36 teclas | Comprobado | [Coordenadas](../design/layout.json), fuentes y comprobador incluidos |
-| Prototipo anterior, revisión D | Antecedente digital | Una pantalla izquierda, batería lateral y CAD local; imagen debajo |
-| Stack batería → micro → pantalla | En diseño | Resolver cables, conectores, holguras y extracción |
+| Prototipo anterior, revisión D | Antecedente digital | Una pantalla izquierda y batería lateral; forma descartada |
+| Carcasa estrecha y stack | CAD y renders nuevos | Bahía 24 mm; plate 7,6 mm; cubierta 19 mm. Cables y encaje real pendientes |
 | Dos pantallas y electrónica modular | En diseño | Actualizar ambas PCB, CAD y firmware; una pantalla sigue siendo alternativa |
 | BOM y archivos para fabricar | Pendiente | Cerrar la revisión modular y publicar fuentes coherentes |
 | Impresión y montaje | Pendiente | Cupón Choc, tres keycaps y comprobación de piezas reales |
@@ -18,8 +18,8 @@ Se comparte el layout, la dirección del diseño y la lista de componentes previ
 
 Filo36 es el nombre provisional; también se consideran Sesgo36 y Brizna36.
 
-## Imagen de la revisión anterior
+## Corrección visual
 
-![Revisión D: una pantalla izquierda y batería lateral](images/revD-assembled.png)
+La carcasa ancha de revD fue descartada. Su render permanece únicamente en el historial del repositorio; no representa la dirección actual. El nuevo CAD revE usa una bahía de 24 mm, dos pantallas sobre los micros y tapa electrónica independiente. La portada y las vistas de detalle se generan desde sus piezas STEP/STL. Se comprobó que las envolventes modeladas no invaden la carcasa ni se solapan entre sí; el cable de batería aún debe resolverse.
 
-**Render CAD de revD, anterior al stack modular.** Utiliza las mallas KLP Lamé. No es una foto ni representa la revisión E: pantalla derecha ausente, bahía todavía ancha y pantalla izquierda soldada. El estado dibujado en pantalla y el asiento de keycaps son ilustrativos. [Atribución de la imagen](../ATTRIBUTION.md).
+La bahía es **28,4% más estrecha**. El ancho máximo de cada mitad queda aproximadamente en 126,2 mm: el pulgar conserva su posición y sigue determinando buena parte de ese máximo. El stack aumenta la altura local de electrónica de 16 mm en la revD izquierda a 19 mm; el plate permanece a 7,6 mm.

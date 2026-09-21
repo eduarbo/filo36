@@ -1,0 +1,4 @@
+cadquery==2.6.1
+shapely==2.1.2
+sexpdata==1.0.2
+vtk==9.3.1
