@@ -336,7 +336,7 @@
     },
     {
       "path": "tools/build_viewer_revH.py",
-      "sha256": "8943524a2ce21f6ccdb98a8eaf3778e18e3e8692fecbae3c0ff5e454361c750f"
+      "sha256": "50ac574d2d396c286f780b0c23c5cfaa7ff306fec704a402f7281c77311c5e63"
     },
     {
       "path": "keycaps/catalog.json",
@@ -356,7 +356,7 @@
     },
     {
       "path": "viewer/template.html",
-      "sha256": "14b7bea32366a2727eccf5941ac90a08ab82ae7a40c8f21c139e1f70f45c6f9f"
+      "sha256": "a7fec85c642c2caed577692fc309d0e6d1566122ce4ed4f31182d904829807c6"
     },
     {
       "path": "viewer/build.mjs",
@@ -367,11 +367,12 @@
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "57019e1baaf1ce207c382f8611d30e3b6e394301dd096394801c0dc275b90482",
+  "viewer_sha256": "fe56adaaabc468ddccdc2d053ec60b75db3c770754f2da7bd2702788ff89ceaa",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,
     "cover_top_mm": 16.6,
+    "themed_relief_top_mm": 17.2,
     "cover_ahead_of_top_cap_mm": 0,
     "cover_ahead_of_adjacent_cap_mm": 0
   },

@@ -23,7 +23,7 @@ For keycaps, frame styles and colors, use the [configurator and companion macro]
 
 In **Parameters**, change `FrameTop` from **16.6 to 17.2 mm** and recompute. Plain covers extend to the new top height; themed relief stays 0.6 mm above it. Save, close and reopen to confirm the change, then restore 16.6 mm.
 
-`FrameRoof` controls roof thickness and `WindowMargin` the clearance around the glass. Start from 1.2 and 0.4 mm respectively. The supplied dimensions were checked as a nominal assembly; arbitrary edits are not automatically cleared for fit or printing. For new frame shapes, edit the upper loft sections while preserving the shared cavity and mounts.
+`FrameRoof` controls roof thickness and `WindowMargin` the clearance around the glass. Start from 1.2 and 0.4 mm respectively. The supplied dimensions were checked as a nominal assembly; arbitrary edits are not automatically cleared for fit or printing. For new frame shapes, edit the outline sketch (or loft sections for Beveled/Faceted) while preserving the shared cavity and mounts.
 
 ### 2. Move the display
 

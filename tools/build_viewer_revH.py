@@ -103,7 +103,7 @@ for v in catalog['variants']:
 top_key=min(k['y']-8.244852066 for k in layout['halves']['left'] if k['row']==0)
 adjacent=next(k for k in layout['halves']['left'] if k['ref']=='K05')['y']-8.244852066
 hood_min=min(p[1] for p in model['halves']['left']['electronics_cover'])
-scene['measurements']={'bay_width_mm':24,'plate_top_mm':7.6,'cover_top_mm':16.6,
+scene['measurements']={'bay_width_mm':24,'plate_top_mm':7.6,'cover_top_mm':16.6,'themed_relief_top_mm':17.2,
                        'cover_ahead_of_top_cap_mm':round(max(0,top_key-hood_min),3),
                        'cover_ahead_of_adjacent_cap_mm':round(max(0,adjacent-hood_min),3)}
 for path in ['design/revH.json','design/layout.json','tools/build_viewer_revH.py','keycaps/catalog.json']:
