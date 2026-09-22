@@ -14,13 +14,13 @@
 
 ## Persistent component sidebar
 
-All 12 component entries remain visible while their details scroll or collapse. Hover, focus or select a part to highlight it; the connecting line ends at its own sidebar entry. Frame previews still apply in one click. Desktop, 390 px and 320 px touch layouts, short landscape, configuration and exact GLB export passed local checks.
+All 12 component entries remain visible while their details scroll or collapse. Hover, focus or select a part to highlight it; the connecting line ends at its own sidebar entry. Frame previews still apply in one click. Desktop, 390 px and 320 px touch layouts, short landscape, configuration and exact GLB export passed local and public checks.
 
 The previous floating-tag iteration passed functional tests but missed the intended sidebar relationship and had no latency acceptance. Its anchor search could run up to 192 full-scene intersection queries per camera update. Surface searching now pauses during gestures and resolves only the active component afterward; rendering is coalesced and highlights are reused.
 
 On the same Chromium 152 setup at 1200 × 800 with 4× CPU throttling, **p95 orbit frame interval fell from 1,616.5 to 16.8 ms**, with 59 long tasks reduced to zero. **Frame-change p95 fell from 1,692.4 to 59.0 ms**. These are local benchmark results; physical-phone performance remains untested.
 
-[Usage guide](viewer.md) · [Checks and measurements](../validation/viewer-sidebar.json) · [Correction scope](../design/viewer-sidebar-workflow.json). Historical acceptance of the first visual explorer remains in its [original receipt](../validation/viewer-ux-publication.json).
+[Usage guide](viewer.md) · [Checks and measurements](../validation/viewer-sidebar.json) · [Public readback](../validation/viewer-sidebar-publication.json), including all571 source-commit files · [Correction scope](../design/viewer-sidebar-workflow.json). Historical acceptance of the first visual explorer remains in its [original receipt](../validation/viewer-ux-publication.json).
 
 ## Revision H — continuous edge and printable themes
 

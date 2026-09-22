@@ -43,7 +43,7 @@
     ]
   },
   "scope": "Viewer interaction/performance, current English guides and existing main/Pages publication. Preserve native CAD, configuration schema, catalog and exact GLB/offline behavior.",
-  "status": "validated_local_public_readback_pending",
+  "status": "published_and_verified",
   "original_keyboard_status": "partial",
   "acceptance": [
     "No floating tags; active visible component connects directly to its own sidebar anchor",
