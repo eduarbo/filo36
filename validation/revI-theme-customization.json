@@ -1,0 +1,19 @@
+{
+  "viewer_sha256": "0333e19a9160eef44539b040aa28d108077fb6f4b369fbc9ef0ecdcd207d2976",
+  "themes": 16,
+  "preview_images_distinct": 16,
+  "linked_colors_bidirectional": true,
+  "mixed_halves": true,
+  "preserve_shapes_cover_and_keycaps": true,
+  "json_and_reload_roundtrip": true,
+  "invalid_import_atomic": true,
+  "storage_failure_recoverable": true,
+  "keyboard_and_reduced_motion": true,
+  "mobile_widths": [
+    390,
+    320
+  ],
+  "individual_selection_ignored_by_printkit": true,
+  "custom_case_and_four_frame_colors_in_glb": true,
+  "runtime_errors": []
+}

@@ -50,7 +50,9 @@ python tools/build_revI_wire.py
 python tools/build_keycap_catalog.py
 python tools/check_revI_config.py
 python tools/check_revI_fasteners.py
+FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/export_switch_models.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/build_revI.py
+FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_components.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI_service.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI_rim.py
@@ -64,6 +66,8 @@ node viewer/build.mjs
 python tools/check_viewer_revI.py
 python3 tools/check_layout.py
 node viewer/check.cjs
+node viewer/customize-check.cjs
+python tools/check_print_kit.py
 python3 tools/check_parts_links.py
 python3 tools/check_revI_delivery.py
 ```

@@ -23,3 +23,7 @@ Full texts: [GPL](LICENSE), [CC-BY-SA-4.0](LICENSES/CC-BY-SA-4.0.txt). Original 
 Libraries under `hardware/revF/libraries` contain KiCad sources with the design exception, daprice’s Choc footprint under CC-BY-SA-4.0, and Filo36 symbols/footprints. STEP files under `hardware/revF/models` are original nominal envelopes, not manufacturer-certified models.
 
 FreeCAD, StepUp, ZMK, Zephyr, nice!nano and nice!view retain their own names/licenses. FreeCAD/StepUp are installed separately; firmware binaries are not distributed here. Supplier links do not imply sponsorship.
+
+## Commercial component representations
+
+KiSwitch Choc v1 source CAD is used under its MIT option (copyright 2019–2022 keyswitch-kicad-library contributors). KiCad PCM12, TL3342 and SOD-123 assets use CC-BY-SA-4.0 with the KiCad library exception. See [per-file sources, transformations and limits](components/README.md) and [asset hashes](components/sources.json). nice!nano v2 is an original nominal reconstruction referenced to official photographs and the Woovie community drawing; no official photograph is embedded or relicensed.

@@ -1,0 +1,83 @@
+{
+  "choc-body": [
+    {
+      "name": "Upper_Housing",
+      "path": "mechanical/revI/component-choc-body-0.stl",
+      "color": "#d0d3cb",
+      "bounds_mm": [
+        -7.24999742130081,
+        -6.9113673858326505,
+        0.19615880519083007,
+        7.24999742130081,
+        6.9113673858326505,
+        5.550000000000001
+      ]
+    },
+    {
+      "name": "Lower_Housing",
+      "path": "mechanical/revI/component-choc-body-1.stl",
+      "color": "#242729",
+      "bounds_mm": [
+        -7.500000000000001,
+        -7.500000000000001,
+        -2.6000000000000005,
+        7.500000000000001,
+        7.500000000000001,
+        3.050000000000002
+      ]
+    },
+    {
+      "name": "Pin_2",
+      "path": "mechanical/revI/component-choc-body-2.stl",
+      "color": "#b99f62",
+      "bounds_mm": [
+        4.594404133743751,
+        3.6505278609381295,
+        -2.9471355100261096,
+        5.4055932875570605,
+        4.061853249542629,
+        2.65
+      ]
+    },
+    {
+      "name": "Pin_1",
+      "path": "mechanical/revI/component-choc-body-3.stl",
+      "color": "#b99f62",
+      "bounds_mm": [
+        -0.49685345341185727,
+        5.77659924524695,
+        -2.94719819882304,
+        0.4968482960132417,
+        5.95898098309827,
+        2.65
+      ]
+    }
+  ],
+  "choc-stem": [
+    {
+      "name": "Stem",
+      "path": "mechanical/revI/component-choc-stem-0.stl",
+      "color": "#ba4047",
+      "bounds_mm": [
+        -5.16576383769931,
+        -2.2530447894018004,
+        3.049999999999994,
+        5.1657638376993,
+        3.4100157233677906,
+        8.050000000000004
+      ]
+    }
+  ],
+  "socket_source": {
+    "path": "mechanical/revI/component-choc-socket.stl",
+    "bounds_mm": [
+      -4.068836413734992,
+      1.3989443710399954,
+      -3.4683213513401148,
+      9.081163586270007,
+      8.248944371039995,
+      -0.41832133496118695
+    ],
+    "status": "Source coordinates only; assembly placement unqualified"
+  }
+}

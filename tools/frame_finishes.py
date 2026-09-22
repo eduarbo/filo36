@@ -14,9 +14,10 @@ def role(style,side,x,y,height,roof=None):
         if x0<=x<=x1 and y0<=y<=y1:return zone['role']
     return 'detail'
 
-def palette(style,body=None):
+def palette(style,body=None,accents=None):
     result=dict(FINISHES['styles'].get(style,{}).get('colors',{'body':'#304d4e'}))
     if body:result['body']=body
+    for name in ['detail','accent','secondary']:result[name]=(accents or {}).get(name,result.get(name,result['body']))
     return result
 
 def rgb(color):return tuple(int(color[i:i+2],16)/255 for i in (1,3,5))

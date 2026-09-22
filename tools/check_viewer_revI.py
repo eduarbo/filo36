@@ -30,7 +30,27 @@ for side,keys in layout['halves'].items():
         p=next(p for p in caps if p['name']==side+' · KLP '+k['ref'])
         assert p['position']==[(161 if side=='right' else 0)+k['x'],12.2,k['y']]
         assert p['angle_deg']==k['angle']
+model=json.loads((ROOT/'design/revI.json').read_text())
+switches=json.loads((ROOT/'components/switches.json').read_text())
+decode=lambda g,k,dtype:np.frombuffer(base64.b64decode(g[k]),dtype=dtype)
 for path,g in data['geometries'].items():
+    if path.endswith('#materials'):
+        part=next(p for p in data['parts'] if p.get('geometry')==path)
+        parent=path.removesuffix('#materials')
+        visuals=switches[parent] if parent in switches else model['parts'][Path(parent).stem]['visuals']
+        assert part['materials']==[v['color'] for v in visuals]
+        assert len(part['materials'])==len(g['groups'])
+        ps=[];ns=[];ix=[];vertex=0;offset=0
+        for i,v in enumerate(visuals):
+            child=data['geometries'][v['path']];p=decode(child,'positions','<f4');n=decode(child,'normals','<f4');indices=decode(child,'indices','<u4')
+            ps.append(p);ns.append(n);ix.append(indices+vertex)
+            assert g['groups'][i]=={'start':offset,'count':len(indices),'materialIndex':i}
+            vertex+=len(p)//3;offset+=len(indices)
+        assert np.array_equal(decode(g,'positions','<f4'),np.concatenate(ps)),path
+        assert np.array_equal(decode(g,'normals','<f4'),np.concatenate(ns)),path
+        assert np.array_equal(decode(g,'indices','<u4'),np.concatenate(ix)),path
+        assert offset==g['triangles']*3
+        continue
     reader=vtk.vtkSTLReader();reader.SetFileName(str(ROOT/path));reader.Update();mesh=reader.GetOutput()
     expected=vtk_to_numpy(mesh.GetPoints().GetData()).copy()[:,[0,2,1]]
     if path.startswith('mechanical/revI/'):expected[:,2]*=-1

@@ -3,6 +3,7 @@ Convex XY envelopes conservatively qualify configurations, not physical stem fit
 SPDX-License-Identifier: GPL-3.0-or-later
 """
 import copy, json, math
+from frame_finishes import palette
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 CATALOG=ROOT/'keycaps/catalog.json'
@@ -28,12 +29,19 @@ def gap(a,b):
 def load():return json.loads(CATALOG.read_text())
 
 def default_config(catalog=None):
-    c=catalog or load();return copy.deepcopy(c['default_configuration'])
+    c=catalog or load();return normalize(c['default_configuration'],c)
 
 def normalize(config,catalog=None):
     c=catalog or load();result=copy.deepcopy(config)
     if 'cases' not in result:result['cases']=copy.deepcopy(c['default_configuration']['cases'])
+    for side in ['left','right']:
+        case=result['cases'][side];style=c['case_styles'][case['style']]
+        case.setdefault('base_color',style['base_color']);case.setdefault('plate_color',style['plate_color']);case.setdefault('match_frame',False)
+        f=result['frames'][side];colors=palette(f['style'],f['color'],f.get('accents'))
+        f['accents']={k:colors[k] for k in ['detail','accent','secondary']}
     return result
+
+def valid_color(v):return isinstance(v,str) and len(v)==7 and v[0]=='#' and all(x in '0123456789abcdefABCDEF' for x in v[1:])
 
 def check(config,catalog=None):
     c=catalog or load();variants={v['id']:v for v in c['variants']};errors=[];shapes={};minimum=float('inf')
@@ -45,13 +53,23 @@ def check(config,catalog=None):
         if not isinstance(cases,dict) or set(cases)!={'left','right'}:return ['Select a case for each half.'],None
         for case in cases.values():
             if not isinstance(case,dict) or not isinstance(case.get('style'),str) or case.get('style') not in c['case_styles'] or type(case.get('cover')) is not bool:return ['Invalid case or display cover option.'],None
+    for side in ['left','right']:
+        case=config.get('cases',{}).get(side,{})
+        for field in ['base_color','plate_color']:
+            if field in case and not valid_color(case[field]):return ['Invalid case color.'],None
+        if 'match_frame' in case and type(case['match_frame']) is not bool:return ['Invalid color link.'],None
+        f=config['frames'][side]
+        if not isinstance(f,dict):return ['Invalid frame.'],None
+        if 'accents' in f:
+            if not isinstance(f['accents'],dict) or any(k not in ['detail','accent','secondary'] or not valid_color(v) for k,v in f['accents'].items()):return ['Invalid frame accent color.'],None
+        if case.get('match_frame') and str(case.get('base_color','')).lower()!=str(f.get('color','')).lower():return ['Linked rim and frame colors must match.'],None
     for side,keys in c['layout'].items():
         if config['batteries'][side] not in c['battery_profiles']:errors.append('Unknown battery profile.')
         if set(config['keycaps'][side])!={k['ref'] for k in keys}:return ['Missing keys or unknown positions.'],None
         f=config['frames'][side]
         if f.get('style') not in c['frame_styles']:errors.append('Unknown frame.')
         color=f.get('color','')
-        if len(color)!=7 or color[0]!='#' or any(x not in '0123456789abcdefABCDEF' for x in color[1:]):errors.append('Invalid frame color.')
+        if not valid_color(color):errors.append('Invalid frame color.')
         shapes[side]={}
         for k in keys:
             x=config['keycaps'][side][k['ref']];v=variants.get(x.get('variant'));turn=x.get('rotation_deg')

@@ -1,0 +1,22 @@
+{
+  "content_kind": "Controller-written English summary, not a verbatim reviewer transcript. Originals preserved in the local objective archive.",
+  "original_report_sha256_canonical_json": "6f8c50e3f25dd1e85432cf2a61555916846a46b7e2d8cc81028eae757ddd7016",
+  "reviewed_baseline": "220fe5a241cbe3837869176c78a27af64eaff429",
+  "summary": "The focal scope is acceptable. Optional per-part 3MF is conditional on geometry and actual Bambu color readback; no unresolved objection to local implementation and verification.",
+  "findings": [
+    "Themes change colors only and serialize concrete values for Both/Left/Right.",
+    "Compare oriented native surfaces after reversing the declared 3MF translation; bounding boxes and volume alone are insufficient.",
+    "MEDIUM acceptance condition: Bambu 02.08.02.61 must preserve custom colors and surface regions through import, save and reopen before compatibility is claimed.",
+    "An STL fallback is useful but does not complete failed color interoperability. No machine/process profile or physical acceptance is implied."
+  ],
+  "original_finding_codes": [
+    "FOCAL_SCOPE_ACCEPTED",
+    "OPTIONAL_3MF_GEOMETRY_GATE",
+    "BAMBU_COLOR_CLAIM_CONDITIONAL",
+    "PRINT_PACKAGE_BOUNDARY",
+    "JOINING_AND_SCOPE_PRESERVED",
+    "CONFIDENCE_AND_FALSIFIERS"
+  ],
+  "advisory_only": true,
+  "confidence": "High in evidence and bounded approach; medium in unverified implementation, interoperability and inferred dimensions. No physical acceptance."
+}

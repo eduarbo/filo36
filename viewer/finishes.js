@@ -11,13 +11,14 @@ export function frameRole(style,side,x,height,y){
   const zone=theme.zones.find(z=>x>=z.xy[0]&&y>=z.xy[1]&&x<=z.xy[2]&&y<=z.xy[3]);
   return zone?finishes.roles.indexOf(zone.role):1;
 }
-export function framePalette(style,body){
+export function framePalette(style,body,accents){
   const theme=finishes.styles[style];
-  return theme?{...theme.colors,body:body||theme.colors.body}:{body:body||'#304d4e'};
+  const p=theme?{...theme.colors,body:body||theme.colors.body}:{body:body||'#304d4e'};
+  for(const role of ['detail','accent','secondary'])p[role]=accents?.[role]||p[role]||p.body;return p;
 }
 export function createFrameFinishes(geometryFor,material){
   const cache=new Map();
-  return function frame(style,side,body){
+  return function frame(style,side,body,accents){
     const path=`mechanical/revI/${side}-frame-${style}.stl`;
     if(!cache.has(path)){
       const source=geometryFor(path),g=source.clone(),p=g.getAttribute('position'),buckets=finishes.roles.map(()=>[]);
@@ -30,7 +31,7 @@ export function createFrameFinishes(geometryFor,material){
       for(let role=0;role<buckets.length;role++){const count=buckets[role].length;if(count)g.addGroup(offset,count,role);offset+=count;}
       g.setIndex(new THREE.BufferAttribute(new Uint32Array(buckets.flat()),1));cache.set(path,g);
     }
-    const palette=framePalette(style,body);
+    const palette=framePalette(style,body,accents);
     return {geometry:cache.get(path),material:finishes.roles.map(role=>material(palette[role]||palette.body)),palette};
   };
 }

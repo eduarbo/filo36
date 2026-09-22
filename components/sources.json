@@ -1,0 +1,53 @@
+{
+  "assets": [
+    {
+      "path": "components/sources/KiSwitch-MIT.txt",
+      "url": "https://raw.githubusercontent.com/kiswitch/kiswitch/aefcf65038d48d2666ff14530d482be3c350fa6e/LICENSE-MIT",
+      "sha256": "51384b53028b4dde6a6599359a2b88cde4101c4afd873b9a55b155e35657a583",
+      "license": "MIT",
+      "author": "KiSwitch contributors",
+      "status": "Community CAD; exact purchased variant unmeasured"
+    },
+    {
+      "path": "components/sources/SW_Hotswap_Kailh_Choc_v1.FCStd",
+      "url": "https://raw.githubusercontent.com/kiswitch/kiswitch/aefcf65038d48d2666ff14530d482be3c350fa6e/source_3d/Switch_Keyboard_Kailh/SW_Hotswap_Kailh_Choc_v1.FCStd",
+      "sha256": "9edce0ece1a32a929694912a38509c972078767c0f6456d6e5040359c57bae78",
+      "license": "MIT",
+      "author": "KiSwitch contributors",
+      "status": "Community CAD; exact purchased variant unmeasured"
+    },
+    {
+      "path": "components/sources/SW_Kailh_Choc_V1.FCStd",
+      "url": "https://raw.githubusercontent.com/kiswitch/kiswitch/aefcf65038d48d2666ff14530d482be3c350fa6e/source_3d/Switch_Keyboard_Kailh/SW_Kailh_Choc_V1.FCStd",
+      "sha256": "a91e8de5de81a119c278ad33b9b1b97b32e26961e401611b6fa0a90554745cc6",
+      "license": "MIT",
+      "author": "KiSwitch contributors",
+      "status": "Community CAD; exact purchased variant unmeasured"
+    },
+    {
+      "path": "components/sources/SW_SPDT_PCM12.step",
+      "url": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Button_Switch_SMD.3dshapes/SW_SPDT_PCM12.step",
+      "sha256": "a10ea113b1599b80249c9f289ca60875d1442ab8e7b62a025b047afe6e77cf92",
+      "license": "CC-BY-SA-4.0 with KiCad library exception",
+      "author": "KiCad library contributors",
+      "status": "Community CAD, content pinned by SHA256"
+    },
+    {
+      "path": "components/sources/SW_SPST_TL3342.step",
+      "url": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.step",
+      "sha256": "23b1770b921df25f489d37b5636ad4a292f966c00638da7b5cb4b7f97d11c639",
+      "license": "CC-BY-SA-4.0 with KiCad library exception",
+      "author": "KiCad library contributors",
+      "status": "Community CAD, content pinned by SHA256"
+    },
+    {
+      "path": "components/sources/D_SOD-123.step",
+      "url": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Diode_SMD.3dshapes/D_SOD-123.step",
+      "sha256": "b3dc4065573abc72e3d5b4cca0e908f72a24205a41b6284b1f75ccacbe99adf8",
+      "license": "CC-BY-SA-4.0 with KiCad library exception",
+      "author": "KiCad library contributors",
+      "status": "Community CAD, content pinned by SHA256"
+    }
+  ],
+  "license_source": "https://www.kicad.org/libraries/license/"
+}

@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-09-22",
-  "document_sha256": "c722040bfe23852d87899ca5a2ba8a3b6b58d51414a59a707324abf40be9eff7",
+  "document_sha256": "51c807d1bdfed2d45f3262eb20d2fd32f47ee7a750991f22a74a58732f023fc9",
   "photo_redistribution": false,
   "links": [
     {
@@ -104,6 +104,12 @@
       "status": 200,
       "content_type": "image/jpeg",
       "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/switch-both.jpg?v=1670366180"
+    },
+    {
+      "url": "https://configured-product-images.s3.amazonaws.com/2D/specs/TL3342F160QG.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://configured-product-images.s3.amazonaws.com/2D/specs/TL3342F160QG.pdf"
     },
     {
       "url": "https://github.com/braindefender/KLP-Lame-Keycaps",
@@ -256,12 +262,6 @@
       "status": 200,
       "content_type": "text/html; charset=UTF-8",
       "resolved_url": "https://www.e-switch.com/product/tl3342-series-low-profile-smt-tactile-switch/"
-    },
-    {
-      "url": "https://www.e-switch.com/wp-content/uploads/2022/06/TL3342.pdf",
-      "status": 200,
-      "content_type": "text/html; charset=UTF-8",
-      "resolved_url": "https://www.e-switch.com/"
     },
     {
       "url": "https://www.kailhswitch.com/Content/upload/pdf/202115927/CPG135001S30-data-sheet.pdf",

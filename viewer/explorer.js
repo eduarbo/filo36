@@ -4,13 +4,13 @@ import * as THREE from 'three';
 export const partInfo={
   lid:{name:'Display frame',short:'Frame',info:'Magnetic frame with captive steel targets and vertical release. Pick a design below; PCB and battery remain mechanically secured.'},
   keycaps:{name:'KLP Lamé keycaps',short:'Caps',info:'Original Choc-stem meshes. Choose a preset or edit a key, row or thumb cluster.'},
-  display:{name:'nice!view display',short:'Display',info:'Low-power display reference. The board envelope and screen content are illustrative.'},
+  display:{name:'nice!view display',short:'Display',info:'14 × 36 × 2.9 mm nominal nice!view, with the Sharp active area. Screen content is illustrative; the 7 / 8.8 mm connector-height difference remains open.'},
   base:{name:'Printed base',short:'Base',info:'Key-aligned local curves and a shared contour. Pick a real case variant below; native parts are editable in FreeCAD.'},
   plate:{name:'Switch plate',short:'Plate',info:'Holds the 36 Piantor switch positions and angles. Nominal plate height: 7.6 mm.'},
-  switches:{name:'Choc switches',short:'Switch',info:'Low-profile switch envelopes. Seating, travel and printed keycap stems need physical fit tests.'},
+  switches:{name:'Choc switches',short:'Switch',info:'Licensed KiSwitch Choc v1 housings, pins and stems. Generic model; seating, travel and printed keycap stems need physical fit tests.'},
   pcb:{name:'PCB',short:'PCB',info:'Custom wireless board outline. Zero geometric DRC violations, but routing remains unfinished; this is not a manufacturing file.'},
   battery:{name:'LiPo battery',short:'Battery',info:'Adafruit 1570 and 301230 nominal profiles share the low saddle and captured cage. Choose a profile below. Verify actual pack, leads and insulation.'},
-  mcu:{name:'nice!nano controller',short:'MCU',info:'Wireless controller envelope in the stacked bay. Final connections and radio performance are untested.'},
+  mcu:{name:'nice!nano v2 controller',short:'MCU',info:'Nominal v2 reconstruction with separate PCB, ENIG pads, mid-mount USB-C, ICs and passives. Community outline dimensions; package detail inferred from official photos.'},
   supports:{name:'Insulating supports',short:'Mounts',info:'Cradle, display sled and controller supports. Retention is a nominal CAD proposal.'},
   connectors:{name:'Connectors & controls',short:'Ports',info:'Sockets, battery connector, reset and power-switch references. Final supplied dimensions and cabling remain open.'},
   fasteners:{name:'Fasteners & feet',short:'Feet',info:'Five internal M2 structural screws per half, three captive magnet stations and steel frame targets. Printed threads and magnetic holding force need coupons.'}

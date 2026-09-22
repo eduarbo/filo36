@@ -8,6 +8,7 @@ import FreeCAD as A
 import FreeCADGui as G
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools/freecad'))
 from configuration import apply,extract
+from keycap_config import normalize
 G.showMainWindow();doc=A.openDocument(str(ROOT/'mechanical/revI/Filo36.FCStd'));doc.recompute()
 sourcehash=hashlib.sha256((ROOT/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest()
 opaque_samples=0
@@ -19,7 +20,7 @@ for obj in [o for o in doc.Objects if hasattr(o,'FrameStyle')]:
                 # Body walls must remain present immediately below the roof.
                 assert obj.Shape.isInside(A.Vector(160-x if right else x,-y,z),1e-6,False),(obj.Name,'side-wall gap',x,y,z)
                 opaque_samples+=1
-original=extract(doc);assert original==json.loads((ROOT/'design/configurations/default.json').read_text())
+original=extract(doc);assert original==normalize(json.loads((ROOT/'design/configurations/default.json').read_text()))
 assert not any(o.TypeId.endswith('Python') for o in doc.Objects),'Native source requires a custom proxy'
 nextconfig=json.loads((ROOT/'design/configurations/saddle-sculpted.json').read_text())
 nextconfig['keycaps']['left']['K30']={'variant':'choc_stem_mx_size_normal_90deg','rotation_deg':90}
@@ -27,6 +28,9 @@ nextconfig['batteries']={'left':'301230','right':'adafruit-1570'}
 nextconfig['cases']={'left':{'style':'rim','cover':False},'right':{'style':'terrace','cover':True}}
 nextconfig['frames']['left']={'style':'handheld','color':'#ad7656'}
 nextconfig['frames']['right']={'style':'tv','color':'#596c7a'}
+nextconfig=normalize(nextconfig)
+nextconfig['cases']['left'].update(base_color='#e4a266',plate_color='#202735',match_frame=True)
+nextconfig['frames']['left'].update(color='#e4a266',accents={'detail':'#181c29','accent':'#abe8bc','secondary':'#9364c7'})
 margin=apply(doc,nextconfig);assert extract(doc)==nextconfig
 assert not doc.L_ActiveFrame.Visibility and doc.R_ActiveFrame.Visibility
 assert not doc.L_SteelTarget0.Visibility

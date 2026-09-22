@@ -88,3 +88,7 @@ Configurations are tagged revision I. Older revision H JSON is not silently conv
 ## Case geometry
 
 Choose **Base → Solid / Color rim / Terrace** in the explorer. Each half has its own `cases` entry, for example `"left": {"style": "rim", "cover": false}`. `cover: false` omits the printed display cover and its steel targets; it retains the display and supports. JSON import validates both halves before changing anything. Older configurations without `cases` use Solid with covers. [Geometry, files and printing](cases.md).
+
+## Coordinated themes and print kits
+
+See [Make it yours](themes-printing.md) for sixteen palettes, linked frame/rim colors, individual color regions, device saving and the selected-parts print kit.

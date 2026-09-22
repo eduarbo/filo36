@@ -23,16 +23,16 @@ groups = {
     'electronics-lid':('Electronics cover','lid','#304d4e',72),
     'pcb':('PCB · unrouted outline','pcb','#22664c',3),
     'battery':('Battery · two profiles','battery','#b8c1bf',20),
-    'mcu':('nice!nano · envelope','mcu','#1b433b',36),
-    'display':('nice!view · envelope','display','#172c2a',52),
+    'mcu':('nice!nano v2 · nominal model','mcu','#1b433b',36),
+    'display':('nice!view · nominal model','display','#172c2a',52),
     'cradle':('Insulating cradle','supports','#78908a',20),
     'battery-retainer':('PCB-captured cage','supports','#78908a',24),
     'mcu-riser':('Controller support','supports','#647d78',36),
     'display-sled':('Display support','supports','#526e67',52),
     'mcu-sockets':('Controller sockets','connectors','#273631',3),
     'jst':('Battery connector · envelope','connectors','#d9d3bc',3),
-    'reset':('Reset · envelope','connectors','#545e58',3),
-    'slider':('Power switch · envelope','connectors','#45514a',3),
+    'reset':('E-Switch TL3342','connectors','#545e58',3),
+    'slider':('C&K PCM12','connectors','#45514a',3),
 }
 
 
@@ -65,6 +65,18 @@ def mesh(path):
     return path
 
 
+def colored_mesh(parent,visuals):
+    positions=[];normals=[];indices=[];groups=[];colors=[];vertex=0;offset=0
+    for v in visuals:
+        source=scene['geometries'][mesh(v['path'])]
+        a=lambda key,dtype:np.frombuffer(base64.b64decode(source[key]),dtype=dtype)
+        p=a('positions','<f4');n=a('normals','<f4');i=a('indices','<u4')
+        positions.append(p);normals.append(n);indices.append(i+vertex)
+        groups.append({'start':offset,'count':len(i),'materialIndex':len(colors)});colors.append(v['color']);vertex+=len(p)//3;offset+=len(i)
+    ident=parent+'#materials';ps=np.concatenate(positions)
+    scene['geometries'][ident]={'positions':pack(ps,'<f4'),'normals':pack(np.concatenate(normals),'<f4'),'indices':pack(np.concatenate(indices),'<u4'),'triangles':offset//3,'groups':groups,'bounds_mm':[ps.reshape(-1,3).min(0).tolist(),ps.reshape(-1,3).max(0).tolist()]}
+    return ident,colors
+
 def add(name,side,group,color,position,explode,geometry=None,primitive=None,angle=0):
     part={'name':side+' · '+name,'side':side,'group':group,'color':color,
           'position':position,'explode_mm':explode,'angle_deg':angle}
@@ -73,10 +85,15 @@ def add(name,side,group,color,position,explode,geometry=None,primitive=None,angl
     scene['parts'].append(part)
 
 
+switches=json.loads((ROOT/'components/switches.json').read_text());switch_meshes={name:colored_mesh(name,entries) for name,entries in switches.items() if isinstance(entries,list)}
+
 for side,keys in layout['halves'].items():
     offset=0 if side=='left' else 161
     for name,(label,group,color,explode) in groups.items():
-        add(label,side,group,color,[offset,0,0],explode,mesh(f'mechanical/revI/{side}-{name}.stl'))
+        path=f'mechanical/revI/{side}-{name}.stl';visuals=model['parts'][side+'-'+name].get('visuals',[])
+        geometry,colors=colored_mesh(path,visuals) if visuals else (mesh(path),None)
+        add(label,side,group,color,[offset,0,0],explode,geometry)
+        if colors:scene['parts'][-1]['materials']=colors
     for i in range(1,4):
         add(f'Washer {i}',side,'fasteners','#89918a',[offset,0,0],9,mesh(f'mechanical/revI/{side}-washer-{i}.stl'))
     for style in catalog['case_styles']:
@@ -87,9 +104,10 @@ for side,keys in layout['halves'].items():
         add('KLP '+key['ref'],side,'keycaps','#45967b' if key['row']==3 else '#e9dfc6',
             [offset+key['x'],v['seating_z_mm'],key['y']],22,mesh(v['path']),angle=key['angle']+choice['rotation_deg'])
         scene['parts'][-1]['key_ref']=key['ref']
-        for label,at,size in [('Choc',9.15,[13.7,3.1,13.7]),('Stem',11.25,[9,1.3,5])]:
-            add(label+' '+key['ref'],side,'switches','#253731',[offset+key['x'],at,key['y']],14,
-                primitive={'kind':'box','size':size},angle=key['angle'])
+        for name,label in [('choc-body','Choc housing'),('choc-stem','Choc stem')]:
+            geometry,colors=switch_meshes[name]
+            add(label+' '+key['ref'],side,'switches',colors[0],[offset+key['x'],5.4,key['y']],14,geometry=geometry,angle=key['angle'])
+            scene['parts'][-1]['materials']=colors
     for i in range(1,6):add(f'Structural screw {i}',side,'fasteners','#56615b',[offset,0,0],9,mesh(f'mechanical/revI/{side}-screw-{i}.stl'))
     for i in range(3):
         add(f'Captive magnet {i+1}',side,'fasteners','#8c9597',[offset,0,0],0,mesh(f'mechanical/revI/{side}-magnet-{i}.stl'))
@@ -101,21 +119,35 @@ for side,keys in layout['halves'].items():
             primitive={'kind':'cylinder','radius':3,'height':1.2})
     cx=122.8 if side=='left' else 37.2
     add('LCD · illustrative content',side,'display','#c5d1ba',[offset+cx,16.12,33.8],52,
-        primitive={'kind':'screen','size':[11.3,.025,26],'text':'BASE / BLE / L' if side=='left' else 'LINK / BAT / R'})
+        primitive={'kind':'screen','size':[10.744,.025,25.28],'text':'BASE / BLE / L' if side=='left' else 'LINK / BAT / R'})
 
 for v in catalog['variants']:
     if v['qualified_reference_positions']:mesh(v['path'])
+# Exact native bytes; never derive printable parts from the presentation scene.
+printing={'assets':{},'supports':['cradle','battery-retainer','mcu-riser','display-sled','washer-1','washer-2','washer-3'],
+ 'joining':{'case':'3 M2x6 + 2 M2x4 per half; tap the 1.7 mm pilots to M2',
+ 'installed_frame':'3 captive diameter 2 x 3 mm magnets and 3 ferromagnetic diameter 2 x 4 mm pins per half',
+ 'clips':False,'acceptance':'Physical fit, thread strength, retention force and insertion process untested'}}
+for side in ['left','right']:
+    names=[f'{side}-case-{style}-{group}' for style in catalog['case_styles'] for group in ['base','plate']]
+    names += [f'{side}-frame-{style}' for style in catalog['frame_styles']]
+    names += [f'{side}-{name}' for name in printing['supports']]
+    for name in names:
+        path=f'mechanical/revI/{name}.stl'
+        if name.split(side+'-')[1] in printing['supports']:assert model['parts'][name]['prototype_part']
+        printing['assets'][name]={'id':name,'path':path,'sha256':digest(path),'stl':base64.b64encode((ROOT/path).read_bytes()).decode()}
+scene['printing']=printing
 top_key=min(k['y']-8.244852066 for k in layout['halves']['left'] if k['row']==0)
 adjacent=next(k for k in layout['halves']['left'] if k['ref']=='K05')['y']-8.244852066
 hood_min=min(p[1] for p in model['halves']['left']['electronics_cover'])
 scene['measurements']={'bay_width_mm':24,'plate_top_mm':7.6,'cover_top_mm':16.6,'themed_relief_top_mm':17.2,
                        'cover_ahead_of_top_cap_mm':round(max(0,top_key-hood_min),3),
                        'cover_ahead_of_adjacent_cap_mm':round(max(0,adjacent-hood_min),3)}
-for path in ['design/revI.json','design/layout.json','tools/build_viewer_revI.py','keycaps/catalog.json']:
+for path in ['design/revI.json','design/layout.json','tools/build_viewer_revI.py','components/switches.json','components/sources.json','keycaps/catalog.json']:
     scene['sources'].append({'path':path,'sha256':digest(path)})
-scene['limits']=['Nominal electronic envelopes; not manufacturer CAD', 'Unrouted PCB',
+scene['limits']=['Commercial representations combine documented nominal dimensions, licensed community CAD and inferred package detail; see components/README.md', 'Unrouted PCB',
                  'Nominal lead-storage paths; actual terminations, insulation and finished-pack tolerances unverified', 'PCB aperture 12.5 mm; both nominal cells fit. Magnetic force, print-in capture/temperature and physical fit need coupons',
-                 'Keycap seating, switches and feet are illustrative; screw envelopes are nominal, not thread-strength proof',
+                 'Generic Choc v1 source model; purchased switch fit, keycap seating and travel unmeasured. Hotswap socket placement remains unqualified. Feet illustrative; nominal screws do not prove thread strength',
                  'Exploded positions are a viewing aid, not a validated extraction path']
 (ROOT/'build').mkdir(exist_ok=True)
 (ROOT/'build/viewer-scene.json').write_text(json.dumps(scene,separators=(',',':'))+'\n')

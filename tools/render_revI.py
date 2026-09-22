@@ -11,6 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 layout=json.loads((ROOT/'design/layout.json').read_text())
 catalog=json.loads((ROOT/'keycaps/catalog.json').read_text());variants={v['id']:v for v in catalog['variants']};cfg=catalog['default_configuration']
 m=json.loads((ROOT/'design/revI.json').read_text())
+switches=json.loads((ROOT/'components/switches.json').read_text())
 used={};views={};IMAGE_DIR=ROOT/'docs/images';IMAGE_DIR.mkdir(exist_ok=True)
 
 
@@ -35,6 +36,8 @@ def render(kind):
         a=vtk.vtkActor();a.SetMapper(mp);a.RotateX(rx);a.RotateZ(rz);a.SetPosition(*xyz)
         p=a.GetProperty();p.SetColor(*color);p.SetAmbient(.20);p.SetDiffuse(.78);p.SetSpecular(.1);p.SetSpecularPower(32);p.SetInterpolationToPhong();p.SetOpacity(opacity);ren.AddActor(a);return a
     def part(side,name,color,dz=0,dx=0):
+        visuals=m['parts'].get(side+'-'+name,{}).get('visuals',[])
+        if visuals:return [actor(mesh(v['path']),(offset+dx,0,dz),tuple(int(v['color'][i:i+2],16)/255 for i in (1,3,5))) for v in visuals]
         return actor(mesh(f'mechanical/revI/{side}-{name}.stl'),(offset+dx,0,dz),color)
     def primitive(source,xyz,color,rz=0,rx=0):
         source.Update();mp=vtk.vtkPolyDataMapper();mp.SetInputConnection(source.GetOutputPort());return actor(mp,xyz,color,rz,rx)
@@ -69,17 +72,15 @@ def render(kind):
         for i in range(2):part(side,f'battery-lead-{i}',(.6,.15,.13) if i==0 else(.15,.17,.16))
         # Reflective screen artwork is illustrative, not a live hardware readback.
         cx=122.8 if side=='left' else 37.2;hy=m['halves'][side]['display_header']['y'];dz=45 if stack else 0
-        glass=vtk.vtkPlaneSource();glass.SetOrigin(offset+cx-5.65,hy-30,16.115+dz);glass.SetPoint1(offset+cx+5.65,hy-30,16.115+dz);glass.SetPoint2(offset+cx-5.65,hy-4,16.115+dz)
+        glass=vtk.vtkPlaneSource();glass.SetOrigin(offset+cx-5.372,hy-29.64,16.115+dz);glass.SetPoint1(offset+cx+5.372,hy-29.64,16.115+dz);glass.SetPoint2(offset+cx-5.372,hy-4.36,16.115+dz)
         primitive(glass,(0,0,0),(.73,.79,.725))
         entries=[('BASE',hy-26,1.36),('BLE',hy-18,1.55),('L',hy-8,2.15)] if side=='left' else [('LINK',hy-26,1.36),('BAT',hy-18,1.55),('R',hy-8,2.15)]
         for text,y,scale in entries:
             src=vtk.vtkVectorText();src.SetText(text);src.Update();mp=vtk.vtkPolyDataMapper();mp.SetInputConnection(src.GetOutputPort())
             a=actor(mp,(offset+cx-4.75,y,16.14+dz),(.08,.15,.12),rx=180);a.SetScale(scale,scale,scale)
         for key in layout['halves'][side]:
-            cube(offset+key['x'],key['y'],9.15,13.7,13.7,3.1,(.07,.095,.10),-key['angle'])
-            # Nominal moving stem joins the housing to the cap's two stems.
-            # This is an illustrative switch envelope, not a manufacturer CAD model.
-            cube(offset+key['x'],key['y'],11.25,9.0,5.0,1.3,(.075,.10,.105),-key['angle'])
+            for v in switches['choc-body']+switches['choc-stem']:
+                actor(mesh(v['path']),(offset+key['x'],key['y'],5.4),rgb(v['color']),rz=-key['angle'])
             choice=cfg['keycaps'][side][key['ref']];v=variants[choice['variant']]
             actor(mesh(v['path']),(offset+key['x'],key['y'],v['seating_z_mm']),(.25,.55,.45) if key['row']==3 else (.91,.878,.783),rz=-key['angle']-choice['rotation_deg'])
         for x,y in [(26,26),(57,15),(28,70),(125,83)]:
@@ -129,6 +130,6 @@ receipt={'revision':'I','model_sha256':hashlib.sha256((ROOT/'design/revI.json').
          'renderer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
          'meshes':[{'path':p,'sha256':h} for p,h in used.items()],
          'views':views,'geometry_source':'generated CAD, no image retouching',
-         'illustrative':['component envelopes','switch bodies','feet','screen artwork','unmeasured cap stem-tip datum Z=11.7'],
+         'illustrative':['component envelopes','feet','screen artwork','unmeasured cap stem-tip datum Z=11.7'],
          'unresolved':['battery cable routing','routed PCB','exact sockets and connectors','physical fit and tests']}
 (ROOT/'validation/revI-render.json').write_text(json.dumps(receipt,indent=2)+'\n')

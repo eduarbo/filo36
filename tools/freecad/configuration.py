@@ -11,8 +11,11 @@ sys.path.insert(0,str(ROOT/'tools'))
 from keycap_config import load,check,normalize
 from frame_finishes import role,palette,rgb
 
-def apply_finish(doc,cover,side,body):
-    colors=palette(cover.FrameStyle,body)
+def apply_finish(doc,cover,side,body,accents=None):
+    if accents is None:accents=json.loads(getattr(cover,'PaletteAccents','{}'))
+    colors=palette(cover.FrameStyle,body,accents)
+    if not hasattr(cover,'PaletteAccents'):cover.addProperty('App::PropertyString','PaletteAccents','Filo36')
+    cover.PaletteAccents=json.dumps({k:colors[k] for k in ['detail','accent','secondary']})
     roof=float(doc.Parameters.FrameTop)
     cover.ViewObject.ShapeColor=rgb(body)
     cover.ViewObject.DiffuseColor=[rgb(colors[role(cover.FrameStyle,side,f.CenterOfMass.x,-f.CenterOfMass.y,f.CenterOfMass.z,roof)]) for f in cover.Shape.Faces]
@@ -45,14 +48,17 @@ def apply(doc,config):
             doc.getObject(prefix+'ActiveBattery').Visibility=True
             case=config['cases'][side]
             for group,name in [('base','ActiveTray'),('plate','ActivePlate')]:
-                link=doc.getObject(prefix+name);link.setLink(doc.getObject(prefix+'Case_'+case['style']+'_'+group));link.ViewObject.OverrideMaterial=False
-            doc.getObject(prefix+'Half').DisplayCoverInstalled=case['cover']
+                link=doc.getObject(prefix+name);source=doc.getObject(prefix+'Case_'+case['style']+'_'+group);link.setLink(source);link.ViewObject.OverrideMaterial=False
+                source.ViewObject.ShapeColor=rgb(case[group+'_color']);source.ViewObject.DiffuseColor=[rgb(case[group+'_color'])]*len(source.Shape.Faces)
+            half=doc.getObject(prefix+'Half');half.DisplayCoverInstalled=case['cover']
+            if not hasattr(half,'MatchFrameColor'):half.addProperty('App::PropertyBool','MatchFrameColor','Filo36')
+            half.MatchFrameColor=case['match_frame']
             for o in doc.Objects:
                 if o.Name.startswith(prefix) and hasattr(o,'CaseStyle'):o.Visibility=False
             doc.getObject(prefix+'ActiveTray').Visibility=True;doc.getObject(prefix+'ActivePlate').Visibility=True
             f=config['frames'][side];cover=next(o for o in doc.Objects if o.Name.startswith(prefix) and hasattr(o,'FrameStyle') and o.FrameStyle==f['style'])
             doc.getObject(prefix+'ActiveFrame').setLink(cover)
-            apply_finish(doc,cover,side,f['color'])
+            apply_finish(doc,cover,side,f['color'],f['accents'])
             for o in doc.Objects:
                 if o.Name.startswith(prefix) and hasattr(o,'FrameStyle'):o.Visibility=False
             doc.getObject(prefix+'ActiveFrame').Visibility=case['cover']
@@ -65,12 +71,13 @@ def apply(doc,config):
 def extract(doc):
     result={'schema':'filo36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{},'cases':{}}
     for side,prefix in [('left','L_'),('right','R_')]:
-        result['cases'][side]={'style':doc.getObject(prefix+'ActiveTray').LinkedObject.CaseStyle,'cover':doc.getObject(prefix+'Half').DisplayCoverInstalled}
+        hexcolor=lambda o:'#'+''.join(f'{round(v*255):02x}' for v in o.ViewObject.ShapeColor[:3])
+        result['cases'][side]={'style':doc.getObject(prefix+'ActiveTray').LinkedObject.CaseStyle,'cover':doc.getObject(prefix+'Half').DisplayCoverInstalled,'base_color':hexcolor(doc.getObject(prefix+'ActiveTray').LinkedObject),'plate_color':hexcolor(doc.getObject(prefix+'ActivePlate').LinkedObject),'match_frame':getattr(doc.getObject(prefix+'Half'),'MatchFrameColor',False)}
         result['batteries'][side]=doc.getObject(prefix+'ActiveBattery').LinkedObject.BatteryStyle
         result['keycaps'][side]={o.KeyReference:{'variant':o.KeycapVariant,'rotation_deg':int(round(o.CapRotation.Value))%360} for o in doc.Objects if hasattr(o,'KeyReference') and o.Side==side}
         cover=doc.getObject(prefix+'ActiveFrame').LinkedObject
         color='#'+''.join(f'{round(v*255):02x}' for v in cover.ViewObject.ShapeColor[:3])
-        result['frames'][side]={'style':cover.FrameStyle,'color':color}
+        result['frames'][side]={'style':cover.FrameStyle,'color':color,'accents':{k:v for k,v in palette(cover.FrameStyle,color,json.loads(getattr(cover,'PaletteAccents','{}'))).items() if k!='body'}}
     errors,_=check(result)
     if errors:raise ValueError('\n'.join(errors))
     return result

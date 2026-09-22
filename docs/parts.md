@@ -112,7 +112,7 @@ These are nominal clearances, not maximum finished-pack tolerances. Confirm prot
 
 <a href="https://typeractive.xyz/products/reset-button"><img src="https://cdn.shopify.com/s/files/1/0618/5674/3655/products/reset-button-both.jpg?v=1670365788" width="210" alt="Reset Button — supplier product photo"></a>
 
-**2 × reset buttons.** Reference: **E-Switch TL3342F160QG**, [full product information](https://www.e-switch.com/product/tl3342-series-low-profile-smt-tactile-switch/) · [datasheet](https://www.e-switch.com/wp-content/uploads/2022/06/TL3342.pdf). Typeractive sells **Panasonic EVQPUC02K**, [product information](https://typeractive.xyz/products/reset-button) · [Panasonic datasheet](https://cdn.shopify.com/s/files/1/0618/5674/3655/files/PANASONIC-EVQPUC02K.pdf?v=1670451309). The photo is the **Panasonic alternative**. Footprint and actuation height must be reviewed before substitution.
+**2 × reset buttons.** Reference: **E-Switch TL3342F160QG**, [full product information](https://www.e-switch.com/product/tl3342-series-low-profile-smt-tactile-switch/) · [datasheet](https://configured-product-images.s3.amazonaws.com/2D/specs/TL3342F160QG.pdf). Typeractive sells **Panasonic EVQPUC02K**, [product information](https://typeractive.xyz/products/reset-button) · [Panasonic datasheet](https://cdn.shopify.com/s/files/1/0618/5674/3655/files/PANASONIC-EVQPUC02K.pdf?v=1670451309). The photo is the **Panasonic alternative**. Footprint and actuation height must be reviewed before substitution.
 
 ## Printed parts
 
@@ -144,3 +144,7 @@ These are nominal clearances, not maximum finished-pack tolerances. Confirm prot
 Original store links and pack quantities were checked on **2026-09-21**; battery specifications and magnetic hardware sources were revisited on **2026-09-22**. The current automated link check could not read the Arrow socket PDF (timeout) or the C&K PDF (403); those historical technical references remain listed, not freshly verified. Manufacturer/supplier documentation takes precedence over approximate CAD envelopes. Missing exact datasheets and unresolved substitutions are explicitly identified above.
 
 Product photos are embedded from Typeractive/Adafruit and linked to their original listings. They remain the property of their respective owners; they are not relicensed under this repository’s license. They need internet access and are not bundled in the offline 3D viewer. Filo36 renders have separate [attribution](../ATTRIBUTION.md).
+
+## What the component models represent
+
+The explorer now distinguishes commercial model sources from fit reserves. See [component fidelity and dimensions](../components/README.md) for the nice!nano v2 reconstruction, nice!view drawing, licensed library models and the remaining connector/measurement gaps.

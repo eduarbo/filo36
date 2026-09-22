@@ -1,0 +1,24 @@
+{
+  "content_kind": "Controller-written English summary, not a verbatim reviewer transcript. Originals preserved in the local objective archive.",
+  "original_report_sha256_canonical_json": "e5c1973a3fb533b8c1428fce384a61f2b3e1a1c7f1957210df69ae8b6bcad5ff",
+  "reviewed_baseline": "220fe5a241cbe3837869176c78a27af64eaff429",
+  "summary": "Recommend explicit per-half case, plate and frame colors, coordinated presets, persistence and an export of selected native printed parts. Source review only.",
+  "findings": [
+    "Case and accent colors were absent from the configuration. Add compatible resolved color values in JS and Python.",
+    "Reload discarded changes. Validate stored configuration, handle denied storage and retain portable JSON.",
+    "GLB contains commercial components and does not replace a print kit. Include actual supports and washers, millimetres and joining instructions.",
+    "Existing joints are tapped M2 pilots and captive magnetic frames. No clip design or physical acceptance is established.",
+    "Use 12\u201318 visual palettes without introducing new geometry. Verify touch, keyboard, reduced motion, FreeCAD and exports."
+  ],
+  "original_finding_codes": [
+    "CASE_COLORS_FIXED",
+    "COLOR_CONFIGURATION_CONTRACT",
+    "PERSISTENCE_NOT_DURABLE",
+    "PRINT_EXPORT_MISSING",
+    "JOINING_METHODS_EVIDENCED",
+    "THEME_SCOPE_AND_INTERACTION",
+    "ACCEPTANCE_BOUNDARY"
+  ],
+  "advisory_only": true,
+  "confidence": "High in evidence and bounded approach; medium in unverified implementation, interoperability and inferred dimensions. No physical acceptance."
+}

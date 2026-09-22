@@ -1,0 +1,305 @@
+{
+  "passed": true,
+  "kits": [
+    {
+      "file": "complete.zip",
+      "parts": [
+        {
+          "id": "left-case-rim-base",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 12668,
+          "colors": [
+            "#cc5533",
+            "#cc5533",
+            "#cc5533",
+            "#cc5533"
+          ]
+        },
+        {
+          "id": "left-case-rim-plate",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 3356,
+          "colors": [
+            "#272737",
+            "#272737",
+            "#272737",
+            "#272737"
+          ]
+        },
+        {
+          "id": "left-frame-tv",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 5028,
+          "colors": [
+            "#cc5533",
+            "#313131",
+            "#eeee88",
+            "#6688ee"
+          ]
+        },
+        {
+          "id": "left-cradle",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 84,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "left-battery-retainer",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 100,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "left-mcu-riser",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 3804,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "left-display-sled",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 2260,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "left-washer-1",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 840,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "left-washer-2",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 840,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "left-washer-3",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 840,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "right-case-rim-base",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 12666,
+          "colors": [
+            "#24444b",
+            "#24444b",
+            "#24444b",
+            "#24444b"
+          ]
+        },
+        {
+          "id": "right-case-rim-plate",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 3356,
+          "colors": [
+            "#19272f",
+            "#19272f",
+            "#19272f",
+            "#19272f"
+          ]
+        },
+        {
+          "id": "right-cradle",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 84,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "right-battery-retainer",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 100,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "right-mcu-riser",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 3804,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "right-display-sled",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 2260,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "right-washer-1",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 840,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "right-washer-2",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 840,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        },
+        {
+          "id": "right-washer-3",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 840,
+          "colors": [
+            "#78908a",
+            "#78908a",
+            "#78908a",
+            "#78908a"
+          ]
+        }
+      ],
+      "eye_solo_explosion_do_not_remove_printables": true
+    },
+    {
+      "file": "left-shells.zip",
+      "parts": [
+        {
+          "id": "left-case-rim-base",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 12668,
+          "colors": [
+            "#cc5533",
+            "#cc5533",
+            "#cc5533",
+            "#cc5533"
+          ]
+        },
+        {
+          "id": "left-case-rim-plate",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 3356,
+          "colors": [
+            "#272737",
+            "#272737",
+            "#272737",
+            "#272737"
+          ]
+        },
+        {
+          "id": "left-frame-tv",
+          "stl_bytes_identical": true,
+          "oriented_surface_preserved": true,
+          "closed": true,
+          "triangles": 5028,
+          "colors": [
+            "#cc5533",
+            "#313131",
+            "#eeee88",
+            "#6688ee"
+          ]
+        }
+      ],
+      "eye_solo_explosion_do_not_remove_printables": true
+    }
+  ],
+  "slicer_palette_automatic_import": "not accepted; explicit manual mapping required",
+  "no_manufacturing_acceptance": true
+}

@@ -71,6 +71,12 @@ fasteners=json.loads((ROOT/'validation/revI-fasteners.json').read_text())
 for p,h in fasteners['inputs'].items():assert sha(p)==h,p
 assert fasteners['checked_reference_choice_head_pairs']==2268 and fasteners['minimum_xy_clearance_mm']>0
 assert outline['mirror_max_error_mm']==0 and outline['regression_previous_outline_rejected']
+# Current customization and component additions carry their own acceptance evidence.
+components=json.loads((ROOT/'validation/revI-components.json').read_text());assert components['source_sha256']==sha('mechanical/revI/Filo36.FCStd') and components['model_identity_without_reflection'] and components['switch_instances']==36
+assert all(c['positive_board_support_area_mm2']>15 and c['solder_reserve_intersection_mm3']<1e-6 for c in components['checks'])
+themes=json.loads((ROOT/'validation/revI-theme-customization.json').read_text());assert themes['viewer_sha256']==sha('docs/index.html') and themes['custom_case_and_four_frame_colors_in_glb'] and not themes['runtime_errors']
+kit=json.loads((ROOT/'validation/revI-print-kit.json').read_text());assert kit['passed'] and kit['no_manufacturing_acceptance']
+for pack in kit['kits']:assert all(p['closed'] and p['stl_bytes_identical'] and p['oriented_surface_preserved'] for p in pack['parts'])
 assert sha('docs/parts.md')==json.loads((ROOT/'validation/revI-parts-links.json').read_text())['document_sha256']
 assert not subprocess.check_output(['git','diff','2ec6c4c','--name-only','--','hardware/revF','design/layout.json'],cwd=ROOT).strip(),'PCB/layout changed outside revision scope'
 print('PASS: current native source, 12 closed cover variants, 168 side-wall samples, renders, viewer, documentation paths, preserved historical PCB/layout.')

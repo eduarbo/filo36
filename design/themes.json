@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "description": "Color-only palettes: preserve all case/frame shapes, cover installation, keycaps and joining interfaces.",
+  "themes": [
+    {
+      "id": "piantor-red",
+      "name": "Piantor Red",
+      "base": "#d93957",
+      "plate": "#24292b",
+      "frame": {
+        "body": "#d93957",
+        "detail": "#161c25",
+        "accent": "#f3deab",
+        "secondary": "#82918c"
+      }
+    },
+    {
+      "id": "pocket",
+      "name": "Pocket Classic",
+      "base": "#d8d3bd",
+      "plate": "#33343e",
+      "frame": {
+        "body": "#d8d3bd",
+        "detail": "#33343e",
+        "accent": "#9b3056",
+        "secondary": "#777780"
+      }
+    },
+    {
+      "id": "matcha",
+      "name": "Matcha",
+      "base": "#9baa83",
+      "plate": "#344b40",
+      "frame": {
+        "body": "#9baa83",
+        "detail": "#365c44",
+        "accent": "#ead5a2",
+        "secondary": "#70876c"
+      }
+    },
+    {
+      "id": "sakura",
+      "name": "Sakura",
+      "base": "#dca4b4",
+      "plate": "#453c51",
+      "frame": {
+        "body": "#dca4b4",
+        "detail": "#74536d",
+        "accent": "#fff0d9",
+        "secondary": "#b87797"
+      }
+    },
+    {
+      "id": "arctic",
+      "name": "Arctic",
+      "base": "#d9e7e9",
+      "plate": "#325365",
+      "frame": {
+        "body": "#d9e7e9",
+        "detail": "#4a7d95",
+        "accent": "#f0c977",
+        "secondary": "#94b9c2"
+      }
+    },
+    {
+      "id": "papaya",
+      "name": "Papaya",
+      "base": "#ea9563",
+      "plate": "#423a3d",
+      "frame": {
+        "body": "#ea9563",
+        "detail": "#4b6553",
+        "accent": "#e8d9a8",
+        "secondary": "#b65445"
+      }
+    },
+    {
+      "id": "tidal",
+      "name": "Tidal",
+      "base": "#447e90",
+      "plate": "#172e3e",
+      "frame": {
+        "body": "#447e90",
+        "detail": "#b3d3cb",
+        "accent": "#e7b976",
+        "secondary": "#427c7a"
+      }
+    },
+    {
+      "id": "ink",
+      "name": "Ink",
+      "base": "#343946",
+      "plate": "#181d26",
+      "frame": {
+        "body": "#343946",
+        "detail": "#77818e",
+        "accent": "#bbc8c9",
+        "secondary": "#576778"
+      }
+    },
+    {
+      "id": "cyber-mint",
+      "name": "Cyber Mint",
+      "base": "#24444b",
+      "plate": "#19272f",
+      "frame": {
+        "body": "#24444b",
+        "detail": "#5e7d85",
+        "accent": "#42e3ba",
+        "secondary": "#e098bf"
+      }
+    },
+    {
+      "id": "neon-night",
+      "name": "Neon Night",
+      "base": "#514269",
+      "plate": "#252235",
+      "frame": {
+        "body": "#514269",
+        "detail": "#827d9e",
+        "accent": "#60d5d7",
+        "secondary": "#ee6aa4"
+      }
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut",
+      "base": "#976044",
+      "plate": "#2f3234",
+      "frame": {
+        "body": "#976044",
+        "detail": "#e2d5ae",
+        "accent": "#c69543",
+        "secondary": "#34373b"
+      }
+    },
+    {
+      "id": "cream-soda",
+      "name": "Cream Soda",
+      "base": "#e4d5b4",
+      "plate": "#76675b",
+      "frame": {
+        "body": "#e4d5b4",
+        "detail": "#8d9d7c",
+        "accent": "#d28d72",
+        "secondary": "#b9aa83"
+      }
+    },
+    {
+      "id": "desert",
+      "name": "Desert",
+      "base": "#c9ab86",
+      "plate": "#635649",
+      "frame": {
+        "body": "#c9ab86",
+        "detail": "#7a8873",
+        "accent": "#c37753",
+        "secondary": "#dbc998"
+      }
+    },
+    {
+      "id": "lilac",
+      "name": "Lilac",
+      "base": "#aaa0ce",
+      "plate": "#423e62",
+      "frame": {
+        "body": "#aaa0ce",
+        "detail": "#676093",
+        "accent": "#efbaad",
+        "secondary": "#d5cfeb"
+      }
+    },
+    {
+      "id": "mono",
+      "name": "Monochrome",
+      "base": "#e2e3da",
+      "plate": "#292d31",
+      "frame": {
+        "body": "#e2e3da",
+        "detail": "#454b50",
+        "accent": "#939e96",
+        "secondary": "#c4c5b9"
+      }
+    },
+    {
+      "id": "signal",
+      "name": "Signal",
+      "base": "#d3ae49",
+      "plate": "#30343b",
+      "frame": {
+        "body": "#d3ae49",
+        "detail": "#616e77",
+        "accent": "#e7d9b3",
+        "secondary": "#d25c58"
+      }
+    }
+  ]
+}

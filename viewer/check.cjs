@@ -22,7 +22,7 @@ async function checkDirectory(page){
     const at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
     return{id:e.id,visible:r.width>0&&r.height>0&&r.x>=0&&r.y>=0&&r.right<=innerWidth+1&&r.bottom<=innerHeight+1&&!!at&&(e===at||e.contains(at)),textFits:!text||text.width>0&&name.scrollWidth<=name.clientWidth+1};
   }));
-  assert.equal(entries.length,15);assert.ok(entries.every(e=>e.visible&&e.textFits),'All 12 components plus 3 section controls must be unclipped: '+JSON.stringify(entries.filter(e=>!e.visible||!e.textFits)));
+  assert.equal(entries.length,16);assert.ok(entries.every(e=>e.visible&&e.textFits),'All 12 components plus 3 section controls must be unclipped: '+JSON.stringify(entries.filter(e=>!e.visible||!e.textFits)));
   const controls=await page.locator('.view-controls button,.view-controls select,#explode').evaluateAll(nodes=>nodes.map(e=>{
     const r=e.getBoundingClientRect(),at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
     return {id:e.id,visible:r.width>0&&r.height>=25&&r.x>=0&&r.right<=innerWidth+1&&r.y>=0&&r.bottom<=innerHeight&&!!at&&(at===e||e.contains(at))};
@@ -82,7 +82,7 @@ async function checkLink(page,group){
   await page.click('#nav-files');
   let savedPromise=page.waitForEvent('download');await page.click('#save-config');let saved=await savedPromise;
   const casesPath=path.join(root,'build/case-variants/selected.json');await saved.saveAs(casesPath);
-  const caseConfig=JSON.parse(fs.readFileSync(casesPath));assert.deepEqual(caseConfig.cases,{left:{style:'rim',cover:false},right:{style:'terrace',cover:true}});
+  const caseConfig=JSON.parse(fs.readFileSync(casesPath));assert.deepEqual(Object.fromEntries(Object.entries(caseConfig.cases).map(([side,c])=>[side,{style:c.style,cover:c.cover}])),{left:{style:'rim',cover:false},right:{style:'terrace',cover:true}});
   const badCase=JSON.parse(JSON.stringify(caseConfig));badCase.cases.right.style='unknown';
   await page.locator('#load-config').setInputFiles({name:'bad-case.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(badCase))});
   await page.waitForFunction(()=>document.querySelector('#config-status').dataset.error==='true');
@@ -194,8 +194,9 @@ async function checkLink(page,group){
   assert.equal(await page.locator('#frame-current').textContent(),'Mixed styles');
   assert.equal(await page.locator('#color-current').textContent(),'Mixed colors');
   assert.equal(await page.locator('#frame-grid [aria-pressed=true]').count(),0);
-  // Keyboard activation applies a complete theme; later body overrides stay independent.
+  // Keyboard activation changes shape without erasing custom colors; restore explicitly selects its design palette.
   await page.locator('[data-style=tv]').focus();await page.keyboard.press('Enter');
+  assert.equal(await page.locator('#color-current').textContent(),'Mixed colors');await page.click('#theme-colors');
   assert.equal(await page.locator('#frame-color').inputValue(),'#976044');
   await page.click('#frame-target [data-side=left]');await page.click('[data-style=cyberpunk]');
   assert.equal(await page.locator('#frame-color').inputValue(),'#303440');
@@ -208,8 +209,10 @@ async function checkLink(page,group){
   const downloadedConfig=await configDownload;const configPath=path.join(root,'build/revI/viewer-config.json');await downloadedConfig.saveAs(configPath);
   const config=JSON.parse(fs.readFileSync(configPath));
   assert.equal(config.keycaps.left.K30.variant,'choc_stem_mx_size_normal_90deg');assert.equal(config.keycaps.left.K30.rotation_deg,90);
-  assert.deepEqual(config.frames.left,{style:'cyberpunk',color:'#ad7656'});
-  assert.deepEqual(config.frames.right,{style:'tv',color:'#ded8c6'});
+  assert.deepEqual({style:config.frames.left.style,color:config.frames.left.color},{style:'cyberpunk',color:'#ad7656'});
+  assert.equal(Object.keys(config.frames.left.accents).length,3);
+  assert.deepEqual({style:config.frames.right.style,color:config.frames.right.color},{style:'tv',color:'#ded8c6'});
+  assert.equal(Object.keys(config.frames.right.accents).length,3);
   assert.deepEqual(config.batteries,{left:'301230',right:'301230'});
   await page.click('#default-config');await page.locator('#load-config').setInputFiles(configPath);
   await page.waitForFunction(()=>document.querySelector('[data-style=cyberpunk]').getAttribute('aria-pressed')==='true');
@@ -357,7 +360,7 @@ async function checkLink(page,group){
   fs.mkdirSync(path.join(root,'build/viewer-multicolor'),{recursive:true});
   await page.click('#reset');await page.click('#part-lid');await page.click('#frame-target [data-side=both]');
   for(const style of ['handheld','tv','cyberpunk']){
-    await page.click(`[data-style=${style}]`);await page.mouse.move(10,100);
+    await page.click(`[data-style=${style}]`);await page.click('#theme-colors');await page.mouse.move(10,100);
     assert.equal(await page.locator('#frame-color').inputValue(),palettes.styles[style].colors.body);
     await page.screenshot({path:path.join(root,`build/viewer-multicolor/${style}.png`)});
   }

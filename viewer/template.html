@@ -34,7 +34,7 @@
   <nav class="directory" aria-label="Components and sections">
     <div class="directory-heading"><span class="eyebrow">EXPLORE</span><button id="collapse-detail" aria-expanded="true" aria-controls="inspector" title="Collapse or expand details">‹</button></div>
     <div id="layers" aria-label="Component directory"></div>
-    <div class="section-links" aria-label="Other sections"><button id="nav-files" aria-expanded="false" aria-controls="panel-files">Files</button><button id="nav-about" aria-expanded="false" aria-controls="panel-about">About</button></div>
+    <div class="section-links" aria-label="Other sections"><button id="nav-themes" aria-expanded="false" aria-controls="panel-themes">Themes</button><button id="nav-files" aria-expanded="false" aria-controls="panel-files">Files</button><button id="nav-about" aria-expanded="false" aria-controls="panel-about">About</button></div>
   </nav>
   <div id="inspector" class="inspector">
     <section id="selection" class="selection" role="region" aria-live="polite" aria-label="Selected component" hidden><button id="clear-selection" aria-label="Clear selected component">×</button><p id="selection-meta" class="eyebrow"></p><h2 id="selection-title"></h2><p id="selection-info"></p><p id="selection-visibility" class="micro"></p><div class="selection-actions"><button id="toggle-selection">Hide</button><button id="isolate-selection" title="Hide everything except this selection">Solo</button><button id="show-all" title="Restore every part and both halves">Show all</button></div><details id="individual-parts"><summary>Individual parts <span id="individual-count"></span></summary><div id="part-visibility-list"></div></details></section>
@@ -43,20 +43,22 @@
     <p class="hint">One contour. Three interchangeable designs.</p>
     <div id="case-target" class="segments" role="group" aria-label="Apply case changes to"><button data-side="both" aria-pressed="true">Both halves</button><button data-side="left" aria-pressed="false">Left</button><button data-side="right" aria-pressed="false">Right</button></div>
     <div id="case-grid" class="preview-grid case-grid" role="group" aria-label="Case styles"></div>
+    <div id="case-colors" class="color-fields"></div><label class="cover-option"><input type="checkbox" id="case-link-colors"> Match frame and rim</label>
     <label class="cover-option"><input type="checkbox" id="case-cover" checked> Printed display cover <small id="cover-state"></small></label>
     <p class="micro">Uncheck to expose the stack while keeping the display. This choice is saved in JSON and GLB. Eye controls only change the view.</p>
     <a class="case-guide" href="https://github.com/eduarbo/filo36/blob/main/docs/cases.md">Case files &amp; printing guide ↗</a>
   </section>
   <section id="panel-frames" aria-label="Frame options">
     <div class="panel-heading"><h2>Display frames</h2><span id="frame-current"></span></div>
-    <p class="hint">Pick a design and its colors in one click.</p>
+    <p class="hint">Pick a shape. Keep your colors, or restore its original palette.</p>
     <div id="frame-target" class="segments" role="group" aria-label="Apply frame changes to"><button data-side="both" aria-pressed="true">Both halves</button><button data-side="left" aria-pressed="false">Left</button><button data-side="right" aria-pressed="false">Right</button></div>
     <div id="frame-grid" class="preview-grid" role="group" aria-label="Frame styles"></div>
     <div class="finish-row"><span>Body <small id="color-current"></small></span><div id="swatches" role="group" aria-label="Frame body colors"></div><label class="custom-color" title="Custom frame color"><input type="color" id="frame-color" value="#304d4e" aria-label="Custom frame color"></label></div>
-    <div id="theme-palette" aria-label="Theme accent colors"></div>
+    <div id="theme-palette" class="color-fields" aria-label="Frame accent colors"></div><label class="cover-option"><input type="checkbox" id="frame-link-colors"> Match frame and rim</label>
     <button id="theme-colors" class="palette-reset">Restore design colors</button>
-    <p class="micro">Previews show each design’s original palette. Color the raised details in your slicer or paint after printing.</p>
+    <p class="micro">Previews show original palettes. Custom colors are saved with your parts. Simple frames have no raised accent regions.</p>
   </section>
+  <section id="panel-themes" aria-label="Color themes" hidden><div class="panel-heading"><h2>Themes</h2><span id="theme-current"></span></div><p class="hint">Sixteen starting palettes. A continuous frame and rim.</p><div id="theme-target" class="segments" aria-label="Apply theme to"><button data-side="both" aria-pressed="true">Both halves</button><button data-side="left" aria-pressed="false">Left</button><button data-side="right" aria-pressed="false">Right</button></div><div id="themes-grid" class="preview-grid" aria-label="Color themes"></div><p id="theme-preview-note" class="micro"></p></section>
   <section id="panel-keycaps" aria-label="Keycap options" hidden>
     <div class="panel-heading"><h2>KLP Lamé</h2><span>Choc stems</span></div>
     <p class="hint">Start with a set, then tune individual keys.</p>
@@ -73,9 +75,10 @@
     <div class="config-actions"><button id="save-config">Save configuration</button><button id="load-trigger">Load JSON</button><input id="load-config" type="file" accept=".json,application/json" hidden><button id="default-config">Restore default parts</button></div>
     <p class="micro">Transfer JSON selections to FreeCAD. Reset view keeps your choices.</p>
 
+    <h3>Print your parts</h3><label>Halves<select id="print-half"><option value="both">Both</option><option value="left">Left</option><option value="right">Right</option></select></label><label>Parts<select id="print-scope"><option value="shells">Case, plate &amp; installed frame</option><option value="complete">Complete printed set, with supports &amp; washers</option></select></label><button id="print-kit" class="primary">Download print kit</button><p id="print-status" class="micro">ZIP with STL, generic color 3MF, configuration and part list. Bambu palette setup is manual. Screwed case; captive magnetic frame. No clips modeled.</p>
     <div class="downloads"><button id="glb">Download assembled GLB</button><a href="./index.html" download="Filo36-revI.html">Download offline HTML</a><a href="https://github.com/eduarbo/filo36/blob/main/docs/freecad.md">Edit in FreeCAD + KiCad ↗</a></div>
   </details>
-  </section><section id="panel-about" aria-label="Prototype information" hidden><details open><summary>About this prototype</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame roof:</b> 16.6 mm · <b>Themed relief:</b> 17.2 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>36 Piantor positions. Original KLP Lamé meshes. Units: mm. The directory includes all 12 component groups. A fine line connects the active visible part to its entry.</p><p>Nominal CAD study. Zero geometric DRC violations; 104 unconnected items per PCB. Both battery profiles fit the modeled aperture. Magnetic frames, printed threads, actual cables/contacts and hardware operation require physical tests. Commercial components use approximate envelopes.</p></div><button id="credits">Credits and licenses</button></details>
+  </section><section id="panel-about" aria-label="Prototype information" hidden><details open><summary>About this prototype</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame roof:</b> 16.6 mm · <b>Themed relief:</b> 17.2 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>36 Piantor positions. Original KLP Lamé meshes. Units: mm. The directory includes all 12 component groups. A fine line connects the active visible part to its entry.</p><p>Nominal CAD study. Zero geometric DRC violations; 104 unconnected items per PCB. Both battery profiles fit the modeled aperture. Magnetic frames, printed threads, actual cables/contacts and hardware operation require physical tests. Commercial models mix documented dimensions, licensed library CAD and reconstructed details. See the component guide for remaining fit reserves.</p></div><a href="https://github.com/eduarbo/filo36/blob/main/components/README.md">Component models &amp; dimensions ↗</a><button id="credits">Credits and licenses</button></details>
 </section></div>
 </aside>
 <svg id="leader-lines" aria-hidden="true"><path id="part-link" hidden></path><circle id="part-link-dot" r="2.5" hidden></circle></svg>

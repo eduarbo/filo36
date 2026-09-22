@@ -1,11 +1,11 @@
 {
-  "viewer_sha256": "366ffe8cce5a6bf371252c07078a757e13af1fb7992cc22202e816830513f9be",
-  "checker_sha256": "765cacbb60e9dfc29eb1b7d36d6cb4c92f17cc140bbac06ee53b6f4b8f94b32d",
+  "viewer_sha256": "0333e19a9160eef44539b040aa28d108077fb6f4b369fbc9ef0ecdcd207d2976",
+  "checker_sha256": "73204b0e6b354da48d3f72d3707f73a6b1cde69e0f2a763cba3c20d58da0a5be",
   "images": {
-    "solid": "af4e6dd6c5d20a3265860c743181d4a0fdb8b2d801199fac56614e21055504bf",
-    "rim": "2dca91632dbf03a857619738462d0b277fa80b3ba05c0ea207c40f7d7ad21c41",
-    "terrace": "59e3a77f50e5e819b947373394a3ce2e4420dac1a3d2e2f47515ae37476b0d2c",
-    "rim-open": "69a2156a5df3b5a296d62ab35dc9ac1494d30f53307a0f2e22f2ddc0e2b50f1d"
+    "solid": "0b0db63abb4b94e799d0c0205053dc1563edfffaa26928e1f973d27bec183128",
+    "rim": "15b19df6557dbac84c4511e1862c526d1b95b0cb5c4acafb6bd333262fd4f976",
+    "terrace": "283ec64cd3e9970b93a11465f8796f1baf4569d05f41494e55055d7a753c5566",
+    "rim-open": "cddd81297dc32cf3c90492da55b0fc40d6ca8212e483a6e7a1a57a527c2a429c"
   },
   "source": "Unretouched screenshots of the actual selected native STL meshes in the viewer"
 }

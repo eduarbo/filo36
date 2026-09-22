@@ -4,6 +4,8 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 
 import {copy,check,normalize} from './config.js';
+import {printKit} from './printing.js';
+import {createAppearance,setColor,savedKey} from './appearance.js';
 import {createExplorer,partInfo} from './explorer.js';
 import {createPreviewRenderer} from './previews.js';
 import {createFrameFinishes,framePalette,finishes} from './finishes.js';
@@ -12,7 +14,8 @@ async function start(){
 const $=id=>document.getElementById(id);
 const compressed=Uint8Array.from(atob($('scene-data').textContent),c=>c.charCodeAt(0));
 const data=JSON.parse(await new Response(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
-const catalog=data.catalog;let configuration=copy(catalog.default_configuration);
+const catalog=data.catalog;let configuration=normalize(catalog.default_configuration,catalog);
+let restored=false,storageMessage='';try{const raw=localStorage.getItem(savedKey);if(raw){if(raw.length>100000)throw Error();const saved=JSON.parse(raw);if(check(saved,catalog).errors.length)throw Error();configuration=normalize(saved,catalog);restored=true;}}catch(e){storageMessage='Saved settings could not be loaded. Defaults are available; use JSON to restore.';}
 const variants=new Map(catalog.variants.map(v=>[v.id,v]));
 const labels={base:'Bases',plate:'Plates',lid:'Frames / covers',keycaps:'Keycaps',switches:'Switches',pcb:'PCB',battery:'Batteries',mcu:'Controllers',display:'Displays',connectors:'Connectors',supports:'Supports',fasteners:'Fasteners / feet'};
 const state={half:'both',layers:Object.fromEntries(Object.keys(labels).map(k=>[k,true])),explode:0,view:'iso'};
@@ -44,6 +47,7 @@ function geometryFor(id){
   geometry.setAttribute('position',new THREE.BufferAttribute(decode(g.positions,Float32Array),3));
   geometry.setAttribute('normal',new THREE.BufferAttribute(decode(g.normals,Float32Array),3));
   geometry.setIndex(new THREE.BufferAttribute(decode(g.indices,Uint32Array),1));
+  if(g.groups)for(const group of g.groups)geometry.addGroup(group.start,group.count,group.materialIndex);
   geometry.computeBoundingBox();geometries.set(id,geometry);return geometry;
 }
 const materials=new Map();
@@ -55,7 +59,7 @@ const frameFinish=createFrameFinishes(geometryFor,material);
 const objects=[];const hiddenObjects=new Set();
 const matchesPart=(o,ref)=>ref&&o.userData.group===ref.group&&(!ref.side||o.userData.side===ref.side)&&(!ref.key||o.userData.key===ref.key)&&(ref.objectIndex===undefined||o.userData.objectIndex===ref.objectIndex);
 for(const part of data.parts){
-  let geometry=geometryFor(part.geometry),mat=material(part.color);
+  let geometry=geometryFor(part.geometry),mat=part.materials?part.materials.map(material):material(part.color);
   if(part.primitive){
     const p=part.primitive;
     if(p.kind==='cylinder')geometry=new THREE.CylinderGeometry(p.radius,p.radius,p.height,32);
@@ -77,7 +81,7 @@ for(const part of data.parts){
   objects.push(mesh);scene.add(mesh);
 }
 // Runtime scene uses x=CAD x, y=CAD z, z=CAD y; right-hand meshes are not mirrored again.
-let explorer,renderFrame=0;
+let explorer,appearance,renderFrame=0;
 function render(){if(renderFrame)return;renderFrame=requestAnimationFrame(()=>{renderFrame=0;explorer?.update();renderer.render(scene,camera);});}
 let orbiting=false;
 controls.addEventListener('start',()=>{orbiting=true;explorer?.motion(true);});controls.addEventListener('end',()=>{orbiting=false;explorer?.motion(false);});
@@ -146,18 +150,18 @@ function setCollapsed(value){
 }
 function openPanel(id,section=id){
   setCollapsed(false);
-  for(const name of ['cases','frames','keycaps','battery','files','about'])$('panel-'+name).hidden=id!==name;
+  for(const name of ['cases','frames','themes','keycaps','battery','files','about'])$('panel-'+name).hidden=id!==name;
   for(const button of document.querySelectorAll('.part-item'))button.setAttribute('aria-expanded',String(button.dataset.group===section));
-  for(const name of ['files','about'])$('nav-'+name).setAttribute('aria-expanded',String(name===section));
-  $('inspector').scrollTop=0;
+  for(const name of ['themes','files','about'])$('nav-'+name).setAttribute('aria-expanded',String(name===section));
+  $('inspector').scrollTop=0;appearance?.sync();
 }
 $('collapse-detail').onclick=()=>setCollapsed($('collapse-detail').getAttribute('aria-expanded')==='true');
-for(const name of ['files','about'])$('nav-'+name).onclick=()=>{if(name!=='files')explorer?.clear();openPanel(name);};
+for(const name of ['themes','files','about'])$('nav-'+name).onclick=()=>{if(name!=='files')explorer?.clear();openPanel(name);};
 $('layers').replaceChildren();
 for(const [id,label] of Object.entries(labels)){
   const row=document.createElement('div');row.className='part-row';row.dataset.group=id;
   const button=document.createElement('button');button.type='button';button.className='part-item';button.dataset.group=id;button.id='part-'+id;button.setAttribute('aria-expanded',String(id==='lid'));button.setAttribute('aria-controls','inspector');button.title=partInfo[id].name;button.setAttribute('aria-label',partInfo[id].name);
-  const item=objects.find(o=>o.userData.group===id),color='#'+item.material.color.getHexString();
+  const item=objects.find(o=>o.userData.group===id),color='#'+(Array.isArray(item.material)?item.material[0]:item.material).color.getHexString();
   const dot=document.createElement('span');dot.className='part-anchor';dot.dataset.group=id;dot.style.setProperty('--part-color',color);
   const name=document.createElement('span');name.className='part-name';name.textContent=partInfo[id].short;button.append(dot,name);
   const ref=()=>({group:id,side:state.half==='both'?null:state.half});
@@ -180,14 +184,17 @@ $('inside').onclick=()=>{reset();for(const k of ['base','plate','lid','keycaps',
 $('stack').onclick=()=>{reset();state.half='left';state.explode=.55;for(const k of Object.keys(labels))state.layers[k]=['battery','mcu','display','supports','connectors'].includes(k);sync();fit();};
 $('credits').onclick=()=>$('licenses').showModal();$('close-credits').onclick=()=>$('licenses').close();
 canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();$('error').hidden=false;$('error').textContent='Graphics context lost. Reload the page to restore the viewer.';});
+$('print-kit').onclick=async()=>{const b=$('print-kit');b.disabled=true;try{const {bytes,manifest}=await printKit(configuration,data.printing,{half:$('print-half').value,scope:$('print-scope').value,progress:(i,n)=>b.textContent=`Preparing ${i} / ${n}…`});const url=URL.createObjectURL(new Blob([bytes],{type:'application/zip'})),a=document.createElement('a');a.href=url;a.download=`Filo36-${manifest.half}-${manifest.scope}.zip`;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);$('print-status').textContent=`${manifest.parts.length} printed parts exported. See the included joining instructions.`;}catch(e){$('print-status').textContent='Export failed: '+e.message;}finally{b.disabled=false;b.textContent='Download print kit';}};
 $('glb').onclick=async()=>{
   const button=$('glb');button.disabled=true;button.textContent='Preparing GLB…';
   try{
     const assembly=new THREE.Group();assembly.name=`Filo36 rev${data.revision} · nominal`;assembly.scale.setScalar(.001);
     for(const object of objects){if(object.userData.installed===false)continue;const clone=object.clone();clone.visible=true;clone.position.fromArray(object.userData.base);assembly.add(clone);}
     assembly.userData={configuration:copy(configuration),units:'metres',source:'https://github.com/eduarbo/filo36',limitations:data.limits,
-      attribution:'Filo36 / Eduardo Ruiz, derived from Piantor by beekeeb (GPL-3.0); KLP Lame keycaps by braindefender (CC-BY-SA-4.0), unchanged meshes, placed and coloured.',
+      attribution:'Filo36 / Eduardo Ruiz, derived from Piantor by beekeeb (GPL-3.0); KLP Lame keycaps by braindefender (CC-BY-SA-4.0), unchanged meshes, placed and coloured. Choc models by keyswitch-kicad-library contributors (MIT); reset and power switch geometry by KiCad (CC-BY-SA-4.0 with library exception).',
       licenses:['https://www.gnu.org/licenses/gpl-3.0.html','https://creativecommons.org/licenses/by-sa/4.0/'],
+      component_sources:'https://github.com/eduarbo/filo36/blob/main/components/sources.json',
+      component_licenses:'https://github.com/eduarbo/filo36/blob/main/components/README.md',
       keycap_source:'https://github.com/braindefender/KLP-Lame-Keycaps/tree/4a67a824232d3054c61599ea047c56a340faaba2'};
     const buffer=await new GLTFExporter().parseAsync(assembly,{binary:true,onlyVisible:true});
     const url=URL.createObjectURL(new Blob([buffer],{type:'model/gltf-binary'}));const link=document.createElement('a');
@@ -224,7 +231,7 @@ function applyConfiguration(next){
   next=normalize(next,catalog);
   for(const o of objects){
     const {side,key,group}=o.userData;
-    if(group==='base'||group==='plate'){const style=next.cases[side].style;o.geometry=geometryFor(`mechanical/revI/${side}-case-${style}-${group}.stl`);o.material=material(catalog.case_styles[style][group+'_color']);o.userData.case_style=style;}
+    if(group==='base'||group==='plate'){const style=next.cases[side].style;o.geometry=geometryFor(`mechanical/revI/${side}-case-${style}-${group}.stl`);o.material=material(next.cases[side][group+'_color']);o.userData.case_style=style;}
     if(group==='lid')o.userData.installed=next.cases[side].cover;
     if(group==='keycaps'){
       const choice=next.keycaps[side][key],v=variants.get(choice.variant),k=catalog.layout[side].find(k=>k.ref===key);
@@ -232,11 +239,11 @@ function applyConfiguration(next){
       o.userData.variant=v.id;o.userData.cap_rotation_deg=choice.rotation_deg;
     }
     if(group==='lid'&&o.userData.frame_style!==undefined){
-      const f=next.frames[side],finish=frameFinish(f.style,side,f.color);o.geometry=finish.geometry;o.material=finish.material;o.userData.frame_style=f.style;o.userData.frame_palette=finish.palette;
+      const f=next.frames[side],finish=frameFinish(f.style,side,f.color,f.accents);o.geometry=finish.geometry;o.material=finish.material;o.userData.frame_style=f.style;o.userData.frame_palette=finish.palette;
     }
   }
   for(const o of objects)if(o.userData.group==='battery'){const id=next.batteries[o.userData.side];o.geometry=geometryFor(`mechanical/revI/${o.userData.side}-battery-${id}.stl`);o.userData.battery_profile=id;}
-  configuration=copy(next);sync();updateChoices();syncConfigurationUI();message('Configuration applied.');
+  configuration=copy(next);sync();updateChoices();syncConfigurationUI();try{localStorage.setItem(savedKey,JSON.stringify(configuration));message('Saved on this device.');}catch(e){message('Configuration applied. Device storage unavailable; save JSON to keep it.');}
 }
 function chooseKeyTarget(){
   const target=targetKeys();if(target.length===1){const [side,k]=target[0],choice=configuration.keycaps[side][k.ref];$('key-variant').value=choice.variant;updateChoices();$('key-rotation').value=String(choice.rotation_deg);}
@@ -253,7 +260,7 @@ function card(id,label,src){
 function frameTargets(){return frameSide==='both'?['left','right']:[frameSide];}
 function setFrameSide(side){frameSide=side;syncConfigurationUI();}
 function applyFrame(change){
-  const cfg=copy(configuration);for(const side of frameTargets()){Object.assign(cfg.frames[side],change);if(change.style)cfg.cases[side].cover=true;}
+  const cfg=copy(configuration);for(const side of frameTargets()){if(change.style&&!cfg.cases[side].match_frame){const f=cfg.frames[side],p=framePalette(f.style);if(f.color===p.body&&Object.entries(f.accents).every(([k,v])=>v===p[k])){const np=framePalette(change.style);f.color=np.body;f.accents=Object.fromEntries(['detail','accent','secondary'].map(k=>[k,np[k]]));}}Object.assign(cfg.frames[side],change);if(cfg.cases[side].match_frame)cfg.cases[side].base_color=cfg.frames[side].color;if(change.style)cfg.cases[side].cover=true;}
   try{
     applyConfiguration(cfg);
     // A new style must be visible even when coming from the internal stack study.
@@ -267,7 +274,7 @@ for(const [id,spec] of Object.entries(catalog.case_styles)){
   // Every thumbnail uses that style's exported parts, with the same camera.
   const button=card(id,spec.label,preview.image(entries,[.15,.8,1],{width:360,height:250}));button.dataset.case=id;button.title=spec.description;
   const img=button.querySelector('img');img.width=360;img.height=250;img.alt=spec.description;
-  button.onclick=()=>{const cfg=copy(configuration);for(const side of caseTargets())cfg.cases[side].style=id;applyConfiguration(cfg);for(const o of objects)if(['base','plate'].includes(o.userData.group)&&caseTargets().includes(o.userData.side))hiddenObjects.delete(o.userData.objectIndex);state.layers.base=state.layers.plate=true;state.half=caseSide;sync();fit();};
+  button.onclick=()=>{const cfg=copy(configuration);for(const side of caseTargets()){const cs=cfg.cases[side],old=catalog.case_styles[cs.style];if(!cs.match_frame&&cs.base_color===old.base_color&&cs.plate_color===old.plate_color){cs.base_color=spec.base_color;cs.plate_color=spec.plate_color;}cs.style=id;}applyConfiguration(cfg);for(const o of objects)if(['base','plate'].includes(o.userData.group)&&caseTargets().includes(o.userData.side))hiddenObjects.delete(o.userData.objectIndex);state.layers.base=state.layers.plate=true;state.half=caseSide;sync();fit();};
   $('case-grid').append(button);
 }
 for(const button of $('case-target').children)button.onclick=()=>{caseSide=button.dataset.side;syncConfigurationUI();};
@@ -275,14 +282,14 @@ $('case-cover').onchange=e=>{const cfg=copy(configuration);for(const side of cas
 for(const id of ['handheld','tv','cyberpunk','smooth','bevel','facet']){
   const finish=frameFinish(id,'left'),button=card(id,catalog.frame_styles[id],preview.image([finish],[0,1,.16],{width:220,height:360,up:[0,0,-1]}));button.dataset.style=id;
   const img=button.querySelector('img');img.width=220;img.height=360;img.alt=catalog.frame_styles[id]+' frame in its original palette';
-  button.onclick=()=>applyFrame({style:id,color:finish.palette.body});$('frame-grid').append(button);
+  button.onclick=()=>applyFrame({style:id});$('frame-grid').append(button);
 }
 for(const button of $('frame-target').children)button.onclick=()=>setFrameSide(button.dataset.side);
 for(const [color,label] of [['#304d4e','Deep teal'],['#ded8c6','Linen'],['#ad7656','Clay'],['#363b3b','Graphite']]){
   const button=document.createElement('button');button.type='button';button.dataset.color=color;button.title=label;button.setAttribute('aria-label',label);button.setAttribute('aria-pressed','false');button.style.setProperty('--swatch',color);button.onclick=()=>applyFrame({color});$('swatches').append(button);
 }
-$('frame-color').oninput=e=>applyFrame({color:e.target.value});
-$('theme-colors').onclick=()=>{const cfg=copy(configuration);for(const side of frameTargets())cfg.frames[side].color=framePalette(cfg.frames[side].style).body;applyConfiguration(cfg);};
+$('frame-color').oninput=e=>applyConfiguration(setColor(configuration,frameTargets(),'frame','body',e.target.value));
+$('theme-colors').onclick=()=>{const cfg=copy(configuration);for(const side of frameTargets()){const p=framePalette(cfg.frames[side].style);cfg.frames[side].color=p.body;cfg.frames[side].accents=Object.fromEntries(['detail','accent','secondary'].map(k=>[k,p[k]]));if(cfg.cases[side].match_frame)cfg.cases[side].base_color=p.body;}applyConfiguration(cfg);};
 for(const [id,label] of [['default','Original'],['normal-sculpted','Sculpted Normal'],['saddle-sculpted','Sculpted Saddle']]){
   const entries=['K01','K11','K21'].map((key,i)=>({path:variants.get(data.presets[id].keycaps.left[key].variant).path,rotation:data.presets[id].keycaps.left[key].rotation_deg,center:[(i-1)*20,0,0]}));
   const button=card(id,label,preview.image(entries,[.5,1,2]));button.dataset.preset=id;
@@ -306,9 +313,7 @@ function syncConfigurationUI(){
   for(const button of $('swatches').children)button.setAttribute('aria-pressed',String(colors.size===1&&colors.has(button.dataset.color)));
   // The color input has no mixed state: its visible companion explicitly names it.
   $('frame-color').value=frames[0].color;$('frame-color').setAttribute('aria-label',colors.size===1?'Custom frame color':'Custom frame color; mixed colors, changing this applies to both halves');
-  $('theme-palette').replaceChildren();
-  if(styles.size===1){const style=frames[0].style,palette=framePalette(style,frames[0].color);for(const [role,color] of Object.entries(palette)){if(role==='body')continue;const chip=document.createElement('span');chip.style.setProperty('--swatch',color);chip.textContent=finishes.styles[style].labels[role];$('theme-palette').append(chip);}}
-  else $('theme-palette').textContent='Each design keeps its own accent colors.';
+  appearance?.sync();
   for(const button of $('key-presets').children){const preset=data.presets[button.dataset.preset];const same=Object.entries(configuration.keycaps).every(([side,keys])=>Object.entries(keys).every(([ref,c])=>c.variant===preset.keycaps[side][ref].variant&&c.rotation_deg===preset.keycaps[side][ref].rotation_deg));button.setAttribute('aria-pressed',String(same));}
 }
 function refreshPartVisibility(){
@@ -365,7 +370,9 @@ function downloadJSON(){const url=URL.createObjectURL(new Blob([JSON.stringify(c
 $('save-config').onclick=downloadJSON;
 $('load-config').onchange=async e=>{try{const f=e.target.files[0];if(f){if(f.size>100000)throw Error('File too large. Choose a configuration JSON.');applyConfiguration(JSON.parse(await f.text()));}}catch(error){message(error.message,true);}finally{e.target.value='';}};
 $('default-config').onclick=()=>applyConfiguration(catalog.default_configuration);
+appearance=createAppearance({$,get:()=>configuration,apply:applyConfiguration,targets:kind=>kind==='case'?caseTargets():frameTargets(),preview,frameFinish,material,resize});
 applyConfiguration(configuration);
+if(storageMessage)message(storageMessage,true);else if(restored)message('Restored your saved configuration.');
 
 
 resize();reset();openPanel('cases','base');

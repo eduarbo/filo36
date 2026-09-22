@@ -56,6 +56,7 @@ doc.recompute()
 print('Parameters ready',flush=True)
 frame_profiles=json.loads((ROOT/'design/revI-frame-profiles.json').read_text())
 sys.path.insert(0,str(ROOT/'tools'));from keycap_config import load,default_config,check
+sys.path.insert(0,str(ROOT/'tools/freecad'));import components
 catalog=load();configuration=default_config(catalog);assert not check(configuration,catalog)[0]
 variants={v['id']:v for v in catalog['variants']}
 finals = {}
@@ -151,6 +152,7 @@ for side in ('left', 'right'):
         obj.addProperty('App::PropertyString', 'ModelStatus', 'Filo36'); obj.ModelStatus = 'Nominal study; physical fit untested'
         view=obj.LinkedObject.ViewObject if obj.TypeId=='App::Link' else obj.ViewObject
         view.ShapeColor = color; view.LineColor = (.13,.18,.17)
+        if hasattr(obj,'VisualFaceColors'):view.DiffuseColor=json.loads(obj.VisualFaceColors)
         finals[side + '-' + name] = obj
         return obj
 
@@ -302,12 +304,19 @@ for side in ('left', 'right'):
     for i,(a,b) in enumerate([(112.9,114),(131.6,132.7)]):
         bar=box('Riser'+str(i),a,8,b,41,5.4,3.4,'MCUShiftY');expr(bar,'Height','Parameters.MCUBottom - Parameters.PCBTop');bars.append(bar)
     bars.append(box('RiserBridge',112.9,40,132.7,41,5.4,.8,'MCUShiftY'))
-    done('mcu-riser',fuse('Riser',bars),'Independent controller support','supports',(.31,.43,.39),True)
-    board=box('MCUBoard',113.3,4.3,132.3,40.3,8.8,1,'MCUShiftY')
-    expr(board,'Placement.Base.z','Parameters.MCUBottom')
-    chips=box('MCUChips',115.3,11,130.3,34,9.8,2.6,'MCUShiftY');expr(chips,'Placement.Base.z','Parameters.MCUBottom + 1 mm')
-    usb=box('USB',117.8,3.3,127.8,12,7.2,3.2,'MCUShiftY');expr(usb,'Placement.Base.z','Parameters.MCUBottom - 1.6 mm')
-    done('mcu',fuse('MCUModule',[board,chips,usb]),'nice!nano + USB · reference','mcu',(.075,.23,.18))
+    # Raised scalloped shelves support the narrower nominal v2 PCB without
+    # crossing the socket bodies or the 1.05 mm underside solder-pad reserve.
+    for i,(a,b) in enumerate([(112.9,114.7),(130.9,132.7)]):
+        ledge=box('RiserLedge'+str(i),a,8,b,40,8.1,.7,'MCUShiftY')
+        expr(ledge,'Placement.Base.z','Parameters.MCUBottom - .7 mm')
+        for j in range(-1,12):
+            hole=cyl('RiserPadReserve'+str(i)+'_'+str(j),115.18 if i==0 else 130.42,9.8+j*2.54,8.0,1.05,1)
+            expr(hole,'Placement.Base.y',f'-{9.8+j*2.54} mm - Parameters.MCUShiftY')
+            expr(hole,'Placement.Base.z','Parameters.MCUBottom - .8 mm');ledge=cut('RiserScallop'+str(i)+'_'+str(j),ledge,hole)
+        bars.append(ledge)
+    done('mcu-riser',fuse('Riser',bars),'Controller support · scalloped PCB ledges','supports',(.31,.43,.39),True)
+    module=components.install(doc,history,prefix+'NanoV2','nice!nano v2 · nominal reconstruction',components.nano(),(mx(122.8),-6.1,8.8),'MCUShiftY','Parameters.MCUBottom')
+    done('mcu',module,'nice!nano v2 · nominal reconstruction','mcu',(.045,.049,.053))
     sock=[]
     for i,x in enumerate([115.18,130.42]):sock.append(box('Socket'+str(i),x-.9,8.53,x+.9,39.01,5.4,2.413,'MCUShiftY'))
     socketcompound=add('Part::Compound','MCUSockets');socketcompound.Links=sock
@@ -330,13 +339,18 @@ for side in ('left', 'right'):
     sledsolid=cut('SledCableTunnel',sledsolid,box('SledCableTunnelTool',120.3,48.5,125.3,53.2,6.7,1.8))
     sledsolid=cut('SledCableCrossing',sledsolid,box('SledCableCrossingTool',115.3,52.2,125.3,53.5,6.7,1.8))
     done('display-sled',sledsolid,'Removable display support','supports',(.32,.43,.39),True)
-    screenparts=[]
-    for name,b,z,h in [('DisplayPCB',(115.7,13.6,129.9,49.8),0,1),('DisplayGlass',(115.95,16.25,129.65,46.55),1,.9),('DisplayUnderside',(116.8,23.25,128.8,42.25),-1,1)]:
-        o=box(name,*b,14.2+z,h,'DisplayShiftY');expr(o,'Placement.Base.z',f'Parameters.DisplayBottom + {z} mm');screenparts.append(o)
-    done('display',fuse('Screen',screenparts),'Full nice!view · reference','display',(.07,.14,.11))
+    screen=components.install(doc,history,prefix+'NiceView','nice!view · nominal geometry',components.niceview(),(mx(122.8),-13.6,14.2),'DisplayShiftY','Parameters.DisplayBottom')
+    done('display',screen,'nice!view · nominal geometry','display',(.07,.14,.11))
     done('jst',box('JST',112.5,56.2,119.1,62.5,5.4,8.5),'JST · relocated reference','connectors',(.85,.83,.73))
-    done('reset',box('Reset',120,56.5,126,62.5,5.4,2.5),'Reset · relocated reference','connectors',(.33,.36,.32))
-    done('slider',box('Slider',126.9,55.9,134.9,63.4,5.4,2.5),'Power switch · relocated reference','connectors',(.29,.34,.31))
+    for ident,filename,x,y,angle in [('reset','SW_SPST_TL3342.step',123,59.5,0),('slider','SW_SPDT_PCM12.step',130.9,59.65,90 if side=='left' else -90)]:
+        shape,parts=components.standard(filename);rot=A.Rotation(A.Vector(0,0,1),angle)
+        transformed=[]
+        for title,part,color in parts:
+            part=part.copy();part.rotate(A.Vector(0,0,0),A.Vector(0,0,1),angle);transformed.append((title,part,color))
+        shape=shape.copy();shape.rotate(A.Vector(0,0,0),A.Vector(0,0,1),angle)
+        obj=components.install(doc,history,prefix+ident.title()+'Model',ident,transformed,(mx(x),-y,5.4),whole=shape,whole_colors=components._facecolors[filename])
+        done(ident,obj,filename.removesuffix('.step')+' · KiCad model','connectors',(.45,.47,.5))
+
 
     # Nominal lead storage. Ends are reservation boundaries, not certified terminals.
     wire_spec=json.loads((ROOT/'design/revI-wire-study.json').read_text())
@@ -470,6 +484,9 @@ for side in ('left', 'right'):
     if side=='right':assembly.Placement.Base.x=161
 
 doc.recompute()
+from switch_instances import ensure
+ensure(doc)
+A.setActiveDocument(doc.Name)
 G.activeDocument().activeView().viewTop();G.activeDocument().activeView().fitAll()
 doc.saveAs(str(OUT/'Filo36.FCStd'))
 (ROOT/'design/revI.json').write_text(json.dumps(metadata,indent=2)+'\n')

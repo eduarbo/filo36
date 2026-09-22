@@ -1,0 +1,74 @@
+{
+  "baseline": false,
+  "baseline_revision": "8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a",
+  "browser": "153.0.8010.53",
+  "viewport": [
+    1200,
+    800
+  ],
+  "cpu_throttle": 4,
+  "ready_ms": 11218,
+  "viewer_sha256": "0333e19a9160eef44539b040aa28d108077fb6f4b369fbc9ef0ecdcd207d2976",
+  "link_state": "selected frame linked to sidebar",
+  "orbit": {
+    "elapsed_ms": 2044,
+    "frame_count": 122,
+    "p50_frame_ms": 16.69999999999891,
+    "p95_frame_ms": 16.799999999999272,
+    "long_tasks": 0,
+    "long_task_ms": 0
+  },
+  "frame_choice": {
+    "p50_ms": 144.89999997615814,
+    "p95_ms": 173,
+    "samples_ms": [
+      173,
+      156.19999998807907,
+      144.89999997615814,
+      132,
+      84,
+      136.69999998807907
+    ]
+  },
+  "case_choice": {
+    "p50_ms": 224.69999998807907,
+    "p95_ms": 274.7999999523163,
+    "samples_ms": [
+      87,
+      224.69999998807907,
+      274.7999999523163
+    ]
+  },
+  "earlier_run_with_native_validation_active": {
+    "ready_ms": 16578,
+    "orbit": {
+      "elapsed_ms": 2047,
+      "frame_count": 122,
+      "p50_frame_ms": 16.69999999999709,
+      "p95_frame_ms": 16.799999999999272,
+      "long_tasks": 0,
+      "long_task_ms": 0
+    },
+    "frame_choice": {
+      "p50_ms": 147.10000002384186,
+      "p95_ms": 187.10000002384186,
+      "samples_ms": [
+        187.10000002384186,
+        165.80000001192093,
+        147.10000002384186,
+        137.5,
+        89.19999998807907,
+        141.19999998807907
+      ]
+    },
+    "case_choice": {
+      "p50_ms": 240.5,
+      "p95_ms": 298.80000001192093,
+      "samples_ms": [
+        92.5,
+        240.5,
+        298.80000001192093
+      ]
+    }
+  }
+}

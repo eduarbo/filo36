@@ -9,7 +9,7 @@
 3. In FreeCAD’s Addon Manager, install [KiCad StepUp](https://github.com/easyw/kicadStepUpMod).
 4. Open [`mechanical/revI/Filo36.FCStd`](../mechanical/revI/Filo36.FCStd). Importing STEP instead loses the editable history.
 
-The source opens and recomputes without StepUp, CadQuery or custom Python proxies. StepUp is only needed for exchange with KiCad. KLP keycaps are meshes; commercial components are approximate envelopes.
+The source opens and recomputes without StepUp, CadQuery or custom Python proxies. StepUp is only needed for exchange with KiCad. KLP keycaps and the 36 linked Choc v1 instances are meshes. The nano, display and standard switches have separate nominal visual parts; some connectors remain dimensional reserves. [Component sources and limits](../components/README.md).
 
 ## Navigate the assembly
 

@@ -52,3 +52,6 @@ details{border-top:1px solid var(--line)}summary{cursor:pointer;min-height:44px;
 .cover-option small{margin-left:auto;color:#617267}
 .case-guide{display:block;padding:12px 10px;border-radius:8px}
 .case-guide:hover{background:#dce8d3}
+
+/* Coordinated part colors; native inputs remain keyboard and touch accessible. */
+.color-fields{display:grid;gap:4px;margin:12px 0}.color-field{display:flex;align-items:center;gap:8px;min-height:42px;margin:0;padding:4px 8px;border-radius:8px}.color-field:hover{background:#e0e8d8}.color-field span{flex:1}.color-field small{font-size:11px;color:#607668}.color-field input[type=color]{width:38px;height:32px;padding:2px;border:1px solid #bdcbbb;border-radius:7px;background:transparent;cursor:pointer}.theme-swatches{display:flex!important;gap:4px;justify-content:center;padding:0 8px 10px!important}.theme-swatches i{display:block;width:15px;height:15px;border-radius:50%;box-shadow:inset 0 0 0 1px #0001}#themes-grid img{aspect-ratio:1.4}#themes-grid .preview-card{min-width:0}#themes-grid{gap:8px}.section-links button{min-height:36px}input[type=color]:focus-visible{outline:2px solid #4c856d;outline-offset:3px}

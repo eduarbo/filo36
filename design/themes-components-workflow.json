@@ -1,0 +1,99 @@
+{
+  "requests": [
+    "Coordinate case rim and frame colors, provide multiple starting themes, preserve selections, and export actual printable parts and joining details.",
+    "Improve commercial component shape, nominal dimensions and appearance, especially nice!nano v2."
+  ],
+  "baseline": "220fe5a241cbe3837869176c78a27af64eaff429",
+  "status": "Local digital validation passed. Publication and anonymous readback pending; Bambu color interoperability and physical assembly remain partial.",
+  "reviews": [
+    {
+      "decision": "themes-print",
+      "role": "domain_constructive",
+      "reports": [
+        "design/reviews/themes-components/themes-print-domain_constructive-1.json",
+        "design/reviews/themes-components/themes-print-domain_constructive-2.json"
+      ],
+      "runtime_terminal_state": "PARTIAL",
+      "advisory_only": true
+    },
+    {
+      "decision": "themes-print",
+      "role": "adversarial_risk",
+      "reports": [
+        "design/reviews/themes-components/themes-print-adversarial_risk-1.json",
+        "design/reviews/themes-components/themes-print-adversarial_risk-2.json"
+      ],
+      "runtime_terminal_state": "COMPLETED",
+      "advisory_only": true
+    },
+    {
+      "decision": "component-fidelity",
+      "role": "domain_constructive",
+      "reports": [
+        "design/reviews/themes-components/component-fidelity-domain_constructive-1.json",
+        "design/reviews/themes-components/component-fidelity-domain_constructive-2.json"
+      ],
+      "runtime_terminal_state": "PARTIAL",
+      "advisory_only": true
+    },
+    {
+      "decision": "component-fidelity",
+      "role": "adversarial_risk",
+      "reports": [
+        "design/reviews/themes-components/component-fidelity-adversarial_risk-1.json",
+        "design/reviews/themes-components/component-fidelity-adversarial_risk-2.json"
+      ],
+      "runtime_terminal_state": "PARTIAL",
+      "advisory_only": true
+    }
+  ],
+  "dispositions": {
+    "colors": "Explicit per-half colors, color-only presets, optional bidirectional rim/frame link; preserve old configurations.",
+    "printing": "Unchanged native STL bytes, selected installed parts, supports including washers, actual screw/magnet interfaces; no clips claimed. Generic color 3MF is experimental; Bambu automatic palette import remains unaccepted.",
+    "components": "Own nominal nano/view reconstruction; official vs community dimensions and visual inference distinguished. KiSwitch/KiCad sources pinned per file. No reflected commercial modules.",
+    "support": "Scalloped upper shelves clear sockets and underside pad reserves; positive support area must be checked.",
+    "connector_gap": "The 7 versus 8.8 mm display connector gap remains open, without visually stretching pins.",
+    "physical": "No hardware/manufacturing acceptance inferred from rendering or digital checks."
+  },
+  "evidence": {
+    "components": "validation/revI-components.json",
+    "mechanical": "validation/revI-mechanical.json",
+    "theme_configuration": "validation/revI-theme-customization.json",
+    "print_kit": "validation/revI-print-kit.json",
+    "performance": "validation/revI-theme-performance.json",
+    "native_configuration": "validation/revI-freecad.json",
+    "native_colors": "validation/revI-freecad-finishes.json",
+    "native_service": "validation/revI-service.json",
+    "native_cases_and_rim": [
+      "validation/revI-cases.json",
+      "validation/revI-rim-solids.json"
+    ],
+    "secret_scan": {
+      "scope": "Attributable staged source and generated viewer",
+      "bytes_scanned": 50807444,
+      "findings": 0
+    }
+  },
+  "retrospective": {
+    "trigger": "Actual component geometry exposed support and power-switch registration errors hidden by the earlier boxes.",
+    "cause": "The old board width left only 0.09 mm nominal support after correction; initial switch placement used an estimated center and wrong handed rotation instead of the existing footprint datum.",
+    "correction": "Scalloped ledges clear all 26 underside pad reserves; PCM12 centers match the current footprints, rotated +90/-90 degrees. Derived USB-to-battery clearance now uses actual bounds (1.9 mm), replacing the old 1.6 mm USB depth assumption.",
+    "prevention": "Keep local commercial geometry separate from half placement, compare unchanged source meshes and exact handedness, and check actual native intersection/support area before publication.",
+    "validation": "Both halves have zero unallowed native solid intersections; each nano has 30.815 mm2 nominal support and zero pad-reserve overlap. Physical solder, socket engagement and retention remain unqualified."
+  },
+  "artifact_disposition": {
+    "committed": "Source, pinned licensed component assets, generated reference CAD, screenshots, public documentation and validation receipts.",
+    "reproducible_ignored": "build/ and viewer/node_modules/; regenerate with docs/cad.md and its exact checks. Downloads come from viewer/customize-check.cjs; STL/3MF identity is checked by tools/check_print_kit.py.",
+    "original_reviews": "Original Spanish advisory reports and runtime receipts preserved in the local objective archive; public files are explicitly labeled English summaries."
+  },
+  "validation_boundary": {
+    "digital": "Configured colors, selected mesh geometry, native support and source identity have dedicated tests. Final source hashes and public readback gate publication acceptance.",
+    "not_accepted": [
+      "Automatic Bambu palette mapping and GUI save/reopen",
+      "Exact connector contacts and supplied socket/pouch details",
+      "Display connector 7 mm versus modeled PCB gap 8.8 mm",
+      "Hotswap socket assembly registration",
+      "Physical fit, retained hardware, routed PCB, firmware and operation"
+    ]
+  }
+}

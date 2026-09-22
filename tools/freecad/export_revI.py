@@ -15,7 +15,7 @@ if not doc or not doc.getObject('Parameters'):
     raise RuntimeError('Open mechanical/revI/Filo36.FCStd first.')
 doc.recompute()
 metadata=json.loads((ROOT/'design/revI.json').read_text())
-report={'scope':'Native FreeCAD nominal study; not a manufacturing release','halves':{},'unresolved':[
+report={'scope':'Native PartID solids only; switch/keycap meshes and unqualified socket registration excluded; not a manufacturing release','halves':{},'unresolved':[
     'No routed PCB or integrated firmware', 'Actual module/socket/contact dimensions and retention',
     'Battery cable routing, strain relief and bending radii', 'Window tolerance and PCB copper-to-edge rule',
     'Printed fits, insertion/extraction loads, charging, RF and measured power']}
@@ -38,10 +38,14 @@ for side,prefix in [('left','L_'),('right','R_')]:
         if o.PrototypePrintable:assert mesh.isSolid(),(name,'open mesh')
         mesh.write(str(OUT/(name+'.stl')))
         if o.PrototypePrintable:shape.exportStep(str(OUT/(name+'.step')))
+        visuals=[]
+        for index,child in enumerate(getattr(o,'VisualParts',[])):
+            visualpath=f'{name}-visual-{index}.stl';vm=MeshPart.meshFromShape(Shape=child.Shape,LinearDeflection=.035,AngularDeflection=.15,Relative=False);vm.write(str(OUT/visualpath))
+            visuals.append({'path':'mechanical/revI/'+visualpath,'color':'#'+''.join(f'{round(c*255):02x}' for c in child.ViewObject.ShapeColor[:3]),'name':child.Label})
         b=shape.BoundBox
         metadata['parts'][name]={'object':o.Name,'role':o.Label,'group':o.Layer,'prototype_part':o.PrototypePrintable,
             'bounds_mm':[b.XMin,b.YMin,b.ZMin,b.XMax,b.YMax,b.ZMax],
-            'stl_sha256':hashlib.sha256((OUT/(name+'.stl')).read_bytes()).hexdigest()}
+            'visuals':visuals,'stl_sha256':hashlib.sha256((OUT/(name+'.stl')).read_bytes()).hexdigest()}
     # Pair checks include real PCB battery opening and mounting holes.
     issues=[];pairs={}
     for i,(a,sa) in enumerate(shapes.items()):
@@ -119,7 +123,7 @@ for side,prefix in [('left','L_'),('right','R_')]:
         'electronics_north_kicad_y_mm':north,'frame_top_mm':shapes['electronics-lid'].BoundBox.ZMax if 'electronics-lid' in shapes else None,
         'display_top_mm':shapes['display'].BoundBox.ZMax,
         'adjacent_key_north_y_mm':10.755147934,'electronics_overhang_adjacent_mm':max(0,10.755147934-north),
-        'battery_to_usb_vertical_gap_mm':doc.Parameters.MCUBottom.Value-1.6-(doc.Parameters.BatteryBottom.Value+3.8),
+        'battery_to_usb_vertical_gap_mm':shapes['mcu'].BoundBox.ZMin-shapes['battery'].BoundBox.ZMax,
         'cage_to_opening_per_side_mm':doc.Parameters.SlotClearance.Value,
         'nominal_copper_to_opening_mm':.62-doc.Parameters.SlotClearance.Value}
     metadata['halves'][side]['size_mm']=[b.XLength,b.YLength]
@@ -127,7 +131,7 @@ for side,prefix in [('left','L_'),('right','R_')]:
     print(side,'parts',len(objects),'collisions',issues,flush=True)
 doc.recompute()
 metadata['inputs']=[{'path':p,'sha256':hashlib.sha256((ROOT/p).read_bytes()).hexdigest()} for p in [
-    'design/cases.json','tools/keycap_config.py','tools/freecad/configuration.py','design/layout.json','design/revI-profiles.json','design/revI-frame-profiles.json','keycaps/catalog.json','design/revI-mounts.json','design/batteries.json','design/revI-magnets.json','design/revI-wire-study.json','tools/freecad/build_revI.py','tools/freecad/export_revI.py']]
+    'design/cases.json','tools/freecad/components.py','tools/freecad/switch_instances.py','components/switches.json','components/sources.json','tools/frame_finishes.py','tools/keycap_config.py','tools/freecad/configuration.py','design/layout.json','design/revI-profiles.json','design/revI-frame-profiles.json','keycaps/catalog.json','design/revI-mounts.json','design/batteries.json','design/revI-magnets.json','design/revI-wire-study.json','tools/freecad/build_revI.py','tools/freecad/export_revI.py']]
 metadata['fcstd_sha256']=hashlib.sha256((OUT/'Filo36.FCStd').read_bytes()).hexdigest()
 (ROOT/'design/revI.json').write_text(json.dumps(metadata,indent=2)+'\n')
 (ROOT/'validation/revI-mechanical.json').write_text(json.dumps(report,indent=2)+'\n')

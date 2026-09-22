@@ -12,6 +12,18 @@
 | Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
 | Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
 
+## Revision I — linked colors, print kits and component models
+
+Sixteen color themes coordinate the frame with the case rim. Per-half body, plate and three detail colors survive JSON and local browser storage; applying a theme preserves the selected shapes and keycaps. Print kits include the selected native STL parts, generic color 3MF files, supports, washers and the actual screw/magnet instructions. No clip variant is claimed. [Themes and printing](themes-printing.md).
+
+The nice!nano v2 and nice!view now have nominal board/contact/package geometry. Choc v1 uses licensed KiSwitch meshes; the power and reset switches use KiCad models placed at the existing footprints. The narrower nano board uses scalloped support ledges, leaving the underside pad reserves clear. [Component evidence and limitations](../components/README.md).
+
+The offline explorer passed desktop/touch emulation down to 320 px, per-half configuration and custom-color GLB export. Native FreeCAD preserved colors through save/reopen. Selected print kits preserve native STL bytes and closed, oriented 3MF surfaces. [Configuration checks](../validation/revI-theme-customization.json) · [Print checks](../validation/revI-print-kit.json).
+
+With 4× CPU throttling, orbit p95 is **16.8 ms**, frame choice **173 ms** and case choice **275 ms**, with no orbit long tasks. First readiness takes **11.2 s** in this local stress test; the self-contained viewer is about **45 MiB**. Physical-phone loading and timing remain unmeasured. [Measurement](../validation/revI-theme-performance.json).
+
+**Still partial:** Bambu Studio needs manual palette mapping; GUI import/save/reopen has not been validated. Hotswap socket registration, actual connector contacts, the 7 versus 8.8 mm display connection and physical fit remain open. [Scope and review](../design/themes-components-workflow.json).
+
 ## Revision I — local curves and interchangeable cases
 
 The contour now follows each thumb’s angle with local tangent rounds, plus softer finger corners. Solid, Color rim and Terrace are real base/plate variants. Per-half choices and optional exposed display stacks transfer between the explorer, JSON, GLB and native FreeCAD. [Case gallery and files](cases.md) · [Decision record](../validation/revI-case-variants-review.json).
