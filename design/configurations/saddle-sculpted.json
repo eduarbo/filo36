@@ -1,0 +1,164 @@
+{
+  "schema": "filo36-config-1",
+  "revision": "G",
+  "keycaps": {
+    "left": {
+      "K01": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K02": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K03": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K04": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K05": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K11": {
+        "variant": "choc_stem_choc_size_saddle",
+        "rotation_deg": 0
+      },
+      "K12": {
+        "variant": "choc_stem_choc_size_saddle",
+        "rotation_deg": 0
+      },
+      "K13": {
+        "variant": "choc_stem_choc_size_saddle",
+        "rotation_deg": 0
+      },
+      "K14": {
+        "variant": "choc_stem_choc_size_saddle_homing",
+        "rotation_deg": 0
+      },
+      "K15": {
+        "variant": "choc_stem_choc_size_saddle",
+        "rotation_deg": 0
+      },
+      "K21": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K22": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K23": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K24": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K25": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K30": {
+        "variant": "choc_stem_choc_size_thumb",
+        "rotation_deg": 0
+      },
+      "K31": {
+        "variant": "choc_stem_choc_size_thumb",
+        "rotation_deg": 0
+      },
+      "K32": {
+        "variant": "choc_stem_choc_size_thumb",
+        "rotation_deg": 0
+      }
+    },
+    "right": {
+      "K01": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K02": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K03": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K04": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K05": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 0
+      },
+      "K11": {
+        "variant": "choc_stem_choc_size_saddle",
+        "rotation_deg": 0
+      },
+      "K12": {
+        "variant": "choc_stem_choc_size_saddle",
+        "rotation_deg": 0
+      },
+      "K13": {
+        "variant": "choc_stem_choc_size_saddle",
+        "rotation_deg": 0
+      },
+      "K14": {
+        "variant": "choc_stem_choc_size_saddle_homing",
+        "rotation_deg": 0
+      },
+      "K15": {
+        "variant": "choc_stem_choc_size_saddle",
+        "rotation_deg": 0
+      },
+      "K21": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K22": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K23": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K24": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K25": {
+        "variant": "choc_stem_choc_size_saddle_tilted",
+        "rotation_deg": 180
+      },
+      "K30": {
+        "variant": "choc_stem_choc_size_thumb",
+        "rotation_deg": 0
+      },
+      "K31": {
+        "variant": "choc_stem_choc_size_thumb",
+        "rotation_deg": 0
+      },
+      "K32": {
+        "variant": "choc_stem_choc_size_thumb",
+        "rotation_deg": 0
+      }
+    }
+  },
+  "frames": {
+    "left": {
+      "style": "bevel",
+      "color": "#304d4e"
+    },
+    "right": {
+      "style": "bevel",
+      "color": "#304d4e"
+    }
+  }
+}

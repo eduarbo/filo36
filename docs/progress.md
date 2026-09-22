@@ -1,55 +1,33 @@
-# Progreso
+# Progress
 
-**En curso: revisión F — CAD editable, batería rebajada y marco abierto.**
+**Current mechanical revision: G. Overall keyboard: partial digital prototype.**
 
-| Hito | Estado | Evidencia / siguiente paso |
+| Outcome | State | Evidence / next step |
 |---|---|---|
-| Layout de 36 teclas | Comprobado | [Coordenadas](../design/layout.json), fuentes y comprobador incluidos |
-| Prototipo anterior, revisión D | Antecedente digital | Una pantalla izquierda y batería lateral; forma descartada |
-| Carcasa y stack revF | Estudio editable | Marco 16,6 mm; plate 7,6 mm; sin saliente norte nominal. Cables, tolerancias y retención pendientes |
-| Dos pantallas y electrónica modular | Colocación KiCad publicada | Ambas placas sin ruteo; ERC sin incidencias, DRC pendiente. Una pantalla sigue siendo alternativa |
-| BOM y archivos para fabricar | Pendiente | Cerrar la revisión modular y publicar fuentes coherentes |
-| Impresión y montaje | Pendiente | Cupón Choc, tres keycaps y comprobación de piezas reales |
-| Teclado funcionando | Pendiente | 36 teclas, BLE, carga, sueño/despertar y consumo medido |
+| 36 Piantor key centers and angles | Checked | [Layout](../design/layout.json), upstream files and checker |
+| Editable source and CAD exchange | Available | Native FCStd, parameters and [FreeCAD/StepUp examples](freecad.md) |
+| KLP catalog and interchangeable frames | RevG digital study | 38 source variants, 28 with qualified positions; three frame styles, configuration export/import |
+| Wireless electronics and displays | Placement only | Unrouted revF PCBs; unresolved DRC and connector dimensions |
+| Final BOM and manufacturing files | Pending | Close routing, clearances, retention and exact supplied parts |
+| Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
+| Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
 
-## 2026-09-21 · Inicio público
+## Revision G — keycaps and frames
 
-Se comparte el layout, la dirección del diseño y la lista de componentes prevista. El trabajo previo pasó de 42 a 36 teclas, recuperó el contorno angular e integró una pantalla. La revisión siguiente busca una bahía más estrecha y acceso independiente a la electrónica.
+Opaque covers replace revF’s side rails. The separate display sled stays in place. Smooth, beveled and faceted styles share the same mounting centers, inner cavity and service openings. Bay width and top height remain 24 and 16.6 mm.
 
-Filo36 es el nombre provisional; también se consideran Sesgo36 y Brizna36.
+The viewer selects KLP variants by position/orientation, checks complete combinations and writes a JSON configuration used by the FreeCAD macro. GLB exports carry the active configuration. The cap check is separate from solid-part collision checks, which did not include KLP meshes in revF.
 
-## Corrección visual
+Documentation, current CAD labels, viewer and new render captions are in English. The [parts guide](parts.md) separates references from alternatives and adds technical links, supplier photos and Typeractive pack quantities. Conflicting part numbers and missing exact datasheets are kept visible.
 
-La carcasa ancha de revD fue descartada. Su render permanece únicamente en el historial del repositorio; no representa la dirección actual. El nuevo CAD revE usa una bahía de 24 mm, dos pantallas sobre los micros y tapa electrónica independiente. La portada y las vistas de detalle se generan desde sus piezas STEP/STL. Se comprobó que las envolventes modeladas no invaden la carcasa ni se solapan entre sí; el cable de batería aún debe resolverse.
+[Review and limits](revG-review.md) · [Keycap checks](../validation/revG-keycaps.json) · [Mechanical checks](../validation/revG-mechanical.json).
 
-La bahía es **28,4% más estrecha**. El ancho máximo de cada mitad queda aproximadamente en 126,2 mm: el pulgar conserva su posición y sigue determinando buena parte de ese máximo. El stack aumenta la altura local de electrónica de 16 mm en la revD izquierda a 19 mm; el plate permanece a 7,6 mm.
+## Earlier revisions
 
-## Inspección 3D
+- **RevD:** wide side-by-side electronics and one display; visual direction discarded. The render survives only in Git history.
+- **RevE:** 24 mm stacked bay, two displays and a 19 mm cover. CAD-derived images replaced the stale revD render.
+- **RevF:** recessed battery opening, moved controller/display and 16.6 mm open rails. Native FreeCAD source added. Approximate case depth became 94.5 mm; width remained 126.2 mm because the thumb layout stayed unchanged.
 
-Se añade un [visor interactivo por capas](viewer.md), con rotación completa, mitades seleccionables, vistas ortográficas y separación reversible de piezas. El visor actual usa las mallas revF, vinculadas a su CAD. La guía explica las cotas y cómo editarlas; la aceptación física sigue pendiente.
+RevF’s CAD/StepUp exchange, anonymous source download and public viewer were checked; physical acceptance was not. [Historical review](revF-review.md) · [publication receipt](../validation/revF-publication.json).
 
-## Revisión F · Edición manual
-
-El [flujo FreeCAD + KiCad + StepUp](freecad.md) es ahora la base del proyecto.
-El FCStd conserva croquis, operaciones, parámetros y piezas separadas; las
-keycaps están incorporadas. Se comprobó cambiar altura y posición de pantalla,
-guardar, cerrar, reabrir y restaurar el diseño.
-
-La batería baja dentro de una abertura real del PCB. El micro se acerca a los
-pulgares y la pantalla lo acompaña: el stack completo queda detrás del borde
-norte de la keycap vecina en el modelo nominal. El marco pasa de 19 a 16,6 mm,
-con laterales abiertos. El ancho máximo sigue en 126,2 mm; la profundidad baja
-a unos 94,5 mm. Se conservan las 36 posiciones y ángulos originales.
-
-Esta propuesta **no está lista para fabricar**. La abertura queda a 0,22 mm de
-24 pads del micro por mitad frente a la regla actual de 0,5 mm; también quedan
-un pad próximo al borde, courtyards y serigrafía por corregir. Ambas placas tienen
-104 conexiones sin rutear. No se redujeron reglas ni se ocultaron incidencias.
-El cable, la fijación del retenedor, los contactos y las tolerancias necesitan
-trabajo antes del primer montaje.
-
-Publicación verificada: descarga anónima de los 246 archivos del cambio de diseño,
-FCStd íntegro y visor igual al probado. Capas, giro, reset y GLB comprobados también
-en la URL pública; móvil probado mediante emulación. El intercambio StepUp se
-comprobó con una abertura desplazada 0,5 mm y readback sin alterar footprints
-ni conexiones. [Recibo](../validation/revF-publication.json).
+Filo36 remains a provisional name; Sesgo36 and Brizna36 were earlier candidates. Changing the project’s presentation does not retire unfinished electrical or physical requirements.

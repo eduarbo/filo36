@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""Rebuild catalog from all 38 pinned, unchanged Choc-stem upstream STLs.
+Run with the documented CAD Python runtime (numpy + shapely).
+SPDX-License-Identifier: GPL-3.0-or-later
+"""
+import hashlib,json,struct
+from pathlib import Path
+import numpy as np
+from shapely.geometry import MultiPoint
+from keycap_config import polygon,gap
+ROOT=Path(__file__).resolve().parents[1]
+manifest=json.loads((ROOT/'keycaps/variants-source.json').read_text())
+layout=json.loads((ROOT/'design/layout.json').read_text())['halves']
+frames={s:v['hood'] for s,v in json.loads((ROOT/'design/revF-profiles.json').read_text()).items()}
+variants=[]
+for f in manifest['files']:
+    raw=(ROOT/f['path']).read_bytes();assert hashlib.sha256(raw).hexdigest()==f['sha256']
+    assert hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()==f['git_blob']
+    n=struct.unpack_from('<I',raw,80)[0]
+    points=np.ndarray((n,),dtype=np.dtype([('n','<f4',(3,)),('v','<f4',(3,3)),('a','<u2')]),buffer=raw,offset=84)['v'].reshape(-1,3)
+    lo,hi=points.min(0),points.max(0);tips=points[points[:,2]<lo[2]+.05]
+    axis=0 if np.ptp(tips[:,0])>np.ptp(tips[:,1]) else 90
+    ident=Path(f['path']).stem.lower();size='Choc' if '_Choc_Size_' in f['path'] else 'MX'
+    profile=Path(f['path']).stem.split('_Size_')[1].replace('_',' ')
+    variants.append(dict(id=ident,label=f'{size} · {profile}',path=f['path'],source=f['source'],sha256=f['sha256'],
+        bounds_mm=[lo.tolist(),hi.tolist()],stem_tip_z_mm=float(lo[2]),seating_z_mm=round(11.7-float(lo[2]),5),
+        stem_axis_deg=axis,rotations_deg=[axis,axis+180],hull_xy_mm=[list(x) for x in MultiPoint(points[:,:2]).convex_hull.exterior.coords][:-1],
+        qualified_reference_positions=[]))
+byid={v['id']:v for v in variants};cfg={'schema':'filo36-config-1','revision':'G','keycaps':{},'frames':{}}
+for side,keys in layout.items():
+    cfg['keycaps'][side]={k['ref']:{'variant':'choc_stem_choc_size_'+('thumb' if k['row']==3 else 'normal_homing' if k['ref']=='K14' else 'normal'),'rotation_deg':0} for k in keys}
+    cfg['frames'][side]={'style':'bevel','color':'#304d4e'}
+base={s:{k['ref']:polygon(byid[cfg['keycaps'][s][k['ref']]['variant']]['hull_xy_mm'],k,0) for k in keys} for s,keys in layout.items()}
+for v in variants:
+    for side,keys in layout.items():
+        for k in keys:
+            for turn in v['rotations_deg']:
+                p=polygon(v['hull_xy_mm'],k,turn)
+                d=min([gap(p,frames[side])]+[gap(p,q) for ref,q in base[side].items() if ref!=k['ref']])
+                if d>=.2-1e-7:v['qualified_reference_positions'].append({'side':side,'key':k['ref'],'rotation_deg':turn,'clearance_mm':round(d,5)})
+    v['status']='conditional' if v['qualified_reference_positions'] else 'unqualified'
+    v['note']='Check the complete configuration before applying.' if v['qualified_reference_positions'] else '1.5U: no qualified position with the reference neighbors; unavailable in this layout.'
+    print(v['label'],len(v['qualified_reference_positions']),flush=True)
+catalog={'schema':'filo36-klp-catalog-1','revision':'G','upstream':manifest['upstream'],'commit':manifest['commit'],'license':'CC-BY-SA-4.0','author':'braindefender',
+    'qualification':'Conservative convex XY envelopes, including stems. >=0.20 mm separating-axis clearance. Every chosen configuration rechecked. Nominal stem-tip datum 11.7 mm; unmeasured physical seating.',
+    'minimum_clearance_mm':.2,'study_travel_mm':3.5,'minimum_pressed_mesh_z_mm':8.2,'plate_top_mm':7.6,
+    'layout':layout,'frame_envelopes':frames,'frame_styles':{'smooth':'Smooth','bevel':'Beveled','facet':'Faceted'},'variants':variants,'default_configuration':cfg}
+(ROOT/'keycaps/catalog.json').write_text(json.dumps(catalog,indent=2,ensure_ascii=False)+'\n')
+(ROOT/'design/configurations').mkdir(exist_ok=True)
+(ROOT/'design/configurations/default.json').write_text(json.dumps(cfg,indent=2)+'\n')
+print('Qualified variants',sum(bool(v['qualified_reference_positions']) for v in variants),'/',len(variants))

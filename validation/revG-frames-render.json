@@ -1,0 +1,19 @@
+{
+  "image_sha256": "4546eb31e038fd07b43f4e0298fec45f974f6bdb19b56f54726802ec3c049253",
+  "sources": [
+    {
+      "path": "mechanical/revG/left-frame-smooth.stl",
+      "sha256": "fc5d472ebe715195e075709ed637481465a3bdc885aaadd05d0e78dc118ecdf0"
+    },
+    {
+      "path": "mechanical/revG/left-frame-bevel.stl",
+      "sha256": "38ff657c96e6cdfbbbd69e824debc30906ae34f392be7cb51920072a6b12cfd9"
+    },
+    {
+      "path": "mechanical/revG/left-frame-facet.stl",
+      "sha256": "ee87f0322ce38f47e67655402c55dab770dd2b961b3c421aa103c9e58807ed4b"
+    }
+  ],
+  "renderer_sha256": "15789083b41c09c2713291f2c516512c32872ca8c10f02ba535cdb0ebe847cac",
+  "geometry_changed": false
+}

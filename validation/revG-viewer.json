@@ -1,0 +1,363 @@
+{
+  "revision": "G",
+  "units": "mm",
+  "objects": 168,
+  "unique_meshes": 74,
+  "keycaps": 36,
+  "geometry_changed": false,
+  "sources": [
+    {
+      "path": "mechanical/revG/left-tray.stl",
+      "sha256": "edf923aae8b6c1a81ef4972aacd890c71456ed592a5f84c1950956bfecfa2e20"
+    },
+    {
+      "path": "mechanical/revG/left-key-plate.stl",
+      "sha256": "b70762f88b8d9382584420dd24746596ea1ac4429313d410ec967971f993e44e"
+    },
+    {
+      "path": "mechanical/revG/left-electronics-lid.stl",
+      "sha256": "38ff657c96e6cdfbbbd69e824debc30906ae34f392be7cb51920072a6b12cfd9"
+    },
+    {
+      "path": "mechanical/revG/left-pcb.stl",
+      "sha256": "8c21519859a888700d051667cc2df4f16ba600fc9581abec59b72202c07fab14"
+    },
+    {
+      "path": "mechanical/revG/left-battery.stl",
+      "sha256": "f3f515d76a438e2a39c92648187627894a6cc84d3beb7e71b98c63f8c02252ac"
+    },
+    {
+      "path": "mechanical/revG/left-mcu.stl",
+      "sha256": "9ad471492a67bb8a99d4a2724393002b87041b56032c443a7013ab2ce8959a2e"
+    },
+    {
+      "path": "mechanical/revG/left-display.stl",
+      "sha256": "d8a75484296c8ad044210d5649c84028efc15ac3032d020c73616866812de975"
+    },
+    {
+      "path": "mechanical/revG/left-cradle.stl",
+      "sha256": "ceca23fa7014577f29bceb847c57476c9fa831a0cb6329f816ef96a5b74c5bbd"
+    },
+    {
+      "path": "mechanical/revG/left-battery-retainer.stl",
+      "sha256": "df7be59bbe3475e091b646480e35f5e6c17603a47ac443ba233e58a5a211e49e"
+    },
+    {
+      "path": "mechanical/revG/left-mcu-riser.stl",
+      "sha256": "01af96e574c0160606be0af716c0173dbd7462430a3ca8223896deb8a40d78d3"
+    },
+    {
+      "path": "mechanical/revG/left-display-sled.stl",
+      "sha256": "d399ecaf887b2582fb740b3947987f9fc2a803abb9988fca3e0abc243cd75ed3"
+    },
+    {
+      "path": "mechanical/revG/left-mcu-sockets.stl",
+      "sha256": "3ffc5ed15c5d2b829782b6c588ca27d3ab0f383564a4961bd84b801baccdee37"
+    },
+    {
+      "path": "mechanical/revG/left-jst.stl",
+      "sha256": "d943da215b091d2cad10589d94384c798c86dbcf399434d009ba511e51abe3dd"
+    },
+    {
+      "path": "mechanical/revG/left-reset.stl",
+      "sha256": "77c99731c45b9c81ad28c523d22e44b875a74aaa0076584903b40020e1a89d02"
+    },
+    {
+      "path": "mechanical/revG/left-slider.stl",
+      "sha256": "3c0074d699a3c780a25443d094766eaa398c2797c59a928105f6faf3db3c6d84"
+    },
+    {
+      "path": "mechanical/revG/left-washer-1.stl",
+      "sha256": "e4a3dff22eba0895836475d9e44b80ac9cd274f87d687171928bdf552673e721"
+    },
+    {
+      "path": "mechanical/revG/left-washer-2.stl",
+      "sha256": "9e69e0cf48c6ef7760a2cba6306ce528aef17dd2dcc8382fb1efef2790d8a099"
+    },
+    {
+      "path": "mechanical/revG/left-washer-3.stl",
+      "sha256": "00bb04b46be4f98e53d5001c094405c4a5490bdadac2648433f3f9c75535dd20"
+    },
+    {
+      "path": "mechanical/revG/left-washer-4.stl",
+      "sha256": "2882b17cb943b86af3e6f3bd3afe2bb3988b68719d2de4689282ae37eb83d16c"
+    },
+    {
+      "path": "mechanical/revG/left-washer-5.stl",
+      "sha256": "a9a675b8e88f281f971f0c674e3ba9bb715a090708e074afb9206140c3db87a3"
+    },
+    {
+      "path": "mechanical/revG/left-frame-smooth.stl",
+      "sha256": "fc5d472ebe715195e075709ed637481465a3bdc885aaadd05d0e78dc118ecdf0"
+    },
+    {
+      "path": "mechanical/revG/left-frame-bevel.stl",
+      "sha256": "38ff657c96e6cdfbbbd69e824debc30906ae34f392be7cb51920072a6b12cfd9"
+    },
+    {
+      "path": "mechanical/revG/left-frame-facet.stl",
+      "sha256": "ee87f0322ce38f47e67655402c55dab770dd2b961b3c421aa103c9e58807ed4b"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal.stl",
+      "sha256": "2e4110f314d848bbacc23585e3002b648e5eb094501d98d206db821867381a53"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_Homing.stl",
+      "sha256": "ef7c5c9940daf78d8a8fd95efc2a9772a37394e26b74d56319f4b5b7609ea441"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Thumb.stl",
+      "sha256": "20e8239ce4836e22906220a39ae17a55e584107240a0b00571f4132b9e26054c"
+    },
+    {
+      "path": "mechanical/revG/right-tray.stl",
+      "sha256": "f0613f2c6747355db43a43b0d28e6d6fdf309512b1250a2736fb1e0c341d816e"
+    },
+    {
+      "path": "mechanical/revG/right-key-plate.stl",
+      "sha256": "c437812b8a7bc42ff44556dc88ffacab5ef646681dbfe97d05596f47e49446a7"
+    },
+    {
+      "path": "mechanical/revG/right-electronics-lid.stl",
+      "sha256": "5851fc81556e48b44e2112b50fb281306d94687533463ff6f66142d81ab734c3"
+    },
+    {
+      "path": "mechanical/revG/right-pcb.stl",
+      "sha256": "732aa8e392980e1e244a9c2f244938892cbf471c7ce0d3fc05536a852c7dc4b8"
+    },
+    {
+      "path": "mechanical/revG/right-battery.stl",
+      "sha256": "e109d5a4e1c5f459c3c608e109738f6b170acde3a09cd7404d3b5965c87174f9"
+    },
+    {
+      "path": "mechanical/revG/right-mcu.stl",
+      "sha256": "fcb68f92660e4be3366edf7740247a33e642ce11f7209163d52f8b1503325d81"
+    },
+    {
+      "path": "mechanical/revG/right-display.stl",
+      "sha256": "978d165a7c1d700fb5e30901ea759a0b37652028ad5a1288e00c3c828448fc9b"
+    },
+    {
+      "path": "mechanical/revG/right-cradle.stl",
+      "sha256": "255a7344bf2ed0d54a68d4b5685364242232fac3ef18a911c4eb48e8761d7ce7"
+    },
+    {
+      "path": "mechanical/revG/right-battery-retainer.stl",
+      "sha256": "2933e86de036ef20633c49343a97baad9b29a0f22cfcf48103593cd3622599ea"
+    },
+    {
+      "path": "mechanical/revG/right-mcu-riser.stl",
+      "sha256": "91d88a3e5ff9836ce28d6385b2aca4cdb4fee2b9b6df044136ebcb6ab8b9b857"
+    },
+    {
+      "path": "mechanical/revG/right-display-sled.stl",
+      "sha256": "6d643df6f1b17e6d1789edbb52e55cdd994e0c052fdcad24b4d8bdb2e7cb2544"
+    },
+    {
+      "path": "mechanical/revG/right-mcu-sockets.stl",
+      "sha256": "04a2f9e5537deb6bf97f74652d73f8849be043a6f69377f6fccc400e0eee6bbf"
+    },
+    {
+      "path": "mechanical/revG/right-jst.stl",
+      "sha256": "f9ff1784dd20761af51de95351a9bb7d475c9ad3b1f1833a60bb75415e298b31"
+    },
+    {
+      "path": "mechanical/revG/right-reset.stl",
+      "sha256": "bd70aef335c177ed915b39a410e4cf1c1bee7d2b721c0cdb3d276d89d2cd3228"
+    },
+    {
+      "path": "mechanical/revG/right-slider.stl",
+      "sha256": "42171179a381303fa3eb25f987b9715047fec1744db3ec35c6d663744f478409"
+    },
+    {
+      "path": "mechanical/revG/right-washer-1.stl",
+      "sha256": "efac6b9cd6862261b69ea3b0b7c34b3df0110591ef63ae21acd8c4d508e91886"
+    },
+    {
+      "path": "mechanical/revG/right-washer-2.stl",
+      "sha256": "4f3012d318af75ef3c5d8f1fc99dec2c2a6f63b6811b281d0b526dc8db1a4f17"
+    },
+    {
+      "path": "mechanical/revG/right-washer-3.stl",
+      "sha256": "f2403e3d317fe730acc6a73aece70260b5d5f7c11840d2442e401082dec625cd"
+    },
+    {
+      "path": "mechanical/revG/right-washer-4.stl",
+      "sha256": "e2dfe3d54276fce99418947d9c4dc752ada91676aa122a343ee9542fc26fa138"
+    },
+    {
+      "path": "mechanical/revG/right-washer-5.stl",
+      "sha256": "2ecb114d8bf194fdb8b578b11c3ca42b68e7c734b16badc475ee0087272a8e5a"
+    },
+    {
+      "path": "mechanical/revG/right-frame-smooth.stl",
+      "sha256": "40fb4dc404d1b7c77b8baf5e6fd5027a33b4a3e6c7c14bb2ab860586130bf12b"
+    },
+    {
+      "path": "mechanical/revG/right-frame-bevel.stl",
+      "sha256": "5851fc81556e48b44e2112b50fb281306d94687533463ff6f66142d81ab734c3"
+    },
+    {
+      "path": "mechanical/revG/right-frame-facet.stl",
+      "sha256": "cdc209039a9a22eda8e141ab59f8e3e44a556fb898d310ce63f6585adf116abf"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_90deg.stl",
+      "sha256": "a6deb4abac72914e12b16a10061c65f84d15fd3e8990c98490443289f8047eeb"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_Homing_90deg.stl",
+      "sha256": "2cb6e93f80298eb185f81dd4d19ee3efa76542b7f31994285478d6fd06616280"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_Tilted_90deg.stl",
+      "sha256": "c75c5c245360a674c3456749d278aad42b13814ca8aaa4ce9fce6f26e8dbf004"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_90deg.stl",
+      "sha256": "b7a940d3a2ef0d317213508fcb43538d95e3251f03449c16df862ff3c46dd3de"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_Homing_90deg.stl",
+      "sha256": "51afd2b2064a59bfb4734c41a52ea2f956391e2104474edda3efdf4140168100"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_Tilted_90deg.stl",
+      "sha256": "c2030a0608ae886af36f229f38cff43ea1bbc1aebd01983a2d26d3a4745df068"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Thumb_90deg.stl",
+      "sha256": "fadfca2053db5e04a9981b7b9b33a825d19908de6ca4743aafd8ae2e31bed373"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_Tilted.stl",
+      "sha256": "03fa50d76416d226904fab95c5a3ded3663f6b5bafaff695683d8fa7979ecf8d"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle.stl",
+      "sha256": "53e3d75f5dd1bd60d82d617df20fdc05651ef21efb9464e8d5ee297e50b9667d"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_Homing.stl",
+      "sha256": "c399efe2a89ee1478254273e0a2bf2bcbaa2bdb57c1cb264390ee63f906c047a"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_Tilted.stl",
+      "sha256": "59457a575470c5672c8c9d766a739fefab06dc1f082b34887287eb4f392b2f4f"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_90deg.stl",
+      "sha256": "724f857b14c97660fc11a745964e7445e4b0a160b6187b5228efd1e441dc085b"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_Homing_90deg.stl",
+      "sha256": "cbdede3fbc0ce215fe0f3b4821fcadbeb66d5f0d0c3a36b33e3a665004b553ae"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_Tilted_90deg.stl",
+      "sha256": "5261a017cdd9db33e605399986ac2acce60fecc41dd37a67745b2b4f2012a1fd"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_90deg.stl",
+      "sha256": "05f9101d5d45c62d8b7b6904df7a1b6aaf13a8ac455a7b555d5e1e8ce6213a3b"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_Homing_90deg.stl",
+      "sha256": "946f1a996b59fff5d659bc4c3d4af6962fee3097cc4731fe884df844a7731743"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_Tilted_90deg.stl",
+      "sha256": "c5b623ff9a9df2470eaceaec34796ac2859cc4bd02e2ea130c8ccb9feeb30c26"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Thumb_90deg.stl",
+      "sha256": "45884c2db33a15e3cf5b3c3aac6a5cf5c762d4529233709955738a4c0f0097ed"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal.stl",
+      "sha256": "1499d70bdd1ca0efd8c9ce50d8bd179a2ca85f17fc6af7f97105279015199712"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_Homing.stl",
+      "sha256": "895d4cbb3db780da7e947b6ad035c0013799df066ee262721365c3724e8f3a98"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_Tilted.stl",
+      "sha256": "a6b0d6ade5f38eab16ad8b1dace8d658df87f4a255eb3f1de819ed2485757eb9"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle.stl",
+      "sha256": "2ee598afe3835aa5d76888ced84a803769d492f7da9a83a557bfec4e967c5af0"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_Homing.stl",
+      "sha256": "c57b1b8fa2a1ca25ffd2d1c5aaa23902fa50f39e6236a31d33aa3de1610b9f4c"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_Tilted.stl",
+      "sha256": "d1c78001dbaa44784197fe71c1c9219ed1f433794646e1c48ca926317678a2b5"
+    },
+    {
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Thumb.stl",
+      "sha256": "046c67773c539c11883b248de156e4659890c90d6220c20f5f457ca717e540b6"
+    },
+    {
+      "path": "design/revG.json",
+      "sha256": "d81a3b1b3673cf414f0be69061314ed9fbb9d822d4753de361b73220b868eecb"
+    },
+    {
+      "path": "design/layout.json",
+      "sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3"
+    },
+    {
+      "path": "tools/build_viewer_revG.py",
+      "sha256": "7b5e90699a6d664b50258e4cca6b5a3656bfd75e8f7f4c0178febffaece88527"
+    },
+    {
+      "path": "keycaps/catalog.json",
+      "sha256": "e9d00498e8f68de6604eac547a941f58fe0cce7e0171694341cf3397a9119d62"
+    },
+    {
+      "path": "viewer/app.js",
+      "sha256": "f8518bab44644d60c6074c0d06b00db315f05f4fac620580974e0c3495f0510d"
+    },
+    {
+      "path": "viewer/config.js",
+      "sha256": "b64a7e3cf58d5ce3e7188a9247ece8756166af2f58d8359d3aad3ff9955d742f"
+    },
+    {
+      "path": "viewer/style.css",
+      "sha256": "424eda51d73813f2a056490aa9eab2f82f174d962cf37472fc4453a3f7378ba0"
+    },
+    {
+      "path": "viewer/template.html",
+      "sha256": "20995696e1038e447d981e38b911f25e9634abce445f60dd7533305cd46ccfe0"
+    },
+    {
+      "path": "viewer/build.mjs",
+      "sha256": "d5cde22a4bb1c12411fb7f94479291456dfcc528bc166379aace47c3a77e12a4"
+    },
+    {
+      "path": "viewer/package-lock.json",
+      "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
+    }
+  ],
+  "viewer_sha256": "298109bf4db376684b4fc450af6d046fa4fb62d636f13bb9275cbb8121a5d2ea",
+  "measurements": {
+    "bay_width_mm": 24,
+    "plate_top_mm": 7.6,
+    "cover_top_mm": 16.6,
+    "cover_ahead_of_top_cap_mm": 0,
+    "cover_ahead_of_adjacent_cap_mm": 0
+  },
+  "offline": "All geometry, scripts, styles and license notices embedded; external links only open on explicit click.",
+  "limitations": [
+    "Nominal electronic envelopes; not manufacturer CAD",
+    "Unrouted PCB",
+    "Cables, retainer fastening, contact details and physical fit pending",
+    "PCB battery opening: 0.15 mm cradle clearance and 0.22 mm nominal copper edge clearance; not manufacturing approved",
+    "Keycap seating, switches, screws and feet are illustrative",
+    "Exploded positions are a viewing aid, not a validated extraction path"
+  ]
+}

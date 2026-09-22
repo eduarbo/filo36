@@ -1,40 +1,51 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#edf0e9">
-<title>Filo36 · Explorar en 3D</title>
+<title>Filo36 · Explore in 3D</title>
 <style>/*__STYLE__*/</style>
 </head>
 <body>
-<header><div><strong>FILO36</strong><span>REV F / EXPLORADOR 3D</span></div><a href="https://github.com/eduarbo/filo36">Repositorio ↗</a></header>
+<header><div><strong>FILO36</strong><span>REV G / 3D EXPLORER</span></div><a href="https://github.com/eduarbo/filo36">Repository ↗</a></header>
 <main>
-<section class="stage" aria-label="Vista 3D del teclado">
-  <canvas id="canvas" aria-label="Arrastra para girar el teclado; pellizca o usa la rueda para acercar"></canvas>
-  <div class="stage-label"><span class="dot"></span><span id="status" role="status">Cargando geometría…</span></div>
-  <div class="gesture">Arrastra para girar · Rueda / pellizco para zoom · Dos dedos para mover</div>
+<section class="stage" aria-label="3D keyboard view">
+  <canvas id="canvas" aria-label="Drag to rotate; pinch or scroll to zoom"></canvas>
+  <div class="stage-label"><span class="dot"></span><span id="status" role="status">Loading geometry…</span></div>
+  <div class="gesture">Drag to rotate · Scroll / pinch to zoom · Two fingers to pan</div>
   <div id="error" role="alert" hidden></div>
 </section>
 <aside>
-  <h1>Explora el ensamblaje.</h1>
-  <p class="intro">Gira el teclado, retira capas y explora el stack.</p>
-  <div class="presets"><button id="complete" class="primary">Completo</button><button id="inside">Ver interior</button><button id="stack">Sólo stack</button></div>
-  <div class="selects"><label>Mitad<select id="half"><option value="both">Ambas</option><option value="left">Izquierda</option><option value="right">Derecha</option></select></label><label>Vista<select id="view"><option value="iso">Libre / 3D</option><option value="top">Superior</option><option value="front">Frontal</option><option value="right">Lateral derecha</option><option value="left">Lateral izquierda</option><option value="back">Trasera</option><option value="bottom">Inferior</option></select></label></div>
-  <label class="explode-label" for="explode">Separar piezas <output id="explosion">0 %</output></label>
+  <h1>Make it yours.</h1>
+  <p class="intro">Choose keycaps and frames. Rotate the keyboard and hide layers to explore the inside.</p>
+  <div class="presets"><button id="complete" class="primary">Assembled</button><button id="inside">See inside</button><button id="stack">Stack only</button></div>
+  <div class="selects"><label>Half<select id="half"><option value="both">Both</option><option value="left">Left</option><option value="right">Right</option></select></label><label>View<select id="view"><option value="iso">Free / 3D</option><option value="top">Top</option><option value="front">Front</option><option value="right">Right side</option><option value="left">Left side</option><option value="back">Back</option><option value="bottom">Bottom</option></select></label></div>
+  <label class="explode-label" for="explode">Explode parts <output id="explosion">0 %</output></label>
   <input id="explode" type="range" min="0" max="100" value="0" step="1">
-  <p class="micro">La separación es visual; el recorrido real de desmontaje sigue pendiente.</p>
-  <details id="layer-panel" open><summary>Capas <span>mostrar / ocultar</span></summary><div id="layers"></div></details>
-  <div class="actions"><button id="reset">Restablecer todo</button><button id="fit">Encuadrar</button></div>
-  <details><summary>Cotas y límites</summary><div class="notes"><p><b>Bahía:</b> 24 mm · <b>Marco:</b> 16,6 mm · <b>Plate:</b> 7,6 mm. Alturas desde la base, sin patas.</p><p>Marco abierto y batería rebajada en una abertura del PCB. El stack, incluido el USB, queda detrás del borde superior de la tecla vecina.</p><p>Estudio CAD nominal. PCB sin ruteo. Abertura: 0,15 mm por lado de cuna y 0,22 mm nominales hasta pads. Márgenes por validar; cables, contactos, retención y encaje físico pendientes. Electrónica representada por envolventes. Asiento de keycaps, switches, tornillos y patas ilustrativos.</p></div></details>
-  <div class="downloads"><a href="./index.html" download="Filo36-revF.html">Descargar HTML offline</a><button id="glb">Descargar GLB ensamblado</button><a href="https://github.com/eduarbo/filo36/blob/main/docs/freecad.md">Editar en FreeCAD + KiCad ↗</a></div>
-  <p class="caption">Modelo revF editable · Unidades: mm<br>36 posiciones Piantor · KLP Lamé originales</p>
-  <button id="credits">Créditos y licencias</button>
+  <p class="micro">Explosion is a visual aid; actual removal paths are untested.</p>
+  <details id="customize" open><summary>Customize <span>keycaps + frames</span></summary>
+    <p class="micro">38 Choc-stem variants catalogued; 28 qualify somewhere. No 1.5U reference configuration qualifies. Check each combination.</p>
+    <label>Keycap preset<select id="key-preset"></select></label><button id="apply-preset">Apply preset</button>
+    <label>Positions<select id="key-target"></select></label><label>KLP Lamé<select id="key-variant"></select></label><label>Rotation relative to switch<select id="key-rotation"></select></label>
+    <p id="key-fit" class="micro"></p><button id="apply-keys">Apply to these keys</button>
+    <div class="selects"><label>Frame on<select id="frame-side"><option value="both">Both</option><option value="left">Left</option><option value="right">Right</option></select></label><label>Finish<select id="frame-style"></select></label></div>
+    <label class="color-label">Frame color <input type="color" id="frame-color" value="#304d4e"></label><button id="apply-frame">Apply frame</button>
+    <p id="config-status" class="micro" role="status"></p>
+    <div class="config-actions"><button id="save-config">Save configuration</button><label class="file-label">Load JSON<input id="load-config" type="file" accept=".json,application/json"></label><button id="default-config">Default configuration</button></div>
+    <p class="micro">Use the same JSON selections in FreeCAD. “Reset view” keeps your configuration.</p>
+  </details>
+  <details id="layer-panel" open><summary>Layers <span>show / hide</span></summary><div id="layers"></div></details>
+  <div class="actions"><button id="reset">Reset view</button><button id="fit">Fit view</button></div>
+  <details><summary>Dimensions and limits</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame:</b> 16.6 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>Interchangeable opaque frame and battery recessed through the PCB. The nominal stack, including USB, stays behind the adjacent keycap’s top edge.</p><p>Nominal CAD study. Unrouted PCB. Battery opening: 0.15 mm per cradle side and 0.22 mm to pads; DRC unresolved. Cables, contacts, retention and physical fit untested. Electronics use approximate envelopes; switch bodies, keycap seating, screws and feet are illustrative.</p></div></details>
+  <div class="downloads"><a href="./index.html" download="Filo36-revG.html">Download offline HTML</a><button id="glb">Download assembled GLB</button><a href="https://github.com/eduarbo/filo36/blob/main/docs/freecad.md">Edit in FreeCAD + KiCad ↗</a></div>
+  <p class="caption">Editable revG model · Units: mm<br>36 Piantor positions · Original KLP Lamé meshes</p>
+  <button id="credits">Credits and licenses</button>
 </aside>
 </main>
-<dialog id="licenses"><button id="close-credits">Cerrar</button><h2>Fuentes y licencias</h2><!--__LICENSES__--></dialog>
-<script id="scene-data" type="application/json">/*__DATA__*/</script>
+<dialog id="licenses"><button id="close-credits">Close</button><h2>Sources and licenses</h2><!--__LICENSES__--></dialog>
+<script id="scene-data" type="application/octet-stream">/*__DATA__*/</script>
 <script>/*__APP__*/</script>
 </body>
 </html>

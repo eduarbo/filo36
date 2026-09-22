@@ -1,0 +1,22 @@
+{
+  "source_sha256": "8c34613360e78630e733f740d970623ecdab20f161603189012cb1d70f1b1d45",
+  "native_features_no_custom_proxy": true,
+  "configuration_roundtrip": true,
+  "reopened_customized_file": true,
+  "all_36_key_centres_unchanged": true,
+  "stem_tip_datum_mm": 11.7,
+  "FrameTop_edit_mm": [
+    16.6,
+    17.2
+  ],
+  "preset": "saddle-sculpted",
+  "thumb_variant": "MX-size Normal 90deg",
+  "frames": [
+    "facet",
+    "smooth"
+  ],
+  "invalid_configuration_rejected_atomically": true,
+  "xy_margin_mm": 0.247659,
+  "source_file_unchanged": true,
+  "opaque_side_wall_samples": 96
+}

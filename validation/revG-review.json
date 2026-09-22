@@ -1,0 +1,37 @@
+{
+  "scope": "KLP compatibility and interchangeable display covers",
+  "baseline": {
+    "head": "6d7b035e1ccd313a2a2c0851163ae8235f823aaa",
+    "status": "",
+    "files": {
+      "tools/freecad/build_native.py": "976b02ca18392b938ea3f42cde4b5a6b24b722586010f28c5fe3fdd702b2200a",
+      "tools/freecad/export_native.py": "8c9b38dfaf6ab1381192c23f9c8ee272383bf7cd60878eb76e743ed8a7a05ab1",
+      "tools/render_revF.py": "8c4bfc93343ce50d1078098bb5a59f23dfcaab0a13a5cf6a3c2b0c8e826d37eb",
+      "tools/build_viewer_revF.py": "9d68d9e037d800895a28de8ede15c3f291e454688f81f61bff3f4d52df4251ae",
+      "design/layout.json": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
+      "design/revF.json": "f2d2eebb083478ebc3f0b3c67841a98b59ea43548839b366c9d7efcec814ea87",
+      "design/revF-profiles.json": "4a0735a06c5502398dee7f2589226451ce8ba6d4f987f38a407f25b0d729db48",
+      "keycaps/sources.json": "3c798e549cc17a7d3293b01ab02f28a5233dd39932b8cbebacc70b78aaa9a2be",
+      "viewer/app.js": "28adbdb82790ca9c08ee5cb2ca3a012b5b887f01b547076c81208d922118a813",
+      "viewer/template.html": "4eb413c11f5904dd85a0e614e3836b6b09727863aba7666eef9164c737f7fa16",
+      "docs/freecad.md": "ad09a9914cec3f5b9679fcff0580f7f11842e24ecaaabc828ddc92617f3736c9",
+      "validation/revF-mechanical.json": "25d74633be21ffc70c9d2109f29a6914645882deab6223c5f75142a110c9c16f"
+    }
+  },
+  "reviews": [
+    {
+      "role": "mechanical domain / first principles",
+      "agent": "frame_klp_domain",
+      "read_only": true
+    },
+    {
+      "role": "adversarial reliability / pre-mortem",
+      "agent": "frame_klp_risk",
+      "read_only": true
+    }
+  ],
+  "baseline_hashes_unchanged_after_both_reports": true,
+  "consensus": "Complete Choc-stem catalog with per-configuration qualification; opaque common-interface covers with independent display support. Publish as nominal study with unresolved hardware requirements.",
+  "dispositions": "docs/revG-review.md",
+  "second_round_required": false
+}

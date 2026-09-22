@@ -1,0 +1,28 @@
+{
+  "source_request": "Añadir todas las variantes KLP Lamé soportables y reemplazar rieles por frames personalizados que oculten el stack con elegancia.",
+  "parent_objective": "Piantor wireless 36 exact layout; overall hardware partial",
+  "status": "local_verified_publication_pending",
+  "required_outcomes": [
+    "Traceable complete Choc-stem catalog with explicit orientation and per-configuration geometric qualification",
+    "Selectable keycaps in viewer and native FreeCAD with shared saved configuration",
+    "Interchangeable screen-cover variants sharing mounts and preserving access and existing key coordinates",
+    "Updated render, public guides and verified publication",
+    "English public documentation, viewer and current CAD presentation; illustrated parts guide with technical references and verified Typeractive product links; unresolved substitutes identified"
+  ],
+  "limits": [
+    "No purchases, manufacture or firmware changes",
+    "Nominal component envelopes and stem seating; physical fit/travel and RF remain unverified",
+    "Existing PCB routing/DRC problems are not resolved by cosmetic covers"
+  ],
+  "additional_source_request": "organiza mejor la doc de partes para incluir links a datasheet, sitio con info completa e imagenes inline y en inglés para todo. Y para mi dame los links de https://typeractive.xyz/",
+  "overall_hardware_status": "partial",
+  "evidence": [
+    "validation/revG-keycaps.json",
+    "validation/revG-mechanical.json",
+    "validation/revG-freecad.json",
+    "validation/revG-viewer.json",
+    "validation/revG-render.json",
+    "validation/revG-review.json",
+    "validation/revG-parts-links.json"
+  ]
+}

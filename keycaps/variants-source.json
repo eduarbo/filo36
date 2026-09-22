@@ -1,0 +1,272 @@
+{
+  "upstream": "https://github.com/braindefender/KLP-Lame-Keycaps",
+  "commit": "4a67a824232d3054c61599ea047c56a340faaba2",
+  "files": [
+    {
+      "source": "STL/Choc Stem + Choc Size/90 deg Rotated/Choc_Stem_Choc_Size_Normal_90deg.stl",
+      "sha256": "a6deb4abac72914e12b16a10061c65f84d15fd3e8990c98490443289f8047eeb",
+      "git_blob": "7c0af1c157e03fe69dd23934956a4d8dc6b86e0d",
+      "bytes": 1962484,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/90 deg Rotated/Choc_Stem_Choc_Size_Normal_Homing_90deg.stl",
+      "sha256": "2cb6e93f80298eb185f81dd4d19ee3efa76542b7f31994285478d6fd06616280",
+      "git_blob": "f4d9f41a4ba28db30211520419c29fb9cc950bf4",
+      "bytes": 1935884,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_Homing_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/90 deg Rotated/Choc_Stem_Choc_Size_Normal_Tilted_90deg.stl",
+      "sha256": "c75c5c245360a674c3456749d278aad42b13814ca8aaa4ce9fce6f26e8dbf004",
+      "git_blob": "a475856573c22cba12cfcb59d863fb205b0fa256",
+      "bytes": 2050684,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_Tilted_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/90 deg Rotated/Choc_Stem_Choc_Size_Saddle_90deg.stl",
+      "sha256": "b7a940d3a2ef0d317213508fcb43538d95e3251f03449c16df862ff3c46dd3de",
+      "git_blob": "a4993da1e57d996cf18e42eedb286f0a6d4ca854",
+      "bytes": 1765784,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/90 deg Rotated/Choc_Stem_Choc_Size_Saddle_Homing_90deg.stl",
+      "sha256": "51afd2b2064a59bfb4734c41a52ea2f956391e2104474edda3efdf4140168100",
+      "git_blob": "dcdcba70d1594e3e349ca1282cfb159401d58f89",
+      "bytes": 1804184,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_Homing_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/90 deg Rotated/Choc_Stem_Choc_Size_Saddle_Tilted_90deg.stl",
+      "sha256": "c2030a0608ae886af36f229f38cff43ea1bbc1aebd01983a2d26d3a4745df068",
+      "git_blob": "80f0b80933dfdbeb885b9815d5326e7e48e99b27",
+      "bytes": 1908484,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_Tilted_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/90 deg Rotated/Choc_Stem_Choc_Size_Thumb_90deg.stl",
+      "sha256": "fadfca2053db5e04a9981b7b9b33a825d19908de6ca4743aafd8ae2e31bed373",
+      "git_blob": "802f45287d49a334b6900cdd8f91ac87397c204a",
+      "bytes": 1869284,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Thumb_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_1.5U_Normal.stl",
+      "sha256": "7622bfc457d1159ff214f921edd397071c8bbe5266ec2a216fdc0d75f242d1ed",
+      "git_blob": "d75b14e3e8469f77c404b22206d8af14b6ca2d47",
+      "bytes": 1931184,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_1.5U_Normal.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_1.5U_Saddle_H.stl",
+      "sha256": "9b8c922fed930b1406bda08e8217177e31b894b9fb8e765459ff828f2f9c1cd0",
+      "git_blob": "39f0b0f4397959551ca78af37e86bc0c31123024",
+      "bytes": 1704184,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_1.5U_Saddle_H.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_1.5U_Saddle_V.stl",
+      "sha256": "9b7374b9c50732bea1cad302259ee3858d30a497c893bbef65acfd205e045fdf",
+      "git_blob": "aa63103b8441b3491abedfe3e614fa04ede27186",
+      "bytes": 1684584,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_1.5U_Saddle_V.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_1.5U_Thumb_H.stl",
+      "sha256": "c46e091008834d799a0d91573706bb51b232d49a6c436529f7bcaa00884ab8f8",
+      "git_blob": "a9f51ef77d306ec2e7e423b4d50bffcd8f7fad97",
+      "bytes": 1818484,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_1.5U_Thumb_H.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_1.5U_Thumb_V.stl",
+      "sha256": "e748c7591ddc0c5440a4de82434c07e1c7d9e09d509fef1a42c7042b88f92357",
+      "git_blob": "3c986ec7c7845e48b49ffa0fe2163e74ff34303e",
+      "bytes": 1809284,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_1.5U_Thumb_V.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Normal.stl",
+      "sha256": "2e4110f314d848bbacc23585e3002b648e5eb094501d98d206db821867381a53",
+      "git_blob": "a1cc49eb9c93e2cbf57bf718436fb1f6022564f6",
+      "bytes": 1962484,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Normal_Homing.stl",
+      "sha256": "ef7c5c9940daf78d8a8fd95efc2a9772a37394e26b74d56319f4b5b7609ea441",
+      "git_blob": "c788aba073954674153f8a936ec08be2eeaa18ce",
+      "bytes": 1935884,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_Homing.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Normal_Tilted.stl",
+      "sha256": "03fa50d76416d226904fab95c5a3ded3663f6b5bafaff695683d8fa7979ecf8d",
+      "git_blob": "c5369244924865c9e12b5005c044fbdfa9f78062",
+      "bytes": 2050684,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal_Tilted.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Saddle.stl",
+      "sha256": "53e3d75f5dd1bd60d82d617df20fdc05651ef21efb9464e8d5ee297e50b9667d",
+      "git_blob": "40198eb488a2a6b5c42ab68ba8f4766ecfd9d147",
+      "bytes": 1765784,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Saddle_Homing.stl",
+      "sha256": "c399efe2a89ee1478254273e0a2bf2bcbaa2bdb57c1cb264390ee63f906c047a",
+      "git_blob": "f4ee9d9786f355fcd84580117ea8e53692f7e69b",
+      "bytes": 1804184,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_Homing.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Saddle_Tilted.stl",
+      "sha256": "59457a575470c5672c8c9d766a739fefab06dc1f082b34887287eb4f392b2f4f",
+      "git_blob": "5bc498045396c900e01db4cd886c250828a1f857",
+      "bytes": 1908484,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Saddle_Tilted.stl"
+    },
+    {
+      "source": "STL/Choc Stem + Choc Size/Choc_Stem_Choc_Size_Thumb.stl",
+      "sha256": "20e8239ce4836e22906220a39ae17a55e584107240a0b00571f4132b9e26054c",
+      "git_blob": "de73ab8e8f0010fa54c08281b1b9893aaddaafd2",
+      "bytes": 1869284,
+      "path": "keycaps/variants/Choc_Stem_Choc_Size_Thumb.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/90 deg Rotated/Choc_Stem_MX_Size_Normal_90deg.stl",
+      "sha256": "724f857b14c97660fc11a745964e7445e4b0a160b6187b5228efd1e441dc085b",
+      "git_blob": "b8c2a6dbcc7b7fee95d8c841295225390f830e36",
+      "bytes": 2075084,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/90 deg Rotated/Choc_Stem_MX_Size_Normal_Homing_90deg.stl",
+      "sha256": "cbdede3fbc0ce215fe0f3b4821fcadbeb66d5f0d0c3a36b33e3a665004b553ae",
+      "git_blob": "ef72f4929e9db711d6e9cadb73f7e13a7161a5c2",
+      "bytes": 2038084,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_Homing_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/90 deg Rotated/Choc_Stem_MX_Size_Normal_Tilted_90deg.stl",
+      "sha256": "5261a017cdd9db33e605399986ac2acce60fecc41dd37a67745b2b4f2012a1fd",
+      "git_blob": "ac40ece01ad15dfbf7215bb4b4e8c71431d0913e",
+      "bytes": 2058184,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_Tilted_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/90 deg Rotated/Choc_Stem_MX_Size_Saddle_90deg.stl",
+      "sha256": "05f9101d5d45c62d8b7b6904df7a1b6aaf13a8ac455a7b555d5e1e8ce6213a3b",
+      "git_blob": "cae865c38750517e38571f7f82a768a4273fb62b",
+      "bytes": 1873584,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/90 deg Rotated/Choc_Stem_MX_Size_Saddle_Homing_90deg.stl",
+      "sha256": "946f1a996b59fff5d659bc4c3d4af6962fee3097cc4731fe884df844a7731743",
+      "git_blob": "c9b129abf4c9e4e5bc30f26d779ef781a15e3d79",
+      "bytes": 1910584,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_Homing_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/90 deg Rotated/Choc_Stem_MX_Size_Saddle_Tilted_90deg.stl",
+      "sha256": "c5b623ff9a9df2470eaceaec34796ac2859cc4bd02e2ea130c8ccb9feeb30c26",
+      "git_blob": "4d176e79f640cbe4abf300589123ad257ee3135d",
+      "bytes": 2233284,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_Tilted_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/90 deg Rotated/Choc_Stem_MX_Size_Thumb_90deg.stl",
+      "sha256": "45884c2db33a15e3cf5b3c3aac6a5cf5c762d4529233709955738a4c0f0097ed",
+      "git_blob": "373a7a2d5ee8dfe4bbcc21a63f9638e3512eb7a6",
+      "bytes": 1970084,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Thumb_90deg.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_1.5U_Normal.stl",
+      "sha256": "648782b2d1a6349846db4afe00fc6eff8a049976bc692def0e22112a4872b8bd",
+      "git_blob": "c5a23f90359ffb86621c287f56ef14391914bb85",
+      "bytes": 1842084,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_1.5U_Normal.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_1.5U_Saddle_H.stl",
+      "sha256": "8097a7af2ef2bcc7a15a1fc9bf7fc6df95ea608a10ea3eed75b9c0d23426cf3c",
+      "git_blob": "8d3e89cf9cccd94f33f4b1f1357e444581c2e410",
+      "bytes": 1621784,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_1.5U_Saddle_H.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_1.5U_Saddle_V.stl",
+      "sha256": "e66033203c6e12672b89341c2e75c05d1abf23081649644e32f67a83d291c422",
+      "git_blob": "645a20bee28c2f020542608d9e8a1f69343cc7e8",
+      "bytes": 1607784,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_1.5U_Saddle_V.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_1.5U_Thumb_H.stl",
+      "sha256": "90a1e697aea6ce2cf7939280f63671bed287d7093f7b515c172a32566c8de084",
+      "git_blob": "1b4bf654286b3ffc86f86e86c9079dc5eb657b40",
+      "bytes": 1741684,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_1.5U_Thumb_H.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_1.5U_Thumb_V.stl",
+      "sha256": "300733a2a58b16b222acca385ace154601ac6f689d311c1f603e30a934e5748f",
+      "git_blob": "735fc2bb6fc5d0b25619d7c679f04cf195339b92",
+      "bytes": 1731984,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_1.5U_Thumb_V.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_Normal.stl",
+      "sha256": "1499d70bdd1ca0efd8c9ce50d8bd179a2ca85f17fc6af7f97105279015199712",
+      "git_blob": "e8f2bdd26a1c4f0a176b181417fe9127f6785aa7",
+      "bytes": 2075084,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_Normal_Homing.stl",
+      "sha256": "895d4cbb3db780da7e947b6ad035c0013799df066ee262721365c3724e8f3a98",
+      "git_blob": "8fffbd10934b5b4fbbb6c635387f549eb8ce6753",
+      "bytes": 2038084,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_Homing.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_Normal_Tilted.stl",
+      "sha256": "a6b0d6ade5f38eab16ad8b1dace8d658df87f4a255eb3f1de819ed2485757eb9",
+      "git_blob": "9e9f435bcfc801830b9f327c203c90f8491d0371",
+      "bytes": 2058184,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Normal_Tilted.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_Saddle.stl",
+      "sha256": "2ee598afe3835aa5d76888ced84a803769d492f7da9a83a557bfec4e967c5af0",
+      "git_blob": "ea28fcc1e3d2aa68771f0a46e065945b02aa964c",
+      "bytes": 1873584,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_Saddle_Homing.stl",
+      "sha256": "c57b1b8fa2a1ca25ffd2d1c5aaa23902fa50f39e6236a31d33aa3de1610b9f4c",
+      "git_blob": "a1e9844912aa53466e957c78b813fbb3900cdef6",
+      "bytes": 1910584,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_Homing.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_Saddle_Tilted.stl",
+      "sha256": "d1c78001dbaa44784197fe71c1c9219ed1f433794646e1c48ca926317678a2b5",
+      "git_blob": "c7f8368477520f9e33715e77074649dd63f87ef9",
+      "bytes": 2233284,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Saddle_Tilted.stl"
+    },
+    {
+      "source": "STL/Choc Stem + MX Size/Choc_Stem_MX_Size_Thumb.stl",
+      "sha256": "046c67773c539c11883b248de156e4659890c90d6220c20f5f457ca717e540b6",
+      "git_blob": "552d4fa123fb3d8e714dea63750cd3e95305d6d5",
+      "bytes": 1970084,
+      "path": "keycaps/variants/Choc_Stem_MX_Size_Thumb.stl"
+    }
+  ]
+}

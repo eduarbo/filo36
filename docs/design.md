@@ -1,50 +1,40 @@
-# Diseño
+# Design
 
-El objetivo es un split pequeño, angular y fácil de mantener. Reducir la electrónica no debe cambiar la posición de las teclas ni engordar toda la carcasa.
+Keep Piantor’s angles, a thin key area and serviceable electronics.
 
-| Decisión | Motivo |
+| Choice | Reason |
 |---|---|
-| 3 × 5 + 3 teclas por mitad | Se elimina la columna exterior; los otros centros y ángulos no cambian |
-| Choc v1 hot-swap | Perfil bajo y switches reemplazables |
-| Dos nice!nano v2 + ZMK | Bluetooth entre mitades y al equipo; USB-C para cargar y programar |
-| Batería estrecha bajo el micro | Reduce el ancho de la bahía; aumenta la altura local de la electrónica |
-| Pantalla sobre el micro | Evita añadir otra zona lateral |
-| Marco electrónico abierto | Acceso al USB y módulos; laterales visibles |
+| 3 × 5 + 3 keys per half | Remove the unused outer column without changing the remaining centers or angles |
+| Choc v1 hot-swap | Low-profile, replaceable switches |
+| Two nice!nano controllers, intended ZMK firmware | Wireless halves and host connection; USB-C for charging/programming |
+| Battery below controller, display above | Concentrate electronics in the existing 24 mm bay |
+| Independent internal supports | Neither the battery pouch nor display glass carries the stack |
+| Interchangeable opaque display frames | Hide the stack and customize its appearance without moving keys |
 
-## El stack en desarrollo
+## The stack
 
-De abajo hacia arriba: PCB principal, cuna aislante con batería rebajada en una abertura del PCB, micro socketado y pantalla extraíble. La batería no soporta el peso ni la presión de otros componentes.
+The battery cradle sits through an actual PCB opening. The controller and display have separate supports above it. The model uses an Adafruit 1570 nominal envelope of **11.5 × 31 × 3.8 mm**. Its original cable and connector still need a verified routing path. [Battery source and alternatives](parts.md#battery).
 
-El candidato es una LiPo protegida Adafruit 1570 de 100 mAh, de 11,5 × 31 × 3,8 mm. Su cable original de 105 mm y el conector también tienen que caber. El CAD actual tiene una bahía de **24 mm**, marco abierto de **16,6 mm** y plate de **7,6 mm**. Son dimensiones del modelo; el cableado, tolerancias y ajuste de componentes recibidos siguen pendientes. La zona de teclas se mantiene baja.
+The current case is about **126.2 × 94.5 mm per half**; the thumb positions still determine much of its width. The key plate stays at **7.6 mm**, with only the electronics cover reaching **16.6 mm**. Feet add an illustrative 1.2 mm.
 
-La revisión anterior tenía una bahía de 33,52 mm y batería de 150 mAh situada a un lado del micro. Pasar a 100 mAh reduce la capacidad nominal un tercio. La autonomía todavía no está medida. El ancho máximo de cada mitad también depende del pulgar: estrechar la bahía no reduce necesariamente ese máximo en la misma cantidad.
+The earlier wide side-by-side layout was discarded. RevF introduced the recessed battery and open rails; revG keeps that placement but replaces the rails with opaque covers. [Frame interface and KLP options](customize.md).
 
-## Una o dos pantallas
+## One or two displays
 
-La propuesta usa dos nice!view. ZMK ya contempla pantalla central y periférica: la izquierda puede mostrar el estado principal; la derecha, batería y conexión propias. No se promete un espejo de capas en la derecha. Si integrar la segunda complica demasiado el montaje, la variante inicial llevará sólo la izquierda.
+The CAD shows two nice!view displays; one on the left remains the fallback if integration becomes impractical. The intended central display shows primary keyboard state. A peripheral display may show its own battery/link state; mirrored layer information is not promised. [nice!view setup](https://nicekeyboards.com/docs/nice-view/getting-started/).
 
-nice!view es una LCD reflectiva de memoria de bajo consumo. Una OLED ofrece más contraste en oscuridad, pero demanda más energía. La tinta electrónica consume poco manteniendo una imagen y actualiza más despacio; necesitaría otro montaje y soporte de firmware. Ninguna es intercambiable sin revisar circuito y carcasa.
+nice!view is a reflective memory LCD. OLED improves dark-room visibility but uses more power; e-paper favors mostly static images and needs different mounting and firmware. These are alternatives to redesign around, not drop-in replacements. [Display specifications](https://nicekeyboards.com/docs/nice-view/).
 
-## Qué significa modular
+## Modularity
 
-Switches en sockets, micro y pantalla en conectores extraíbles, batería con conector y carcasa atornillada. El montaje inicial sigue requiriendo soldar sockets y componentes de PCB. El mantenimiento de la electrónica se hace apagada, con USB retirado; no se propone conexión en caliente de los módulos.
+Switch sockets, removable controller/display connectors, a battery connector and screws allow servicing after initial soldering. The frames are separate from the display support. Service electronics with power off and USB disconnected; removable connectors are not a proposal for live module hot-plugging.
 
-Fuentes: [nice!nano](https://nicekeyboards.com/docs/nice-nano/), [nice!view](https://nicekeyboards.com/docs/nice-view/), [configuración de pantalla en ZMK](https://nicekeyboards.com/docs/nice-view/getting-started/), [batería 1570](https://www.adafruit.com/product/1570).
+## CAD views
 
-## Editar el conjunto
+![RevG top view with 36 KLP Lamé keycaps and two display frames](images/revG-top.png)
 
-Usamos **KiCad + FreeCAD + StepUp**, gratuitos. [Guía con ejemplos](freecad.md). El FCStd conserva croquis, operaciones, parámetros y piezas independientes; el circuito permanece editable en KiCad.
+![RevG side profile](images/revG-side.png)
 
-## Vistas del CAD
+![RevG exploded stack with removable opaque cover](images/revG-stack.png)
 
-![Vista superior revF con 36 teclas y dos pantallas](images/revF-top.png)
-
-La bahía pasa de 33,52 a 24 mm. No cambian las posiciones ni las rotaciones de las teclas.
-
-![Perfil lateral de la mitad izquierda](images/revF-side.png)
-
-El stack ocupa altura local: 16,6 mm en el marco y 7,6 mm hasta el plate. Las patas añaden 1,2 mm en esta representación.
-
-![Stack de la mitad izquierda desmontado](images/revF-stack.png)
-
-Batería debajo del micro, pantalla encima y marco separado. La PCB tiene abertura de batería y taladros, pero sigue sin ruteo y la electrónica usa volúmenes nominales; no son modelos de fabricación del proveedor. El cable original de batería, sus radios de curvatura, contactos y retención final aún no están resueltos. [Archivos y límites del estudio](cad.md).
+These views come from the exported geometry. Electronics, switch bodies, keycap seating, screws and feet are nominal references. No physical assembly or functioning keyboard is established by the renders. [Source files and remaining work](cad.md).

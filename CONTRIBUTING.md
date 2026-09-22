@@ -1,15 +1,11 @@
-# Colaborar
+# Contributing
 
-Ideas, dudas y resultados de pruebas son bienvenidos en Issues.
+Ideas, questions and physical test results are welcome in Issues.
 
-Para reportar un problema, incluye revisión, pieza afectada, comportamiento esperado y observado. Si es mecánico, añade medidas y parámetros de impresión. Si es firmware, indica micro, versión y pasos para repetirlo.
+Include the revision, affected part, expected behavior and observed result. For mechanical issues, add measurements and print settings; for firmware, include the controller, version and reproduction steps.
 
-Las contribuciones deben conservar los centros y ángulos del layout de 36 teclas, salvo que propongan explícitamente otra variante. Separa medidas reales de estimaciones y de renders.
+Preserve the 36-key centers and angles unless explicitly proposing a different layout. Distinguish measurements, estimates and renders. Keep documentation in English, concise and focused on what changed, why and how it was checked. Preserve upstream authorship and licenses. Do not label experimental files as manufacturing-ready.
 
-Mantén la documentación breve: qué cambia, por qué y cómo se comprobó. Conserva la procedencia y licencia de cualquier archivo externo. No presentes archivos experimentales como listos para fabricar.
+Use [FreeCAD + KiCad + StepUp](docs/freecad.md). Save mechanical work in a copy of the FCStd and include that editable source with its dimensions; STL or a render alone loses the design history. Test StepUp on a PCB copy and compare centers, angles, outlines, holes and DRC afterward. Never run the reference generator over a hand-edited FCStd.
 
-Usamos [FreeCAD + KiCad + StepUp](docs/freecad.md). Guarda las modificaciones
-mecánicas en una copia del FCStd y adjunta el archivo editable y sus cotas; un
-STL o render solo no conserva el diseño. Trabaja sobre una copia de PCB al probar
-StepUp y verifica centros, ángulos, contorno, taladros y DRC después del intercambio.
-No ejecutes el generador inicial sobre un FCStd editado a mano.
+For keycap/frame contributions, include the complete configuration, source hashes and clearance results. A visually plausible combination must also pass the configuration checker. New frame geometry requires a new collision check and updated exported/viewer meshes.

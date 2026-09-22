@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import crypto from 'node:crypto';
+import {gzipSync} from 'node:zlib';
 import {Script} from 'node:vm';
 import {build} from 'esbuild';
 
@@ -17,17 +18,17 @@ const license=fs.readFileSync(path.join(here,'node_modules/three/LICENSE'),'utf8
 fs.writeFileSync(path.join(root,'LICENSES/Three-MIT.txt'),license);
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const licenses=['LICENSE','LICENSES/CC-BY-SA-4.0.txt','LICENSES/Three-MIT.txt'].map(p=>`<h3>${p}</h3><pre>${escape(fs.readFileSync(path.join(root,p),'utf8'))}</pre>`).join('');
-const credits=`<p>Filo36: Eduardo Ruiz. CAD derivado de Piantor (beekeeb, GPL-3.0). KLP Lamé de braindefender, CC-BY-SA-4.0, commit 4a67a824232d3054c61599ea047c56a340faaba2; mallas intactas, colocadas y coloreadas. Three.js 0.180.0: MIT. Código fuente y avisos completos: <a href="https://github.com/eduarbo/filo36">github.com/eduarbo/filo36</a>.</p>`;
+const credits=`<p>Filo36: Eduardo Ruiz. CAD derived from Piantor (beekeeb, GPL-3.0). KLP Lamé by braindefender, CC-BY-SA-4.0, commit 4a67a824232d3054c61599ea047c56a340faaba2; unchanged meshes, placed and colored. Three.js 0.180.0: MIT. Source code and full notices: <a href="https://github.com/eduarbo/filo36">github.com/eduarbo/filo36</a>.</p>`;
 const template=fs.readFileSync(path.join(here,'template.html'),'utf8');
 const html=template.replace('/*__STYLE__*/',()=>fs.readFileSync(path.join(here,'style.css'),'utf8'))
   .replace('<!--__LICENSES__-->',()=>credits+licenses)
-  .replace('/*__DATA__*/',()=>JSON.stringify(scene).replaceAll('<','\\u003c'))
+  .replace('/*__DATA__*/',()=>gzipSync(Buffer.from(JSON.stringify(scene)),{level:9}).toString('base64'))
   .replace('/*__APP__*/',()=>bundle.outputFiles[0].text.replaceAll('</script','<\\/script'))
   .replaceAll('\r\n','\n');
 new Script([...html.matchAll(/<script(?: [^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)[1]);
 fs.writeFileSync(path.join(root,'docs/index.html'),html);
 fs.writeFileSync(path.join(root,'docs/.nojekyll'),'');
-const sources=[...scene.sources,...['viewer/app.js','viewer/style.css','viewer/template.html','viewer/build.mjs','viewer/package-lock.json'].map(p=>({path:p,sha256:hash(p)}))];
+const sources=[...scene.sources,...['viewer/app.js','viewer/config.js','viewer/style.css','viewer/template.html','viewer/build.mjs','viewer/package-lock.json'].map(p=>({path:p,sha256:hash(p)}))];
 const receipt={revision:scene.revision,units:'mm',objects:scene.parts.length,unique_meshes:Object.keys(scene.geometries).length,
   keycaps:scene.parts.filter(p=>p.group==='keycaps').length,geometry_changed:false,
   sources,viewer_sha256:hash('docs/index.html'),measurements:scene.measurements,

@@ -1,29 +1,20 @@
-# Revisión del estudio editable
+# Historical revF editable-study review
 
-**Alcance:** CAD editable y visualización revF. No aprobación de fabricación.
-Dos revisiones independientes examinaron geometría, flujo CAD/ECAD y riesgos;
-una segunda ronda contrastó la batería rebajada y el marco abierto.
+**Scope: revF editable CAD and visualization, not manufacturing approval.**
+Two independent reviews examined geometry, the CAD/ECAD workflow and risks; a second round compared the recessed battery and open frame proposal.
 
-| Hallazgo | Resolución / estado |
+| Finding | Resolution / remaining state at revF |
 |---|---|
-| Mover el micro sin bajar la batería cruza el USB con la celda | Se rebaja la cuna dentro de una abertura real del PCB; separación nominal celda/USB 1,4 mm |
-| Pantalla, header, JST y apoyos pueden cruzarse al alinearlos | Soportes reconstruidos desde el PCB; JST, reset e interruptor recolocados; sin intersecciones entre sólidos modelados |
-| Importar STEP no entrega una carcasa paramétrica | FCStd con croquis, operaciones y tabla de parámetros; edición, guardado y reapertura probados |
-| Márgenes pequeños de abertura y cobre | 0,15 mm cuna/abertura; 0,22 mm pad/borde. DRC detecta incumplimiento de la regla de 0,5 mm. Se conserva y publica como pendiente |
-| No confundir marco corto con menor ancho total | Ancho máximo ≈126,2 mm; profundidad ≈94,5 mm; marco 16,6 mm |
-| Saliente cero sin margen de tolerancias | USB sólo 0,045 mm detrás de la keycap vecina en planta; alineación nominal, no garantía física |
-| Retenedor y piezas extraíbles sin prueba de servicio | Fijación, cable, recorridos de extracción y encaje siguen pendientes |
+| Moving the controller without lowering the battery intersects USB and cell | Cradle lowered through a real PCB opening; nominal cell/USB separation 1.4 mm |
+| Display, header, JST and supports can overlap after alignment | Supports rebuilt from PCB level; JST/reset/power switch relocated; modeled solids separated |
+| STEP import does not deliver parametric case editing | Native FCStd with sketches, operations and parameters; edit/save/reopen tested |
+| Small opening and copper margins | 0.15 mm cradle/opening; 0.22 mm pad/edge. DRC fails the configured 0.5 mm rule; retained as unresolved |
+| Shorter frame does not imply smaller total width | Width ≈126.2 mm; depth ≈94.5 mm; frame top 16.6 mm |
+| Zero overhang lacks tolerance allowance | USB only 0.045 mm behind the neighboring cap in plan; nominal alignment, not physical guarantee |
+| Retainer and removable parts lack service tests | Fastening, wiring, removal paths and fit remain open |
 
-Las recomendaciones coincidieron en permitir el estudio local y su publicación
-con evidencia digital y límites explícitos. Las objeciones de fabricación no
-quedan resueltas por la publicación. Las revisiones fueron de lectura; los ocho
-archivos del baseline se conservaron durante ambas rondas antes de las ediciones
-atribuibles del autor.
+Both reviewers supported publishing the study with digital evidence and explicit limits. Manufacturing objections remained unresolved. Eight baseline files retained their hashes during both review rounds before attributable edits began.
 
-## Corrección y prevención acotada
+The previous STEP assembly allowed inspection but lacked the needed parametric editing. RevF added FCStd source and edit/reopen checks. Images and viewer inputs were linked by hashes to detect stale representations. PCB/CAD comparison used real import and separate readback; a failed DRC was not relabeled as hardware approval.
 
-El conjunto STEP anterior permitía ver piezas, pero no cubría la edición manual
-paramétrica que ahora necesita el proyecto. RevF incorpora la fuente FCStd y
-comprobaciones de edición y reapertura. Portada, visor y archivos se vinculan por
-hashes para detectar una representación antigua. La PCB y el CAD se comparan
-mediante importación real, sin convertir un DRC fallido en aprobación de hardware.
+RevG subsequently adds separate keycap-envelope checks: revF solid intersection checks did not cover the KLP meshes. [Current review](revG-review.md).

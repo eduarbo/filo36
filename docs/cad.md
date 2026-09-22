@@ -1,125 +1,84 @@
-# CAD editable y archivos 3D
+# Editable CAD and 3D files
 
-**[Guía FreeCAD + KiCad + StepUp](freecad.md)** · **[Visor 3D](https://eduarbo.github.io/filo36/)**
+**[Editing guide](freecad.md)** · **[3D configurator](https://eduarbo.github.io/filo36/)** · **[Configuration format and examples](customize.md)**
 
-La fuente mecánica actual es [`mechanical/revF/Filo36.FCStd`](../mechanical/revF/Filo36.FCStd).
-Contiene ambas mitades, parámetros, croquis y operaciones nativas; también las
-36 keycaps KLP Lamé como mallas y componentes comerciales como referencias nominales.
-No necesita CadQuery ni un módulo Python propio para reabrir y recalcular.
+The current mechanical source is [`mechanical/revG/Filo36.FCStd`](../mechanical/revG/Filo36.FCStd). It contains both halves, native sketches/operations, editable parameters and 36 original KLP meshes. Commercial modules are nominal envelopes. RevG retains the unchanged revF PCB studies.
 
-| Medida nominal | revE | revF |
+| Nominal measure | revF | revG |
 |---|---:|---:|
-| Altura de cubierta/marco | 19 mm | 16,6 mm |
-| Altura del vidrio de pantalla | 18,3 mm | 16,1 mm |
-| Altura hasta el plate | 7,6 mm | 7,6 mm |
-| Bahía electrónica | 24 mm | 24 mm |
-| Ancho máximo de carcasa por mitad | ≈126,2 mm | ≈126,2 mm |
-| Fondo máximo de carcasa | ≈97,7 mm | ≈94,5 mm |
-| Saliente electrónico norte sobre tecla vecina | 13,9 mm | 0 mm nominales |
+| Cover maximum height | 16.6 mm, open rails | 16.6 mm, opaque frame |
+| Display glass top | 16.1 mm | 16.1 mm |
+| Key plate top | 7.6 mm | 7.6 mm |
+| Electronics bay | 24 mm | 24 mm |
+| Case width × depth, each half | ≈126.2 × 94.5 mm | Unchanged |
+| North overhang past adjacent cap | 0 mm nominal | Unchanged |
 
-El ancho total sigue condicionado por el pulgar. Las alturas excluyen las patas
-ilustrativas de 1,2 mm. El USB es el elemento electrónico más al norte en revF:
-queda sólo **0,045 mm detrás** del borde nominal de la tecla vecina; esa alineación
-no tiene aún margen de tolerancia física. No equivale a una holgura entre piezas.
+Heights exclude the illustrative 1.2 mm feet. USB is only 0.045 mm behind the adjacent keycap’s north edge: this is a nominal alignment, not a physical tolerance guarantee.
 
-## Archivos
+## Files
 
-- `mechanical/revF/Filo36.FCStd`: conjunto completo editable.
-- `mechanical/revF/*-assembly.step`: sólidos por mitad para otros CAD; no incluyen las mallas KLP.
-- `mechanical/revF/*.step` y `*.stl`: piezas del estudio y envolventes identificadas.
-- `hardware/revF/`: dos proyectos KiCad, esquemáticos y PCB **sin rutas**; bibliotecas y modelos locales.
-- `docs/images/revF-*.png`: vistas calculadas desde las mallas exportadas.
-- Visor: descarga HTML offline o GLB con keycaps y objetos separados.
+- `mechanical/revG/Filo36.FCStd`: editable assembly.
+- `mechanical/revG/*-assembly.step`: installed solid parts per half; no KLP mesh bodies.
+- `mechanical/revG/*-frame-{smooth,bevel,facet}.{step,stl}`: all interchangeable cover styles.
+- `mechanical/revG/*.step`, `*.stl`: individual prototype parts and identified envelopes.
+- `keycaps/variants/`: all 38 unchanged Choc-stem KLP files, including unqualified study variants.
+- `keycaps/catalog.json`: provenance, actual stem axes, convex envelopes and qualification.
+- `design/configurations/`: default and two sculpted preset examples.
+- `hardware/revF/`: two KiCad projects, schematic/PCB placement, local libraries and models; **unrouted**.
+- `docs/images/revG-*.png`: renders calculated from exported meshes.
+- Viewer: self-contained offline HTML, active-configuration GLB and JSON downloads.
 
-Las piezas mantienen coordenadas de montaje. La orientación, tolerancias, soporte
-y parámetros del laminador no están validados para impresión.
+Parts retain assembly coordinates. Printing orientation, fit, fastener lengths and final slicing settings are not qualified. Historical revE/revF sources and receipts remain available for comparison. To rebuild an older viewer, use its historical Git commit; the current shared viewer code targets revG.
 
-## Reproducir la referencia
+## Rebuild the reference
 
-Para editar normalmente, guarda el FCStd. Los siguientes comandos son para
-reconstruir la referencia desde cero; **sobrescriben los artefactos revF** y no
-deben ejecutarse sobre cambios manuales que quieras conservar.
+These commands overwrite generated revG reference files. **Do not run them over a source you edited by hand.** Use a separate checkout for reconstruction and keep custom FCStd files elsewhere.
 
-Entorno comprobado: FreeCAD 1.1.3, KiCad 10.0.6 y StepUp 13.1.7 (metadatos del complemento: 11.09.6) en macOS arm64.
-El helper usa las aplicaciones ya instaladas; no instala dependencias ni cambia
-preferencias permanentes. La versión Mac usa una ventana Cocoa para la API GUI;
-el backend Qt offscreen de esa instalación falló al recomputar mallas. El helper
-omite la extensión opcional de desplegado `flatmesh` sólo en su propio proceso:
-ese módulo produjo un fallo al importarse desde el Python empaquetado de FreeCAD.
+Tested tooling: FreeCAD 1.1.3, KiCad 10.0.6, StepUp 13.1.7 (package metadata 11.09.6), Python with `tools/requirements-render.txt`, and Node dependencies fixed in `viewer/package-lock.json`.
 
 ```sh
-FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/build_native.py
-FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_native.py
-```
-
-`build_native.py` usa `design/revF-profiles.json`, los taladros y el layout. El
-exportador verifica sólidos, mallas cerradas e intersecciones nominales. El
-comprobador abre una copia, cambia altura y posición de pantalla, guarda, reabre
-y restaura; también exporta envolventes STEP locales para los footprints.
-
-`tools/sync_pcb_study.py` es un reinicio explícito de la colocación: no es un
-sincronizador de tus cambios manuales. Se niega a eliminar rutas existentes sin
-un argumento explícito. El trabajo cotidiano entre aplicaciones usa StepUp sobre
-copias y comparación posterior de centros, ángulos, contornos y taladros.
-
-Para renders y visor, instala `tools/requirements-render.txt` en un entorno Python
-propio y usa Node con `npm ci --prefix viewer`:
-
-```sh
-python tools/render_revF.py
-python tools/build_viewer_revF.py
+python -m pip install -r tools/requirements-render.txt
+npm ci --prefix viewer
+python tools/build_keycap_catalog.py
+python tools/check_revG_config.py
+FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/build_revG.py
+FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revG.py
+python tools/render_revG.py
+python tools/render_frames.py
+python tools/build_viewer_revG.py
 node viewer/build.mjs
-python tools/check_viewer_revF.py
-python tools/check_revF.py
+python tools/check_viewer_revG.py
+python3 tools/check_layout.py
 node viewer/check.cjs
+python3 tools/check_revG_delivery.py
 ```
 
-Las capturas y pruebas temporales se escriben en `build/`, ignorado por Git.
-Los recibos de `validation/revF-*` vinculan fuentes y resultados. Una regeneración
-puede variar metadatos STEP/FCStd; las comparaciones deben incluir geometría.
+The macOS helper uses an existing FreeCAD installation. It disables optional `flatmesh` only in its subprocess because that installed extension crashes on import; it does not modify application preferences. Cocoa is used because that runtime’s offscreen Qt backend failed on mesh recompute. On other systems, run the scripts through the equivalent installed FreeCAD Python environment.
 
-## Límites del estudio
+After an authorized publication, `python3 tools/check_public_delivery.py COMMIT_SHA` checks an anonymous full source ZIP against every Git blob and compares public Pages with that commit. Its ZIP and receipt are reproducible under `build/revG/`; it does not publish anything.
 
-La abertura deja 0,15 mm alrededor de la cuna y 0,22 mm nominales hasta pads del
-micro: incumple la regla actual de cobre a borde de **0,5 mm**. Falta resolver tolerancias de fresado, margen de cobre, cables, contactos,
-fijación del retenedor, resistencia y extracción física. La electrónica no tiene
-aceptación de funcionamiento ni de fabricación.
+The browser check needs Playwright and a Chromium-compatible browser. Set `FILO36_PLAYWRIGHT_MODULE` and `FILO36_BROWSER` if they are not on the usual path. It tests the generated file with HTTP(S) requests blocked; `FILO36_VIEWER_URL` instead selects the published URL.
 
-RevE permanece en `mechanical/revE/`, `design/revE.json` y sus cuatro imágenes.
-Su fuente histórica sigue siendo CadQuery (`tools/build_case.py`); no es la
-revisión editable recomendada ni corresponde al PCB revF.
+The native configuration test also uses the scoped subprocess exit after its assertions, file writes and save/reopen readback to avoid the same Qt teardown crash. It does not suppress failed assertions or change installed FreeCAD.
 
-Para comprobar el intercambio real (sólo modifica copias bajo `build/`):
+The catalog build verifies SHA-256 and Git blob hashes of every pinned upstream STL. The geometry exporter checks closed printable solids, pair intersections and all three cover variants against components and a nominal USB plug corridor. The separate keycap checker includes complete-configuration envelopes and a travel/plate bound. Source hashes and results are under `validation/revG-*`.
+
+`build/` is ignored and reproducible: native save/reopen trials come from `check_revG.py`; screenshots, test GLB/JSON and UI receipts from `viewer/check.cjs`; the viewer scene from `build_viewer_revG.py`. Source generations should be compared geometrically because STEP/FCStd metadata may vary.
+
+## PCB exchange
+
+RevG does not alter electrical files. The verified StepUp procedure and coordinate alignment are described in [the editing guide](freecad.md#3-inspect-the-pcb-with-stepup). To rerun the historical exchange test on temporary copies:
 
 ```sh
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_stepup.py
 ```
 
-El harness de StepUp evita la finalización de Qt únicamente al salir de su
-subproceso: esa combinación falla al destruir la GUI después de guardar. Todos
-los archivos se cierran antes; la aceptación exige el readback independiente en
-KiCad, no sólo el código de salida. FreeCAD instalado no se modifica.
+Then run `tools/check_stepup_readback.py` with KiCad’s Python. The StepUp harness exits its own GUI subprocess after saving because that runtime crashes during Qt teardown; independent KiCad readback is required. The test must change only the example opening edge, without altering key positions, pads, connectivity or the outer contour.
 
-La prueba usa el cargador de PCB normal de StepUp, incluye los modelos virtuales
-y compara los sólidos tras alinear el origen. Para booleanas entre contornos
-redondeados por KiCad se emplea tolerancia numérica de 0,00001 mm. El readback
-en KiCad debe confirmar el cambio de 0,5 mm del ejemplo y ningún cambio de
-footprints, pads, conexiones, taladros ni contorno exterior.
+`tools/sync_pcb_study.py` resets reference placement; it is not an automatic synchronizer for hand-edited designs. Never use it to discard routing. The current electrical receipt remains [revF-electrical.json](../validation/revF-electrical.json).
 
-En macOS, el readback y la comprobación eléctrica usan el Python de KiCad:
+## Remaining hardware work
 
-```sh
-KCLI=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
-KPY=/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/bin/python3
-for side in left right; do
-  "$KCLI" sch export netlist --format kicadxml -o "build/$side-netlist.xml" "hardware/revF/filo36-$side.kicad_sch"
-  "$KCLI" sch erc --format json -o "build/erc-$side.json" "hardware/revF/filo36-$side.kicad_sch"
-  "$KCLI" pcb drc --format json -o "build/drc-$side.json" "hardware/revF/filo36-$side.kicad_pcb"
-done
-"$KPY" tools/check_pcb_study.py
-"$KPY" tools/check_stepup_readback.py
-```
+The cradle opening has 0.15 mm nominal clearance per side and about 0.22 mm to nearby pads, failing the configured 0.5 mm copper-to-edge rule. Both boards have 104 unconnected items; other edge, courtyard and silkscreen findings remain. Do not lower the rules to turn this into a manufacturing approval.
 
-El DRC **debe seguir mostrando los pendientes documentados** hasta corregirlos;
-que los archivos y el intercambio sean válidos no significa que el circuito esté
-terminado. En otros sistemas, usa los ejecutables de tu instalación equivalente.
+Cables, precise sockets/contact lengths, retention, printed fits, keycap insertion, screw access with real tools, RF behavior under covers, charging and power consumption still require verification. The new caps/frames do not close those requirements.
