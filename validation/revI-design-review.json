@@ -1,0 +1,122 @@
+{
+  "baseline_commit": "ef46651ed3550d4679ffe7ae34429d6d26ddc303",
+  "source_snapshot": [
+    {
+      "path": "tools/build_revH_profiles.py",
+      "sha256": "1fcc7b94432d2eb0aaed24d3aa0fd861f0de1255f5a27d673cf3d707e7775246"
+    },
+    {
+      "path": "tools/freecad/build_revH.py",
+      "sha256": "c5428157819f50ac4ade624a8b9e4338f8aa890239d60837b1458f653af5bd96"
+    },
+    {
+      "path": "tools/freecad/export_revH.py",
+      "sha256": "f460271265697d55556c16872ed6388473ba4819e2df250a6a9bdbc35332ef69"
+    },
+    {
+      "path": "tools/build_revH_pcb.py",
+      "sha256": "0009d3689c0a1828d6885bf4fe43a31f8917110bb77bcd65eacfeabb7f4f3b4d"
+    },
+    {
+      "path": "tools/check_revH_pcb.py",
+      "sha256": "b8ddc0d67ea0699cb0dadaa15be23c2cbbf08cfb55b9b6d4306f2d1f63709913"
+    },
+    {
+      "path": "tools/build_viewer_revH.py",
+      "sha256": "50ac574d2d396c286f780b0c23c5cfaa7ff306fec704a402f7281c77311c5e63"
+    },
+    {
+      "path": "design/layout.json",
+      "sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3"
+    },
+    {
+      "path": "design/revH-profiles.json",
+      "sha256": "e5d3c7988c03da4f363a640a3d078e8257e0410085abb5de7d2a219d5531f79d"
+    },
+    {
+      "path": "design/revF-drills.json",
+      "sha256": "45102215a31b972fbf4855127f7e62219f9de2c416f0d7298af7ca26ff7c380a"
+    },
+    {
+      "path": "hardware/revH/filo36-left.kicad_pcb",
+      "sha256": "cf970c76f35edb37729363b6fa9aebf483fceb450a0f5a3165f85cd12f4608c6"
+    },
+    {
+      "path": "docs/parts.md",
+      "sha256": "55db311b3660ac08046366cbdd0eaa7a208be1fa910f3afcc5e460851feefc40"
+    },
+    {
+      "path": "docs/cad.md",
+      "sha256": "8973825f6a89ba75ad413c5b4a0e03b390bc13d4d18cb845cfd6e454dbe81c40"
+    },
+    {
+      "path": "tools/freecad/build_revI.py",
+      "sha256": "6b6895a2174ccb1e9969b1138ceaa548febf7d0230af8672beb953d2046988ae"
+    },
+    {
+      "path": "tools/build_revI_profiles.py",
+      "sha256": "4948c34ed71be83423e337f5037d2f55d28179bc76de22380cd1e7e1b917e61b"
+    },
+    {
+      "path": "design/revI-profiles.json",
+      "sha256": "4b9ea88422c903b1c817aeee7137ec5536ddf38d340859e038741a0d05343d5e"
+    },
+    {
+      "path": "design/revI-mounts.json",
+      "sha256": "839557f6a734cb13befd6a49767387b8f9f8e4228ff9f3af2c07241ea9a3b949"
+    },
+    {
+      "path": "design/batteries.json",
+      "sha256": "4017cdce7b2581979850df3982f129c561911eeafa8df97f2af7cf2109300f36"
+    },
+    {
+      "path": "design/revI-request.json",
+      "sha256": "41141cb9c0606c78ee4f32cbc19baf7edd109bea960dfa897cefe8158b559f00"
+    }
+  ],
+  "reviewers": [
+    "contour_mechanical_review",
+    "contour_reliability_review"
+  ],
+  "decision": "Contour R0.8, internal five structural screws, three captive magnetic frame stations and low dual-battery saddle/cage. Digital study only.",
+  "consensus": true,
+  "resolved": [
+    {
+      "finding": "H3 in removed recess",
+      "disposition": "Moved H3 to (80, 61.3) inside existing material."
+    },
+    {
+      "finding": "Battery slot violates 0.5 mm copper rule",
+      "disposition": "12.5 mm aperture; saddle walls stay below the PCB."
+    },
+    {
+      "finding": "Magnet station cuts K25 pad",
+      "disposition": "Stations at Y52.8; J1/SW1 moved +2 mm Y, SW1 inward 1.6 mm. Actual pad checks and KiCad DRC pass geometry."
+    },
+    {
+      "finding": "Short screw heads at frame/plate seam",
+      "disposition": "H4 at Y66.5, H5 at Y65.5; underside head relief R2.15, Z5.3\u20136.75."
+    },
+    {
+      "finding": "Magnetic frame could release PCB/cage",
+      "disposition": "Five independent structural screws retained."
+    },
+    {
+      "finding": "Metal insert retention undefined",
+      "disposition": "Closed pockets and pause-and-insert sequence; physical process remains unqualified."
+    }
+  ],
+  "physical_gates": [
+    "Delivered pack, insulation and cable tolerances",
+    "Actual magnet temperature below 80 C",
+    "Retention across the 0.7\u20131.1 mm pocket-float gap and north-edge peel",
+    "Printed threads, guide lips, fit and cycling"
+  ],
+  "baseline_verified_unchanged_after_reviews": true,
+  "attributable_concurrent_outputs": [
+    "New revI scripts",
+    "design/revI.json",
+    "mechanical/revI preliminary exports"
+  ],
+  "root_correction": "The initial magnet proposal was rejected before publication after measuring pad clearance. Current acceptance uses actual pad polygons, KiCad DRC, nominal intersections and sampled removal paths."
+}

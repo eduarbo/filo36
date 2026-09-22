@@ -1,0 +1,128 @@
+{
+  "scope": "Mechanical Contour revision; unrouted, not fabrication approved",
+  "allowed_footprint_changes": [
+    "H3",
+    "H4",
+    "H5",
+    "J1",
+    "SW1"
+  ],
+  "halves": {
+    "left": {
+      "source_sha256": "cf970c76f35edb37729363b6fa9aebf483fceb450a0f5a3165f85cd12f4608c6",
+      "pcb_sha256": "55c95af91933a3a7910f9b5692a157e41fbb9e20ef0f21ec71fafd0eb4a9fd6c",
+      "transforms": {
+        "H4": {
+          "from": [
+            130.6,
+            64.0
+          ],
+          "to": [
+            130.6,
+            66.5
+          ]
+        },
+        "H3": {
+          "from": [
+            41.2,
+            66.599999
+          ],
+          "to": [
+            80,
+            61.3
+          ]
+        },
+        "H5": {
+          "from": [
+            114.5,
+            64.0
+          ],
+          "to": [
+            114.5,
+            65.5
+          ]
+        },
+        "SW1": {
+          "from": [
+            132.5,
+            57.65
+          ],
+          "to": [
+            130.9,
+            59.65
+          ]
+        },
+        "J1": {
+          "from": [
+            115.8,
+            55.0
+          ],
+          "to": [
+            115.8,
+            57.0
+          ]
+        }
+      },
+      "outline_segments": 479,
+      "routing_changes": 0
+    },
+    "right": {
+      "source_sha256": "f80c9a8ea0a26d0d5d440547a7242ccf2a8a768a05275d5d425e57348ed23427",
+      "pcb_sha256": "0e707a814ee7dac294f921a46ef4d994420d4dd7b3cd5cdbb2a8f6cfc6d57b48",
+      "transforms": {
+        "H3": {
+          "from": [
+            118.8,
+            66.599999
+          ],
+          "to": [
+            80,
+            61.3
+          ]
+        },
+        "H4": {
+          "from": [
+            29.4,
+            64.0
+          ],
+          "to": [
+            29.400000000000006,
+            66.5
+          ]
+        },
+        "SW1": {
+          "from": [
+            27.5,
+            57.65
+          ],
+          "to": [
+            29.1,
+            59.65
+          ]
+        },
+        "J1": {
+          "from": [
+            44.2,
+            55.0
+          ],
+          "to": [
+            44.2,
+            57.0
+          ]
+        },
+        "H5": {
+          "from": [
+            45.5,
+            64.0
+          ],
+          "to": [
+            45.5,
+            65.5
+          ]
+        }
+      },
+      "outline_segments": 479,
+      "routing_changes": 0
+    }
+  }
+}

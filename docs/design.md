@@ -13,13 +13,17 @@ Keep Piantor’s angles, a thin key area and serviceable electronics.
 
 ## The stack
 
-The battery cradle sits through an actual PCB opening. The controller and display have separate supports above it. The model uses an Adafruit 1570 nominal envelope of **11.5 × 31 × 3.8 mm**. Its original cable and connector still need a verified routing path. [Battery source and alternatives](parts.md#battery).
+The insulating saddle stays below the PCB. The cell and a narrow removable cage pass through a **12.5 × 33.6 mm opening**. One cavity accepts the nominal Adafruit 1570 and 301230 envelopes; select either in the viewer or FreeCAD. The model reserves two 105 mm lead paths, but actual terminal positions, wire diameter and strain relief still need measurement. [Battery dimensions and sources](parts.md#battery).
 
-The current case is about **118.1 × 93.8 mm per half**; the inner flank is straight through the display/thumb region. The key plate stays at **7.6 mm**, with the plain electronics cover reaching **16.6 mm** and themed relief **17.2 mm**. Feet add an illustrative 1.2 mm.
+The case is **117 × 92.85 mm per half**. Five stepped column tops, a rectangular pinky foot, one shallow recess and a continuous thumb fan follow the selected reference. Twenty control corners share an **R0.8 mm** radius. All 36 switch centers and angles remain unchanged.
 
-The earlier wide side-by-side layout was discarded. RevF introduced the recessed battery and open rails; revG replaced the rails with opaque covers. RevH removes the thumb wing and display notch, uses 16 intentional case corners with 1.2 mm radii, and adds three printable themes. [Frame interface and KLP options](customize.md).
+The key plate stays at **7.6 mm**, plain frames at **16.6 mm**, themed relief at **17.2 mm**. The electronics bay remains **24 mm wide**; illustrative feet add 1.2 mm. The frame ends at Y=67 mm while the low base/plate continue to the thumb. The power-switch reference is now recessed 0.1 mm inside the straight X=135 mm flank.
 
-The continuous case flank is X=135 mm on the left, mirrored on the right. The existing power-switch reference projects 1.5 mm beyond it for access. The high frame ends at Y=67 mm; the low plate continues to the thumb. This keeps the case edge aligned without building a tall wall beside the keycap.
+### Magnetic frame, independent structure
+
+Three captive **Ø2 × 3 mm magnets** in the base attract three captive **Ø2 × 4 mm steel pins** in each frame. Shallow guides locate the cover; it lifts vertically. The frame carries no battery or display load. Five internal M2 fasteners per half retain the plate/PCB independently, with no added perimeter lobes. Three use 6 mm shafts; the two hidden under the frame use 4 mm shafts.
+
+The inserts are enclosed by a pause-and-insert print sequence. Force through the nominal **0.9 mm gap**, north-edge peel, print capture and magnet temperature remain physical tests. [Assembly sequence and coupons](build.md#magnetic-frame-and-service).
 
 ## One or two displays
 
@@ -29,14 +33,14 @@ nice!view is a reflective memory LCD. OLED improves dark-room visibility but use
 
 ## Modularity
 
-Switch sockets, removable controller/display connectors, a battery connector and screws allow servicing after initial soldering. The frames are separate from the display support. Service electronics with power off and USB disconnected; removable connectors are not a proposal for live module hot-plugging.
+Switch sockets, removable controller/display connectors, a battery connector, magnetic covers and independent screws allow servicing after initial soldering. The frames are separate from the display support. Service electronics with power off and USB disconnected; removable connectors are not a proposal for live module hot-plugging.
 
 ## CAD views
 
-![RevH top view with 36 KLP Lamé keycaps and two display frames](images/revH-top.png)
+![RevI top view with 36 KLP Lamé keycaps and two display frames](images/revI-top.png)
 
-![RevH side profile](images/revH-side.png)
+![RevI side profile](images/revI-side.png)
 
-![RevH exploded stack with removable opaque cover](images/revH-stack.png)
+![RevI exploded stack with removable opaque cover](images/revI-stack.png)
 
 These views come from the exported geometry. Electronics, switch bodies, keycap seating, screws and feet are nominal references. No physical assembly or functioning keyboard is established by the renders. [Source files and remaining work](cad.md).

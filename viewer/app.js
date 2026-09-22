@@ -72,6 +72,7 @@ for(const part of data.parts){
   const mesh=new THREE.Mesh(geometry,mat);mesh.name=part.name;
   mesh.position.fromArray(part.position);mesh.rotation.y=THREE.MathUtils.degToRad(part.angle_deg);
   mesh.userData={group:part.group,side:part.side,base:[...part.position],explode:part.explode_mm,key:part.key_ref};
+  if(part.name.includes('Electronics cover'))mesh.userData.frame_style=configuration.frames[part.side].style;
   objects.push(mesh);scene.add(mesh);
 }
 // Runtime scene uses x=CAD x, y=CAD z, z=CAD y; right-hand meshes are not mirrored again.
@@ -140,7 +141,7 @@ function setCollapsed(value){
 }
 function openPanel(id,section=id){
   setCollapsed(false);
-  for(const name of ['frames','keycaps','view','files','about'])$('panel-'+name).hidden=id!==name;
+  for(const name of ['frames','keycaps','battery','view','files','about'])$('panel-'+name).hidden=id!==name;
   for(const button of document.querySelectorAll('.part-item'))button.setAttribute('aria-expanded',String(button.dataset.group===section));
   for(const name of ['view','files','about'])$('nav-'+name).setAttribute('aria-expanded',String(name===section));
   $('inspector').scrollTop=0;
@@ -221,10 +222,11 @@ function applyConfiguration(next){
       o.geometry=geometryFor(v.path);o.rotation.y=THREE.MathUtils.degToRad(k.angle+choice.rotation_deg);o.userData.base[1]=v.seating_z_mm;
       o.userData.variant=v.id;o.userData.cap_rotation_deg=choice.rotation_deg;
     }
-    if(group==='lid'){
+    if(group==='lid'&&o.userData.frame_style!==undefined){
       const f=next.frames[side],finish=frameFinish(f.style,side,f.color);o.geometry=finish.geometry;o.material=finish.material;o.userData.frame_style=f.style;o.userData.frame_palette=finish.palette;
     }
   }
+  for(const o of objects)if(o.userData.group==='battery'){const id=next.batteries[o.userData.side];o.geometry=geometryFor(`mechanical/revI/${o.userData.side}-battery-${id}.stl`);o.userData.battery_profile=id;}
   configuration=copy(next);sync();updateChoices();syncConfigurationUI();message('Configuration applied.');
 }
 function chooseKeyTarget(){
@@ -267,7 +269,9 @@ for(const [id,label] of [['default','Original'],['normal-sculpted','Sculpted Nor
   button.onclick=()=>{const cfg=copy(configuration);cfg.keycaps=copy(data.presets[id].keycaps);try{applyConfiguration(cfg);}catch(e){message(e.message,true);}};$('key-presets').append(button);
 }
 preview.finish();
+for(const [id,spec] of Object.entries(catalog.battery_profiles)){const b=document.createElement('button');b.type='button';b.dataset.battery=id;b.textContent=spec.label;b.title=`${spec.width} × ${spec.length} × ${spec.height} mm`;b.onclick=()=>{const c=copy(configuration);for(const side of ['left','right'])c.batteries[side]=id;applyConfiguration(c);};$('battery-options').append(b);}
 function syncConfigurationUI(){
+  for(const b of document.querySelectorAll('[data-battery]'))b.setAttribute('aria-pressed',String(['left','right'].every(side=>configuration.batteries[side]===b.dataset.battery)));
   const frames=frameTargets().map(side=>configuration.frames[side]),styles=new Set(frames.map(f=>f.style)),colors=new Set(frames.map(f=>f.color.toLowerCase()));
   for(const button of $('frame-target').children)button.setAttribute('aria-pressed',String(button.dataset.side===frameSide));
   for(const button of $('frame-grid').children)button.setAttribute('aria-pressed',String(styles.size===1&&styles.has(button.dataset.style)));
@@ -287,6 +291,7 @@ explorer=createExplorer({scene,camera,canvas,objects,requestRender:render,
     $('selection-title').textContent=partInfo[ref.group].name;$('selection-info').textContent=partInfo[ref.group].info;
     if(ref.group==='lid'){setFrameSide(ref.side||'both');openPanel('frames','lid');}
     else if(ref.group==='keycaps'){openPanel('keycaps','keycaps');$('key-details').open=true;if(ref.key)$('key-target').value=ref.side+':'+ref.key;else $('key-target').value='all';chooseKeyTarget();}
+    else if(ref.group==='battery')openPanel('battery','battery');
     else openPanel('none',ref.group);
   },onClear(){$('selection').hidden=true;}
 });

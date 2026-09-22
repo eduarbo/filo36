@@ -19,7 +19,7 @@ const percentile=(arr,p)=>[...arr].sort((a,b)=>a-b)[Math.min(arr.length-1,Math.f
    function frame(t){if(window.measuring&&last)window.frameSamples.push(t-last);last=t;requestAnimationFrame(frame);}requestAnimationFrame(frame);
    new PerformanceObserver(list=>{if(window.measuring)window.longTasks.push(...list.getEntries().map(e=>e.duration));}).observe({type:'longtask',buffered:false});
   });
-  const start=Date.now();await page.goto(pathToFileURL(file).href);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'),null,{timeout:60000});
+  const start=Date.now();await page.goto(pathToFileURL(file).href);await page.waitForFunction(n=>document.querySelector('#status').textContent.includes(String(n)),baseline?168:180,{timeout:60000});
   const ready=Date.now()-start;await page.waitForTimeout(250);
   const results={baseline,baseline_revision:revision,browser:await browser.version(),viewport:[1200,800],cpu_throttle:4,ready_ms:ready};
   async function drag(){

@@ -1,0 +1,291 @@
+{
+  "checked_at": "2026-09-22",
+  "document_sha256": "c722040bfe23852d87899ca5a2ba8a3b6b58d51414a59a707324abf40be9eff7",
+  "photo_redistribution": false,
+  "links": [
+    {
+      "url": "https://cdn-shop.adafruit.com/145x109/1570-00.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn-shop.adafruit.com/145x109/1570-00.jpg"
+    },
+    {
+      "url": "https://cdn-shop.adafruit.com/product-files/1570/1570datasheet.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://cdn-shop.adafruit.com/product-files/1570/1570datasheet.pdf"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/files/ALPS-SSSS811101.pdf?v=1670451309",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/files/ALPS-SSSS811101.pdf?v=1670451309"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/files/JST-S2B-PH-K.pdf?v=1670451309",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/files/JST-S2B-PH-K.pdf?v=1670451309"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/files/PANASONIC-EVQPUC02K.pdf?v=1670451309",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/files/PANASONIC-EVQPUC02K.pdf?v=1670451309"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/files/Semtech-1N4148W.pdf?v=1670451309",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/files/Semtech-1N4148W.pdf?v=1670451309"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/battery-corner-small.jpg?v=1671314267",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/battery-corner-small.jpg?v=1671314267"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/choc-four.jpg?v=1674353978",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/choc-four.jpg?v=1674353978"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/diode-all.jpg?v=1670363837",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/diode-all.jpg?v=1670363837"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/hotswap-both.jpg?v=1671586185",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/hotswap-both.jpg?v=1671586185"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/jst-all_ea8f3d9e-2644-4b11-91c9-7098c3b8c07c.jpg?v=1674443612",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/jst-all_ea8f3d9e-2644-4b11-91c9-7098c3b8c07c.jpg?v=1674443612"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/new-nano-side-small.jpg?v=1671313846",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/new-nano-side-small.jpg?v=1671313846"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/nice-view-sockets.jpg?v=1671232737",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/nice-view-sockets.jpg?v=1671232737"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/niceviewangle-cleaned-more-small.jpg?v=1671314667",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/niceviewangle-cleaned-more-small.jpg?v=1671314667"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/reset-button-both.jpg?v=1670365788",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/reset-button-both.jpg?v=1670365788"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/sockets-and-pins-small.jpg?v=1671314084",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/sockets-and-pins-small.jpg?v=1671314084"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/switch-both.jpg?v=1670366180",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "resolved_url": "https://cdn.shopify.com/s/files/1/0618/5674/3655/products/switch-both.jpg?v=1670366180"
+    },
+    {
+      "url": "https://github.com/braindefender/KLP-Lame-Keycaps",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://github.com/braindefender/KLP-Lame-Keycaps"
+    },
+    {
+      "url": "https://lowprokb.ca/products/ambients-silent-choc-switches",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://lowprokb.ca/products/ambients-silent-choc-switches"
+    },
+    {
+      "url": "https://nicekeyboards.com/docs/nice-nano/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "resolved_url": "https://nicekeyboards.com/docs/nice-nano/"
+    },
+    {
+      "url": "https://nicekeyboards.com/docs/nice-nano/pinout-schematic/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "resolved_url": "https://nicekeyboards.com/docs/nice-nano/pinout-schematic/"
+    },
+    {
+      "url": "https://nicekeyboards.com/docs/nice-view/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "resolved_url": "https://nicekeyboards.com/docs/nice-view/"
+    },
+    {
+      "url": "https://nicekeyboards.com/docs/nice-view/pinout-schematic/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "resolved_url": "https://nicekeyboards.com/docs/nice-view/pinout-schematic/"
+    },
+    {
+      "url": "https://static.nbk1560.com/images/en/product/lowsmallheadscrew/SLH-TZB/SLH-TZB_1.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://static.nbk1560.com/images/en/product/lowsmallheadscrew/SLH-TZB/SLH-TZB_1.pdf"
+    },
+    {
+      "url": "https://static.nbk1560.com/images/en/product/lowsmallheadscrew/SSH/SSH_1.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://static.nbk1560.com/images/en/product/lowsmallheadscrew/SSH/SSH_1.pdf"
+    },
+    {
+      "url": "https://static6.arrow.com/aropdfconversion/2e225be7d9212620894362dafa7ce735623fe9ca/315-43-112-41-003000.pdf",
+      "error": "The read operation timed out"
+    },
+    {
+      "url": "https://typeractive.xyz/products/5-pin-sockets",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/5-pin-sockets"
+    },
+    {
+      "url": "https://typeractive.xyz/products/battery-jack",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/battery-jack"
+    },
+    {
+      "url": "https://typeractive.xyz/products/choc-switches",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/choc-switches"
+    },
+    {
+      "url": "https://typeractive.xyz/products/ez-machine-sockets-and-headers",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/ez-machine-sockets-and-headers"
+    },
+    {
+      "url": "https://typeractive.xyz/products/hotswap-sockets",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/hotswap-sockets"
+    },
+    {
+      "url": "https://typeractive.xyz/products/lithium-battery-110mah",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/lithium-battery-110mah"
+    },
+    {
+      "url": "https://typeractive.xyz/products/machine-sockets-and-pins",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/machine-sockets-and-pins"
+    },
+    {
+      "url": "https://typeractive.xyz/products/nice-nano",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/nice-nano"
+    },
+    {
+      "url": "https://typeractive.xyz/products/nice-view",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/nice-view"
+    },
+    {
+      "url": "https://typeractive.xyz/products/no-solder-spring-headers",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/no-solder-spring-headers"
+    },
+    {
+      "url": "https://typeractive.xyz/products/power-switch",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/power-switch"
+    },
+    {
+      "url": "https://typeractive.xyz/products/reset-button",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/reset-button"
+    },
+    {
+      "url": "https://typeractive.xyz/products/silicone-usb-c-cable",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/silicone-usb-c-cable"
+    },
+    {
+      "url": "https://typeractive.xyz/products/smd-diodes",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://typeractive.xyz/products/smd-diodes"
+    },
+    {
+      "url": "https://www.adafruit.com/product/1570",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.adafruit.com/product/1570"
+    },
+    {
+      "url": "https://www.ckswitches.com/media/1424/pcm.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.e-switch.com/product/tl3342-series-low-profile-smt-tactile-switch/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "resolved_url": "https://www.e-switch.com/product/tl3342-series-low-profile-smt-tactile-switch/"
+    },
+    {
+      "url": "https://www.e-switch.com/wp-content/uploads/2022/06/TL3342.pdf",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "resolved_url": "https://www.e-switch.com/"
+    },
+    {
+      "url": "https://www.kailhswitch.com/Content/upload/pdf/202115927/CPG135001S30-data-sheet.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://www.kailhswitch.com/Content/upload/pdf/202115927/CPG135001S30-data-sheet.pdf"
+    },
+    {
+      "url": "https://www.kailhswitch.com/info/kailh-kl-switches-pg1350-series-23772219.html",
+      "status": 200,
+      "content_type": "text/html",
+      "resolved_url": "https://www.kailhswitch.com/info/kailh-kl-switches-pg1350-series-23772219.html"
+    },
+    {
+      "url": "https://www.supermagnete.de/stabmagnete-neodym-rund/stabmagnet-2mm-3mm_S-02-03-N",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "resolved_url": "https://www.supermagnete.de/stabmagnete-neodym-rund/stabmagnet-2mm-3mm_S-02-03-N"
+    },
+    {
+      "url": "https://www.supermagnete.fr/data_sheet_S-02-03-N.pdf",
+      "status": 200,
+      "content_type": "application/pdf",
+      "resolved_url": "https://www.supermagnete.fr/data_sheet_S-02-03-N.pdf"
+    }
+  ]
+}

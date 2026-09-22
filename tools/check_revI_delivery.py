@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+"""Bounded current-revision delivery/provenance checks; no hardware approval.
+SPDX-License-Identifier: GPL-3.0-or-later
+"""
+import hashlib,json,re,subprocess
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+def sha(p):return hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+m=json.loads((ROOT/'design/revI.json').read_text())
+assert sha('mechanical/revI/Filo36.FCStd')==m['fcstd_sha256']
+for source in m['inputs']:assert sha(source['path'])==source['sha256'],source
+for s in ['left','right']:
+    for name,p in m['parts'].items():assert sha('mechanical/revI/'+name+'.stl')==p['stl_sha256'],name
+mechanical=json.loads((ROOT/'validation/revI-mechanical.json').read_text())
+for half in mechanical['halves'].values():
+    assert not half['collisions']
+    assert set(half['battery_variants'])=={'adafruit-1570','301230'}
+    assert not any(x['component_collisions_mm3'] for x in half['battery_variants'].values())
+    assert set(half['frame_variants'])=={'smooth','bevel','facet','handheld','tv','cyberpunk'}
+    for f in half['frame_variants'].values():assert not f['component_collisions_mm3'] and f['usb_envelope_collision_mm3']==0 and f['closed_mesh']
+render=json.loads((ROOT/'validation/revI-render.json').read_text());assert render['model_sha256']==sha('design/revI.json')
+assert render['renderer_sha256']==sha('tools/render_revI.py')
+for item in render['meshes']:assert sha(item['path'])==item['sha256']
+for view,item in render['views'].items():assert sha(f'docs/images/revI-{view}.png')==item['image_sha256']
+f=json.loads((ROOT/'validation/revI-frames-render.json').read_text());assert f['image_sha256']==sha('docs/images/revI-frames.png')
+assert f['renderer_sha256']==sha('tools/render_frames.py')
+for item in f['sources']:assert sha(item['path'])==item['sha256']
+assert 'docs/images/revI-assembled.png' in (ROOT/'README.md').read_text()
+for p in [ROOT/'README.md',ROOT/'ATTRIBUTION.md',ROOT/'CONTRIBUTING.md',*(ROOT/'docs').glob('*.md')]:
+    for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
+        if target.startswith(('https:','http:','#','mailto:')):continue
+        assert (p.parent/target.split('#')[0]).exists(),(str(p),target)
+ui=json.loads((ROOT/'build/viewer-ui-check.json').read_text());assert ui['viewer_sha256']==sha('docs/index.html') and not ui['runtime_errors'] and ui['glb_selected_vertices_exact']
+finishes=json.loads((ROOT/'validation/revI-freecad-finishes.json').read_text())
+assert finishes['passed'] and finishes['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
+native=json.loads((ROOT/'validation/revI-freecad.json').read_text());assert native['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
+outline=json.loads((ROOT/'validation/revI-outline.json').read_text())
+for path,digest in outline['inputs'].items():assert sha(path)==digest,path
+caps=json.loads((ROOT/'validation/revI-keycaps.json').read_text())
+assert caps['catalog_sha256']==sha('keycaps/catalog.json') and caps['layout_sha256']==sha('design/layout.json')
+electrical=json.loads((ROOT/'validation/revI-electrical.json').read_text());assert electrical['fabrication_ready'] is False
+for side,half in electrical['halves'].items():
+    assert not half['drc_violations'] and half['unconnected_items']==104
+    assert half['pcb_sha256']==sha(f'hardware/revI/filo36-{side}.kicad_pcb')
+    assert half['footprints_pads_nets_drills_uuid_models_preserved_except_allowed_transforms'] and half['locked_original_keys']==18
+# Native App::Link delegates FrameStyle, so the 12 bodies plus 2 active links are sampled.
+assert native['opaque_side_wall_samples']==168 and native['configuration_roundtrip'] and native['mixed_battery_profiles_roundtrip']
+service=json.loads((ROOT/'validation/revI-service.json').read_text())
+assert service['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
+assert service['checker_sha256']==sha('tools/freecad/check_revI_service.py')
+for v in service['coupons'].values():assert sha(v['path'])==v['sha256']
+assert sha('docs/parts.md')==json.loads((ROOT/'validation/revI-parts-links.json').read_text())['document_sha256']
+assert not subprocess.check_output(['git','diff','2ec6c4c','--name-only','--','hardware/revF','design/layout.json'],cwd=ROOT).strip(),'PCB/layout changed outside revision scope'
+print('PASS: current native source, 12 closed cover variants, 168 side-wall samples, renders, viewer, documentation paths, preserved historical PCB/layout.')

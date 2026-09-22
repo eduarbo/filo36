@@ -32,9 +32,11 @@ def default_config(catalog=None):
 
 def check(config,catalog=None):
     c=catalog or load();variants={v['id']:v for v in c['variants']};errors=[];shapes={};minimum=float('inf')
-    if config.get('schema')!='filo36-config-1' or config.get('revision')!='H':return ['Unsupported configuration format or revision.'],None
+    if config.get('schema')!='filo36-config-1' or config.get('revision')!='I':return ['Unsupported configuration format or revision.'],None
     if set(config.get('keycaps',{}))!={'left','right'} or set(config.get('frames',{}))!={'left','right'}:return ['Both halves are required.'],None
+    if set(config.get('batteries',{}))!={'left','right'}:return ['Select a battery for each half.'],None
     for side,keys in c['layout'].items():
+        if config['batteries'][side] not in c['battery_profiles']:errors.append('Unknown battery profile.')
         if set(config['keycaps'][side])!={k['ref'] for k in keys}:return ['Missing keys or unknown positions.'],None
         f=config['frames'][side]
         if f.get('style') not in c['frame_styles']:errors.append('Unknown frame.')

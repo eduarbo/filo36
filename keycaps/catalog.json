@@ -1,6 +1,6 @@
 {
   "schema": "filo36-klp-catalog-1",
-  "revision": "H",
+  "revision": "I",
   "upstream": "https://github.com/braindefender/KLP-Lame-Keycaps",
   "commit": "4a67a824232d3054c61599ea047c56a340faaba2",
   "license": "CC-BY-SA-4.0",
@@ -10,6 +10,22 @@
   "study_travel_mm": 3.5,
   "minimum_pressed_mesh_z_mm": 8.2,
   "plate_top_mm": 7.6,
+  "battery_profiles": {
+    "adafruit-1570": {
+      "label": "Adafruit 1570 · 100 mAh",
+      "width": 11.5,
+      "length": 31,
+      "height": 3.8,
+      "source": "https://www.adafruit.com/product/1570"
+    },
+    "301230": {
+      "label": "301230 · 110 mAh",
+      "width": 12,
+      "length": 30,
+      "height": 3,
+      "source": "https://typeractive.xyz/products/lithium-battery-110mah"
+    }
+  },
   "layout": {
     "left": [
       {
@@ -33196,7 +33212,7 @@
   ],
   "default_configuration": {
     "schema": "filo36-config-1",
-    "revision": "H",
+    "revision": "I",
     "keycaps": {
       "left": {
         "K01": {
@@ -33356,6 +33372,10 @@
         "style": "bevel",
         "color": "#304d4e"
       }
+    },
+    "batteries": {
+      "left": "adafruit-1570",
+      "right": "adafruit-1570"
     }
   }
 }

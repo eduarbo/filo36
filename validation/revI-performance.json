@@ -1,0 +1,33 @@
+{
+  "baseline": false,
+  "baseline_revision": "8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a",
+  "browser": "153.0.8010.53",
+  "viewport": [
+    1200,
+    800
+  ],
+  "cpu_throttle": 4,
+  "ready_ms": 6353,
+  "viewer_sha256": "954123503d292bd76f29bbcbbadad4f3c1e78a309811ccda7191905056289900",
+  "link_state": "selected frame linked to sidebar",
+  "orbit": {
+    "elapsed_ms": 1523,
+    "frame_count": 91,
+    "p50_frame_ms": 16.699999999999818,
+    "p95_frame_ms": 16.799999999999272,
+    "long_tasks": 0,
+    "long_task_ms": 0
+  },
+  "frame_choice": {
+    "p50_ms": 60.400000005960464,
+    "p95_ms": 67,
+    "samples_ms": [
+      67,
+      64,
+      60.400000005960464,
+      58.30000001192093,
+      37,
+      59.19999998807907
+    ]
+  }
+}

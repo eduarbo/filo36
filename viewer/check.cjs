@@ -44,26 +44,30 @@ async function checkLink(page,group){
     const embedded=html.match(/<script id="scene-data" type="application\/octet-stream">([\s\S]*?)<\/script>/)[1];
     assert.equal(delivered,hash(Buffer.from(embedded)),'Public browser must load the exact current CAD scene');
   }
-  await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'),null,{timeout:60000});
+  await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('180'),null,{timeout:60000});
   await checkDirectory(page);
   await page.screenshot({path:path.join(root,'build/viewer-desktop.png')});
   // Compare WebGL output without the overlaid DOM controls or label borders.
   // Opacity keeps hover/focus active; the separate full-page captures include UI.
   const baseline=hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'}));
   const count=async()=>Number((await page.locator('#status').textContent()).match(/(\d+) visible components/)[1]);
-  assert.equal(await count(),168);
+  assert.equal(await count(),180);
+  await page.click('#part-battery');
+  await page.click('#battery-options [data-battery="301230"]');
+  assert.equal(await page.locator('#battery-options [data-battery="301230"]').getAttribute('aria-pressed'),'true');
+  await page.click('#battery-options [data-battery="adafruit-1570"]');
   await page.click('#nav-view');
   for(const group of new Set(scene.parts.map(p=>p.group))){
     await page.locator('#layer-'+group).uncheck();
-    assert.equal(await count(),168-scene.parts.filter(p=>p.group===group).length,group);
+    assert.equal(await count(),180-scene.parts.filter(p=>p.group===group).length,group);
     await page.locator('#layer-'+group).check();
   }
-  await page.selectOption('#half','right');assert.equal(await count(),84);
-  await page.selectOption('#half','left');assert.equal(await count(),84);
+  await page.selectOption('#half','right');assert.equal(await count(),90);
+  await page.selectOption('#half','left');assert.equal(await count(),90);
   await page.click('#stack');assert.equal(await page.locator('#explode').inputValue(),'55');
   await page.screenshot({path:path.join(root,'build/viewer-stack.png')});
   await page.selectOption('#view','bottom');await page.screenshot({path:path.join(root,'build/viewer-bottom.png')});
-  await page.click('#reset');assert.equal(await count(),168);
+  await page.click('#reset');assert.equal(await count(),180);
   assert.equal(await page.locator('#half').inputValue(),'both');assert.equal(await page.locator('#explode').inputValue(),'0');
   assert.equal(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})),baseline,'Full reset must restore the original rendered assembly');
   const box=await page.locator('#canvas').boundingBox();
@@ -104,12 +108,14 @@ async function checkLink(page,group){
   await page.click('#frame-target [data-side=right]');await page.click('[data-color="#ded8c6"]');
   await page.click('#frame-target [data-side=left]');
   await page.click('#nav-files');
+  await page.click('#part-battery');await page.click('[data-battery="301230"]');await page.click('#nav-files');
   const configDownload=page.waitForEvent('download');await page.click('#save-config');
-  const downloadedConfig=await configDownload;const configPath=path.join(root,'build/revH/viewer-config.json');await downloadedConfig.saveAs(configPath);
+  const downloadedConfig=await configDownload;const configPath=path.join(root,'build/revI/viewer-config.json');await downloadedConfig.saveAs(configPath);
   const config=JSON.parse(fs.readFileSync(configPath));
   assert.equal(config.keycaps.left.K30.variant,'choc_stem_mx_size_normal_90deg');assert.equal(config.keycaps.left.K30.rotation_deg,90);
   assert.deepEqual(config.frames.left,{style:'cyberpunk',color:'#ad7656'});
   assert.deepEqual(config.frames.right,{style:'tv',color:'#ded8c6'});
+  assert.deepEqual(config.batteries,{left:'301230',right:'301230'});
   await page.click('#default-config');await page.locator('#load-config').setInputFiles(configPath);
   await page.waitForFunction(()=>document.querySelector('[data-style=cyberpunk]').getAttribute('aria-pressed')==='true');
   assert.equal(await page.locator('[data-style=cyberpunk]').getAttribute('aria-pressed'),'true');
@@ -136,19 +142,19 @@ async function checkLink(page,group){
   const glbPath=path.join(root,'build/viewer-export.glb');await download.saveAs(glbPath);const glb=fs.readFileSync(glbPath);
   assert.equal(glb.toString('ascii',0,4),'glTF');assert.equal(glb.readUInt32LE(4),2);assert.equal(glb.readUInt32LE(8),glb.length);
   const jsonLength=glb.readUInt32LE(12),gltf=JSON.parse(glb.toString('utf8',20,20+jsonLength));
-  assert.equal(gltf.nodes.filter(n=>n.mesh!==undefined).length,168);
+  assert.equal(gltf.nodes.filter(n=>n.mesh!==undefined).length,180);
   assert.equal(gltf.nodes.filter(n=>n.name.includes('KLP ')).length,36);
-  const assembly=gltf.nodes.find(n=>n.name==='Filo36 revH · nominal');assert.deepEqual(assembly.matrix.slice(0,3),[.001,0,0]);
+  const assembly=gltf.nodes.find(n=>n.name==='Filo36 revI · nominal');assert.deepEqual(assembly.matrix.slice(0,3),[.001,0,0]);
   assert.ok(assembly.extras.attribution.includes('braindefender'));
   assert.deepEqual(assembly.extras.configuration,config);
   const customCap=gltf.nodes.find(n=>n.name==='left · KLP K30');assert.equal(customCap.extras.variant,config.keycaps.left.K30.variant);
-  const customFrame=gltf.nodes.find(n=>n.extras?.side==='left'&&n.extras?.group==='lid');assert.equal(customFrame.extras.frame_style,'cyberpunk');
+  const customFrame=gltf.nodes.find(n=>n.extras?.side==='left'&&n.extras?.group==='lid'&&n.extras?.frame_style);assert.equal(customFrame.extras.frame_style,'cyberpunk');
   const frameMaterial=gltf.materials[gltf.meshes[customFrame.mesh].primitives[0].material];
   const linear=n=>{n/=255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4;};
   const expected=[173,118,86].map(linear);
   frameMaterial.pbrMetallicRoughness.baseColorFactor.slice(0,3).forEach((n,i)=>assert.ok(Math.abs(n-expected[i])<1e-5,'Highlight must not affect exported frame color'));
   const palettes=JSON.parse(fs.readFileSync(path.join(root,'design/frame-finishes.json')));
-  for(const node of gltf.nodes.filter(n=>n.extras?.group==='lid')){
+  for(const node of gltf.nodes.filter(n=>n.extras?.group==='lid'&&n.extras?.frame_style)){
     const primitives=gltf.meshes[node.mesh].primitives,style=node.extras.frame_style;
     assert.equal(primitives.length,4,'Themed GLB retains four surface colors');
     for(const [i,role] of palettes.roles.entries()){
@@ -158,16 +164,24 @@ async function checkLink(page,group){
       expected.forEach((n,j)=>assert.ok(Math.abs(n-actual[j])<1e-5,'GLB '+style+' '+role+' color'));
     }
   }
-  assert.equal(download.suggestedFilename(),'Filo36-revH-assembled.glb');
+  assert.equal(download.suggestedFilename(),'Filo36-revI-assembled.glb');
   function positionBytes(node){
     const primitive=gltf.meshes[node.mesh].primitives[0],a=gltf.accessors[primitive.attributes.POSITION],v=gltf.bufferViews[a.bufferView];
     assert.equal(a.componentType,5126);assert.equal(a.type,'VEC3');assert.ok(!v.byteStride||v.byteStride===12);
     const binStart=20+jsonLength+8,at=binStart+(v.byteOffset||0)+(a.byteOffset||0);
     return glb.subarray(at,at+a.count*12);
   }
+  for(const side of ['left','right']){
+    const battery=gltf.nodes.find(n=>n.extras?.side===side&&n.extras?.group==='battery');
+    assert.equal(battery.extras.battery_profile,'301230');
+    assert.deepEqual(positionBytes(battery),Buffer.from(scene.geometries[`mechanical/revI/${side}-battery-301230.stl`].positions,'base64'));
+    const pins=gltf.nodes.filter(n=>n.extras?.side===side&&n.name.includes('Captive frame target'));
+    assert.equal(pins.length,3);
+    for(const [i,pin] of pins.entries())assert.deepEqual(positionBytes(pin),Buffer.from(scene.geometries[`mechanical/revI/${side}-frame-target-${i}.stl`].positions,'base64'),'Frame selection preserves captive pins');
+  }
   const capPath=scene.catalog.variants.find(v=>v.id===config.keycaps.left.K30.variant).path;
   assert.deepEqual(positionBytes(customCap),Buffer.from(scene.geometries[capPath].positions,'base64'),'GLB must contain selected cap vertices');
-  assert.deepEqual(positionBytes(customFrame),Buffer.from(scene.geometries['mechanical/revH/left-frame-cyberpunk.stl'].positions,'base64'),'GLB must contain selected frame vertices');
+  assert.deepEqual(positionBytes(customFrame),Buffer.from(scene.geometries['mechanical/revI/left-frame-cyberpunk.stl'].positions,'base64'),'GLB must contain selected frame vertices');
   await page.click('#default-config');await page.keyboard.press('Escape');await page.click('#reset');
   assert.equal(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})),baseline,'Default config plus reset restores exact rendered assembly');
   await page.click('#part-keycaps');
@@ -202,7 +216,7 @@ async function checkLink(page,group){
   const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
   if(offline)await mobile.route(/^https?:/,route=>{requests.push(route.request().url());return route.abort();});
   const phone=await mobile.newPage();phone.on('pageerror',e=>errors.push(e.message));await phone.goto(target);
-  await phone.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'));
+  await phone.waitForFunction(()=>document.querySelector('#status').textContent.includes('180'));
   assert.equal(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');
   await phone.locator('[data-style=handheld]').tap();
   assert.equal(await phone.locator('[data-style=handheld]').getAttribute('aria-pressed'),'true');
@@ -262,7 +276,7 @@ async function checkLink(page,group){
     all_12_layer_filters:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
     persistent_component_directory:true,sidebar_line_endpoints:true,directory_visible_during_scroll_and_collapse:true,keyboard_component_selection:true,direct_canvas_picking:true,labels_follow_camera:true,frame_click_reveals_hidden_cover:true,annotation_toggle:true,orbit_does_not_select:true,touch_orbit_and_pinch_do_not_select:true,small_320px_viewport:true,
     six_preview_cards:true,multicolor_glb_roles:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,theme_applies_palette_and_body_overrides_roundtrip:true,sidebar_hover_highlight:true,sidebar_opens_frame_explorer:true,touch_frame_cards_and_sidebar:true,hidden_layer_links_removed:true,highlight_excluded_from_glb:true,
-    keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:168,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
+    dual_battery_selection_and_exact_glb:true,captive_frame_pins_preserved:true,keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:180,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
   fs.writeFileSync(path.join(root,'build/viewer-ui-check.json'),JSON.stringify(receipt,null,2)+'\n');
   console.log(JSON.stringify(receipt,null,2));await mobile.close();await context.close();
  }finally{await browser.close();}

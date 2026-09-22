@@ -1,4 +1,4 @@
-"""Apply viewer configurations to the open revH document; no custom proxies.
+"""Apply viewer configurations to the open revI document; no custom proxies.
 Used by the companion macro. Does not save over the user's document.
 SPDX-License-Identifier: GPL-3.0-or-later
 """
@@ -22,7 +22,7 @@ def apply_finish(doc,cover,side,body):
 def apply(doc,config):
     catalog=load();errors,clearance=check(config,catalog)
     if errors:raise ValueError('\n'.join(errors[:12]))
-    if not doc or not all(doc.getObject(p+'ActiveFrame') for p in ['L_','R_']):raise ValueError('Open mechanical/revH/Filo36.FCStd first.')
+    if not doc or not all(doc.getObject(p+'ActiveFrame') for p in ['L_','R_']):raise ValueError('Open mechanical/revI/Filo36.FCStd first.')
     variants={v['id']:v for v in catalog['variants']};meshes={}
     for side,keys in catalog['layout'].items():
         for key in keys:
@@ -37,6 +37,11 @@ def apply(doc,config):
                 choice=config['keycaps'][side][key['ref']];v=variants[choice['variant']];obj=doc.getObject(prefix+key['ref'])
                 obj.Mesh=meshes[v['id']];obj.KeycapVariant=v['id'];obj.CapRotation=choice['rotation_deg']
                 obj.Placement=A.Placement(A.Vector(key['x'],-key['y'],v['seating_z_mm']),A.Rotation(A.Vector(0,0,1),key['angle']+choice['rotation_deg']))
+            battery=next(o for o in doc.Objects if o.Name.startswith(prefix) and o.TypeId!='App::Link' and getattr(o,'BatteryStyle',None)==config['batteries'][side])
+            doc.getObject(prefix+'ActiveBattery').setLink(battery)
+            for o in doc.Objects:
+                if hasattr(o,'BatteryStyle') and o.TypeId!='App::Link':o.Visibility=False
+            doc.getObject(prefix+'ActiveBattery').Visibility=True
             f=config['frames'][side];cover=next(o for o in doc.Objects if o.Name.startswith(prefix) and hasattr(o,'FrameStyle') and o.FrameStyle==f['style'])
             doc.getObject(prefix+'ActiveFrame').setLink(cover)
             apply_finish(doc,cover,side,f['color'])
@@ -49,8 +54,9 @@ def apply(doc,config):
     return clearance
 
 def extract(doc):
-    result={'schema':'filo36-config-1','revision':'H','keycaps':{},'frames':{}}
+    result={'schema':'filo36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{}}
     for side,prefix in [('left','L_'),('right','R_')]:
+        result['batteries'][side]=doc.getObject(prefix+'ActiveBattery').LinkedObject.BatteryStyle
         result['keycaps'][side]={o.KeyReference:{'variant':o.KeycapVariant,'rotation_deg':int(round(o.CapRotation.Value))%360} for o in doc.Objects if hasattr(o,'KeyReference') and o.Side==side}
         cover=doc.getObject(prefix+'ActiveFrame').LinkedObject
         color='#'+''.join(f'{round(v*255):02x}' for v in cover.ViewObject.ShapeColor[:3])

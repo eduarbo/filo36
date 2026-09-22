@@ -1,0 +1,35 @@
+{
+  "units": "mm",
+  "stations_left": [
+    [
+      113,
+      52.8
+    ],
+    [
+      133,
+      52.8
+    ],
+    [
+      122.8,
+      64.7
+    ]
+  ],
+  "post_radius": 1.85,
+  "pcb_clearance_radius": 2.05,
+  "guide_radius": 1.4,
+  "receiver_radius": 1.6,
+  "magnet_diameter": 2,
+  "magnet_height": 3,
+  "magnet_z": 3.2,
+  "steel_diameter": 2,
+  "steel_height": 4,
+  "steel_z": 7.1,
+  "nominal_axial_gap": 0.9,
+  "pocket_float_gap_range": [
+    0.7,
+    1.1
+  ],
+  "magnet_source": "https://www.supermagnete.de/stabmagnete-neodym-rund/stabmagnet-2mm-3mm_S-02-03-N",
+  "assembly": "Pause and insert before closing the captive pocket; print process and actual magnet temperature require a coupon. No adhesive-only retention. Steel pins must be ferromagnetic, not austenitic stainless.",
+  "acceptance": "Digital clearance and vertical release only; measured north-edge peel, hold, sliding, insertion capture and cycling remain physical gates."
+}

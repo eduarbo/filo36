@@ -7,13 +7,13 @@
 1. Download the [complete repository ZIP](https://github.com/eduarbo/filo36/archive/refs/heads/main.zip) and unzip it.
 2. Install [FreeCAD](https://www.freecad.org/downloads.php) and [KiCad](https://www.kicad.org/download/).
 3. In FreeCAD’s Addon Manager, install [KiCad StepUp](https://github.com/easyw/kicadStepUpMod).
-4. Open [`mechanical/revH/Filo36.FCStd`](../mechanical/revH/Filo36.FCStd). Importing STEP instead loses the editable history.
+4. Open [`mechanical/revI/Filo36.FCStd`](../mechanical/revI/Filo36.FCStd). Importing STEP instead loses the editable history.
 
 The source opens and recomputes without StepUp, CadQuery or custom Python proxies. StepUp is only needed for exchange with KiCad. KLP keycaps are meshes; commercial components are approximate envelopes.
 
 ## Navigate the assembly
 
-The tree contains **Parameters**, **Left** and **Right**. Select a part and press **Space** to hide or show it. Expand **Construction** for sketches and operations. Each half has an **ActiveFrame** link to one of six cover bodies; hidden alternatives do not represent extra installed parts.
+The tree contains **Parameters**, **Left** and **Right**. Select a part and press **Space** to hide or show it. Expand **Construction** for sketches and operations. Each half has an **ActiveFrame** link to one of six cover bodies; an **ActiveBattery** link selects Adafruit 1570 or 301230. Hidden alternatives do not represent extra installed parts.
 
 For keycaps, frame styles and colors, use the [configurator and companion macro](customize.md#save-a-configuration-for-freecad). Keep a personal copy with **File → Save As** before editing dimensions.
 
@@ -33,7 +33,7 @@ Hide the active frame and keycaps. Change `DisplayShiftY` from **2.4 to 3.4 mm**
 
 ### 3. Inspect the PCB with StepUp
 
-Open `hardware/revH/filo36-left.kicad_pro` in KiCad. RevH updates the outer board contour to match the case; footprints and nets are unchanged. Switches are locked to preserve the layout; both boards remain unrouted.
+Open `hardware/revI/filo36-left.kicad_pro` in KiCad. RevI matches the chosen contour and adds battery/magnet clearances. H3/H4/H5, J1 and SW1 move; all key transforms, footprint identities and nets are preserved. Switches are locked to preserve the layout; both boards remain unrouted.
 
 In StepUp, enable **Virtual models**, keep **Grid Origin**, include holes from **0 mm**, and apply no outline tolerance. The boards’ grid origin is explicitly **(10, 10) mm**. In a new FreeCAD document, use **Load KiCad PCB**.
 
@@ -50,8 +50,8 @@ The native assembly uses **X = KiCad X, Y = −KiCad Y**, with PCB top at **Z 5.
 | STEP | Solid geometry for other CAD tools; no full feature history or KLP meshes |
 | STL | Individual part for slicing; check orientation and fit first |
 | GLB from the viewer | Visual assembly with selected keycaps and frames, in meters |
-| Configuration JSON | Keycap variants/rotations and frame styles/colors; not manual shape edits |
+| Configuration JSON | Keycap variants/rotations, frame styles/colors and battery profile; not manual shape edits |
 
 Select a part and use **File → Export**. Store exports outside the reference folders and keep the edited FCStd. The generation scripts rebuild the reference from scratch and overwrite its files; do not run them over manual work.
 
-The project remains a digital prototype. Cable routing, contact geometry, retainer fastening, printed tolerances, RF and power measurements are unresolved. The battery opening leaves only **0.22 mm nominal pad clearance**, failing the current **0.5 mm** copper-edge rule. [CAD reproduction and validation](cad.md).
+The project remains a digital prototype. Both boards have **zero geometric DRC violations and 104 unconnected items each**; measured minimum pad-to-outline clearance is about **0.524 mm**. Final cable/connector geometry, printed fit and retention, RF and power measurements remain open. [CAD reproduction and validation](cad.md).

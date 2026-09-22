@@ -13,7 +13,7 @@ function triangleSet(g){const ids=Array.from(g.index.array),t=[];for(let i=0;i<i
 function topRole(g,x,z){const p=g.attributes.position;for(const group of g.groups)for(let i=group.start;i<group.start+group.count;i+=3){const a=[0,1,2].map(j=>g.index.getX(i+j));if(a.some(n=>Math.abs(p.getY(n)-17.2)>.001))continue;const sides=a.map((v,j)=>{const w=a[(j+1)%3];return (p.getX(w)-p.getX(v))*(z-p.getZ(v))-(p.getZ(w)-p.getZ(v))*(x-p.getX(v));});if(sides.every(n=>n>=-1e-5)||sides.every(n=>n<=1e-5))return group.materialIndex;}return null;}
 const checked=[];
 for(const style of ['smooth','bevel','facet','handheld','tv','cyberpunk'])for(const side of ['left','right']){
- const id=`mechanical/revH/${side}-frame-${style}.stl`,source=geometryFor(id),f=make(style,side),g=f.geometry;
+ const id=`mechanical/revI/${side}-frame-${style}.stl`,source=geometryFor(id),f=make(style,side),g=f.geometry;
  assert.deepEqual(g.attributes.position.array,source.attributes.position.array);assert.deepEqual(g.attributes.normal.array,source.attributes.normal.array);assert.deepEqual(triangleSet(g),triangleSet(source));
  assert.equal(g.groups.length,finishes.styles[style]?4:1);let offset=0;
  for(const group of g.groups){assert.equal(group.start,offset);offset+=group.count;if(group.materialIndex){for(let i=group.start;i<offset;i+=3){const ids=[0,1,2].map(j=>g.index.getX(i+j));assert.ok(ids.every(n=>g.attributes.position.getY(n)>=16.6-1e-4),'Accents never extend into walls, cavity, roof or holes');}}}assert.equal(offset,g.index.count);

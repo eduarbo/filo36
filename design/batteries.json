@@ -1,0 +1,20 @@
+{
+  "units": "mm",
+  "profiles": {
+    "adafruit-1570": {
+      "label": "Adafruit 1570 \u00b7 100 mAh",
+      "width": 11.5,
+      "length": 31,
+      "height": 3.8,
+      "source": "https://www.adafruit.com/product/1570"
+    },
+    "301230": {
+      "label": "301230 \u00b7 110 mAh",
+      "width": 12,
+      "length": 30,
+      "height": 3,
+      "source": "https://typeractive.xyz/products/lithium-battery-110mah"
+    }
+  },
+  "status": "Nominal supplier dimensions, not toleranced maximum finished packs. Aperture insulation and real lead/connector fit require physical coupon."
+}

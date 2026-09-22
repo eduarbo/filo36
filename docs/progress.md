@@ -1,16 +1,28 @@
 # Progress
 
-**Current mechanical revision: H. Overall keyboard: partial digital prototype.**
+**Current mechanical revision: I. Overall keyboard: partial digital prototype.**
 
 | Outcome | State | Evidence / next step |
 |---|---|---|
 | 36 Piantor key centers and angles | Checked | [Layout](../design/layout.json), upstream files and checker |
 | Editable source and CAD exchange | Available | Native FCStd, parameters and [FreeCAD/StepUp examples](freecad.md) |
-| KLP catalog and themed frames | RevH digital study | 38 source variants, 28 with qualified positions; six frame styles, configuration export/import |
-| Wireless electronics and displays | Placement only | Unrouted revH PCBs; unresolved DRC and connector dimensions |
+| KLP catalog and themed frames | RevI digital study | 38 source variants, 28 with qualified positions; six frame styles, configuration export/import |
+| Wireless electronics and displays | Placement only | Unrouted revI PCBs; 0 geometric DRC violations, 104 unconnected items each; exact connectors pending |
 | Final BOM and manufacturing files | Pending | Close routing, clearances, retention and exact supplied parts |
 | Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
 | Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
+
+## Revision I — chosen Contour, magnetic frames and dual battery cradle
+
+The case and PCB follow the stepped reference: rectangular pinky foot, shallow recess and continuous thumb fan. The **117 × 92.85 mm** case uses 20 control corners at R0.8. All 36 original key transforms remain fixed.
+
+Three captive magnet/steel stations release each frame vertically; five independent internal M2 screws retain the structure without adding perimeter lobes. Both nominal **Adafruit 1570 and 301230** envelopes share one low saddle, aperture and captured cage. The viewer and FreeCAD configuration include battery selection.
+
+The viewer passed offline desktop and emulated mobile checks, exact selected battery/frame GLB exports and JSON round trips. Local 4× CPU measurements: **16.8 ms orbit p95**, **67 ms frame-change p95**, zero orbit long tasks. Physical-phone performance remains untested.
+
+The earlier slot/copper conflict and displaced mount were corrected without relaxing the 0.5 mm edge rule. Native solids, six frame styles, two battery envelopes, saved configurations, CAD-derived renders and the viewer are checked as digital artifacts. Routing, connector qualification, printed retention, charging and BLE remain open.
+
+[Review and limits](revI-review.md) · [Mechanical checks](../validation/revI-mechanical.json) · [PCB readback](../validation/revI-electrical.json) · [Service/coupons](../validation/revI-service.json).
 
 ## Multicolor frame previews
 

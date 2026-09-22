@@ -14,9 +14,11 @@ export function gap(a,b){
 }
 export function check(config,c){
  const errors=[],variants=new Map(c.variants.map(v=>[v.id,v]));let minimum=Infinity;
- if(config?.schema!=='filo36-config-1'||config?.revision!=='H')return {errors:['Unsupported configuration format or revision.']};
+ if(config?.schema!=='filo36-config-1'||config?.revision!=='I')return {errors:['Unsupported configuration format or revision.']};
  if(Object.keys(config.keycaps||{}).sort().join()!=='left,right'||Object.keys(config.frames||{}).sort().join()!=='left,right')return {errors:['Both halves are required.']};
+ if(Object.keys(config.batteries||{}).sort().join()!=='left,right')return {errors:['Select a battery for each half.']};
  for(const [side,keys] of Object.entries(c.layout)){
+   if(!c.battery_profiles[config.batteries[side]])errors.push('Unknown battery profile.');
    if(Object.keys(config.keycaps[side]||{}).sort().join()!==keys.map(k=>k.ref).sort().join())return {errors:['Missing keys or unknown positions.']};
    const f=config.frames[side];if(!c.frame_styles[f?.style]||!/^#[0-9a-f]{6}$/i.test(f?.color))errors.push('Invalid frame or color.');
    const shapes=[];

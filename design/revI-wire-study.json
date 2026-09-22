@@ -1,0 +1,77 @@
+{
+  "units": "mm",
+  "diameter": 0.6,
+  "center_z": [
+    7.3,
+    8.1
+  ],
+  "minimum_bend_radius_mm": 1.5,
+  "centerline_length_mm": 105,
+  "control_points": [
+    [
+      117.5,
+      47.81327713730718
+    ],
+    [
+      117.5,
+      20.1
+    ],
+    [
+      128,
+      20.1
+    ],
+    [
+      128,
+      26
+    ],
+    [
+      121,
+      26
+    ],
+    [
+      121,
+      30.5
+    ],
+    [
+      128,
+      30.5
+    ],
+    [
+      128,
+      35
+    ],
+    [
+      121,
+      35
+    ],
+    [
+      121,
+      39.5
+    ],
+    [
+      128,
+      39.5
+    ],
+    [
+      128,
+      44
+    ],
+    [
+      122.8,
+      44
+    ],
+    [
+      122.8,
+      52.8
+    ],
+    [
+      116,
+      52.8
+    ],
+    [
+      116,
+      55.9
+    ]
+  ],
+  "status": "Nominal storage for two105mm insulated leads. Wire diameter/bend radius and actual cell/connector terminations require verification; not a wiring instruction."
+}

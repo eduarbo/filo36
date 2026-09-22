@@ -1,0 +1,176 @@
+{
+  "scope": "Nominal CAD only; sampled release path, not a physical fit/force test",
+  "frame_lift_samples_mm": [
+    0,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16,
+    24
+  ],
+  "halves": {
+    "left": {
+      "pcb_lift_after_plate_modules_removed": [],
+      "nominal_3mm_driver_shaft_collisions": [],
+      "six_frame_lift_paths": {
+        "smooth": [],
+        "bevel": [],
+        "facet": [],
+        "handheld": [],
+        "tv": [],
+        "cyberpunk": []
+      },
+      "cage_capture_overlap_at_0_2mm_lift_mm3": 0.07800000000000151,
+      "cell_translation_bound_vs_leads_mm3": {
+        "battery-lead-0": 0,
+        "battery-lead-1": 0
+      },
+      "six_direction_insert_capture_mm3": {
+        "magnet-0": [
+          0.658503,
+          0.658503,
+          0.658503,
+          0.658503,
+          0.628319,
+          0.628319
+        ],
+        "frame-target-0": [
+          1.334666,
+          1.334666,
+          1.334666,
+          1.334666,
+          0.628319,
+          0.628319
+        ],
+        "magnet-1": [
+          0.658503,
+          0.658503,
+          0.658503,
+          0.658503,
+          0.628319,
+          0.628319
+        ],
+        "frame-target-1": [
+          1.334666,
+          1.334666,
+          1.334666,
+          1.334666,
+          0.628319,
+          0.628319
+        ],
+        "magnet-2": [
+          0.658503,
+          0.658503,
+          0.658503,
+          0.658503,
+          0.628319,
+          0.628319
+        ],
+        "frame-target-2": [
+          1.334666,
+          1.334666,
+          1.334666,
+          1.334666,
+          0.628319,
+          0.628319
+        ]
+      }
+    },
+    "right": {
+      "pcb_lift_after_plate_modules_removed": [],
+      "nominal_3mm_driver_shaft_collisions": [],
+      "six_frame_lift_paths": {
+        "smooth": [],
+        "bevel": [],
+        "facet": [],
+        "handheld": [],
+        "tv": [],
+        "cyberpunk": []
+      },
+      "cage_capture_overlap_at_0_2mm_lift_mm3": 0.07800000000000136,
+      "cell_translation_bound_vs_leads_mm3": {
+        "battery-lead-0": 0,
+        "battery-lead-1": 0
+      },
+      "six_direction_insert_capture_mm3": {
+        "magnet-0": [
+          0.658503,
+          0.658503,
+          0.658503,
+          0.658503,
+          0.628319,
+          0.628319
+        ],
+        "frame-target-0": [
+          1.334666,
+          1.334666,
+          1.334666,
+          1.334666,
+          0.628319,
+          0.628319
+        ],
+        "magnet-1": [
+          0.658503,
+          0.658503,
+          0.658503,
+          0.658503,
+          0.628319,
+          0.628319
+        ],
+        "frame-target-1": [
+          1.334666,
+          1.334666,
+          1.334666,
+          1.334666,
+          0.628319,
+          0.628319
+        ],
+        "magnet-2": [
+          0.658503,
+          0.658503,
+          0.658503,
+          0.658503,
+          0.628319,
+          0.628319
+        ],
+        "frame-target-2": [
+          1.334666,
+          1.334666,
+          1.334666,
+          1.334666,
+          0.628319,
+          0.628319
+        ]
+      }
+    }
+  },
+  "coupons": {
+    "magnet-base": {
+      "path": "mechanical/revI/coupon-magnet-base.stl",
+      "sha256": "c48717505265c6e0d932de1b4983b829a6a16640fe0531f9f70e6939c205a8d4"
+    },
+    "magnet-frame": {
+      "path": "mechanical/revI/coupon-magnet-frame.stl",
+      "sha256": "11d6f80cf74b4b92c0123b6cd185a8513ab85422ec52c6029f225f5773686907"
+    },
+    "m2-thread": {
+      "path": "mechanical/revI/coupon-m2-thread.stl",
+      "sha256": "ccd732a7fb45d346d82a944c30918c84b2ca5eb4f17398a64a77de1ae7f62d0e"
+    }
+  },
+  "physical_acceptance": false,
+  "source_sha256": "fe6e77394e6b0b0ed9504427548a94095a36698ff76895108214b967bceb6d30",
+  "checker_sha256": "62f2fe5373c3e775a473c9f1f6cec48fb69876a5e05943e2830a2a89770c85dc"
+}

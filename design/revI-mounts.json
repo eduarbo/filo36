@@ -1,0 +1,72 @@
+{
+  "units": "mm",
+  "left": [
+    {
+      "id": "H1",
+      "xy": [
+        21,
+        37.5
+      ],
+      "post_radius": 2.5,
+      "seat_z": 7.6,
+      "length": 6,
+      "head_diameter": 3.8,
+      "head_height": 1.3
+    },
+    {
+      "id": "H2",
+      "xy": [
+        57,
+        20.5
+      ],
+      "post_radius": 1.8,
+      "seat_z": 7.6,
+      "length": 6,
+      "head_diameter": 3.8,
+      "head_height": 1.3
+    },
+    {
+      "id": "H3",
+      "xy": [
+        80,
+        61.3
+      ],
+      "post_radius": 2.3,
+      "seat_z": 7.6,
+      "length": 6,
+      "head_diameter": 3.8,
+      "head_height": 1.3
+    },
+    {
+      "id": "H4",
+      "xy": [
+        130.6,
+        66.5
+      ],
+      "post_radius": 2.1,
+      "seat_z": 5.4,
+      "length": 4,
+      "head_diameter": 4,
+      "head_height": 1.1
+    },
+    {
+      "id": "H5",
+      "xy": [
+        114.5,
+        65.5
+      ],
+      "post_radius": 2.1,
+      "seat_z": 5.4,
+      "length": 4,
+      "head_diameter": 4,
+      "head_height": 1.1
+    }
+  ],
+  "head_diameter": 3.8,
+  "head_height": 1.3,
+  "shaft_diameter": 2,
+  "pilot_diameter": 1.7,
+  "source": "https://static.nbk1560.com/images/en/product/lowsmallheadscrew/SLH-TZB/SLH-TZB_1.pdf",
+  "status": "Nominal screw envelope; printed pilot is tapped M2 before assembly. Thread strength and cycling require coupon; no inserts or self-tapping assumption.",
+  "short_screw_source": "https://static.nbk1560.com/images/en/product/lowsmallheadscrew/SSH/SSH_1.pdf"
+}

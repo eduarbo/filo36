@@ -9,7 +9,7 @@
 <style>/*__STYLE__*/</style>
 </head>
 <body>
-<header><div><strong>FILO36</strong><span>REV H / OBJECT EXPLORER</span></div><a href="https://github.com/eduarbo/filo36">Repository ↗</a></header>
+<header><div><strong>FILO36</strong><span>REV I / OBJECT EXPLORER</span></div><a href="https://github.com/eduarbo/filo36">Repository ↗</a></header>
 <main>
 <section class="stage" aria-label="3D keyboard view">
   <canvas id="canvas" aria-label="Drag to rotate; pinch or scroll to zoom; tap a part to inspect"></canvas>
@@ -48,6 +48,7 @@
       <p class="micro">38 source variants; 28 qualify somewhere. No 1.5U reference configuration qualifies. Physical fit remains untested.</p>
     </details>
   </section>
+  <section id="panel-battery" aria-label="Battery options" hidden><h2>Battery profile</h2><div id="battery-options" class="segments" aria-label="Battery profiles"></div><p class="hint">Apply to both halves. Both nominal sizes share the same cradle and cage.</p><p class="micro">Check the finished pack, insulation and leads before assembly. JSON can store a different profile per half.</p></section>
   <section id="panel-view" aria-label="View options" hidden>
     <div class="panel-heading"><h2>View &amp; layers</h2></div>
     <p class="hint">Select a component in the directory. Use its eye to hide or show it.</p>
@@ -60,9 +61,10 @@
   <section id="panel-files" aria-label="Files and export" hidden><details id="project-menu" open><summary>Save &amp; export <span>JSON / GLB / offline</span></summary>
     <div class="config-actions"><button id="save-config">Save configuration</button><button id="load-trigger">Load JSON</button><input id="load-config" type="file" accept=".json,application/json" hidden><button id="default-config">Restore default parts</button></div>
     <p class="micro">Transfer JSON selections to FreeCAD. Reset view keeps your choices.</p>
-    <div class="downloads"><button id="glb">Download assembled GLB</button><a href="./index.html" download="Filo36-revH.html">Download offline HTML</a><a href="https://github.com/eduarbo/filo36/blob/main/docs/freecad.md">Edit in FreeCAD + KiCad ↗</a></div>
+
+    <div class="downloads"><button id="glb">Download assembled GLB</button><a href="./index.html" download="Filo36-revI.html">Download offline HTML</a><a href="https://github.com/eduarbo/filo36/blob/main/docs/freecad.md">Edit in FreeCAD + KiCad ↗</a></div>
   </details>
-  </section><section id="panel-about" aria-label="Prototype information" hidden><details open><summary>About this prototype</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame roof:</b> 16.6 mm · <b>Themed relief:</b> 17.2 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>36 Piantor positions. Original KLP Lamé meshes. Units: mm. The directory includes all 12 component groups. A fine line connects the active visible part to its entry.</p><p>Nominal CAD study. Unrouted PCB. Battery opening: 0.15 mm per cradle side and 0.22 mm to pads; DRC unresolved. Cables, contacts, retention and physical fit untested. Electronics use approximate envelopes; switch bodies, keycap seating, screws and feet are illustrative.</p></div><button id="credits">Credits and licenses</button></details>
+  </section><section id="panel-about" aria-label="Prototype information" hidden><details open><summary>About this prototype</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame roof:</b> 16.6 mm · <b>Themed relief:</b> 17.2 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>36 Piantor positions. Original KLP Lamé meshes. Units: mm. The directory includes all 12 component groups. A fine line connects the active visible part to its entry.</p><p>Nominal CAD study. Zero geometric DRC violations; 104 unconnected items per PCB. Both battery profiles fit the modeled aperture. Magnetic frames, printed threads, actual cables/contacts and hardware operation require physical tests. Commercial components use approximate envelopes.</p></div><button id="credits">Credits and licenses</button></details>
 </section></div>
 </aside>
 <svg id="leader-lines" aria-hidden="true"><path id="part-link" hidden></path><circle id="part-link-dot" r="2.5" hidden></circle></svg>

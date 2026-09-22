@@ -18,7 +18,7 @@ export function framePalette(style,body){
 export function createFrameFinishes(geometryFor,material){
   const cache=new Map();
   return function frame(style,side,body){
-    const path=`mechanical/revH/${side}-frame-${style}.stl`;
+    const path=`mechanical/revI/${side}-frame-${style}.stl`;
     if(!cache.has(path)){
       const source=geometryFor(path),g=source.clone(),p=g.getAttribute('position'),buckets=finishes.roles.map(()=>[]);
       for(let i=0;i<source.index.count;i+=3){

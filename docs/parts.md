@@ -2,7 +2,7 @@
 
 **One complete 36-key split. Quantities cover both halves.**
 
-This is a planning BOM for the revH mechanical study and PCB outline. **It is not a verified build kit:** the PCBs are unrouted, DRC has open findings, and final connectors/fasteners still need fit checks. Store links identify actual products; they do not certify interchangeability.
+This is a planning BOM for the revI mechanical study and PCB outline. **It is not a verified build kit:** the PCBs are unrouted, and exact connectors, magnetic retention and printed threads still need physical tests. Store links identify actual products; they do not certify interchangeability.
 
 [Typeractive shopping list](#typeractive-shopping-list) · [Controllers](#controllers) · [Displays](#displays) · [Switches](#switches-and-hot-swap) · [Battery](#battery) · [Connectors](#removable-connectors) · [Small parts](#small-electrical-parts) · [Printed parts](#printed-parts)
 
@@ -18,7 +18,7 @@ This is a planning BOM for the revH mechanical study and PCB outline. **It is no
 | [Machine sockets and pins](https://typeractive.xyz/products/machine-sockets-and-pins) | **2 kits** | Store uses Mill-Max **310**, study references **315**; substitution needs height/pin check |
 | [EZ-Solder sockets/headers](https://typeractive.xyz/products/ez-machine-sockets-and-headers) | **2 kits**, instead of the preceding kits | Easier header handling; taller, not qualified in this stack |
 | [5-pin sockets](https://typeractive.xyz/products/5-pin-sockets) | Optional **1 pack of 2** | Extras; nice!view already includes sockets/pins. Published 7 mm installed height differs from our nominal stack |
-| [110 mAh battery](https://typeractive.xyz/products/lithium-battery-110mah) | **2**, connector variant to resolve | Alternative only: 12 mm width leaves no clearance in the current 12 mm cavity |
+| [110 mAh battery](https://typeractive.xyz/products/lithium-battery-110mah) | **2**, connector variant to resolve | Supported nominal envelope in the shared 12.5 mm aperture; physical pack fit pending |
 | [Battery jack](https://typeractive.xyz/products/battery-jack) | **1 pack of 2** | JST S2B-PH-K reference; orientation/footprint not closed |
 | [Power switch](https://typeractive.xyz/products/power-switch) | **1 pack of 2** | Alps part differs from the C&K reference; footprint change/check required |
 | [Reset button](https://typeractive.xyz/products/reset-button) | **1 pack of 2** | Panasonic part differs from the E-Switch reference; not a drop-in approval |
@@ -65,7 +65,7 @@ An exact Pro Red manufacturer PDF has not been verified here; the family page is
 
 <a href="https://www.adafruit.com/product/1570"><img src="https://cdn-shop.adafruit.com/145x109/1570-00.jpg" width="210" alt="Adafruit 1570 battery — supplier product photo"></a>
 
-**CAD reference: 2 × Adafruit 1570, protected 1S LiPo, sold as 100 mAh.** The model uses the product page’s **11.5 × 31 × 3.8 mm** envelope and leaves cable routing unfinished.
+**CAD reference: 2 × Adafruit 1570, protected 1S LiPo, sold as 100 mAh.** The model uses the product page’s **11.5 × 31 × 3.8 mm** envelope; two 105 mm lead storage paths are modeled as a nominal reservation.
 
 **Datasheet:** [supplier-linked PKCELL PDF](https://cdn-shop.adafruit.com/product-files/1570/1570datasheet.pdf). **Full information and purchase:** [Adafruit 1570](https://www.adafruit.com/product/1570). The linked PDF names a **401230 / 105 mAh** cell, while the listing says 100 mAh: confirm the actual supplied pack and its dimensions before closing the cradle. The product page limits charging to **100 mA or less**; the nice!nano charger configuration must respect the actual cell’s limit.
 
@@ -73,7 +73,14 @@ An exact Pro Red manufacturer PDF has not been verified here; the family page is
 
 **Typeractive alternative: 301230, 110 mAh, 3 × 12 × 30 mm.** [Product and connector variants](https://typeractive.xyz/products/lithium-battery-110mah). The black PH connector version has shorter leads; the white version includes a mating wired jack. No cell-specific datasheet is linked on the listing.
 
-This is **not a verified swap**: the current cavity is 12 mm wide, leaving zero nominal width allowance. Recheck cradle/PCB opening, protected pack dimensions, lead exit, connector polarity and charge rating before substituting it. No autonomy estimate is promised.
+**Both profiles use the same case, PCB opening, cradle and cage.** Select the battery in **Battery** in the sidebar in the viewer; configuration JSON and FreeCAD retain the choice per half.
+
+| Profile | Nominal W × L × H | Aperture side gap | Gap below rigid cage roof |
+|---|---|---:|---:|
+| Adafruit 1570 | 11.5 × 31 × 3.8 mm | 0.50 mm per side | 0.40 mm |
+| 301230 | 12 × 30 × 3 mm | 0.25 mm per side | 1.20 mm |
+
+These are nominal clearances, not maximum finished-pack tolerances. Confirm protection-board wrapping, insulation at PCB edges, lead exit, connector polarity and charging limits on the delivered pack. The smaller pack can move within the cage; its full translation envelope remains clear of the modeled leads. No autonomy estimate is promised.
 
 ## Removable connectors
 
@@ -109,29 +116,31 @@ This is **not a verified swap**: the current cavity is 12 mm wide, leaving zero 
 
 ## Printed parts
 
-![Filo36 revH case CAD and KLP Lamé reference assembly](images/revH-assembled.png)
+![Filo36 revI case CAD and KLP Lamé reference assembly](images/revI-assembled.png)
 
 | Part | Quantity | Files / options |
 |---|---:|---|
 | KLP Lamé keycaps | 36 | [Variant guide](customize.md); [38 source STLs](../keycaps/variants); original preset: 28 Normal + 2 Homing + 6 Thumb |
 | Case bases and key plates | 2 each | [Editable CAD, STEP and STL](cad.md) |
 | Display frames | 2 | Handheld, Retro TV, Cyberpunk or three plain styles; separate color per half |
-| Battery cradles and retainers | 2 each | Retainer fastening still provisional |
+| Battery cradles and retainers | 2 each | Low saddle and rigid cage; cage feet captured under PCB |
 | Controller supports and display sleds | 2 each | Independent from the cover |
-| Printed spacers/washers | 10 | Check printed dimensions and screw fit |
+| Printed spacers/washers | 6 | Check printed dimensions and screw fit |
 
 **Technical source for keycaps:** [KLP Lamé files and print guidance](https://github.com/braindefender/KLP-Lame-Keycaps). No commercial datasheet applies to the custom printed parts; the FCStd and dimensioned parameters are their design source. PLA Basic, PETG HF and ABS are candidate materials, not validated print profiles. Start with a fit coupon and three caps.
 
 ## Fasteners, cable and tools
 
-- **M2 hardware:** 10 mounting locations, including four frame screws. Head geometry, lengths and thread engagement remain open; closed frames need different lengths from revF rails. No final fastener order yet.
+- **6 × M2 × 6 low-head screws:** nominal NBK SLH envelope, Ø3.8 × 1.3 mm head. [Drawing](https://static.nbk1560.com/images/en/product/lowsmallheadscrew/SLH-TZB/SLH-TZB_1.pdf). **4 × M2 × 4:** NBK SSH envelope, Ø4 × 1.1 mm head. [Drawing](https://static.nbk1560.com/images/en/product/lowsmallheadscrew/SSH/SSH_1.pdf). Tap the printed Ø1.7 mm pilots M2; engagement is 2.2–2.4 mm. Thread strength remains untested.
+- **6 × Ø2 × 3 mm neodymium magnets:** S-02-03-N reference, N45. [Full product information](https://www.supermagnete.de/stabmagnete-neodym-rund/stabmagnet-2mm-3mm_S-02-03-N) · [Datasheet](https://www.supermagnete.fr/data_sheet_S-02-03-N.pdf). Three stay in each base. Test the capture process without exceeding the specified 80°C magnet temperature.
+- **6 × Ø2 × 4 mm ferromagnetic steel pins:** three per frame. The exact supplier/grade is still open; nonmagnetic stainless is unsuitable. Every additional pair of frames needs six more pins; the base magnets stay in place.
 - **8 adhesive rubber feet:** approximately 1–1.5 mm. Their height adds to the case.
-- **Insulation and removable retention:** small quantity; avoid loading the battery pouch. Final retention is unprototyped.
+- **Insulation and removable retention:** small quantity; avoid loading the battery pouch. The rigid cage and captive inserts are digitally modeled; printed retention is untested.
 - **1–2 USB-C data cables:** charging and firmware transfer. [Typeractive’s silicone cable](https://typeractive.xyz/products/silicone-usb-c-cable) is listed for power; its page does not establish data support. Do not assume it can flash firmware. Check plug dimensions against the opening.
 - Fine-tip soldering iron, solder, flux, tweezers, cutters and a multimeter. The printer makes mechanical parts; the custom PCB needs fabrication after routing and DRC are complete.
 
 ## Sources and images
 
-Product links and pack quantities checked on **2026-09-21**. Manufacturer/supplier documentation takes precedence over approximate CAD envelopes. Missing exact datasheets and unresolved substitutions are explicitly identified above.
+Original store links and pack quantities were checked on **2026-09-21**; battery specifications and magnetic hardware sources were revisited on **2026-09-22**. The current automated link check could not read the Arrow socket PDF (timeout) or the C&K PDF (403); those historical technical references remain listed, not freshly verified. Manufacturer/supplier documentation takes precedence over approximate CAD envelopes. Missing exact datasheets and unresolved substitutions are explicitly identified above.
 
 Product photos are embedded from Typeractive/Adafruit and linked to their original listings. They remain the property of their respective owners; they are not relicensed under this repository’s license. They need internet access and are not bundled in the offline 3D viewer. Filo36 renders have separate [attribution](../ATTRIBUTION.md).

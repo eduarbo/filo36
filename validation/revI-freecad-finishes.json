@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "source_unchanged": true,
+  "source_sha256": "fe6e77394e6b0b0ed9504427548a94095a36698ff76895108214b967bceb6d30",
+  "styles": [
+    {
+      "side": "left",
+      "style": "handheld",
+      "colored_faces": 100,
+      "distinct_colors": 4,
+      "visible_link_inherits_materials": true
+    },
+    {
+      "side": "right",
+      "style": "handheld",
+      "colored_faces": 100,
+      "distinct_colors": 4,
+      "visible_link_inherits_materials": true
+    },
+    {
+      "side": "left",
+      "style": "tv",
+      "colored_faces": 95,
+      "distinct_colors": 4,
+      "visible_link_inherits_materials": true
+    },
+    {
+      "side": "right",
+      "style": "tv",
+      "colored_faces": 95,
+      "distinct_colors": 4,
+      "visible_link_inherits_materials": true
+    },
+    {
+      "side": "left",
+      "style": "cyberpunk",
+      "colored_faces": 99,
+      "distinct_colors": 4,
+      "visible_link_inherits_materials": true
+    },
+    {
+      "side": "right",
+      "style": "cyberpunk",
+      "colored_faces": 99,
+      "distinct_colors": 4,
+      "visible_link_inherits_materials": true
+    }
+  ],
+  "json_body_override_roundtrip": true,
+  "edited_roof_mm": 17.2,
+  "saved_reopened_colors": true
+}

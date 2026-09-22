@@ -2,18 +2,18 @@
 import * as THREE from 'three';
 
 export const partInfo={
-  lid:{name:'Display frame',short:'Frame',info:'Interchangeable printed cover. Pick a frame below; the display support stays in place.'},
+  lid:{name:'Display frame',short:'Frame',info:'Magnetic frame with captive steel targets and vertical release. Pick a design below; PCB and battery remain mechanically secured.'},
   keycaps:{name:'KLP Lamé keycaps',short:'Caps',info:'Original Choc-stem meshes. Choose a preset or edit a key, row or thumb cluster.'},
   display:{name:'nice!view display',short:'Display',info:'Low-power display reference. The board envelope and screen content are illustrative.'},
-  base:{name:'Printed base',short:'Base',info:'Continuous case flank with subtly rounded corners. Native source is editable in FreeCAD.'},
+  base:{name:'Printed base',short:'Base',info:'Contour follows the finger columns, one recess and a continuous thumb fan. Native source is editable in FreeCAD.'},
   plate:{name:'Switch plate',short:'Plate',info:'Holds the 36 Piantor switch positions and angles. Nominal plate height: 7.6 mm.'},
   switches:{name:'Choc switches',short:'Switch',info:'Low-profile switch envelopes. Seating, travel and printed keycap stems need physical fit tests.'},
-  pcb:{name:'PCB',short:'PCB',info:'Custom wireless board outline. Routing and DRC remain unfinished; this is not a manufacturing file.'},
-  battery:{name:'LiPo battery',short:'Battery',info:'Recessed 100 mAh battery envelope. Final cell, connector, protection and clearances remain to be qualified.'},
+  pcb:{name:'PCB',short:'PCB',info:'Custom wireless board outline. Zero geometric DRC violations, but routing remains unfinished; this is not a manufacturing file.'},
+  battery:{name:'LiPo battery',short:'Battery',info:'Adafruit 1570 and 301230 nominal profiles share the low saddle and captured cage. Choose a profile below. Verify actual pack, leads and insulation.'},
   mcu:{name:'nice!nano controller',short:'MCU',info:'Wireless controller envelope in the stacked bay. Final connections and radio performance are untested.'},
   supports:{name:'Insulating supports',short:'Mounts',info:'Cradle, display sled and controller supports. Retention is a nominal CAD proposal.'},
   connectors:{name:'Connectors & controls',short:'Ports',info:'Sockets, battery connector, reset and power-switch references. Final supplied dimensions and cabling remain open.'},
-  fasteners:{name:'Fasteners & feet',short:'Feet',info:'Illustrative screws, washers and feet. Screw length, seating and printed fit require a physical trial.'}
+  fasteners:{name:'Fasteners & feet',short:'Feet',info:'Five internal M2 structural screws per half, three captive magnet stations and steel frame targets. Printed threads and magnetic holding force need coupons.'}
 };
 
 export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,requestRender}){

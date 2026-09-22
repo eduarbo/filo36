@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 """
 from pathlib import Path
 import hashlib,json,subprocess,sys,urllib.request,zipfile
-ROOT=Path(__file__).resolve().parents[1];out=ROOT/'build/revH';out.mkdir(parents=True,exist_ok=True)
+ROOT=Path(__file__).resolve().parents[1];out=ROOT/'build/revI';out.mkdir(parents=True,exist_ok=True)
 commit=sys.argv[1] if len(sys.argv)>1 else subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
 assert len(commit)==40 and all(c in '0123456789abcdef' for c in commit)
 url='https://codeload.github.com/eduarbo/filo36/zip/'+commit
