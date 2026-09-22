@@ -1,7 +1,7 @@
 {
   "source_request": "Añadir todas las variantes KLP Lamé soportables y reemplazar rieles por frames personalizados que oculten el stack con elegancia.",
   "parent_objective": "Piantor wireless 36 exact layout; overall hardware partial",
-  "status": "local_verified_publication_pending",
+  "status": "digital_scope_published_and_verified",
   "required_outcomes": [
     "Traceable complete Choc-stem catalog with explicit orientation and per-configuration geometric qualification",
     "Selectable keycaps in viewer and native FreeCAD with shared saved configuration",
@@ -24,5 +24,7 @@
     "validation/revG-render.json",
     "validation/revG-review.json",
     "validation/revG-parts-links.json"
-  ]
+  ],
+  "publication": "validation/revG-publication.json",
+  "remaining_original_objective": "Unrouted PCB/DRC, integrated firmware, final connector and screw selection, battery cable/retention, physical fit/RF/consumption. No purchases or hardware acceptance."
 }

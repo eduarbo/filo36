@@ -45,7 +45,7 @@ RevG replaces them with opaque covers, each with a screen window, skirt, USB ope
 
 The rear mounting columns and head seats extend higher than revF’s open rails: **do not reuse a screw length without measuring it**. M2 thread engagement, head profile and printed hole fit remain provisional. The reset opening is for a tool, not a finger. A nominal 12 × 5 mm USB plug envelope and straight insertion corridor clear all styles; oversized cable housings may not.
 
-For a custom frame, open the native source and expand **Construction**. Each style has three section sketches and a ruled loft, followed by the shared clearance cuts. Duplicate a style, edit its upper outline or add a surface pattern, retain the inner cavity and mounting interface, then check intersections. Keep the display window and service openings unobstructed. The delivered viewer accepts the three supplied geometries; a new shape must be exported and rebuilt into the viewer.
+For a custom frame, open the native source and expand **Construction**. Each style has three section sketches and a ruled loft, followed by the shared clearance cuts. Duplicate a style, edit its upper outline or add a surface pattern, retain the inner cavity and mounting interface, then check intersections. Imported outline segments use Block constraints; remove only the constraints on segments you intend to edit before moving their points. Keep the display window and service openings unobstructed. The delivered viewer accepts the three supplied geometries; a new shape must be exported and rebuilt into the viewer.
 
 ## Save a configuration for FreeCAD
 
