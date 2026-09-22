@@ -85,3 +85,5 @@ Publication verified: an anonymous archive matched all **404 files** of the desi
 RevF’s CAD/StepUp exchange, anonymous source download and public viewer were checked; physical acceptance was not. [Historical review](revF-review.md) · [publication receipt](../validation/revF-publication.json).
 
 Filo36 remains a provisional name; Sesgo36 and Brizna36 were earlier candidates. Changing the project’s presentation does not retire unfinished electrical or physical requirements.
+
+The LCD-flank/curved-thumb and viewer correction is published. Anonymous source readback verified all **788 implementation files**; public browser checks passed for individual visibility, Solo/Show all, temporary X-ray hover, fixed View controls and mobile layouts. [Publication receipt](../validation/revI-lcd-curve-publication.json). Physical assembly and electronics acceptance remain open.
