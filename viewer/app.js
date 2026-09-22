@@ -5,7 +5,7 @@ import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 
 const $=id=>document.getElementById(id);
 const data=JSON.parse($('scene-data').textContent);
-const labels={base:'Bases',plate:'Plates',lid:'Tapas',keycaps:'Keycaps',switches:'Switches',pcb:'PCB',battery:'Baterías',mcu:'Micros',display:'Pantallas',connectors:'Conectores',supports:'Soportes',fasteners:'Fijación / patas'};
+const labels={base:'Bases',plate:'Plates',lid:'Marco / tapas',keycaps:'Keycaps',switches:'Switches',pcb:'PCB',battery:'Baterías',mcu:'Micros',display:'Pantallas',connectors:'Conectores',supports:'Soportes',fasteners:'Fijación / patas'};
 const state={half:'both',layers:Object.fromEntries(Object.keys(labels).map(k=>[k,true])),explode:0,view:'iso'};
 const directions={iso:[.35,1.6,1.75],top:[0,1,.0001],front:[0,0,1],back:[0,0,-1],right:[1,0,0],left:[-1,0,0],bottom:[0,-1,.0001]};
 const scene=new THREE.Scene();scene.background=new THREE.Color('#edf0e9');
@@ -99,7 +99,7 @@ function sync(){
   $('explosion').textContent=Math.round(state.explode*100)+' %';
   for(const key of Object.keys(labels))$('layer-'+key).checked=state.layers[key];
   const count=objects.filter(o=>o.visible).length;
-  $('status').textContent=`RevE · ${count} componentes visibles${state.explode?' · Vista separada':''}`;
+  $('status').textContent=`Rev${data.revision} · ${count} componentes visibles${state.explode?' · Vista separada':''}`;
   render();
 }
 function reset(){
@@ -125,7 +125,7 @@ canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();$('err
 $('glb').onclick=async()=>{
   const button=$('glb');button.disabled=true;button.textContent='Preparando GLB…';
   try{
-    const assembly=new THREE.Group();assembly.name='Filo36 revE · nominal';assembly.scale.setScalar(.001);
+    const assembly=new THREE.Group();assembly.name=`Filo36 rev${data.revision} · nominal`;assembly.scale.setScalar(.001);
     for(const object of objects){const clone=object.clone();clone.visible=true;clone.position.fromArray(object.userData.base);assembly.add(clone);}
     assembly.userData={units:'metres',source:'https://github.com/eduarbo/filo36',limitations:data.limits,
       attribution:'Filo36 / Eduardo Ruiz, derived from Piantor by beekeeb (GPL-3.0); KLP Lame keycaps by braindefender (CC-BY-SA-4.0), unchanged meshes, placed and coloured.',

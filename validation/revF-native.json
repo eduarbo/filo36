@@ -1,0 +1,31 @@
+{
+  "freecad_version": [
+    "1",
+    "1",
+    "3"
+  ],
+  "source_sha256": "ae9fa850c4eabe222c37f6bdfe877f91cb9980896cda966587fb8355ee7b5b0f",
+  "native_without_custom_proxies": true,
+  "frame_height_edit_mm": [
+    16.6,
+    17.2
+  ],
+  "save_close_reopen_preserves_edit": true,
+  "screen_shift_mm": 1,
+  "restore_volumes_match": true,
+  "component_models": "Relative KIPRJMOD STEP files; nominal envelopes, not manufacturer models",
+  "keycap_count": 36,
+  "models": {
+    "left-reset.step": "02652caf9609fd60b5f823419225f4e6272153c5ca95eb07e1686112fa39f79d",
+    "right-jst.step": "03fb69310928246b28a08f8f4c5fff9dbe232fc29f26da8c27c3e2026f6aad95",
+    "left-jst.step": "d97fce8a3bf7f619962ef63b9af7ed39876695a06b3642b547d62ac6c26aa0ec",
+    "left-display.step": "91868b1d67136d1cc5c918a4e9ddaa59fbaf4ca8ea2e1069c97ccc5ff1b7b325",
+    "left-mcu.step": "9447259739e7f82ec383c6263549f946f71a8dcdbc4e50f28a5b464cb5b4d05e",
+    "right-mcu.step": "762a95a8513a1061e695c3af1666234c94fb238e138bd4c991b3f01b5d8735d7",
+    "right-reset.step": "061972f7270f2c228b86c05fff73f597f6313ba6bb594328915167344aff18b5",
+    "right-display.step": "bacdf8bf7650a007582af68bc3c7bbe66a90960cf01b0fd879e6598cf7032f26",
+    "right-slider.step": "c2aa9121a1177590e8445014c8364f20b990762716c0a81c91afe3c4cdfa9f5c",
+    "choc-envelope.step": "c5d82cb35a45ec7b0176780f0ddfc0a99a11180b590d4ca78f69d2b4fb0db5dd",
+    "left-slider.step": "543547b15721203b4fc661b1dc29d8e55ed3cea0429082edbe19a984a43e665c"
+  }
+}

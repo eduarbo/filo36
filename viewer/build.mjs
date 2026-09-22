@@ -28,10 +28,10 @@ new Script([...html.matchAll(/<script(?: [^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)
 fs.writeFileSync(path.join(root,'docs/index.html'),html);
 fs.writeFileSync(path.join(root,'docs/.nojekyll'),'');
 const sources=[...scene.sources,...['viewer/app.js','viewer/style.css','viewer/template.html','viewer/build.mjs','viewer/package-lock.json'].map(p=>({path:p,sha256:hash(p)}))];
-const receipt={revision:'E',units:'mm',objects:scene.parts.length,unique_meshes:Object.keys(scene.geometries).length,
+const receipt={revision:scene.revision,units:'mm',objects:scene.parts.length,unique_meshes:Object.keys(scene.geometries).length,
   keycaps:scene.parts.filter(p=>p.group==='keycaps').length,geometry_changed:false,
   sources,viewer_sha256:hash('docs/index.html'),measurements:scene.measurements,
   offline:'All geometry, scripts, styles and license notices embedded; external links only open on explicit click.',
   limitations:scene.limits};
-fs.writeFileSync(path.join(root,'validation/revE-viewer.json'),JSON.stringify(receipt,null,2)+'\n');
+fs.writeFileSync(path.join(root,`validation/rev${scene.revision}-viewer.json`),JSON.stringify(receipt,null,2)+'\n');
 console.log(`Self-contained viewer: ${(Buffer.byteLength(html)/1048576).toFixed(2)} MiB; ${scene.parts.length} objects.`);

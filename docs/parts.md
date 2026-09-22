@@ -21,7 +21,7 @@ Lista de planificación para **un teclado completo de 36 teclas**. La revisión 
 | Patas | 8 | Goma adhesiva, 1–1,5 mm | Se suman a la altura del teclado |
 | Aislamiento y retención | Poco material | Poliimida y fijación removible de la cuna | Sin presión sobre la bolsa de la batería |
 | Keycaps | 36 | KLP Lamé: 28 normales, 2 homing y 6 thumb | Choc Stem + Choc Size; no variante MX |
-| Piezas impresas | 1 juego | Bases, plates, tapas, cunas y separadores | Cantidades finales junto al CAD |
+| Piezas impresas | 1 juego | Bases, plates, marcos abiertos, cunas, retenedores y separadores | Cantidades finales junto al CAD |
 | USB-C de datos | 1–2 | Carga y programación | Verificar el tamaño del enchufe contra la abertura |
 
 También hacen falta soldador de punta fina, estaño, flux, pinzas, alicate de corte y multímetro. La X2D puede producir carcasa y keycaps; la PCB se encarga a un fabricante.
@@ -29,3 +29,7 @@ También hacen falta soldador de punta fina, estaño, flux, pinzas, alicate de c
 Para los primeros ensayos ya sirven PLA Basic y PETG HF. ABS es otra opción para carcasa, con mayor exigencia de impresión. La orientación, el encaje del vástago y la tolerancia importan más que elegir un filamento por nombre: primero un cupón y tres teclas, después el juego completo.
 
 Referencias: [nice!nano](https://nicekeyboards.com/nice-nano/), [nice!view](https://nicekeyboards.com/nice-view/), [Adafruit 1570](https://www.adafruit.com/product/1570), [Kailh Choc](https://www.kailhswitch.com/info/kailh-switches-introduction-list-27266403.html), [Ambients](https://lowprokb.ca/products/ambients-silent-choc-switches), [KLP Lamé](https://github.com/braindefender/KLP-Lame-Keycaps).
+
+RevF añade una abertura de PCB para rebajar la batería. Las PCB publicadas son
+un estudio sin ruteo y con incidencias DRC: **no son archivos para pedir a fábrica**.
+La tornillería del marco y la fijación del retenedor siguen por definir.

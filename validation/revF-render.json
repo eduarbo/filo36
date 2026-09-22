@@ -1,0 +1,231 @@
+{
+  "revision": "F",
+  "model_sha256": "f2d2eebb083478ebc3f0b3c67841a98b59ea43548839b366c9d7efcec814ea87",
+  "layout_sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
+  "renderer_sha256": "8c4bfc93343ce50d1078098bb5a59f23dfcaab0a13a5cf6a3c2b0c8e826d37eb",
+  "meshes": [
+    {
+      "path": "mechanical/revF/left-tray.stl",
+      "sha256": "edf923aae8b6c1a81ef4972aacd890c71456ed592a5f84c1950956bfecfa2e20"
+    },
+    {
+      "path": "mechanical/revF/left-key-plate.stl",
+      "sha256": "b70762f88b8d9382584420dd24746596ea1ac4429313d410ec967971f993e44e"
+    },
+    {
+      "path": "mechanical/revF/left-electronics-lid.stl",
+      "sha256": "9a6b11c5598d2f14ccf9fd240b9e755c5650714057356c34cfeb5047711b2cd9"
+    },
+    {
+      "path": "mechanical/revF/left-pcb.stl",
+      "sha256": "8c21519859a888700d051667cc2df4f16ba600fc9581abec59b72202c07fab14"
+    },
+    {
+      "path": "mechanical/revF/left-cradle.stl",
+      "sha256": "ceca23fa7014577f29bceb847c57476c9fa831a0cb6329f816ef96a5b74c5bbd"
+    },
+    {
+      "path": "mechanical/revF/left-battery-retainer.stl",
+      "sha256": "df7be59bbe3475e091b646480e35f5e6c17603a47ac443ba233e58a5a211e49e"
+    },
+    {
+      "path": "mechanical/revF/left-battery.stl",
+      "sha256": "f3f515d76a438e2a39c92648187627894a6cc84d3beb7e71b98c63f8c02252ac"
+    },
+    {
+      "path": "mechanical/revF/left-mcu-riser.stl",
+      "sha256": "01af96e574c0160606be0af716c0173dbd7462430a3ca8223896deb8a40d78d3"
+    },
+    {
+      "path": "mechanical/revF/left-mcu.stl",
+      "sha256": "9ad471492a67bb8a99d4a2724393002b87041b56032c443a7013ab2ce8959a2e"
+    },
+    {
+      "path": "mechanical/revF/left-mcu-sockets.stl",
+      "sha256": "3ffc5ed15c5d2b829782b6c588ca27d3ab0f383564a4961bd84b801baccdee37"
+    },
+    {
+      "path": "mechanical/revF/left-jst.stl",
+      "sha256": "d943da215b091d2cad10589d94384c798c86dbcf399434d009ba511e51abe3dd"
+    },
+    {
+      "path": "mechanical/revF/left-reset.stl",
+      "sha256": "77c99731c45b9c81ad28c523d22e44b875a74aaa0076584903b40020e1a89d02"
+    },
+    {
+      "path": "mechanical/revF/left-slider.stl",
+      "sha256": "3c0074d699a3c780a25443d094766eaa398c2797c59a928105f6faf3db3c6d84"
+    },
+    {
+      "path": "mechanical/revF/left-display-sled.stl",
+      "sha256": "d399ecaf887b2582fb740b3947987f9fc2a803abb9988fca3e0abc243cd75ed3"
+    },
+    {
+      "path": "mechanical/revF/left-display.stl",
+      "sha256": "d8a75484296c8ad044210d5649c84028efc15ac3032d020c73616866812de975"
+    },
+    {
+      "path": "mechanical/revF/left-washer-1.stl",
+      "sha256": "e4a3dff22eba0895836475d9e44b80ac9cd274f87d687171928bdf552673e721"
+    },
+    {
+      "path": "mechanical/revF/left-washer-2.stl",
+      "sha256": "9e69e0cf48c6ef7760a2cba6306ce528aef17dd2dcc8382fb1efef2790d8a099"
+    },
+    {
+      "path": "mechanical/revF/left-washer-3.stl",
+      "sha256": "00bb04b46be4f98e53d5001c094405c4a5490bdadac2648433f3f9c75535dd20"
+    },
+    {
+      "path": "mechanical/revF/left-washer-4.stl",
+      "sha256": "2882b17cb943b86af3e6f3bd3afe2bb3988b68719d2de4689282ae37eb83d16c"
+    },
+    {
+      "path": "mechanical/revF/left-washer-5.stl",
+      "sha256": "a9a675b8e88f281f971f0c674e3ba9bb715a090708e074afb9206140c3db87a3"
+    },
+    {
+      "path": "keycaps/normal.stl",
+      "sha256": "2e4110f314d848bbacc23585e3002b648e5eb094501d98d206db821867381a53"
+    },
+    {
+      "path": "keycaps/normal_homing.stl",
+      "sha256": "ef7c5c9940daf78d8a8fd95efc2a9772a37394e26b74d56319f4b5b7609ea441"
+    },
+    {
+      "path": "keycaps/thumb.stl",
+      "sha256": "20e8239ce4836e22906220a39ae17a55e584107240a0b00571f4132b9e26054c"
+    },
+    {
+      "path": "mechanical/revF/right-tray.stl",
+      "sha256": "f0613f2c6747355db43a43b0d28e6d6fdf309512b1250a2736fb1e0c341d816e"
+    },
+    {
+      "path": "mechanical/revF/right-key-plate.stl",
+      "sha256": "c437812b8a7bc42ff44556dc88ffacab5ef646681dbfe97d05596f47e49446a7"
+    },
+    {
+      "path": "mechanical/revF/right-electronics-lid.stl",
+      "sha256": "bbbaea449f5f992a88389c5160eeb51516bbfab25da8ff50bac64d7473a5b722"
+    },
+    {
+      "path": "mechanical/revF/right-pcb.stl",
+      "sha256": "732aa8e392980e1e244a9c2f244938892cbf471c7ce0d3fc05536a852c7dc4b8"
+    },
+    {
+      "path": "mechanical/revF/right-cradle.stl",
+      "sha256": "255a7344bf2ed0d54a68d4b5685364242232fac3ef18a911c4eb48e8761d7ce7"
+    },
+    {
+      "path": "mechanical/revF/right-battery-retainer.stl",
+      "sha256": "2933e86de036ef20633c49343a97baad9b29a0f22cfcf48103593cd3622599ea"
+    },
+    {
+      "path": "mechanical/revF/right-battery.stl",
+      "sha256": "e109d5a4e1c5f459c3c608e109738f6b170acde3a09cd7404d3b5965c87174f9"
+    },
+    {
+      "path": "mechanical/revF/right-mcu-riser.stl",
+      "sha256": "91d88a3e5ff9836ce28d6385b2aca4cdb4fee2b9b6df044136ebcb6ab8b9b857"
+    },
+    {
+      "path": "mechanical/revF/right-mcu.stl",
+      "sha256": "fcb68f92660e4be3366edf7740247a33e642ce11f7209163d52f8b1503325d81"
+    },
+    {
+      "path": "mechanical/revF/right-mcu-sockets.stl",
+      "sha256": "04a2f9e5537deb6bf97f74652d73f8849be043a6f69377f6fccc400e0eee6bbf"
+    },
+    {
+      "path": "mechanical/revF/right-jst.stl",
+      "sha256": "f9ff1784dd20761af51de95351a9bb7d475c9ad3b1f1833a60bb75415e298b31"
+    },
+    {
+      "path": "mechanical/revF/right-reset.stl",
+      "sha256": "bd70aef335c177ed915b39a410e4cf1c1bee7d2b721c0cdb3d276d89d2cd3228"
+    },
+    {
+      "path": "mechanical/revF/right-slider.stl",
+      "sha256": "42171179a381303fa3eb25f987b9715047fec1744db3ec35c6d663744f478409"
+    },
+    {
+      "path": "mechanical/revF/right-display-sled.stl",
+      "sha256": "6d643df6f1b17e6d1789edbb52e55cdd994e0c052fdcad24b4d8bdb2e7cb2544"
+    },
+    {
+      "path": "mechanical/revF/right-display.stl",
+      "sha256": "978d165a7c1d700fb5e30901ea759a0b37652028ad5a1288e00c3c828448fc9b"
+    },
+    {
+      "path": "mechanical/revF/right-washer-1.stl",
+      "sha256": "efac6b9cd6862261b69ea3b0b7c34b3df0110591ef63ae21acd8c4d508e91886"
+    },
+    {
+      "path": "mechanical/revF/right-washer-2.stl",
+      "sha256": "4f3012d318af75ef3c5d8f1fc99dec2c2a6f63b6811b281d0b526dc8db1a4f17"
+    },
+    {
+      "path": "mechanical/revF/right-washer-3.stl",
+      "sha256": "f2403e3d317fe730acc6a73aece70260b5d5f7c11840d2442e401082dec625cd"
+    },
+    {
+      "path": "mechanical/revF/right-washer-4.stl",
+      "sha256": "e2dfe3d54276fce99418947d9c4dc752ada91676aa122a343ee9542fc26fa138"
+    },
+    {
+      "path": "mechanical/revF/right-washer-5.stl",
+      "sha256": "2ecb114d8bf194fdb8b578b11c3ca42b68e7c734b16badc475ee0087272a8e5a"
+    }
+  ],
+  "views": {
+    "assembled": {
+      "keys": 36,
+      "halves": [
+        "left",
+        "right"
+      ],
+      "exploded": false,
+      "image_sha256": "4b9da0bfa08ab3db21adce5663644e84d9b50a4a068e9a2957bdac315d5c5b41"
+    },
+    "top": {
+      "keys": 36,
+      "halves": [
+        "left",
+        "right"
+      ],
+      "exploded": false,
+      "image_sha256": "4ccb62981935a32647470a76c071628a7081393dbaada4b3e0b2a0c4483a7136"
+    },
+    "side": {
+      "keys": 18,
+      "halves": [
+        "left"
+      ],
+      "exploded": false,
+      "image_sha256": "83cb7cf9623ad5352a9b6a4be800cf269c8604cfe99da8c7c38448ddd1c865fb"
+    },
+    "stack": {
+      "keys": 18,
+      "halves": [
+        "left"
+      ],
+      "exploded": true,
+      "image_sha256": "f7dde6bebe51ec93955355f7174072e7b5005be0ef8d531039cabdd5e8b956a8"
+    }
+  },
+  "geometry_source": "generated CAD, no image retouching",
+  "illustrative": [
+    "component envelopes",
+    "switch bodies",
+    "screw heads",
+    "feet",
+    "screen artwork",
+    "unmeasured cap seating Z=12.2"
+  ],
+  "unresolved": [
+    "battery cable routing",
+    "routed PCB",
+    "exact sockets and connectors",
+    "physical fit and tests"
+  ]
+}

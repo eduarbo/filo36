@@ -1,0 +1,18 @@
+{
+  "viewer_sha256": "fc8d2e6427e1f52e2a6a9bddcb5a783817c35072c6909320b7d669c3aeed3f62",
+  "target": "local file with all HTTP(S) requests blocked",
+  "browser": "152.0.7977.76",
+  "desktop": true,
+  "narrow_viewport_emulation": true,
+  "physical_phone_tested": false,
+  "all_12_layer_filters": true,
+  "half_filters": true,
+  "orbit_drag": true,
+  "bottom_view": true,
+  "full_reset_pixel_identical": true,
+  "glb_objects": 168,
+  "glb_keycaps": 36,
+  "glb_units": "metres",
+  "runtime_errors": [],
+  "offline_network_requests": 0
+}

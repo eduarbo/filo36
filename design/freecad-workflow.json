@@ -1,0 +1,32 @@
+{
+  "request_date": "2026-09-21",
+  "source_request": "Adoptar KiCad + FreeCAD + StepUp gratis, promoverlo con guía y ejemplos; editar y visualizar manualmente el conjunto, estudiar eliminación del saliente norte y carcasa estilizada incluso con partes visibles.",
+  "parent_objective": "Piantor wireless 36-key exact geometry, slim modular hotswap keyboard",
+  "required_outcomes": [
+    "Native FCStd assembly with named independent parts and editable dimensions",
+    "Matching KiCad placement study and tested StepUp exchange example",
+    "Concise public guide and reproducible manual-edit examples",
+    "Slender open-stack design comparison preserving all 36 key centres/angles",
+    "Updated public viewer and 3D exports consistent with current CAD"
+  ],
+  "acceptance": [
+    "Reopen FCStd with stock FreeCAD, change dimensions, recompute, save/reopen and compare geometry",
+    "KiCad files reopen; compare footprints and outline with native CAD; preserve net associations where supplied",
+    "Demonstrate StepUp import/exchange on disposable copy and verify actual geometric delta",
+    "Check solids, nominal collisions, exports and unchanged key geometry",
+    "Verify public files and viewer after normal main push"
+  ],
+  "scope": "Digital design and workflow; no purchases, printing, flashing or physical acceptance. Exposed modules permitted; battery retains insulating containment.",
+  "status": "digital_verified_publication_pending",
+  "remaining_parent_requirements": [
+    "Final PCB routing, cable routing, component dimensions/retention and physical fit",
+    "Integrated firmware, BLE, charging and measured power"
+  ],
+  "evidence": {
+    "native_edit": "validation/revF-native.json",
+    "mechanical": "validation/revF-mechanical.json",
+    "electrical": "validation/revF-electrical.json",
+    "stepup_roundtrip": "validation/revF-stepup.json",
+    "viewer": "validation/revF-viewer-ui.json"
+  }
+}

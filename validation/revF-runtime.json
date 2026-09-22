@@ -1,0 +1,21 @@
+{
+  "platform": "macOS arm64",
+  "freecad": "1.1.3",
+  "kicad": "10.0.6",
+  "stepup_runtime_version": "13.1.7",
+  "stepup_package_metadata": "11.09.6",
+  "stepup_source": "https://github.com/easyw/kicadStepUpMod",
+  "installed_plugin_sha256": {
+    "kicadStepUptools.py": "ade659e7e457743ef84e1ea4ec1cfc6273cfa8772e0b78a678856696808d15f1",
+    "kicad_parser.py": "3506153a4ac576c7bcfd4dfa0c96a4c75e1140033a8c2a6d91ae82cb2873c586",
+    "package.xml": "62c1f18c69203d84fba7b8191b602663e94c27c7c2fcdd8fb85becee1600c230"
+  },
+  "dependency_changes": "None. Existing app runtimes and installed StepUp used. Upstream clone inspected but not installed.",
+  "headless_workarounds": [
+    "Cocoa GUI for FreeCAD bundled Python; optional flatmesh disabled only in subprocess.",
+    "Use supported onLoadBoard, not optional kicad_parser.makeBoard with historical numeric layers.",
+    "StepUp test exits its embedded subprocess after saving and flushing results to avoid Qt teardown crash; independent KiCad readback is mandatory."
+  ],
+  "regeneration": "See docs/cad.md; native FCStd can open without custom dependencies.",
+  "temporary_artifacts": "build/ is ignored: copies, netlists, checks and screenshots are reproducible by committed scripts."
+}

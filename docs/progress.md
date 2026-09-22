@@ -1,13 +1,13 @@
 # Progreso
 
-**En curso: revisión E — stack estrecho y módulos extraíbles.**
+**En curso: revisión F — CAD editable, batería rebajada y marco abierto.**
 
 | Hito | Estado | Evidencia / siguiente paso |
 |---|---|---|
 | Layout de 36 teclas | Comprobado | [Coordenadas](../design/layout.json), fuentes y comprobador incluidos |
 | Prototipo anterior, revisión D | Antecedente digital | Una pantalla izquierda y batería lateral; forma descartada |
-| Carcasa estrecha y stack | CAD y renders nuevos | Bahía 24 mm; plate 7,6 mm; cubierta 19 mm. Cables y encaje real pendientes |
-| Dos pantallas y electrónica modular | En diseño | Actualizar ambas PCB, CAD y firmware; una pantalla sigue siendo alternativa |
+| Carcasa y stack revF | Estudio editable | Marco 16,6 mm; plate 7,6 mm; sin saliente norte nominal. Cables, tolerancias y retención pendientes |
+| Dos pantallas y electrónica modular | Colocación KiCad publicada | Ambas placas sin ruteo; ERC sin incidencias, DRC pendiente. Una pantalla sigue siendo alternativa |
 | BOM y archivos para fabricar | Pendiente | Cerrar la revisión modular y publicar fuentes coherentes |
 | Impresión y montaje | Pendiente | Cupón Choc, tres keycaps y comprobación de piezas reales |
 | Teclado funcionando | Pendiente | 36 teclas, BLE, carga, sueño/despertar y consumo medido |
@@ -26,4 +26,24 @@ La bahía es **28,4% más estrecha**. El ancho máximo de cada mitad queda aprox
 
 ## Inspección 3D
 
-Se añade un [visor interactivo por capas](viewer.md), con rotación completa, mitades seleccionables, vistas ortográficas y separación reversible de piezas. Usa las mismas mallas revE, sin cambiar la geometría. La extensión superior de la cubierta se explica con cotas; la siguiente revisión física sigue pendiente.
+Se añade un [visor interactivo por capas](viewer.md), con rotación completa, mitades seleccionables, vistas ortográficas y separación reversible de piezas. El visor actual usa las mallas revF, vinculadas a su CAD. La guía explica las cotas y cómo editarlas; la aceptación física sigue pendiente.
+
+## Revisión F · Edición manual
+
+El [flujo FreeCAD + KiCad + StepUp](freecad.md) es ahora la base del proyecto.
+El FCStd conserva croquis, operaciones, parámetros y piezas separadas; las
+keycaps están incorporadas. Se comprobó cambiar altura y posición de pantalla,
+guardar, cerrar, reabrir y restaurar el diseño.
+
+La batería baja dentro de una abertura real del PCB. El micro se acerca a los
+pulgares y la pantalla lo acompaña: el stack completo queda detrás del borde
+norte de la keycap vecina en el modelo nominal. El marco pasa de 19 a 16,6 mm,
+con laterales abiertos. El ancho máximo sigue en 126,2 mm; la profundidad baja
+a unos 94,5 mm. Se conservan las 36 posiciones y ángulos originales.
+
+Esta propuesta **no está lista para fabricar**. La abertura queda a 0,22 mm de
+24 pads del micro por mitad frente a la regla actual de 0,5 mm; también quedan
+un pad próximo al borde, courtyards y serigrafía por corregir. Ambas placas tienen
+104 conexiones sin rutear. No se redujeron reglas ni se ocultaron incidencias.
+El cable, la fijación del retenedor, los contactos y las tolerancias necesitan
+trabajo antes del primer montaje.

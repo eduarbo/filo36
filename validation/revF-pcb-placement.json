@@ -1,0 +1,16 @@
+{
+  "left": {
+    "footprints": 46,
+    "tracks": 0,
+    "holes": 164,
+    "keys_locked": 18,
+    "electrical_state": "unrouted; no fabrication acceptance"
+  },
+  "right": {
+    "footprints": 46,
+    "tracks": 0,
+    "holes": 164,
+    "keys_locked": 18,
+    "electrical_state": "unrouted; no fabrication acceptance"
+  }
+}

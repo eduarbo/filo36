@@ -20,22 +20,22 @@ const offline=target.startsWith('file:');
   const requests=[],errors=[];
   if(offline)await context.route(/^https?:/,route=>{requests.push(route.request().url());return route.abort();});
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(target);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('166'),null,{timeout:20000});
+  await page.goto(target);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'),null,{timeout:20000});
   await page.screenshot({path:path.join(root,'build/viewer-desktop.png')});
   const baseline=hash(await page.locator('#canvas').screenshot());
   const count=async()=>Number((await page.locator('#status').textContent()).match(/(\d+) componentes/)[1]);
-  assert.equal(await count(),166);
+  assert.equal(await count(),168);
   for(const group of new Set(scene.parts.map(p=>p.group))){
     await page.locator('#layer-'+group).uncheck();
-    assert.equal(await count(),166-scene.parts.filter(p=>p.group===group).length,group);
+    assert.equal(await count(),168-scene.parts.filter(p=>p.group===group).length,group);
     await page.locator('#layer-'+group).check();
   }
-  await page.selectOption('#half','right');assert.equal(await count(),83);
-  await page.selectOption('#half','left');assert.equal(await count(),83);
+  await page.selectOption('#half','right');assert.equal(await count(),84);
+  await page.selectOption('#half','left');assert.equal(await count(),84);
   await page.click('#stack');assert.equal(await page.locator('#explode').inputValue(),'55');
   await page.screenshot({path:path.join(root,'build/viewer-stack.png')});
   await page.selectOption('#view','bottom');await page.screenshot({path:path.join(root,'build/viewer-bottom.png')});
-  await page.click('#reset');assert.equal(await count(),166);
+  await page.click('#reset');assert.equal(await count(),168);
   assert.equal(await page.locator('#half').inputValue(),'both');assert.equal(await page.locator('#explode').inputValue(),'0');
   assert.equal(hash(await page.locator('#canvas').screenshot()),baseline,'Full reset must restore the original rendered assembly');
   const box=await page.locator('#canvas').boundingBox();
@@ -47,14 +47,14 @@ const offline=target.startsWith('file:');
   const glbPath=path.join(root,'build/viewer-export.glb');await download.saveAs(glbPath);const glb=fs.readFileSync(glbPath);
   assert.equal(glb.toString('ascii',0,4),'glTF');assert.equal(glb.readUInt32LE(4),2);assert.equal(glb.readUInt32LE(8),glb.length);
   const jsonLength=glb.readUInt32LE(12),gltf=JSON.parse(glb.toString('utf8',20,20+jsonLength));
-  assert.equal(gltf.nodes.filter(n=>n.mesh!==undefined).length,166);
+  assert.equal(gltf.nodes.filter(n=>n.mesh!==undefined).length,168);
   assert.equal(gltf.nodes.filter(n=>n.name.includes('KLP ')).length,36);
-  const assembly=gltf.nodes.find(n=>n.name==='Filo36 revE · nominal');assert.deepEqual(assembly.matrix.slice(0,3),[.001,0,0]);
+  const assembly=gltf.nodes.find(n=>n.name==='Filo36 revF · nominal');assert.deepEqual(assembly.matrix.slice(0,3),[.001,0,0]);
   assert.ok(assembly.extras.attribution.includes('braindefender'));
   const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
   if(offline)await mobile.route(/^https?:/,route=>{requests.push(route.request().url());return route.abort();});
   const phone=await mobile.newPage();phone.on('pageerror',e=>errors.push(e.message));await phone.goto(target);
-  await phone.waitForFunction(()=>document.querySelector('#status').textContent.includes('166'));
+  await phone.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'));
   assert.equal(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');
   await phone.locator('#inside').tap();assert.ok((await phone.locator('#status').textContent()).includes('componentes'));
   await phone.locator('#layer-panel summary').tap();await phone.locator('#layer-display').uncheck();
@@ -64,7 +64,7 @@ const offline=target.startsWith('file:');
   const receipt={viewer_sha256:hash(Buffer.from(html)),target:offline?'local file with all HTTP(S) requests blocked':'public URL',
     browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,
     all_12_layer_filters:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
-    glb_objects:166,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
+    glb_objects:168,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
   fs.writeFileSync(path.join(root,'build/viewer-ui-check.json'),JSON.stringify(receipt,null,2)+'\n');
   console.log(JSON.stringify(receipt,null,2));await mobile.close();await context.close();
  }finally{await browser.close();}

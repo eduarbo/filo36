@@ -1,0 +1,67 @@
+{
+  "stepup_version": "13.1.7",
+  "freecad_version": [
+    "1",
+    "1",
+    "3"
+  ],
+  "halves": {
+    "left": {
+      "pcb_symmetric_difference_mm3": 0.0,
+      "models_loaded": 23,
+      "model_placement_difference_mm3": {
+        "U1": 0.0,
+        "J2": 0.0,
+        "J1": 0.0,
+        "SW1": 0.0,
+        "SW2": 0.0
+      },
+      "pcb_top_imported_mm": 0.0,
+      "native_alignment_xyz_mm": [
+        10,
+        -10,
+        5.4
+      ],
+      "models_from_moved_project": true
+    },
+    "right": {
+      "pcb_symmetric_difference_mm3": 0.0,
+      "models_loaded": 23,
+      "model_placement_difference_mm3": {
+        "U1": 0.0,
+        "J2": 0.0,
+        "J1": 0.0,
+        "SW1": 0.0,
+        "SW2": 0.0
+      },
+      "pcb_top_imported_mm": 0.0,
+      "native_alignment_xyz_mm": [
+        10,
+        -10,
+        5.4
+      ],
+      "models_from_moved_project": true
+    }
+  },
+  "scope": "StepUp import and outline exchange on disposable copies; not fabrication acceptance",
+  "export_success_message_received": true,
+  "boolean_fuzzy_tolerance_mm": 1e-05,
+  "roundtrip_board": "build/stepup-portability/filo36-left.kicad_pcb",
+  "roundtrip_expected_delta": "Battery opening rear edge +0.5 mm; footprints, net associations and other edges unchanged",
+  "roundtrip_verified": {
+    "rear_edge_delta_mm": 0.5,
+    "edge_segments": 104,
+    "footprints_and_nets_unchanged": true,
+    "drills_and_models_unchanged": true,
+    "only_requested_outline_delta": true,
+    "source_pcb_sha256": "0ee7f23fba79c939039ae089728c6916d6771e3c8cd9a6e6293ca29dacc65e53",
+    "edited_copy_sha256": "4e3504b4f4aa5754822d44b64c12e67fcb437da02e5e22420717a08577b4e546"
+  },
+  "inputs": {
+    "mechanical/revF/Filo36.FCStd": "ae9fa850c4eabe222c37f6bdfe877f91cb9980896cda966587fb8355ee7b5b0f",
+    "tools/freecad/check_stepup.py": "957ff770cec7c42f47b3ba499e563ff0487d8bb7684f894435d3f1fa552a3c0f",
+    "tools/check_stepup_readback.py": "95336da454f7ebe4e54f89b79a93245ed02deea559ba9228a316cf48c893debe",
+    "hardware/revF/filo36-left.kicad_pcb": "0ee7f23fba79c939039ae089728c6916d6771e3c8cd9a6e6293ca29dacc65e53",
+    "hardware/revF/filo36-right.kicad_pcb": "14949a5157885eaa4bc93a305e3fb9d54d7d8bfe798c305a14bd159884863dac"
+  }
+}

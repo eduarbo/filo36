@@ -29,11 +29,11 @@ def verify():
     for view, data in receipt['views'].items():
         assert digest(f'docs/images/revE-{view}.png') == data['image_sha256'], f'Stale image: {view}'
     readme = (ROOT / 'README.md').read_text()
-    assert '](docs/images/revE-assembled.png)' in readme, 'Missing current hero'
+    assert '](docs/images/revF-assembled.png)' in readme, 'Missing current hero'
     assert not (ROOT / 'docs/images/revD-assembled.png').exists(), 'Old hero restored'
     for path in [ROOT / 'README.md', *(ROOT / 'docs').glob('*.md')]:
         assert 'revD-assembled.png' not in path.read_text(), f'Old image linked: {path.name}'
-    print('PASS: current hero, 4 images, CAD and KLP meshes match the render receipt.')
+    print('PASS: historical revE images and meshes preserved; README promotes revF.')
 
 
 if __name__ == '__main__':

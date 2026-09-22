@@ -6,3 +6,8 @@ build/
 node_modules/
 *.kicad_prl
 *-backups/
+*.FCStd1
+*.FCStd.*
+*.step.bak
+*.lck
+*.FCBak

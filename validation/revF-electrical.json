@@ -1,0 +1,41 @@
+{
+  "kicad_version": "10.0.6",
+  "fabrication_ready": false,
+  "halves": {
+    "left": {
+      "pcb_sha256": "0ee7f23fba79c939039ae089728c6916d6771e3c8cd9a6e6293ca29dacc65e53",
+      "footprints": 46,
+      "matched_net_nodes": 108,
+      "symbol_uuid_links_match": true,
+      "locked_original_keys": 18,
+      "relative_models": 23,
+      "erc_violations": 0,
+      "drc_violations": {
+        "courtyards_overlap": 1,
+        "copper_edge_clearance": 25,
+        "silk_edge_clearance": 3
+      },
+      "unconnected_items": 104
+    },
+    "right": {
+      "pcb_sha256": "14949a5157885eaa4bc93a305e3fb9d54d7d8bfe798c305a14bd159884863dac",
+      "footprints": 46,
+      "matched_net_nodes": 108,
+      "symbol_uuid_links_match": true,
+      "locked_original_keys": 18,
+      "relative_models": 23,
+      "erc_violations": 0,
+      "drc_violations": {
+        "courtyards_overlap": 1,
+        "copper_edge_clearance": 25,
+        "silk_edge_clearance": 1
+      },
+      "unconnected_items": 104
+    }
+  },
+  "open_issues": [
+    "24 MCU pads/half have 0.22 mm clearance to battery opening versus existing 0.5 mm rule.",
+    "One switch mechanical pad/half is about 0.028 mm from outline; switch/mount courtyards overlap.",
+    "Silkscreen near edge and 104 unrouted connections/half remain. Rules and DRC exclusions were not relaxed."
+  ]
+}
