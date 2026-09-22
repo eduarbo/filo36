@@ -1,16 +1,16 @@
 {
   "revision": "I",
-  "model_sha256": "8d9e45d2b8e4b6e37bdaf802d42bedce182ad8a93d0b9d323a3bda4968861278",
+  "model_sha256": "0cfdc250b8522207bf85534b30480d93c72e203ec6aa91721b6ab47e274f2059",
   "layout_sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
-  "renderer_sha256": "20089bed83978707cc9469e7866b5c3c5214430180985b272d5fd5cfc3984a87",
+  "renderer_sha256": "02357ecc892a7bc72f0a8102b6101e32dc20742f5c14b16356fde982e5e5c98f",
   "meshes": [
     {
       "path": "mechanical/revI/left-tray.stl",
-      "sha256": "453d2a0938c4de39aa11f815e92a42f77002151da29d4cff9a81fad0ce821679"
+      "sha256": "55a0ae4b9ae4ac7ad8bd1855d955e140bb5df97cc5a4e1412945b8cdaf98432c"
     },
     {
       "path": "mechanical/revI/left-key-plate.stl",
-      "sha256": "e1f22bc9ee275e2eaa510c8a0b05fa36a212f70896a4baa415986e326cd9fc53"
+      "sha256": "6478144294f4c0cd0da126e165768f929225f3e85233e1ff0523540f27c89459"
     },
     {
       "path": "mechanical/revI/left-electronics-lid.stl",
@@ -18,7 +18,7 @@
     },
     {
       "path": "mechanical/revI/left-pcb.stl",
-      "sha256": "d8c089a37b166e036795c1bcbc7bf1bf6f5852ce1969720558b602a83afc273a"
+      "sha256": "9e2ef4f0c665b8ca7c1aada0cc4f8eddb95cfc19602bce61f9be49c0d9b8b502"
     },
     {
       "path": "mechanical/revI/left-cradle.stl",
@@ -142,11 +142,11 @@
     },
     {
       "path": "mechanical/revI/right-tray.stl",
-      "sha256": "b23f057085ea8811f3b5d7ff83fa2f99ea723f6a3b6f68b88e3e83e2e21ac009"
+      "sha256": "0706d2985e0653a6afbc28e2077937c3512316833baea68f4b1abafec31cfdb6"
     },
     {
       "path": "mechanical/revI/right-key-plate.stl",
-      "sha256": "03f7169f329ee92b17760bd75a20139caac5613d4c2d4c893cd7f4b9b2bedc71"
+      "sha256": "f58420c1163c7708f21f4b7cb5844a005de6a2529dc8bc9bdd5352c1f5ce6d29"
     },
     {
       "path": "mechanical/revI/right-electronics-lid.stl",
@@ -154,7 +154,7 @@
     },
     {
       "path": "mechanical/revI/right-pcb.stl",
-      "sha256": "3486f0b786021f64ed5dc9e968d37b3a3ee1f7192262cbd88a6895225e13193f"
+      "sha256": "1cd45dc7d3e3b7369f02ff9f77aa52ce4593151faea01d45283a13716403e875"
     },
     {
       "path": "mechanical/revI/right-cradle.stl",
@@ -273,7 +273,7 @@
         "right"
       ],
       "exploded": false,
-      "image_sha256": "dd4621c280eaf437e61cf30adabb8052e3fae71a90dff4947836332ec84e329c"
+      "image_sha256": "572b47f0eb62586f5319fc830e84f2f052a22daac5cf283660619e02ddc55770"
     },
     "top": {
       "keys": 36,
@@ -282,7 +282,7 @@
         "right"
       ],
       "exploded": false,
-      "image_sha256": "9b0e79fc138bd4f988d95eb3df0c9ee934d955f89bb97cede78ee3f0d6e47267"
+      "image_sha256": "b42cb17830d0762bc7f23506bd8cba3a42bb147a85db92f05fb9c309e4ede1e3"
     },
     "side": {
       "keys": 18,
@@ -290,7 +290,7 @@
         "left"
       ],
       "exploded": false,
-      "image_sha256": "c182a7e4c910de08adb431c6ee2a2b07075459149f9864110f0ed7b5f3597997"
+      "image_sha256": "ee5d643e761a0b285cd5045dcb9fab0f2b5663edf62c6fd6faf91e3572a5ff84"
     },
     "stack": {
       "keys": 18,
@@ -298,7 +298,7 @@
         "left"
       ],
       "exploded": true,
-      "image_sha256": "f405aef12a463a7e942f3ef45a6b478a821b0f69982d900311629d8843d590f1"
+      "image_sha256": "168a9581dbee40e72f91ab79cce20ffcc34e062eae3d23a86f51ff40e586b0d0"
     },
     "detail": {
       "keys": 18,
@@ -306,7 +306,7 @@
         "left"
       ],
       "exploded": false,
-      "image_sha256": "b429195bc1c7410d07aa298159c13dda2438b6bf7809250054d45ea2ccae4856"
+      "image_sha256": "bacf2f8693c45cab0c0dd43e7d87bbfa823802821b44c69dc7d2fa5d92f46dc5"
     }
   },
   "geometry_source": "generated CAD, no image retouching",

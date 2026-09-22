@@ -192,7 +192,7 @@ for side in ('left', 'right'):
         holes.append(cyl('MagnetBoardDrill'+str(i),x,y,3.7,2.05,2))
     power_slot = box('PowerAccess',128.3,55.4,140,63.9,5.1,4.1)
     tray = cut('TrayPowerCut',tray,power_slot)
-    done('tray',tray,'Base · editable floor','base',(.105,.145,.15),True)
+    # Case variants derive from this shared structural tray.
 
     plate_pad=extrude('PlatePad',profiles[side]['outer'],6.3,1.3)
     plate_tool=extrude('PlateFrameTool',profiles[side]['plate_frame_clearance'],6.2,1.5)
@@ -206,7 +206,38 @@ for side in ('left', 'right'):
         plate=cut('Plate_'+key['ref'],plate,extrude('SwitchCut_'+key['ref'],points,5.5,4))
     for i,(x,y) in enumerate(mounts[:3],1):plate=cut('PlateDrill'+str(i),plate,cyl('PlateHole'+str(i),x,y,5.5,1.15,4))
     for i,(x,y) in enumerate(mounts[3:],4):plate=cut('PlateHeadRelief'+str(i),plate,cyl('PlateHeadTool'+str(i),x,y,5.3,2.15,1.45))
-    done('key-plate',plate,'Plate · editable thickness','plate',(.145,.205,.207),True)
+    case_catalog=json.loads((ROOT/'design/cases.json').read_text())
+    # Shared interfaces, native booleans and explicit interchangeable source bodies.
+    ring=cut('RimRing',extrude('RimOuter',profiles[side]['outer'],6.3,1.3),
+             extrude('RimInner',profiles[side]['rim_inner'],6.2,1.5))
+    ring=cut('RimFrameClearance',ring,plate_tool)
+    rim_tray=fuse('RimTray',[tray,ring])
+    rim_plate=add('Part::MultiCommon','RimPlate')
+    rim_plate.Shapes=[plate,extrude('InsetPlateEnvelope',profiles[side]['rim_inset'],6.2,1.5)]
+    rim_plate.Refine=True
+    terrace=tray
+    for j,z in enumerate(case_catalog['geometry_mm']['terrace_band_bottoms']):
+        band=cut('TerraceBand'+str(j),extrude('TerraceOuter'+str(j),profiles[side]['outer'],z,.6),
+                 extrude('TerraceInner'+str(j),profiles[side]['terrace_inset'],z-.1,.8))
+        terrace=cut('TerraceCut'+str(j),terrace,band)
+    sources={'solid':(tray,plate),'rim':(rim_tray,rim_plate),'terrace':(terrace,plate)}
+    for style,pair in sources.items():
+        for group,source in zip(('base','plate'),pair):
+            # Separate native compounds allow shared plate geometry without conflicting styles.
+            variant=add('Part::Compound','Case_'+style+'_'+group);variant.Links=[source]
+            variant.addProperty('App::PropertyString','CaseStyle','Filo36');variant.CaseStyle=style
+            variant.addProperty('App::PropertyString','CaseGroup','Filo36');variant.CaseGroup=group
+            variant.Label=case_catalog['styles'][style]['label']+' · '+group
+            color=case_catalog['styles'][style][group+'_color']
+            variant.ViewObject.ShapeColor=tuple(int(color[i:i+2],16)/255 for i in (1,3,5))
+    for group,part_id in [('base','tray'),('plate','key-plate')]:
+        active=doc.addObject('App::Link',prefix+('ActiveTray' if group=='base' else 'ActivePlate'))
+        active.setLink(doc.getObject(prefix+'Case_'+configuration['cases'][side]['style']+'_'+group))
+        done(part_id,active,('Base' if group=='base' else 'Plate')+' · interchangeable','base' if group=='base' else 'plate',(.145,.205,.207),True)
+        active.LinkedObject.ViewObject.ShapeColor=tuple(int(case_catalog['styles'][configuration['cases'][side]['style']][group+'_color'][i:i+2],16)/255 for i in (1,3,5))
+        active.ViewObject.OverrideMaterial=False
+    assembly.addProperty('App::PropertyBool','DisplayCoverInstalled','Filo36')
+    assembly.DisplayCoverInstalled=True
 
     pcb=extrude('PCBPad',profiles[side]['pcb_outline'],3.8,1.6)
     expr(pcb,'LengthFwd','Parameters.PCBThickness');expr(pcb,'Placement.Base.z','Parameters.PCBTop - Parameters.PCBThickness')

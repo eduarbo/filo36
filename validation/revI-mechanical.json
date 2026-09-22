@@ -2,6 +2,30 @@
   "scope": "Native FreeCAD nominal study; not a manufacturing release",
   "halves": {
     "left": {
+      "case_variants": {
+        "solid": {
+          "closed_meshes": true,
+          "connected_solids": true,
+          "component_collisions_mm3": {},
+          "base_volume_mm3": 14523.01672069014,
+          "plate_volume_mm3": 4478.289143638063
+        },
+        "rim": {
+          "closed_meshes": true,
+          "connected_solids": true,
+          "component_collisions_mm3": {},
+          "base_volume_mm3": 14917.96159008106,
+          "plate_volume_mm3": 3996.5630626589023
+        },
+        "terrace": {
+          "closed_meshes": true,
+          "connected_solids": true,
+          "component_collisions_mm3": {},
+          "base_volume_mm3": 14398.422083818456,
+          "plate_volume_mm3": 4478.289143638063
+        }
+      },
+      "display_cover_installed": true,
       "battery_variants": {
         "adafruit-1570": {
           "component_collisions_mm3": {},
@@ -534,18 +558,18 @@
       "collisions": [],
       "assembly_bounds_mm": [
         18.25,
-        -95.35140179417775,
+        -94.8244432362655,
         0.0,
         135.0,
-        -0.2499999999999999,
+        -0.2499999999999989,
         16.6
       ],
       "case_bounds_mm": [
         18.25,
-        -95.35140179417775,
+        -94.8244432362655,
         0.0,
         135.0,
-        -0.2499999999999999,
+        -0.2499999999999989,
         6.6
       ],
       "electronics_north_kicad_y_mm": 10.8,
@@ -558,6 +582,30 @@
       "nominal_copper_to_opening_mm": 0.52
     },
     "right": {
+      "case_variants": {
+        "solid": {
+          "closed_meshes": true,
+          "connected_solids": true,
+          "component_collisions_mm3": {},
+          "base_volume_mm3": 14523.016720690073,
+          "plate_volume_mm3": 4478.289143638064
+        },
+        "rim": {
+          "closed_meshes": true,
+          "connected_solids": true,
+          "component_collisions_mm3": {},
+          "base_volume_mm3": 14917.961590081117,
+          "plate_volume_mm3": 3996.5630626589004
+        },
+        "terrace": {
+          "closed_meshes": true,
+          "connected_solids": true,
+          "component_collisions_mm3": {},
+          "base_volume_mm3": 14398.422083818557,
+          "plate_volume_mm3": 4478.289143638064
+        }
+      },
+      "display_cover_installed": true,
       "battery_variants": {
         "adafruit-1570": {
           "component_collisions_mm3": {},
@@ -1089,19 +1137,19 @@
       },
       "collisions": [],
       "assembly_bounds_mm": [
-        25.0,
-        -95.35140179417775,
+        24.999999999999996,
+        -94.8244432362655,
         0.0,
         141.75,
-        -0.2500000000000006,
+        -0.2499999999999989,
         16.6
       ],
       "case_bounds_mm": [
-        25.0,
-        -95.35140179417775,
+        24.999999999999996,
+        -94.8244432362655,
         0.0,
         141.75,
-        -0.2500000000000006,
+        -0.2499999999999989,
         6.6
       ],
       "electronics_north_kicad_y_mm": 10.8,

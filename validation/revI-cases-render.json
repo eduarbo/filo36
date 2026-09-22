@@ -1,0 +1,11 @@
+{
+  "viewer_sha256": "366ffe8cce5a6bf371252c07078a757e13af1fb7992cc22202e816830513f9be",
+  "checker_sha256": "765cacbb60e9dfc29eb1b7d36d6cb4c92f17cc140bbac06ee53b6f4b8f94b32d",
+  "images": {
+    "solid": "af4e6dd6c5d20a3265860c743181d4a0fdb8b2d801199fac56614e21055504bf",
+    "rim": "2dca91632dbf03a857619738462d0b277fa80b3ba05c0ea207c40f7d7ad21c41",
+    "terrace": "59e3a77f50e5e819b947373394a3ce2e4420dac1a3d2e2f47515ae37476b0d2c",
+    "rim-open": "69a2156a5df3b5a296d62ab35dc9ac1494d30f53307a0f2e22f2ddc0e2b50f1d"
+  },
+  "source": "Unretouched screenshots of the actual selected native STL meshes in the viewer"
+}

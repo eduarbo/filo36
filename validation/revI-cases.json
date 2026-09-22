@@ -1,0 +1,92 @@
+{
+  "source_sha256": "724d057e62ea5f45d051073326fcba25d29bdffb4d0c906fe47ab3080d8905e1",
+  "checker_sha256": "ca39b27eddfbb93440d2ee4b953c5ae920f9fcdc512aa174ba4d248093a03bb5",
+  "scope": "Stored native solids; representative straight-face wall and joint sections. Not printed strength or tolerance acceptance.",
+  "measurements": [
+    {
+      "side": "left",
+      "style": "solid",
+      "sidewall_samples_mm": [
+        1.3000000000000007,
+        1.3000000000000007,
+        1.3000000000000007,
+        1.3000000000000007,
+        1.3000000000000007,
+        1.3000000000000007
+      ],
+      "floor_sample_mm": 1.4
+    },
+    {
+      "side": "left",
+      "style": "rim",
+      "sidewall_samples_mm": [
+        1.2999999999999972,
+        1.2999999999999972,
+        1.2999999999999972,
+        1.2999999999999972,
+        1.2999999999999972,
+        1.2999999999999972
+      ],
+      "floor_sample_mm": 1.4,
+      "rim_width_mm": 0.8999999999999986,
+      "joint_mm": 0.20000000000000284,
+      "plate_ledge_mm": 3.6499999999999986
+    },
+    {
+      "side": "left",
+      "style": "terrace",
+      "sidewall_samples_mm": [
+        1.0500000000000007,
+        1.0500000000000007,
+        1.0500000000000007,
+        1.0500000000000007,
+        1.0500000000000007,
+        1.0500000000000007
+      ],
+      "floor_sample_mm": 1.4
+    },
+    {
+      "side": "right",
+      "style": "solid",
+      "sidewall_samples_mm": [
+        1.3000000000000114,
+        1.3000000000000114,
+        1.3000000000000114,
+        1.3000000000000114,
+        1.3000000000000114,
+        1.3000000000000114
+      ],
+      "floor_sample_mm": 1.4
+    },
+    {
+      "side": "right",
+      "style": "rim",
+      "sidewall_samples_mm": [
+        1.3000000000000114,
+        1.3000000000000114,
+        1.3000000000000114,
+        1.3000000000000114,
+        1.3000000000000114,
+        1.3000000000000114
+      ],
+      "floor_sample_mm": 1.4,
+      "rim_width_mm": 0.9000000000000057,
+      "joint_mm": 0.19999999999998863,
+      "plate_ledge_mm": 3.6500000000000057
+    },
+    {
+      "side": "right",
+      "style": "terrace",
+      "sidewall_samples_mm": [
+        1.0500000000000114,
+        1.0500000000000114,
+        1.0500000000000114,
+        1.0500000000000114,
+        1.0500000000000114,
+        1.0500000000000114
+      ],
+      "floor_sample_mm": 1.4
+    }
+  ],
+  "physical_acceptance": false
+}

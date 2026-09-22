@@ -11,9 +11,13 @@ assert sha('mechanical/revI/Filo36.FCStd')==m['fcstd_sha256']
 for source in m['inputs']:assert sha(source['path'])==source['sha256'],source
 for s in ['left','right']:
     for name,p in m['parts'].items():assert sha('mechanical/revI/'+name+'.stl')==p['stl_sha256'],name
+cases=json.loads((ROOT/'validation/revI-cases.json').read_text());assert cases['source_sha256']==sha('mechanical/revI/Filo36.FCStd') and cases['checker_sha256']==sha('tools/freecad/check_cases.py') and len(cases['measurements'])==6
 mechanical=json.loads((ROOT/'validation/revI-mechanical.json').read_text())
 for half in mechanical['halves'].values():
     assert not half['collisions']
+    assert set(half['case_variants'])=={'solid','rim','terrace'}
+    for case in half['case_variants'].values():assert case['closed_meshes'] and case['connected_solids'] and not case['component_collisions_mm3']
+    volumes=[round(c['base_volume_mm3'],3) for c in half['case_variants'].values()];assert len(set(volumes))==3
     assert set(half['battery_variants'])=={'adafruit-1570','301230'}
     assert not any(x['component_collisions_mm3'] for x in half['battery_variants'].values())
     assert set(half['frame_variants'])=={'smooth','bevel','facet','handheld','tv','cyberpunk'}
@@ -30,6 +34,8 @@ for p in [ROOT/'README.md',ROOT/'ATTRIBUTION.md',ROOT/'CONTRIBUTING.md',*(ROOT/'
     for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):
         if target.startswith(('https:','http:','#','mailto:')):continue
         assert (p.parent/target.split('#')[0]).exists(),(str(p),target)
+case_images=json.loads((ROOT/'validation/revI-cases-render.json').read_text());assert case_images['viewer_sha256']==sha('docs/index.html') and case_images['checker_sha256']==sha('viewer/check.cjs')
+for name,digest in case_images['images'].items():assert sha('docs/images/revI-case-'+name+'.png')==digest
 ui=json.loads((ROOT/'build/viewer-ui-check.json').read_text());assert ui['viewer_sha256']==sha('docs/index.html') and not ui['runtime_errors'] and ui['glb_selected_vertices_exact']
 finishes=json.loads((ROOT/'validation/revI-freecad-finishes.json').read_text())
 assert finishes['passed'] and finishes['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
@@ -44,6 +50,7 @@ for side,half in electrical['halves'].items():
     assert half['pcb_sha256']==sha(f'hardware/revI/filo36-{side}.kicad_pcb')
     assert half['footprints_pads_nets_drills_uuid_models_preserved_except_allowed_transforms'] and half['locked_original_keys']==18
 # Native App::Link delegates FrameStyle, so the 12 bodies plus 2 active links are sampled.
+assert native['mixed_cases_and_open_cover_roundtrip'] and native['legacy_configuration_normalized']
 assert native['opaque_side_wall_samples']==168 and native['configuration_roundtrip'] and native['mixed_battery_profiles_roundtrip']
 service=json.loads((ROOT/'validation/revI-service.json').read_text())
 assert service['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
@@ -54,7 +61,7 @@ assert rim['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
 assert rim['checker_sha256']==sha('tools/freecad/check_revI_rim.py')
 assert sum(r['samples'] for r in rim['normal_samples'])==216
 assert all(abs(r['min_mm']-4.75)<.00002 and abs(r['max_mm']-4.75)<.00002 for r in rim['normal_samples'])
-assert len(rim['curve_checks'])==4 and all(r['native_cubic'] for r in rim['curve_checks'])
+assert len(rim['curve_checks'])==4 and all(r['native_local_arcs'] for r in rim['curve_checks'])
 assert outline['lcd_flank_protrusion_mm']==0 and outline['thumb_curve_tangent_continuity']
 assert all(r['symmetric_difference_mm3']<1e-5 for r in rim['symmetry'].values())
 rim_image=json.loads((ROOT/'validation/revI-rim-render.json').read_text())

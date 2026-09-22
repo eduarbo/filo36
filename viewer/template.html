@@ -38,6 +38,15 @@
   </nav>
   <div id="inspector" class="inspector">
     <section id="selection" class="selection" role="region" aria-live="polite" aria-label="Selected component" hidden><button id="clear-selection" aria-label="Clear selected component">×</button><p id="selection-meta" class="eyebrow"></p><h2 id="selection-title"></h2><p id="selection-info"></p><p id="selection-visibility" class="micro"></p><div class="selection-actions"><button id="toggle-selection">Hide</button><button id="isolate-selection" title="Hide everything except this selection">Solo</button><button id="show-all" title="Restore every part and both halves">Show all</button></div><details id="individual-parts"><summary>Individual parts <span id="individual-count"></span></summary><div id="part-visibility-list"></div></details></section>
+  <section id="panel-cases" aria-label="Case options">
+    <div class="panel-heading"><h2>Cases</h2><span id="case-current"></span></div>
+    <p class="hint">One contour. Three interchangeable designs.</p>
+    <div id="case-target" class="segments" role="group" aria-label="Apply case changes to"><button data-side="both" aria-pressed="true">Both halves</button><button data-side="left" aria-pressed="false">Left</button><button data-side="right" aria-pressed="false">Right</button></div>
+    <div id="case-grid" class="preview-grid case-grid" role="group" aria-label="Case styles"></div>
+    <label class="cover-option"><input type="checkbox" id="case-cover" checked> Printed display cover <small id="cover-state"></small></label>
+    <p class="micro">Uncheck to expose the stack while keeping the display. This choice is saved in JSON and GLB. Eye controls only change the view.</p>
+    <a class="case-guide" href="https://github.com/eduarbo/filo36/blob/main/docs/cases.md">Case files &amp; printing guide ↗</a>
+  </section>
   <section id="panel-frames" aria-label="Frame options">
     <div class="panel-heading"><h2>Display frames</h2><span id="frame-current"></span></div>
     <p class="hint">Pick a design and its colors in one click.</p>

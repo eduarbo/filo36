@@ -15,7 +15,7 @@ export function createPreviewRenderer(renderer, geometryFor) {
     const width=options.width||220,height=options.height||220,aspect=width/height;
     renderer.setSize(width,height,false);
     const group=new THREE.Group();
-    for(const e of entries){const mesh=new THREE.Mesh(e.geometry||geometryFor(e.path),e.material||mat);mesh.rotation.y=THREE.MathUtils.degToRad(e.rotation||0);if(e.center){const box=mesh.geometry.boundingBox;mesh.position.copy(box.getCenter(new THREE.Vector3()).negate().applyEuler(mesh.rotation)).add(new THREE.Vector3(...e.center));}group.add(mesh);}
+    for(const e of entries){const mesh=new THREE.Mesh(e.geometry||geometryFor(e.path),e.material||mat);mesh.rotation.y=THREE.MathUtils.degToRad(e.rotation||0);if(e.center){const box=mesh.geometry.boundingBox;mesh.position.copy(box.getCenter(new THREE.Vector3()).negate().applyEuler(mesh.rotation)).add(new THREE.Vector3(...e.center));}if(e.position)mesh.position.fromArray(e.position);group.add(mesh);}
     scene.add(group);const box=new THREE.Box3().setFromObject(group),center=box.getCenter(new THREE.Vector3());
     camera.position.copy(center).add(new THREE.Vector3(...direction).normalize().multiplyScalar(300));camera.up.fromArray(options.up||[0,1,0]);camera.lookAt(center);camera.updateMatrixWorld();
     const right=new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld,0),up=new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld,1);

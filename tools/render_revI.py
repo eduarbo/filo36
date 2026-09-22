@@ -42,7 +42,9 @@ def render(kind):
         s=vtk.vtkCubeSource();s.SetXLength(w);s.SetYLength(d);s.SetZLength(h);return primitive(s,(x,y,z),color,rz)
     def cylinder(x,y,z,r,h,color):
         s=vtk.vtkCylinderSource();s.SetRadius(r);s.SetHeight(h);s.SetResolution(36);return primitive(s,(x,y,z),color,rx=90)
-    body=(.105,.145,.15);plate_color=(.145,.205,.207);cover=(.15,.215,.22)
+    rgb=lambda color:tuple(int(color[i:i+2],16)/255 for i in (1,3,5))
+    style=catalog['case_styles'][cfg['cases']['left']['style']]
+    body=rgb(style['base_color']);plate_color=rgb(style['plate_color']);cover=rgb(cfg['frames']['left']['color'])
     sides=['left'] if kind in ['side','stack','detail'] else ['left','right']
     for side in sides:
         offset=0 if side=='left' else 161
@@ -99,7 +101,7 @@ def render(kind):
     titles={'assembled':'FILO36  /  REV I','top':'FILO36  /  TOP VIEW','side':'FILO36  /  SIDE PROFILE','stack':'FILO36  /  REMOVABLE STACK','detail':'FILO36  /  CONTOUR + MAGNETIC FRAMES'}
     label(titles[kind],105,1380,44)
     sub=('Left half  /  KLP LAME  /  Orthographic profile' if kind=='side' else '36 keys  /  KLP LAME  /  Two nice!view displays  /  24 mm bay') if kind!='stack' else 'Adafruit 1570 or 301230. Captured battery cage and magnetic frame.'
-    sub='Contour / Original thumb angles / R0.8 corners' if kind=='detail' else sub
+    sub='Contour / Original thumb angles / Local tangent corners' if kind=='detail' else sub
     label(sub,108,1334,25,(.37,.44,.41))
     label('RevI CAD study. Wiring, final connectors, fit and operation remain untested.',108,60,24,(.36,.42,.39))
     cam=ren.GetActiveCamera();cam.ParallelProjectionOn()

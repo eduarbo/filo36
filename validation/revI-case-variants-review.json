@@ -1,0 +1,252 @@
+{
+  "scope": "Key-aligned local curves and real case variants; nominal digital prototype",
+  "reviewed_commit": "51886682017de265572e84f666906e2f1f589f5d",
+  "reviewed_inputs": [
+    {
+      "path": "design/layout.json",
+      "sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3"
+    },
+    {
+      "path": "design/revI-profiles.json",
+      "sha256": "5cead6f6b21b271a8abe80ba94efed8ae9ddb17cd0c29bd4558367b74fc64308"
+    },
+    {
+      "path": "design/revI-mounts.json",
+      "sha256": "ee6a61232b1a8c308748af1174793664c41238a6c36cd166209e6d011d5592bd"
+    },
+    {
+      "path": "design/revI-magnets.json",
+      "sha256": "4f953719a2e36c69fd566e90c3b0e6071d90fe5a990126e73a24186910e81ca8"
+    },
+    {
+      "path": "design/batteries.json",
+      "sha256": "1c4d2037b6fb04ea7aab6ba1d2f780eda9d886ebf8dd1c403c2721743d0424ff"
+    },
+    {
+      "path": "keycaps/catalog.json",
+      "sha256": "0f710bdb3e599bc86e0a8b4360eac6adda311501502fb08a75623adf14a3c03d"
+    },
+    {
+      "path": "tools/build_revI_profiles.py",
+      "sha256": "76b429182df82cda33abedd7e85bb4ebb1bc6eb7271f5ccfdff0afc8319864e1"
+    },
+    {
+      "path": "tools/freecad/build_revI.py",
+      "sha256": "c06dc42a368dc1ad0265db8cbe1bd780361e4d091e2728a9e9a3fb8c60f1bcaf"
+    },
+    {
+      "path": "tools/freecad/export_revI.py",
+      "sha256": "f31e38d9626aa29bbc2dfd2a04e23539aa071b727d0fc588370accfb22de64ef"
+    },
+    {
+      "path": "tools/freecad/configuration.py",
+      "sha256": "743cf3b48c114c1aa09ca0ee5ce9308e1ec7e3f13c68e789845a979e017f9e76"
+    },
+    {
+      "path": "tools/keycap_config.py",
+      "sha256": "19e86087bf7515d8a6f49eb571b5e9586e0a42e8b1d65fc83e7c6a83a860dcaa"
+    },
+    {
+      "path": "tools/build_viewer_revI.py",
+      "sha256": "0c48f5dc4e5ea15bfa1d8b23f6e8f10ee0ad86d506c9d964ee3a209d95ccbda6"
+    },
+    {
+      "path": "viewer/app.js",
+      "sha256": "fd70750fdd617146a4297532505ccf46847ac76d5bc6e82a60d471f605fb68e4"
+    },
+    {
+      "path": "viewer/config.js",
+      "sha256": "f8ad23fd21c5f613c029ff652bc397ab839c33ba26898e68add08f4b347c7d9c"
+    },
+    {
+      "path": "viewer/template.html",
+      "sha256": "44ce7abf89acbd8d47b49950d78a9d4dc92274006a0ff76ab2af93a06904ad35"
+    },
+    {
+      "path": "viewer/check.cjs",
+      "sha256": "d7d5de5054f58e2ab3018b670bbfb256a3f08235fd96a2d2d873e9d771876bc4"
+    },
+    {
+      "path": "sources/piantor/left.kicad_pcb",
+      "sha256": "9e4333e7cbea29ddf55aef41336867b514ba896b76d31e6b5a08a6b9183c3a9d"
+    },
+    {
+      "path": "build/revI/pads-left.json",
+      "sha256": "db37d1e99d014a19624f261fa7c5bbb8da2332641d411745dd9348646e7f90fd"
+    }
+  ],
+  "review_integrity": "All 19 frozen hashes matched after both first reports and before root edits. Workers reported no edits. Follow-up only re-emitted their reports; root edits are tracked separately.",
+  "independent_reviews": [
+    {
+      "lens": "domain_constructive",
+      "findings": [
+        {
+          "code": "LOCAL_CONTOUR",
+          "claim": "La foto combina escalones de columnas, borde fino contrastante y transiciones locales. El generador ya deriva caras de pulgares, pero sustituye tres caras inferiores por una sola cúbica. Recuperar tramos alineados y unirlos localmente acerca la forma a las teclas sin moverlas.",
+          "evidence": [
+            "tools/build_revI_profiles.py sha256=76b429182df82cda33abedd7e85bb4ebb1bc6eb7271f5ccfdff0afc8319864e1",
+            "build/case-variants/reference.png sha256=edfccb01011c687655563935ed660ece09ef1c23e2c38ae771036238acda9dac",
+            "design/layout.json sha256=7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3"
+          ]
+        },
+        {
+          "code": "CLEARANCE_CONSTRAINT",
+          "claim": "Riesgo MEDIUM: aumentar uniformemente R0.8 falla en escalones cortos; existe uno de 2 mm. MARGIN=4.75 supera el mínimo analítico documentado de K32 solamente por 0.025 mm. El radio debe limitarse por longitud disponible y distancia real al cobre.",
+          "evidence": [
+            "design/revI-profiles.json sha256=5cead6f6b21b271a8abe80ba94efed8ae9ddb17cd0c29bd4558367b74fc64308",
+            "build/revI/pads-left.json: 150 polígonos; sha256=db37d1e99d014a19624f261fa7c5bbb8da2332641d411745dd9348646e7f90fd"
+          ]
+        },
+        {
+          "code": "ACTUAL_CASE_SELECTION",
+          "claim": "Actualmente la configuración intercambia frames, keycaps y baterías; faltan variantes de base/placa. Existen generación nativa, exportación y empaquetado STL reutilizables. Supongo conservación del stack LCD; copiar literalmente el controlador expuesto de la foto requeriría otra decisión.",
+          "evidence": [
+            "tools/freecad/configuration.py sha256=743cf3b48c114c1aa09ca0ee5ce9308e1ec7e3f13c68e789845a979e017f9e76",
+            "viewer/app.js sha256=fd70750fdd617146a4297532505ccf46847ac76d5bc6e82a60d471f605fb68e4"
+          ]
+        }
+      ],
+      "recommendations": [
+        "Conservar 36 transformaciones, bahía 24 mm, flancos x135/x25, montajes, imanes, hot-swap y silla para ambas baterías. Usar segmentos nativos línea/arco; radios por esquina y puentes explícitos donde mandan electrónica o cobre.",
+        "Foto: placa negra ligeramente retranqueada y base roja visible como borde continuo; cambia geometría real de placa y revela la base, sin añadir interfaces.",
+        "Suave: mismo contorno asociado a teclas, transiciones locales más redondeadas y borde exterior suavizado donde conserva pared y suelo.",
+        "Facetada: biseles exteriores y tramos planos orientados con los pulgares; mantener intactas superficies de apoyo, alojamientos y estaciones.",
+        "Añadir selección de carcasa por mitad, tarjetas renderizadas desde mallas exportadas, estado mixto explícito y persistencia JSON; aplicar la misma elección en FreeCAD, STEP/STL y GLB. Conservar controles existentes.",
+        "Aceptación futura: sólidos válidos, mallas cerradas, cobre real ≥0.5 mm incluyendo discretización, pared suficiente, ausencia de colisiones y transformaciones idénticas. Comprobar todas las variantes, ambas baterías y configuraciones calificadas.",
+        "Verificar controles mediante teclado y viewport estrecho; estados normal, carga, selección vacía y JSON inválido deben ser legibles y recuperables. Importación fallida conserva selección anterior. Un cambio únicamente cromático no acredita una variante geométrica.",
+        "Falsadores: radios sin longitud tangente disponible, pérdida de cobre/pared, interferencias o exportaciones que no reproducen la selección invalidan la propuesta dimensional; conservar entonces el contorno seguro y reducir el tratamiento exterior."
+      ],
+      "validations": [
+        {
+          "name": "Inspección de fuentes enumeradas, referencia visual y hashes",
+          "status": "passed"
+        },
+        {
+          "name": "Aceptación geométrica y funcional del producto",
+          "status": "not_run"
+        }
+      ],
+      "changed_paths": []
+    },
+    {
+      "lens": "adversarial_risk",
+      "findings": [
+        {
+          "code": "CONTOUR_STRATEGY",
+          "claim": "Recommend a common key-aligned perimeter: retain column plateaus, restore three thumb-aligned faces and join them with short tangent blends. Use locally bounded radii instead of increasing every corner radius. This preserves the photo's stepped silhouette without its incompatible controller arrangement.",
+          "evidence": [
+            "tools/build_revI_profiles.py uses MARGIN=4.75, R0.8 and one broad cubic replacing the south thumb faces; SHA256=76b429182df82cda33abedd7e85bb4ebb1bc6eb7271f5ccfdff0afc8319864e1.",
+            "Reference photo SHA256=edfccb01011c687655563935ed660ece09ef1c23e2c38ae771036238acda9dac; visibly thin red perimeter, black plate, local rounded transitions."
+          ]
+        },
+        {
+          "code": "FILLET_MARGIN",
+          "claim": "MEDIUM conditional risk: uniform slimming or larger inward fillets could consume copper clearance or short step segments. The source's 4.725 mm minimum leaves only 0.025 mm margin headroom; that calculation does not qualify every curved boundary.",
+          "evidence": [
+            "The rounding helper requires tangent length below half both adjacent edges; one column step is only 2 mm.",
+            "build/revI/pads-left.json contains 150 actual pad polygons; SHA256=db37d1e99d014a19624f261fa7c5bbb8da2332641d411745dd9348646e7f90fd.",
+            "Source K32 remains at (184,121,-25); layout SHA256=7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3."
+          ]
+        },
+        {
+          "code": "CASE_CONFIGURATION_GAP",
+          "claim": "MEDIUM implementation risk: existing choices switch electronics covers, batteries and keycaps only. Adding decorative cover themes would not satisfy actual case variants.",
+          "evidence": [
+            "viewer/app.js applyConfiguration does not replace tray or plate geometry; SHA256=fd70750fdd617146a4297532505ccf46847ac76d5bc6e82a60d471f605fb68e4.",
+            "FreeCAD configuration.apply/extract currently serializes frames, batteries and keycaps.",
+            "export_revI.py validates every cover but currently exports one active tray/plate pair."
+          ]
+        }
+      ],
+      "recommendations": [
+        "Proceed with bounded implementation; retain the 24 mm bay, x135/x25 flank, all 36 transforms, mounts, magnets, hot-swap and shared dual-battery saddle.",
+        "Photo Line: black plate and red tray with an integral shallow perimeter shoulder; preserve structural wall thickness instead of narrowing the copper envelope.",
+        "Facet: chamfered exterior tray shoulder following the same key-aligned outline; avoid magnet pockets and screw posts.",
+        "Terrace: two shallow exterior wall steps following the columns and thumbs; keep the common cavity, floor and attachment interfaces.",
+        "Store case selection per half independently from frame selection; round-trip JSON through native FreeCAD links and export selected STEP/STL and matching GLB. Generate preview cards from those actual meshes.",
+        "Acceptance: every variant has valid connected solids, closed meshes, actual pad-to-edge clearance >=0.5 mm including cutouts, unchanged transforms/interfaces, and safe pressed-key envelopes. Verify exact selected mesh provenance, invalid-load atomicity, keyboard activation, mixed states, 320 px layout and retained viewer controls.",
+        "Confidence: high in source findings, moderate in geometry strategy. Falsifiers: insufficient local wall/copper space, failed native recomputation, incompatible key travel or export mismatch require reducing decorative depth/radius before accepting a variant."
+      ],
+      "validations": [
+        {
+          "name": "Independent scoped source and reference review",
+          "status": "passed"
+        },
+        {
+          "name": "Nine controlling artifact hashes unchanged after review",
+          "status": "passed"
+        },
+        {
+          "name": "New variant geometry and interaction acceptance",
+          "status": "not_run"
+        }
+      ],
+      "changed_paths": []
+    }
+  ],
+  "consensus": "Both source reviews recommended local tangent curves, preserved interfaces and actual interchangeable case geometry. No material objection to bounded implementation.",
+  "findings_disposition": {
+    "FILLET_MARGIN": "Global 4 mm slimming rejected: actual right-side K01/K02/K11/K21 pads fell outside. Retained 4.75 mm face allowance. Local radii bounded to available tangent length. Actual pad checks pass for both halves.",
+    "CASE_CONFIGURATION_GAP": "Three native base/plate pairs, different base volumes, valid connected solids and closed STL meshes. Per-half mixed choices and open covers passed FreeCAD save/reopen, legacy JSON normalization, invalid-load atomicity and exact selected GLB vertex checks.",
+    "source_coordinates": "Risk reviewer cited original Piantor source K32 (184,121,-25). Current immutable Filo36 coordinates remain (122,80,-25); layout hash preserved.",
+    "variant_choice": "Solid plus Color rim and Terrace. Both reviews agree on common-interface actual geometry; Terrace is the adversarial reviewer’s creative alternative.",
+    "risk_handoff_schema": "The risk report omitted schema_version and summary even after format-only re-emission. Runtime failed closed as FAILED; its independently delivered advisory findings remain preserved. No worker runtime COMPLETED or product acceptance claimed."
+  },
+  "retrospective": {
+    "trigger": "User requests corners/curves aligned with keys like a Piantor reference and creative case alternatives.",
+    "cause": "A broad spline smoothed the thumb underside across multiple keys and small global R0.8 rounds remained visually boxy. Frame selection did not offer actual base variants.",
+    "correction": "Restore key-parallel thumb faces with local tangent arcs and native interchangeable base/plate geometry.",
+    "prevention": "Reject retained spanning-spline fixture; test actual right and left pads, local tangent joins, native variants, selected export identity and invalid configuration atomicity."
+  },
+  "physical_acceptance": false,
+  "acceptance_files": [
+    "validation/revI-outline.json",
+    "validation/revI-cases.json",
+    "validation/revI-mechanical.json",
+    "validation/revI-rim-solids.json",
+    "validation/revI-electrical.json",
+    "validation/revI-freecad.json",
+    "validation/revI-freecad-finishes.json",
+    "validation/revI-keycaps.json",
+    "validation/revI-fasteners.json",
+    "validation/revI-service.json",
+    "validation/revI-ui.json",
+    "validation/revI-cases-render.json",
+    "validation/revI-performance.json"
+  ],
+  "nominal_result": {
+    "all_36_transforms_unchanged": true,
+    "case_size_mm": [
+      116.75,
+      94.573
+    ],
+    "finger_face_allowance_mm": 4.75,
+    "minimum_actual_pad_clearance_mm": 0.524093,
+    "local_arcs_per_half": 21,
+    "native_case_pairs": 6,
+    "case_component_collisions": 0,
+    "case_meshes_closed": true,
+    "physical_acceptance": false
+  },
+  "scratch_disposition": {
+    "files_removed": [
+      "study.py",
+      "study.png",
+      "reference.png",
+      "edit_profiles.py",
+      "edit_native.py",
+      "edit_checks.py",
+      "edit_viewer.py",
+      "edit_ui_checks.py",
+      "baseline.json",
+      "root-implementation-baseline.json",
+      "native-inputs-frozen.json"
+    ],
+    "manifest_sha256": "043e20054ba231ac88cfca65321d4966dbe6660b119e3d0f94245842e681362b",
+    "reason": "Task-owned scratch/reference copies removed after canonical source and acceptance records were preserved. Original user photo untouched; no photo published."
+  },
+  "publication_preflight": {
+    "initial_push": "Blocked by generic-api-key scanner on a verified baseline source SHA-256 digest; no credentials involved.",
+    "correction": "Represent file identity and SHA-256 as explicit fields. Normal scanner remains enabled. Unpublished implementation commit amended; remote history unchanged."
+  }
+}

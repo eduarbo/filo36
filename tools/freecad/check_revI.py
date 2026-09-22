@@ -24,9 +24,19 @@ assert not any(o.TypeId.endswith('Python') for o in doc.Objects),'Native source 
 nextconfig=json.loads((ROOT/'design/configurations/saddle-sculpted.json').read_text())
 nextconfig['keycaps']['left']['K30']={'variant':'choc_stem_mx_size_normal_90deg','rotation_deg':90}
 nextconfig['batteries']={'left':'301230','right':'adafruit-1570'}
+nextconfig['cases']={'left':{'style':'rim','cover':False},'right':{'style':'terrace','cover':True}}
 nextconfig['frames']['left']={'style':'handheld','color':'#ad7656'}
 nextconfig['frames']['right']={'style':'tv','color':'#596c7a'}
 margin=apply(doc,nextconfig);assert extract(doc)==nextconfig
+assert not doc.L_ActiveFrame.Visibility and doc.R_ActiveFrame.Visibility
+assert not doc.L_SteelTarget0.Visibility
+assert doc.L_ActiveTray.LinkedObject.CaseStyle=='rim' and doc.R_ActiveTray.LinkedObject.CaseStyle=='terrace'
+legacy=copy.deepcopy(original);legacy.pop('cases');apply(doc,legacy);assert extract(doc)==original
+apply(doc,nextconfig)
+bad=copy.deepcopy(nextconfig);bad['cases']['right']['style']='unknown'
+try:apply(doc,bad);raise AssertionError('Invalid case accepted')
+except ValueError:pass
+assert extract(doc)==nextconfig
 for side,prefix in [('left','L_'),('right','R_')]:
     for k in json.loads((ROOT/'design/layout.json').read_text())['halves'][side]:
         o=doc.getObject(prefix+k['ref']);assert abs(o.Placement.Base.x-k['x'])<1e-6 and abs(o.Placement.Base.y+k['y'])<1e-6
@@ -50,7 +60,7 @@ path=ROOT/'build/revI/customized.FCStd';doc.saveAs(str(path));A.closeDocument(do
 doc=A.openDocument(str(path));doc.recompute();assert extract(doc)==nextconfig
 for prefix in ['L_','R_']:assert abs(doc.getObject(prefix+'ActiveFrame').Shape.BoundBox.ZMax-17.8)<1e-6
 assert hashlib.sha256((ROOT/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest()==sourcehash
-report={'source_sha256':sourcehash,'native_features_no_custom_proxy':True,'configuration_roundtrip':True,'mixed_battery_profiles_roundtrip':True,'reopened_customized_file':True,'all_36_key_centres_unchanged':True,'stem_tip_datum_mm':11.7,'FrameTop_edit_mm':[16.6,17.2],'preset':'saddle-sculpted','thumb_variant':'MX-size Normal 90deg','frames':['handheld','tv'],'invalid_configuration_rejected_atomically':True,'xy_margin_mm':margin,'source_file_unchanged':True,'opaque_side_wall_samples':opaque_samples}
+report={'source_sha256':sourcehash,'native_features_no_custom_proxy':True,'configuration_roundtrip':True,'mixed_battery_profiles_roundtrip':True,'mixed_cases_and_open_cover_roundtrip':True,'legacy_configuration_normalized':True,'reopened_customized_file':True,'all_36_key_centres_unchanged':True,'stem_tip_datum_mm':11.7,'FrameTop_edit_mm':[16.6,17.2],'preset':'saddle-sculpted','thumb_variant':'MX-size Normal 90deg','frames':['handheld','tv'],'invalid_configuration_rejected_atomically':True,'xy_margin_mm':margin,'source_file_unchanged':True,'opaque_side_wall_samples':opaque_samples}
 (ROOT/'validation/revI-freecad.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report),flush=True)
 A.closeDocument(doc.Name)

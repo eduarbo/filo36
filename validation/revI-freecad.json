@@ -1,8 +1,10 @@
 {
-  "source_sha256": "98382c931a8b7bd5aa4134bc89b29269e6310e6b3c7ee71b8b8aa02409e84f9f",
+  "source_sha256": "724d057e62ea5f45d051073326fcba25d29bdffb4d0c906fe47ab3080d8905e1",
   "native_features_no_custom_proxy": true,
   "configuration_roundtrip": true,
   "mixed_battery_profiles_roundtrip": true,
+  "mixed_cases_and_open_cover_roundtrip": true,
+  "legacy_configuration_normalized": true,
   "reopened_customized_file": true,
   "all_36_key_centres_unchanged": true,
   "stem_tip_datum_mm": 11.7,

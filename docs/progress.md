@@ -12,13 +12,19 @@
 | Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
 | Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
 
-## Revision I — uniform exposed rim
+## Revision I — local curves and interchangeable cases
 
-The case, switch plate and PCB now follow a **curved lower thumb edge and LCD-aligned flank**. The 2.55 mm thumb-side protrusion is removed without moving keys or widening the bay. Finger margins stay 4.75 mm; the pinky foot retains 90° backbone corners with R0.8 blends. View tools remain below the model, with clearer Part links/Fit view feedback and full-row explorer hover. [Measured view](images/revI-rim.png) · [Correction review](revI-review.md#lcd-flank-and-thumb-curve).
+The contour now follows each thumb’s angle with local tangent rounds, plus softer finger corners. Solid, Color rim and Terrace are real base/plate variants. Per-half choices and optional exposed display stacks transfer between the explorer, JSON, GLB and native FreeCAD. [Case gallery and files](cases.md) · [Decision record](../validation/revI-case-variants-review.json).
+
+Native solids, all six case pairs, mixed configuration save/reopen and exact selected GLB meshes passed. The explorer uses distinct mesh previews in a two-column grid; desktop and touch emulation pass through 320 px. Local 4× CPU checks: orbit p95 **16.8 ms**, case selection p95 **123.5 ms**, frame selection p95 **68.6 ms**, zero orbit long tasks. Public readback is pending publication.
+
+## Previous revision I — uniform exposed rim
+
+That revision made the case, switch plate and PCB follow a **curved lower thumb edge and LCD-aligned flank**. The 2.55 mm thumb-side protrusion is removed without moving keys or widening the bay. Finger margins stay 4.75 mm; the pinky foot retains 90° backbone corners with R0.8 blends. View tools remain below the model, with clearer Part links/Fit view feedback and full-row explorer hover. [Measured view](images/revI-rim.png) · [Correction review](revI-review.md#key-aligned-local-curves-and-case-variants).
 
 Publication verified: **785 source files** match the anonymous download. The public viewer passes desktop/touch emulation, layers, frame/battery selection, JSON and exact GLB checks; the dimensioned image matches its source. [Public readback](../validation/revI-rim-publication.json).
 
-Current local viewer check: 4× CPU orbit p95 **16.7 ms**, theme change p95 **64.6 ms**, and zero orbit long tasks. Desktop/touch emulation, layers, JSON and exact GLB exports pass. Physical-phone timing remains unmeasured.
+That revision’s local viewer check: 4× CPU orbit p95 **16.7 ms**, theme change p95 **64.6 ms**, and zero orbit long tasks. Desktop/touch emulation, layers, JSON and exact GLB exports pass. Physical-phone timing remains unmeasured.
 
 ## Earlier revision I — Contour, magnetic frames and dual battery cradle
 

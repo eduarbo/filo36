@@ -8,7 +8,7 @@ import FreeCAD as A
 import Mesh
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
-from keycap_config import load,check
+from keycap_config import load,check,normalize
 from frame_finishes import role,palette,rgb
 
 def apply_finish(doc,cover,side,body):
@@ -22,6 +22,7 @@ def apply_finish(doc,cover,side,body):
 def apply(doc,config):
     catalog=load();errors,clearance=check(config,catalog)
     if errors:raise ValueError('\n'.join(errors[:12]))
+    config=normalize(config,catalog)
     if not doc or not all(doc.getObject(p+'ActiveFrame') for p in ['L_','R_']):raise ValueError('Open mechanical/revI/Filo36.FCStd first.')
     variants={v['id']:v for v in catalog['variants']};meshes={}
     for side,keys in catalog['layout'].items():
@@ -42,20 +43,29 @@ def apply(doc,config):
             for o in doc.Objects:
                 if hasattr(o,'BatteryStyle') and o.TypeId!='App::Link':o.Visibility=False
             doc.getObject(prefix+'ActiveBattery').Visibility=True
+            case=config['cases'][side]
+            for group,name in [('base','ActiveTray'),('plate','ActivePlate')]:
+                link=doc.getObject(prefix+name);link.setLink(doc.getObject(prefix+'Case_'+case['style']+'_'+group));link.ViewObject.OverrideMaterial=False
+            doc.getObject(prefix+'Half').DisplayCoverInstalled=case['cover']
+            for o in doc.Objects:
+                if o.Name.startswith(prefix) and hasattr(o,'CaseStyle'):o.Visibility=False
+            doc.getObject(prefix+'ActiveTray').Visibility=True;doc.getObject(prefix+'ActivePlate').Visibility=True
             f=config['frames'][side];cover=next(o for o in doc.Objects if o.Name.startswith(prefix) and hasattr(o,'FrameStyle') and o.FrameStyle==f['style'])
             doc.getObject(prefix+'ActiveFrame').setLink(cover)
             apply_finish(doc,cover,side,f['color'])
             for o in doc.Objects:
                 if o.Name.startswith(prefix) and hasattr(o,'FrameStyle'):o.Visibility=False
-            doc.getObject(prefix+'ActiveFrame').Visibility=True
+            doc.getObject(prefix+'ActiveFrame').Visibility=case['cover']
+            for i in range(3):doc.getObject(prefix+'SteelTarget'+str(i)).Visibility=case['cover']
         doc.recompute();doc.commitTransaction()
     except Exception:
         doc.abortTransaction();raise
     return clearance
 
 def extract(doc):
-    result={'schema':'filo36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{}}
+    result={'schema':'filo36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{},'cases':{}}
     for side,prefix in [('left','L_'),('right','R_')]:
+        result['cases'][side]={'style':doc.getObject(prefix+'ActiveTray').LinkedObject.CaseStyle,'cover':doc.getObject(prefix+'Half').DisplayCoverInstalled}
         result['batteries'][side]=doc.getObject(prefix+'ActiveBattery').LinkedObject.BatteryStyle
         result['keycaps'][side]={o.KeyReference:{'variant':o.KeycapVariant,'rotation_deg':int(round(o.CapRotation.Value))%360} for o in doc.Objects if hasattr(o,'KeyReference') and o.Side==side}
         cover=doc.getObject(prefix+'ActiveFrame').LinkedObject

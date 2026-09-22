@@ -1,5 +1,5 @@
 {
-  "viewer_sha256": "f78c7e985dfbd72b94d16ceb3ca677199fa71fb76980e1f4b3c28556307d3793",
+  "viewer_sha256": "366ffe8cce5a6bf371252c07078a757e13af1fb7992cc22202e816830513f9be",
   "target": "local file with all HTTP(S) requests blocked",
   "browser": "153.0.8010.53",
   "desktop": true,
@@ -53,6 +53,11 @@
   "glb_objects": 180,
   "glb_keycaps": 36,
   "glb_units": "metres",
+  "case_variants": 3,
+  "case_previews_distinct": true,
+  "case_glb_meshes_exact": true,
+  "open_cover_configuration": true,
+  "legacy_case_default": true,
   "runtime_errors": [],
   "offline_network_requests": 0
 }

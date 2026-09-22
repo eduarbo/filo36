@@ -2,17 +2,17 @@
   "revision": "I",
   "units": "mm",
   "objects": 180,
-  "unique_meshes": 106,
+  "unique_meshes": 118,
   "keycaps": 36,
   "geometry_changed": false,
   "sources": [
     {
       "path": "mechanical/revI/left-tray.stl",
-      "sha256": "453d2a0938c4de39aa11f815e92a42f77002151da29d4cff9a81fad0ce821679"
+      "sha256": "55a0ae4b9ae4ac7ad8bd1855d955e140bb5df97cc5a4e1412945b8cdaf98432c"
     },
     {
       "path": "mechanical/revI/left-key-plate.stl",
-      "sha256": "e1f22bc9ee275e2eaa510c8a0b05fa36a212f70896a4baa415986e326cd9fc53"
+      "sha256": "6478144294f4c0cd0da126e165768f929225f3e85233e1ff0523540f27c89459"
     },
     {
       "path": "mechanical/revI/left-electronics-lid.stl",
@@ -20,7 +20,7 @@
     },
     {
       "path": "mechanical/revI/left-pcb.stl",
-      "sha256": "d8c089a37b166e036795c1bcbc7bf1bf6f5852ce1969720558b602a83afc273a"
+      "sha256": "9e2ef4f0c665b8ca7c1aada0cc4f8eddb95cfc19602bce61f9be49c0d9b8b502"
     },
     {
       "path": "mechanical/revI/left-battery.stl",
@@ -77,6 +77,30 @@
     {
       "path": "mechanical/revI/left-washer-3.stl",
       "sha256": "c516fab6ba07bc08bf45e32391257208243f836819a2d31925dd9f470bcacf4a"
+    },
+    {
+      "path": "mechanical/revI/left-case-solid-base.stl",
+      "sha256": "55a0ae4b9ae4ac7ad8bd1855d955e140bb5df97cc5a4e1412945b8cdaf98432c"
+    },
+    {
+      "path": "mechanical/revI/left-case-solid-plate.stl",
+      "sha256": "6478144294f4c0cd0da126e165768f929225f3e85233e1ff0523540f27c89459"
+    },
+    {
+      "path": "mechanical/revI/left-case-rim-base.stl",
+      "sha256": "99759605500187f85360eee17df21a2e17041cf80c707a93470bb56020e87d38"
+    },
+    {
+      "path": "mechanical/revI/left-case-rim-plate.stl",
+      "sha256": "1d365d7d30d8be0541b25c8ce343066a8b2512fef2a82eb11ef9eee56e896560"
+    },
+    {
+      "path": "mechanical/revI/left-case-terrace-base.stl",
+      "sha256": "a2f67974b9926aaeb5cae95680d010b9ddf13f24d57b690766b4ec4d76df0b3b"
+    },
+    {
+      "path": "mechanical/revI/left-case-terrace-plate.stl",
+      "sha256": "6478144294f4c0cd0da126e165768f929225f3e85233e1ff0523540f27c89459"
     },
     {
       "path": "mechanical/revI/left-frame-smooth.stl",
@@ -176,11 +200,11 @@
     },
     {
       "path": "mechanical/revI/right-tray.stl",
-      "sha256": "b23f057085ea8811f3b5d7ff83fa2f99ea723f6a3b6f68b88e3e83e2e21ac009"
+      "sha256": "0706d2985e0653a6afbc28e2077937c3512316833baea68f4b1abafec31cfdb6"
     },
     {
       "path": "mechanical/revI/right-key-plate.stl",
-      "sha256": "03f7169f329ee92b17760bd75a20139caac5613d4c2d4c893cd7f4b9b2bedc71"
+      "sha256": "f58420c1163c7708f21f4b7cb5844a005de6a2529dc8bc9bdd5352c1f5ce6d29"
     },
     {
       "path": "mechanical/revI/right-electronics-lid.stl",
@@ -188,7 +212,7 @@
     },
     {
       "path": "mechanical/revI/right-pcb.stl",
-      "sha256": "3486f0b786021f64ed5dc9e968d37b3a3ee1f7192262cbd88a6895225e13193f"
+      "sha256": "1cd45dc7d3e3b7369f02ff9f77aa52ce4593151faea01d45283a13716403e875"
     },
     {
       "path": "mechanical/revI/right-battery.stl",
@@ -245,6 +269,30 @@
     {
       "path": "mechanical/revI/right-washer-3.stl",
       "sha256": "c516fab6ba07bc08bf45e32391257208243f836819a2d31925dd9f470bcacf4a"
+    },
+    {
+      "path": "mechanical/revI/right-case-solid-base.stl",
+      "sha256": "0706d2985e0653a6afbc28e2077937c3512316833baea68f4b1abafec31cfdb6"
+    },
+    {
+      "path": "mechanical/revI/right-case-solid-plate.stl",
+      "sha256": "f58420c1163c7708f21f4b7cb5844a005de6a2529dc8bc9bdd5352c1f5ce6d29"
+    },
+    {
+      "path": "mechanical/revI/right-case-rim-base.stl",
+      "sha256": "666acbbdcb18ec0ff36a8fe2329af97ebfdad0820444362131a140f1516ac6d6"
+    },
+    {
+      "path": "mechanical/revI/right-case-rim-plate.stl",
+      "sha256": "90f131819af004ae910864e9f9fd825f1382f49e4bd61d2cca6c743ced139aa8"
+    },
+    {
+      "path": "mechanical/revI/right-case-terrace-base.stl",
+      "sha256": "b07011c0e99899679ce53eb3155d21f6c607388de5deecc80345200334dd4b49"
+    },
+    {
+      "path": "mechanical/revI/right-case-terrace-plate.stl",
+      "sha256": "f58420c1163c7708f21f4b7cb5844a005de6a2529dc8bc9bdd5352c1f5ce6d29"
     },
     {
       "path": "mechanical/revI/right-frame-smooth.stl",
@@ -432,7 +480,7 @@
     },
     {
       "path": "design/revI.json",
-      "sha256": "8d9e45d2b8e4b6e37bdaf802d42bedce182ad8a93d0b9d323a3bda4968861278"
+      "sha256": "0cfdc250b8522207bf85534b30480d93c72e203ec6aa91721b6ab47e274f2059"
     },
     {
       "path": "design/layout.json",
@@ -440,27 +488,27 @@
     },
     {
       "path": "tools/build_viewer_revI.py",
-      "sha256": "0c48f5dc4e5ea15bfa1d8b23f6e8f10ee0ad86d506c9d964ee3a209d95ccbda6"
+      "sha256": "b2d664fce38cffc03d99d0bba8ffc0759dcc19b68e4bb1fbd0343bf0acf150fb"
     },
     {
       "path": "keycaps/catalog.json",
-      "sha256": "0f710bdb3e599bc86e0a8b4360eac6adda311501502fb08a75623adf14a3c03d"
+      "sha256": "1678ddc573b3f794356835de12efa3bc87b4425bee806ecebd176078127d809d"
     },
     {
       "path": "viewer/app.js",
-      "sha256": "fd70750fdd617146a4297532505ccf46847ac76d5bc6e82a60d471f605fb68e4"
+      "sha256": "aec5f7330d70d649824a0e9c00fadb0cf515911ce5f2e8630d684e5e32ac3c59"
     },
     {
       "path": "viewer/config.js",
-      "sha256": "f8ad23fd21c5f613c029ff652bc397ab839c33ba26898e68add08f4b347c7d9c"
+      "sha256": "7037562f7863e7a08b380cd178a7f35d4c5f80648d19f01d8523ff5b7e2b2182"
     },
     {
       "path": "viewer/explorer.js",
-      "sha256": "86f6e541ae549c70028f496ea4247761e554e32a13804d7115176b967afea2fd"
+      "sha256": "808af69974314f3d8bd7408867bda25665399cc7d1ef255ea8cd88b239e24141"
     },
     {
       "path": "viewer/previews.js",
-      "sha256": "be0ef91d25070e29c640dbecb248a345d44faea853d80ae60b050eb8d696cd00"
+      "sha256": "700c21e97c8896f63c5dac209ed443345b3f763b8a7bc253b5d00d78d751ed15"
     },
     {
       "path": "viewer/finishes.js",
@@ -472,11 +520,11 @@
     },
     {
       "path": "viewer/style.css",
-      "sha256": "2e867f74db422d53cef8cb1416e7bd6aa937b2862ab59256f644700cc38f15a9"
+      "sha256": "2d37347d6956c99819ca0960fe21e21b878a03d42ed75d723bb09879d51e0e04"
     },
     {
       "path": "viewer/template.html",
-      "sha256": "44ce7abf89acbd8d47b49950d78a9d4dc92274006a0ff76ab2af93a06904ad35"
+      "sha256": "76493a3cf56e0dc6d72fe47f7fa5571584f0d339e475ef8e4ef187b3b6b4017a"
     },
     {
       "path": "viewer/build.mjs",
@@ -487,7 +535,7 @@
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "f78c7e985dfbd72b94d16ceb3ca677199fa71fb76980e1f4b3c28556307d3793",
+  "viewer_sha256": "366ffe8cce5a6bf371252c07078a757e13af1fb7992cc22202e816830513f9be",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,

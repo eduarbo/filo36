@@ -21,13 +21,13 @@ rows=[]
 curve_checks=[]
 for side,prefix in [('left','L_'),('right','R_')]:
  for name in ['OuterPadSketch','PlatePadSketch']:
-  sketch=doc.getObject(prefix+name);splines=[g for g in sketch.Geometry if isinstance(g,Part.BSplineCurve)]
-  assert len(splines)==1 and splines[0].Degree==3,(prefix,name,'native cubic missing')
+  sketch=doc.getObject(prefix+name);arcs=[g for g in sketch.Geometry if isinstance(g,Part.ArcOfCircle)]
+  assert len(arcs)==21 and not any(isinstance(g,Part.BSplineCurve) for g in sketch.Geometry),(prefix,name,'local native arcs missing')
  for name in ['tray','key-plate']:
   shape=parts[side+'-'+name];assert shape.isValid()
   bound=shape.BoundBox.XMax if side=='left' else shape.BoundBox.XMin
   assert abs(bound-(135 if side=='left' else 25))<1e-5,(side,name,bound)
-  curve_checks.append({'side':side,'part':name,'flank_mm':bound,'native_cubic':True})
+  curve_checks.append({'side':side,'part':name,'flank_mm':bound,'native_local_arcs':True})
 for side in ['left','right']:
  plate=parts[side+'-key-plate'];keys={k['ref']:k for k in layout[side]}
  for spec in study['halves'][side]['normal_samples']:

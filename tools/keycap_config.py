@@ -30,11 +30,21 @@ def load():return json.loads(CATALOG.read_text())
 def default_config(catalog=None):
     c=catalog or load();return copy.deepcopy(c['default_configuration'])
 
+def normalize(config,catalog=None):
+    c=catalog or load();result=copy.deepcopy(config)
+    if 'cases' not in result:result['cases']=copy.deepcopy(c['default_configuration']['cases'])
+    return result
+
 def check(config,catalog=None):
     c=catalog or load();variants={v['id']:v for v in c['variants']};errors=[];shapes={};minimum=float('inf')
     if config.get('schema')!='filo36-config-1' or config.get('revision')!='I':return ['Unsupported configuration format or revision.'],None
     if set(config.get('keycaps',{}))!={'left','right'} or set(config.get('frames',{}))!={'left','right'}:return ['Both halves are required.'],None
     if set(config.get('batteries',{}))!={'left','right'}:return ['Select a battery for each half.'],None
+    if 'cases' in config:
+        cases=config['cases']
+        if not isinstance(cases,dict) or set(cases)!={'left','right'}:return ['Select a case for each half.'],None
+        for case in cases.values():
+            if not isinstance(case,dict) or not isinstance(case.get('style'),str) or case.get('style') not in c['case_styles'] or type(case.get('cover')) is not bool:return ['Invalid case or display cover option.'],None
     for side,keys in c['layout'].items():
         if config['batteries'][side] not in c['battery_profiles']:errors.append('Unknown battery profile.')
         if set(config['keycaps'][side])!={k['ref'] for k in keys}:return ['Missing keys or unknown positions.'],None

@@ -7,6 +7,7 @@ const {pathToFileURL}=require('node:url');
 const crypto=require('node:crypto');
 const {chromium}=require(process.env.FILO36_PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..');
+fs.mkdirSync(path.join(root,'build/case-variants'),{recursive:true});
 const hash=buffer=>crypto.createHash('sha256').update(buffer).digest('hex');
 const html=fs.readFileSync(path.join(root,'docs/index.html'),'utf8');
 const scene=JSON.parse(require('node:zlib').gunzipSync(Buffer.from(html.match(/<script id="scene-data" type="application\/octet-stream">([\s\S]*?)<\/script>/)[1],'base64')));
@@ -65,6 +66,46 @@ async function checkLink(page,group){
   await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('180'),null,{timeout:60000});
   await checkDirectory(page);
   await checkFramedPixels(page);
+  // Case choices change native meshes; absent covers differ from eye visibility.
+  assert.equal(await page.locator('#case-grid button').count(),3);
+  assert.equal(new Set(await page.locator('#case-grid img').evaluateAll(nodes=>nodes.map(n=>n.src))).size,3);
+  for(const style of ['solid','rim','terrace']){
+    await page.locator(`[data-case=${style}]`).focus();await page.keyboard.press('Enter');
+    assert.equal(await page.locator(`[data-case=${style}]`).getAttribute('aria-pressed'),'true');
+    await page.mouse.move(10,20);await page.keyboard.press('Escape');
+    await page.locator('#canvas').screenshot({path:path.join(root,`build/case-variants/${style}.png`),style:'.stage-label,#leader-lines{opacity:0!important}'});
+  }
+  await page.click('#case-target [data-side=left]');await page.click('[data-case=rim]');await page.locator('#case-cover').uncheck();
+  await page.click('#reset');assert.match(await page.locator('#status').textContent(),/176 visible/,'Open cover omits its three steel targets and cover, preserves display');
+  await page.click('#case-target [data-side=both]');assert.equal(await page.locator('#case-current').textContent(),'Mixed cases');
+  assert.equal(await page.locator('#case-cover').evaluate(n=>n.indeterminate),true);
+  await page.click('#nav-files');
+  let savedPromise=page.waitForEvent('download');await page.click('#save-config');let saved=await savedPromise;
+  const casesPath=path.join(root,'build/case-variants/selected.json');await saved.saveAs(casesPath);
+  const caseConfig=JSON.parse(fs.readFileSync(casesPath));assert.deepEqual(caseConfig.cases,{left:{style:'rim',cover:false},right:{style:'terrace',cover:true}});
+  const badCase=JSON.parse(JSON.stringify(caseConfig));badCase.cases.right.style='unknown';
+  await page.locator('#load-config').setInputFiles({name:'bad-case.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(badCase))});
+  await page.waitForFunction(()=>document.querySelector('#config-status').dataset.error==='true');
+  savedPromise=page.waitForEvent('download');await page.click('#glb');saved=await savedPromise;
+  const caseGlbPath=path.join(root,'build/case-variants/selected.glb');await saved.saveAs(caseGlbPath);const caseGlb=fs.readFileSync(caseGlbPath),caseJsonLength=caseGlb.readUInt32LE(12),caseGLTF=JSON.parse(caseGlb.toString('utf8',20,20+caseJsonLength));
+  assert.equal(caseGLTF.nodes.filter(n=>n.mesh!==undefined).length,176);
+  assert.equal(caseGLTF.nodes.filter(n=>n.extras?.group==='lid'&&n.extras?.side==='left').length,0);
+  assert.equal(caseGLTF.nodes.filter(n=>n.extras?.group==='display').length,4);
+  assert.deepEqual(caseGLTF.nodes.find(n=>n.name==='Filo36 revI · nominal').extras.configuration,caseConfig,'Invalid case must leave configuration untouched');
+  for(const [side,style] of [['left','rim'],['right','terrace']])for(const group of ['base','plate']){
+    const node=caseGLTF.nodes.find(n=>n.extras?.side===side&&n.extras?.group===group),primitive=caseGLTF.meshes[node.mesh].primitives[0],a=caseGLTF.accessors[primitive.attributes.POSITION],v=caseGLTF.bufferViews[a.bufferView];
+    const at=20+caseJsonLength+8+(v.byteOffset||0)+(a.byteOffset||0);
+    assert.equal(node.extras.case_style,style);
+    assert.deepEqual(caseGlb.subarray(at,at+a.count*12),Buffer.from(scene.geometries[`mechanical/revI/${side}-case-${style}-${group}.stl`].positions,'base64'),'Case export must match selected native STL exactly');
+  }
+  const legacy=JSON.parse(JSON.stringify(scene.catalog.default_configuration));delete legacy.cases;
+  await page.locator('#load-config').setInputFiles({name:'legacy.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(legacy))});
+  assert.equal(await page.locator('#config-status').getAttribute('data-error'),'false');
+  await page.click('#reset');assert.match(await page.locator('#status').textContent(),/180 visible/);
+  await page.click('#part-base');await page.click('[data-case=rim]');await page.locator('#case-cover').uncheck();await page.keyboard.press('Escape');await page.mouse.move(10,20);
+  await page.selectOption('#half','left');await page.selectOption('#view','top');
+  await page.locator('#canvas').screenshot({path:path.join(root,'build/case-variants/rim-open-top.png'),style:'.stage-label,#leader-lines{opacity:0!important}'});
+  await page.click('#nav-files');await page.click('#default-config');await page.keyboard.press('Escape');await page.click('#reset');
   await page.click('#annotations');await page.click('#annotations');
   assert.match(await page.locator('#view-feedback').textContent(),/Hover or select/);
   const row=await page.locator('.part-row[data-group=plate]').boundingBox();
@@ -273,7 +314,8 @@ async function checkLink(page,group){
   await phone.waitForFunction(()=>document.querySelector('#status').textContent.includes('180'));
   await checkFramedPixels(phone);
   assert.equal(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');
-  await phone.locator('[data-style=handheld]').tap();
+  await phone.locator('[data-case=rim]').tap();await checkDirectory(phone);
+  await phone.locator('#part-lid').tap();await phone.locator('[data-style=handheld]').tap();
   assert.equal(await phone.locator('[data-style=handheld]').getAttribute('aria-pressed'),'true');
   assert.ok((await phone.locator('#canvas').boundingBox()).y>=0,'Model stays visible while browsing cards');
   await phone.locator('#part-lid').tap();await checkLink(phone,'lid');await checkDirectory(phone);
@@ -325,13 +367,20 @@ async function checkLink(page,group){
   await phone.setViewportSize({width:390,height:844});await phone.locator('#reset').tap();await phone.locator('#part-lid').tap();await phone.locator('[data-style=cyberpunk]').tap();
   await phone.evaluate(()=>document.querySelector('#inspector').scrollTop=0);await checkDirectory(phone);
   await phone.screenshot({path:path.join(root,'build/viewer-multicolor/mobile.png')});
+  await page.click('#nav-files');await page.click('#default-config');await page.click('#reset');await page.click('#part-base');await page.click('#case-target [data-side=both]');await page.click('[data-case=rim]');await page.keyboard.press('Escape');await page.mouse.move(10,20);await page.evaluate(()=>document.querySelector('#inspector').scrollTop=0);await checkDirectory(page);
+  assert.equal(await page.locator('#case-grid').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').length),2);
+  await page.screenshot({path:path.join(root,'build/viewer-cases-desktop.png')});
+  await phone.locator('#part-base').tap();await phone.locator('[data-case=rim]').tap();await phone.locator('#clear-selection').tap();await phone.evaluate(()=>document.querySelector('#inspector').scrollTop=0);await checkDirectory(phone);
+  await phone.screenshot({path:path.join(root,'build/viewer-cases-mobile.png')});
   assert.deepEqual(errors,[]);if(offline)assert.deepEqual(requests,[],'Offline viewer must not request network resources');
   const receipt={viewer_sha256:hash(Buffer.from(html)),target:offline?'local file with all HTTP(S) requests blocked':'public URL',
     browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,public_embedded_scene_matches_current:!offline,
     all_12_layer_filters:true,individual_visibility:true,individual_and_group_solo:true,show_all_recovery:true,occluded_hover_xray_pixel_verified:true,persistent_view_controls:true,fit_actual_pixels_after_zoom:true,fit_empty_feedback:true,full_row_hover:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
     persistent_component_directory:true,sidebar_line_endpoints:true,directory_visible_during_scroll_and_collapse:true,keyboard_component_selection:true,direct_canvas_picking:true,labels_follow_camera:true,frame_click_reveals_hidden_cover:true,annotation_toggle:true,orbit_does_not_select:true,touch_orbit_and_pinch_do_not_select:true,small_320px_viewport:true,
     six_preview_cards:true,multicolor_glb_roles:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,theme_applies_palette_and_body_overrides_roundtrip:true,sidebar_hover_highlight:true,sidebar_opens_frame_explorer:true,touch_frame_cards_and_sidebar:true,hidden_layer_links_removed:true,highlight_excluded_from_glb:true,
-    dual_battery_selection_and_exact_glb:true,captive_frame_pins_preserved:true,keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:180,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
+    dual_battery_selection_and_exact_glb:true,captive_frame_pins_preserved:true,keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:180,glb_keycaps:36,glb_units:'metres',case_variants:3,case_previews_distinct:true,case_glb_meshes_exact:true,open_cover_configuration:true,legacy_case_default:true,runtime_errors:errors,offline_network_requests:requests.length};
+  const caseImages={};for(const [name,source] of [['solid','solid'],['rim','rim'],['terrace','terrace'],['rim-open','rim-open-top']]){const buffer=fs.readFileSync(path.join(root,`build/case-variants/${source}.png`));fs.writeFileSync(path.join(root,`docs/images/revI-case-${name}.png`),buffer);caseImages[name]=hash(buffer);}
+  fs.writeFileSync(path.join(root,'validation/revI-cases-render.json'),JSON.stringify({viewer_sha256:hash(Buffer.from(html)),checker_sha256:hash(fs.readFileSync(__filename)),images:caseImages,source:'Unretouched screenshots of the actual selected native STL meshes in the viewer'},null,2)+'\n');
   fs.writeFileSync(path.join(root,'build/viewer-ui-check.json'),JSON.stringify(receipt,null,2)+'\n');
   console.log(JSON.stringify(receipt,null,2));await mobile.close();await context.close();
  }finally{await browser.close();}

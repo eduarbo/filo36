@@ -79,6 +79,8 @@ for side,keys in layout['halves'].items():
         add(label,side,group,color,[offset,0,0],explode,mesh(f'mechanical/revI/{side}-{name}.stl'))
     for i in range(1,4):
         add(f'Washer {i}',side,'fasteners','#89918a',[offset,0,0],9,mesh(f'mechanical/revI/{side}-washer-{i}.stl'))
+    for style in catalog['case_styles']:
+        for group in ['base','plate']:mesh(f'mechanical/revI/{side}-case-{style}-{group}.stl')
     for style in catalog['frame_styles']:mesh(f'mechanical/revI/{side}-frame-{style}.stl')
     for key in keys:
         choice=cfg['keycaps'][side][key['ref']];v=variants[choice['variant']]

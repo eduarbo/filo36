@@ -10,8 +10,8 @@ The current mechanical source is [`mechanical/revI/Filo36.FCStd`](../mechanical/
 | Display glass top | 16.1 mm |
 | Key plate top | 7.6 mm |
 | Electronics bay | 24 mm |
-| Case width × depth, each half | 116.75 × 95.10 mm |
-| Case control corners / radius | 22 / R0.8 mm |
+| Case width × depth, each half | 116.75 × 94.57 mm |
+| Case control corners / radius | 21 / locally bounded tangent arcs |
 | Exposed finger switch-to-rim margin | 4.75 mm |
 | Battery aperture | 12.5 × 33.6 mm |
 | North overhang past adjacent cap | 0 mm nominal |
@@ -21,6 +21,7 @@ Heights exclude the illustrative 1.2 mm feet. USB is only 0.045 mm behind the ad
 ## Files
 
 - `mechanical/revI/Filo36.FCStd`: editable assembly.
+- `mechanical/revI/*-case-{solid,rim,terrace}-{base,plate}.{step,stl}`: [three real case variants](cases.md).
 - `mechanical/revI/*-assembly.step`: installed solid parts per half; no KLP mesh bodies.
 - `mechanical/revI/*-frame-{smooth,bevel,facet,handheld,tv,cyberpunk}.{step,stl}`: all interchangeable cover styles.
 - `mechanical/revI/*.step`, `*.stl`: individual prototype parts and identified envelopes.
@@ -53,6 +54,7 @@ FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/build_re
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI_service.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI_rim.py
+FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_cases.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_finishes.py
 python tools/render_revI.py
 python tools/render_frames.py
@@ -78,9 +80,9 @@ The browser check needs Playwright and a Chromium-compatible browser. Set `FILO3
 
 The native configuration test also uses the scoped subprocess exit after its assertions, file writes and save/reopen readback to avoid the same Qt teardown crash. It does not suppress failed assertions or change installed FreeCAD.
 
-The catalog build verifies SHA-256 and Git blob hashes of every pinned upstream STL. The geometry exporter checks closed printable solids, pair intersections, both cell variants and all six cover variants against components and a nominal USB plug corridor. The separate keycap checker includes complete-configuration envelopes and a travel/plate bound. The service checker samples frame lift, checks closed insert capture, cage capture and the cell-motion bound against lead paths. These tests do not measure force or print tolerances. Source hashes and results are under `validation/revI-*`.
+The catalog build verifies SHA-256 and Git blob hashes of every pinned upstream STL. The geometry exporter checks closed printable solids, pair intersections, all three case pairs, both cell variants and all six cover variants against components and a nominal USB plug corridor. The case checker measures the actual saved solids at the side bands, floor and raised-rim joint. The separate keycap checker includes complete-configuration envelopes and a travel/plate bound. The service checker samples frame lift, checks closed insert capture, cage capture and the cell-motion bound against lead paths. These tests do not measure force or print tolerances. Source hashes and results are under `validation/revI-*`.
 
-`build/` is ignored and reproducible: native save/reopen trials come from `check_revI.py`; screenshots, test GLB/JSON and UI receipts from `viewer/check.cjs`; the viewer scene from `build_viewer_revI.py`. Source generations should be compared geometrically because STEP/FCStd metadata may vary. DRC JSON and pad polygons regenerate with the PCB checks above; service coupons regenerate with `check_revI_service.py`. The rim checker rejects the retained former contour, measures 216 preserved finger/outer-thumb normal samples, verifies native cubic curves and LCD-aligned flanks in the actual plate solids, and compares mirrored tray/plate volumes. `tools/check_revI_fasteners.py` clips actual KLP triangles to each screw-height travel slab for all 756 qualified reference choices. `build/lcd-curve/` and `build/uniform-contour/` contain reproducible logs/staging from these commands; review decisions are retained in the public receipt. `viewer/performance.cjs` regenerates the current interaction timing receipt under `build/viewer-sidebar/`; `viewer/finishes-check.cjs` checks triangle/material identity. The native finish checker saves its current readback under `build/viewer-multicolor/freecad.json`.
+`build/` is ignored and reproducible: native save/reopen trials come from `check_revI.py`; screenshots, test GLB/JSON and UI receipts from `viewer/check.cjs`; the viewer scene from `build_viewer_revI.py`. Source generations should be compared geometrically because STEP/FCStd metadata may vary. DRC JSON and pad polygons regenerate with the PCB checks above; service coupons regenerate with `check_revI_service.py`. The rim checker rejects the retained former contour, measures 216 preserved finger/outer-thumb normal samples, verifies native local tangent arcs and LCD-aligned flanks in the actual plate solids, and compares mirrored tray/plate volumes. `tools/check_revI_fasteners.py` clips actual KLP triangles to each screw-height travel slab for all 756 qualified reference choices. `build/case-variants/`, `build/lcd-curve/` and `build/uniform-contour/` contain reproducible logs/staging from these commands; review decisions are retained in the public receipt. The disposable contour study and reference copy in `build/case-variants/` are removed after acceptance; case screenshots and selected JSON/GLB regenerate with `viewer/check.cjs`. `viewer/performance.cjs` regenerates the current interaction timing receipt under `build/viewer-sidebar/`; `viewer/finishes-check.cjs` checks triangle/material identity. The native finish checker saves its current readback under `build/viewer-multicolor/freecad.json`.
 
 ## PCB exchange
 

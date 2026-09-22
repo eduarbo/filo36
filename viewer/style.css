@@ -43,3 +43,12 @@ details{border-top:1px solid var(--line)}summary{cursor:pointer;min-height:44px;
 .eye{display:flex;opacity:.85}.eye-slash{display:none}.visibility input:not(:checked)+.eye .eye-slash{display:block}.visibility input:not(:checked)+.eye::after{display:none}.visibility input:indeterminate+.eye{opacity:.5}
 .selection-actions{display:flex;gap:5px;margin:10px 0 4px}.selection-actions button{flex:1;min-height:32px;font-size:11px;padding:5px 7px}.selection-actions #isolate-selection{border-color:#8baf97}
 #individual-parts summary{font-size:10px;min-height:32px;padding:8px 0}#individual-count{font-variant-numeric:tabular-nums}.individual-row{display:flex;align-items:center;gap:5px;border-radius:6px;padding:4px 5px;min-height:34px}.individual-row:hover,.individual-row:focus-within{background:#e1ecda}.individual-row label{display:flex;align-items:center;gap:7px;flex:1;min-width:0;cursor:pointer}.individual-row label span{font-size:10px;line-height:1.3;overflow-wrap:anywhere}.individual-row input{accent-color:#245b47;width:16px;height:16px;flex-shrink:0}.individual-row button{font-size:10px;min-height:28px;padding:4px 7px}.selection.compact{padding-bottom:5px}
+/* Real case previews use one camera and keep the outline readable on mobile. */
+.case-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:16px}
+.case-grid .preview-card{display:grid;grid-template-columns:1fr;gap:4px}
+.case-grid img{width:100%;height:auto;aspect-ratio:360/250;object-fit:contain}
+.cover-option{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:12px 0;cursor:pointer}
+.cover-option input{width:18px;height:18px;accent-color:#416f5d}
+.cover-option small{margin-left:auto;color:#617267}
+.case-guide{display:block;padding:12px 10px;border-radius:8px}
+.case-guide:hover{background:#dce8d3}

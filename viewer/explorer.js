@@ -5,7 +5,7 @@ export const partInfo={
   lid:{name:'Display frame',short:'Frame',info:'Magnetic frame with captive steel targets and vertical release. Pick a design below; PCB and battery remain mechanically secured.'},
   keycaps:{name:'KLP Lamé keycaps',short:'Caps',info:'Original Choc-stem meshes. Choose a preset or edit a key, row or thumb cluster.'},
   display:{name:'nice!view display',short:'Display',info:'Low-power display reference. The board envelope and screen content are illustrative.'},
-  base:{name:'Printed base',short:'Base',info:'Contour follows the finger columns, one recess and a continuous thumb fan. Native source is editable in FreeCAD.'},
+  base:{name:'Printed base',short:'Base',info:'Key-aligned local curves and a shared contour. Pick a real case variant below; native parts are editable in FreeCAD.'},
   plate:{name:'Switch plate',short:'Plate',info:'Holds the 36 Piantor switch positions and angles. Nominal plate height: 7.6 mm.'},
   switches:{name:'Choc switches',short:'Switch',info:'Low-profile switch envelopes. Seating, travel and printed keycap stems need physical fit tests.'},
   pcb:{name:'PCB',short:'PCB',info:'Custom wireless board outline. Zero geometric DRC violations, but routing remains unfinished; this is not a manufacturing file.'},
@@ -22,7 +22,7 @@ export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,req
   scene.add(overlay);
   const glow=new THREE.MeshBasicMaterial({color:'#75bd86',transparent:true,opacity:.33,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2});
   const xray=new THREE.MeshBasicMaterial({color:'#39a9a4',transparent:true,opacity:.38,depthTest:false,depthWrite:false});
-  const match=(o,ref)=>ref&&o.userData.group===ref.group&&(!ref.side||o.userData.side===ref.side)&&(!ref.key||o.userData.key===ref.key)&&(ref.objectIndex===undefined||o.userData.objectIndex===ref.objectIndex);
+  const match=(o,ref)=>o.userData.installed!==false&&ref&&o.userData.group===ref.group&&(!ref.side||o.userData.side===ref.side)&&(!ref.key||o.userData.key===ref.key)&&(ref.objectIndex===undefined||o.userData.objectIndex===ref.objectIndex);
   const key=ref=>ref?[ref.group,ref.side||'',ref.key||'',ref.objectIndex??''].join(':'):'';
   const refOf=o=>({group:o.userData.group,side:o.userData.side,key:o.userData.key,objectIndex:o.userData.objectIndex});
   let selected=null,hovered=null,enabled=true,moving=false,down=null,pointers=new Set(),pickTimer=0,anchorTimer=0,anchor=null;
@@ -93,7 +93,7 @@ export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,req
         let mesh=highlights.get(o);if(!mesh){mesh=new THREE.Mesh(o.geometry,glow);highlights.set(o,mesh);overlay.add(mesh);}
         mesh.material=hovered?xray:glow;mesh.renderOrder=hovered?1000:0;mesh.geometry=o.geometry;mesh.position.copy(o.position);mesh.rotation.copy(o.rotation);mesh.scale.copy(o.scale);mesh.visible=true;
       }
-      if(selected)$('selection-visibility').textContent=objects.some(o=>o.visible&&match(o,selected))?'':'This layer is hidden. Use its eye in the directory to show it.';
+      if(selected)$('selection-visibility').textContent=objects.some(o=>o.visible&&match(o,selected))?'':selected.group==='lid'&&!objects.some(o=>match(o,selected))?'Display covers are not installed. Choose a frame to reinstall them.':'This layer is hidden. Use its eye in the directory to show it.';
     }
     if(activeKey!==key(active)){
       activeKey=key(active);for(const row of document.querySelectorAll('.part-row'))row.classList.toggle('is-highlighted',active?.group===row.dataset.group);

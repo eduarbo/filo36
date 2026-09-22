@@ -11,7 +11,7 @@
   "halves": {
     "left": {
       "source_sha256": "cf970c76f35edb37729363b6fa9aebf483fceb450a0f5a3165f85cd12f4608c6",
-      "pcb_sha256": "82dc038069493e32a1023fc4a6da285eea2025758961b8644898f076fb55c24a",
+      "pcb_sha256": "4217fefa4dcc5dea3dcbc47a75b235e3681f5725a5f71115c2249215771669e9",
       "transforms": {
         "H4": {
           "from": [
@@ -74,12 +74,12 @@
           ]
         }
       },
-      "outline_segments": 711,
+      "outline_segments": 672,
       "routing_changes": 0
     },
     "right": {
       "source_sha256": "f80c9a8ea0a26d0d5d440547a7242ccf2a8a768a05275d5d425e57348ed23427",
-      "pcb_sha256": "49e14dd1cfa088f1f59c99b574c38ee44c7eecda1b305615571a0afbad3273d8",
+      "pcb_sha256": "eca2f908205a8bba38d72b5ec8508091e01cc4d7b79d5eabbc8e9b38f95b14ab",
       "transforms": {
         "H3": {
           "from": [
@@ -142,7 +142,7 @@
           ]
         }
       },
-      "outline_segments": 711,
+      "outline_segments": 672,
       "routing_changes": 0
     }
   }

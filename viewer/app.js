@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 
-import {copy,check} from './config.js';
+import {copy,check,normalize} from './config.js';
 import {createExplorer,partInfo} from './explorer.js';
 import {createPreviewRenderer} from './previews.js';
 import {createFrameFinishes,framePalette,finishes} from './finishes.js';
@@ -117,14 +117,14 @@ function fit(direction){
 function sync(){
   explorer?.invalidate();
   for(const o of objects){
-    o.visible=!hiddenObjects.has(o.userData.objectIndex)&&state.layers[o.userData.group]&&(state.half==='both'||state.half===o.userData.side);
+    o.visible=o.userData.installed!==false&&!hiddenObjects.has(o.userData.objectIndex)&&state.layers[o.userData.group]&&(state.half==='both'||state.half===o.userData.side);
     o.position.fromArray(o.userData.base);o.position.y+=o.userData.explode*state.explode;
   }
   $('half').value=state.half;$('view').value=state.view;$('explode').value=Math.round(state.explode*100);
   $('explosion').textContent=Math.round(state.explode*100)+' %';
   for(const key of Object.keys(labels)){
-    const nodes=objects.filter(o=>o.userData.group===key),shown=nodes.filter(o=>state.layers[key]&&!hiddenObjects.has(o.userData.objectIndex)).length,input=$('layer-'+key);
-    input.checked=shown>0;input.indeterminate=shown>0&&shown<nodes.length;input.parentElement.title=(shown?'Hide ':'Show ')+labels[key];
+    const nodes=objects.filter(o=>o.userData.group===key&&o.userData.installed!==false),shown=nodes.filter(o=>state.layers[key]&&!hiddenObjects.has(o.userData.objectIndex)).length,input=$('layer-'+key);
+    input.disabled=nodes.length===0;input.checked=shown>0;input.indeterminate=shown>0&&shown<nodes.length;input.parentElement.title=nodes.length?(shown?'Hide ':'Show ')+labels[key]:'No covers installed. Pick a frame to reinstall them.';
   }
   refreshPartVisibility();
   const count=objects.filter(o=>o.visible).length;
@@ -146,7 +146,7 @@ function setCollapsed(value){
 }
 function openPanel(id,section=id){
   setCollapsed(false);
-  for(const name of ['frames','keycaps','battery','files','about'])$('panel-'+name).hidden=id!==name;
+  for(const name of ['cases','frames','keycaps','battery','files','about'])$('panel-'+name).hidden=id!==name;
   for(const button of document.querySelectorAll('.part-item'))button.setAttribute('aria-expanded',String(button.dataset.group===section));
   for(const name of ['files','about'])$('nav-'+name).setAttribute('aria-expanded',String(name===section));
   $('inspector').scrollTop=0;
@@ -184,7 +184,7 @@ $('glb').onclick=async()=>{
   const button=$('glb');button.disabled=true;button.textContent='Preparing GLB…';
   try{
     const assembly=new THREE.Group();assembly.name=`Filo36 rev${data.revision} · nominal`;assembly.scale.setScalar(.001);
-    for(const object of objects){const clone=object.clone();clone.visible=true;clone.position.fromArray(object.userData.base);assembly.add(clone);}
+    for(const object of objects){if(object.userData.installed===false)continue;const clone=object.clone();clone.visible=true;clone.position.fromArray(object.userData.base);assembly.add(clone);}
     assembly.userData={configuration:copy(configuration),units:'metres',source:'https://github.com/eduarbo/filo36',limitations:data.limits,
       attribution:'Filo36 / Eduardo Ruiz, derived from Piantor by beekeeb (GPL-3.0); KLP Lame keycaps by braindefender (CC-BY-SA-4.0), unchanged meshes, placed and coloured.',
       licenses:['https://www.gnu.org/licenses/gpl-3.0.html','https://creativecommons.org/licenses/by-sa/4.0/'],
@@ -221,8 +221,11 @@ function updateChoices(){
 }
 function applyConfiguration(next){
   const result=check(next,catalog);if(result.errors.length)throw Error(result.errors[0]);
+  next=normalize(next,catalog);
   for(const o of objects){
     const {side,key,group}=o.userData;
+    if(group==='base'||group==='plate'){const style=next.cases[side].style;o.geometry=geometryFor(`mechanical/revI/${side}-case-${style}-${group}.stl`);o.material=material(catalog.case_styles[style][group+'_color']);o.userData.case_style=style;}
+    if(group==='lid')o.userData.installed=next.cases[side].cover;
     if(group==='keycaps'){
       const choice=next.keycaps[side][key],v=variants.get(choice.variant),k=catalog.layout[side].find(k=>k.ref===key);
       o.geometry=geometryFor(v.path);o.rotation.y=THREE.MathUtils.degToRad(k.angle+choice.rotation_deg);o.userData.base[1]=v.seating_z_mm;
@@ -241,7 +244,7 @@ function chooseKeyTarget(){
 }
 $('key-target').onchange=chooseKeyTarget;$('key-variant').onchange=updateChoices;$('key-rotation').onchange=updateChoices;
 $('apply-keys').onclick=()=>{try{applyConfiguration(candidate($('key-variant').value,Number($('key-rotation').value)));}catch(e){message(e.message,true);}};
-let frameSide='both';
+let frameSide='both',caseSide='both';
 const preview=createPreviewRenderer(renderer,geometryFor);
 function card(id,label,src){
   const button=document.createElement('button');button.type='button';button.className='preview-card';button.dataset.choice=id;button.setAttribute('aria-pressed','false');
@@ -250,7 +253,7 @@ function card(id,label,src){
 function frameTargets(){return frameSide==='both'?['left','right']:[frameSide];}
 function setFrameSide(side){frameSide=side;syncConfigurationUI();}
 function applyFrame(change){
-  const cfg=copy(configuration);for(const side of frameTargets())Object.assign(cfg.frames[side],change);
+  const cfg=copy(configuration);for(const side of frameTargets()){Object.assign(cfg.frames[side],change);if(change.style)cfg.cases[side].cover=true;}
   try{
     applyConfiguration(cfg);
     // A new style must be visible even when coming from the internal stack study.
@@ -258,6 +261,17 @@ function applyFrame(change){
       if(needsFit){for(const k of Object.keys(state.layers))state.layers[k]=true;state.explode=0;state.half=frameSide;sync();fit();}else sync();}
   }catch(e){message(e.message,true);}
 }
+function caseTargets(){return caseSide==='both'?['left','right']:[caseSide];}
+for(const [id,spec] of Object.entries(catalog.case_styles)){
+  const entries=['base','plate'].map(group=>({path:`mechanical/revI/left-case-${id}-${group}.stl`,material:material(spec[group+'_color'])}));
+  // Every thumbnail uses that style's exported parts, with the same camera.
+  const button=card(id,spec.label,preview.image(entries,[.15,.8,1],{width:360,height:250}));button.dataset.case=id;button.title=spec.description;
+  const img=button.querySelector('img');img.width=360;img.height=250;img.alt=spec.description;
+  button.onclick=()=>{const cfg=copy(configuration);for(const side of caseTargets())cfg.cases[side].style=id;applyConfiguration(cfg);for(const o of objects)if(['base','plate'].includes(o.userData.group)&&caseTargets().includes(o.userData.side))hiddenObjects.delete(o.userData.objectIndex);state.layers.base=state.layers.plate=true;state.half=caseSide;sync();fit();};
+  $('case-grid').append(button);
+}
+for(const button of $('case-target').children)button.onclick=()=>{caseSide=button.dataset.side;syncConfigurationUI();};
+$('case-cover').onchange=e=>{const cfg=copy(configuration);for(const side of caseTargets())cfg.cases[side].cover=e.target.checked;applyConfiguration(cfg);};
 for(const id of ['handheld','tv','cyberpunk','smooth','bevel','facet']){
   const finish=frameFinish(id,'left'),button=card(id,catalog.frame_styles[id],preview.image([finish],[0,1,.16],{width:220,height:360,up:[0,0,-1]}));button.dataset.style=id;
   const img=button.querySelector('img');img.width=220;img.height=360;img.alt=catalog.frame_styles[id]+' frame in its original palette';
@@ -277,6 +291,12 @@ for(const [id,label] of [['default','Original'],['normal-sculpted','Sculpted Nor
 preview.finish();
 for(const [id,spec] of Object.entries(catalog.battery_profiles)){const b=document.createElement('button');b.type='button';b.dataset.battery=id;b.textContent=spec.label;b.title=`${spec.width} × ${spec.length} × ${spec.height} mm`;b.onclick=()=>{const c=copy(configuration);for(const side of ['left','right'])c.batteries[side]=id;applyConfiguration(c);};$('battery-options').append(b);}
 function syncConfigurationUI(){
+  const cases=caseTargets().map(side=>configuration.cases[side]),caseStyles=new Set(cases.map(c=>c.style));
+  $('case-current').textContent=caseStyles.size===1?catalog.case_styles[cases[0].style].label:'Mixed cases';
+  for(const b of $('case-grid').children)b.setAttribute('aria-pressed',String(caseStyles.size===1&&caseStyles.has(b.dataset.case)));
+  for(const b of $('case-target').children)b.setAttribute('aria-pressed',String(b.dataset.side===caseSide));
+  $('case-cover').checked=cases.every(c=>c.cover);$('case-cover').indeterminate=cases.some(c=>c.cover)&&!cases.every(c=>c.cover);
+  $('cover-state').textContent=cases.every(c=>c.cover)?'Covered':cases.every(c=>!c.cover)?'Exposed stack':'Mixed covers';
   for(const b of document.querySelectorAll('[data-battery]'))b.setAttribute('aria-pressed',String(['left','right'].every(side=>configuration.batteries[side]===b.dataset.battery)));
   const frames=frameTargets().map(side=>configuration.frames[side]),styles=new Set(frames.map(f=>f.style)),colors=new Set(frames.map(f=>f.color.toLowerCase()));
   for(const button of $('frame-target').children)button.setAttribute('aria-pressed',String(button.dataset.side===frameSide));
@@ -292,7 +312,10 @@ function syncConfigurationUI(){
   for(const button of $('key-presets').children){const preset=data.presets[button.dataset.preset];const same=Object.entries(configuration.keycaps).every(([side,keys])=>Object.entries(keys).every(([ref,c])=>c.variant===preset.keycaps[side][ref].variant&&c.rotation_deg===preset.keycaps[side][ref].rotation_deg));button.setAttribute('aria-pressed',String(same));}
 }
 function refreshPartVisibility(){
-  for(const input of document.querySelectorAll('[data-object-visibility]')){const o=objects[Number(input.dataset.objectVisibility)];input.checked=o.visible;}
+  for(const b of document.querySelectorAll('[data-solo-object]'))b.disabled=objects[Number(b.dataset.soloObject)].userData.installed===false;
+  const installed=explorer?.selected&&objects.some(o=>o.userData.installed!==false&&matchesPart(o,explorer.selected));
+  $('toggle-selection').disabled=$('isolate-selection').disabled=!installed;
+  for(const input of document.querySelectorAll('[data-object-visibility]')){const o=objects[Number(input.dataset.objectVisibility)];input.checked=o.visible;input.disabled=o.userData.installed===false;}
   if(explorer?.selected){const visible=objects.some(o=>o.visible&&matchesPart(o,explorer.selected));$('toggle-selection').textContent=visible?'Hide':'Show';}
 }
 function populatePartVisibility(ref){
@@ -300,17 +323,18 @@ function populatePartVisibility(ref){
   $('individual-count').textContent=String(matching.length);
   for(const o of matching){
     const row=document.createElement('div');row.className='individual-row';
-    const label=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.dataset.objectVisibility=String(o.userData.objectIndex);input.checked=o.visible;
+    const label=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.dataset.objectVisibility=String(o.userData.objectIndex);input.checked=o.visible;input.disabled=o.userData.installed===false;
     const text=document.createElement('span');text.textContent=o.userData.side.charAt(0).toUpperCase()+o.userData.side.slice(1)+' · '+(o.userData.key||o.name.replace(/^(left|right)[ -·]*/i,''));
     input.setAttribute('aria-label','Show '+text.textContent);label.append(input,text);
     const current={group:o.userData.group,side:o.userData.side,key:o.userData.key,objectIndex:o.userData.objectIndex};
     input.onchange=()=>{if(input.checked){hiddenObjects.delete(o.userData.objectIndex);state.layers[o.userData.group]=true;if(state.half!==o.userData.side)state.half='both';}else hiddenObjects.add(o.userData.objectIndex);sync();};
     row.onpointerenter=e=>{if(e.pointerType!=='touch')explorer.highlight(current);};row.onpointerleave=()=>explorer.highlight(null);
     row.onfocusin=()=>explorer.highlight(current);row.onfocusout=e=>{if(!row.contains(e.relatedTarget))explorer.highlight(null);};
-    const solo=document.createElement('button');solo.textContent='Solo';solo.title='Isolate '+text.textContent;solo.dataset.soloObject=String(o.userData.objectIndex);solo.onclick=()=>isolate(current);
+    const solo=document.createElement('button');solo.textContent='Solo';solo.title='Isolate '+text.textContent;solo.dataset.soloObject=String(o.userData.objectIndex);solo.disabled=o.userData.installed===false;solo.onclick=()=>isolate(current);
     row.append(label,solo);list.append(row);
   }
   const visible=objects.some(o=>o.visible&&matchesPart(o,ref));$('toggle-selection').textContent=visible?'Hide':'Show';
+  refreshPartVisibility();
 }
 function isolate(ref){
   hiddenObjects.clear();state.half='both';for(const key of Object.keys(labels))state.layers[key]=true;
@@ -331,6 +355,7 @@ explorer=createExplorer({scene,camera,canvas,objects,requestRender:render,
     $('selection-title').textContent=partInfo[ref.group].name;$('selection-info').textContent=partInfo[ref.group].info;
     if(ref.group==='lid'){setFrameSide(ref.side||'both');openPanel('frames','lid');}
     else if(ref.group==='keycaps'){openPanel('keycaps','keycaps');$('key-details').open=true;if(ref.key)$('key-target').value=ref.side+':'+ref.key;else $('key-target').value='all';chooseKeyTarget();}
+    else if(['base','plate'].includes(ref.group)){caseSide=ref.side||'both';syncConfigurationUI();openPanel('cases',ref.group);}
     else if(ref.group==='battery')openPanel('battery','battery');
     else openPanel('none',ref.group);
   },onClear(){$('selection').hidden=true;}
@@ -343,7 +368,7 @@ $('default-config').onclick=()=>applyConfiguration(catalog.default_configuration
 applyConfiguration(configuration);
 
 
-resize();reset();openPanel('frames','lid');
+resize();reset();openPanel('cases','base');
 
 }
 start().catch(error=>{document.getElementById('error').hidden=false;document.getElementById('error').textContent='Could not open the viewer: '+error.message;console.error(error);});

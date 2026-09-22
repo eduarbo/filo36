@@ -3,7 +3,7 @@
   "fabrication_ready": false,
   "halves": {
     "left": {
-      "pcb_sha256": "82dc038069493e32a1023fc4a6da285eea2025758961b8644898f076fb55c24a",
+      "pcb_sha256": "4217fefa4dcc5dea3dcbc47a75b235e3681f5725a5f71115c2249215771669e9",
       "footprints_pads_nets_drills_uuid_models_preserved_except_allowed_transforms": true,
       "allowed_transforms": {
         "H4": {
@@ -73,7 +73,7 @@
       "unconnected_items": 104
     },
     "right": {
-      "pcb_sha256": "49e14dd1cfa088f1f59c99b574c38ee44c7eecda1b305615571a0afbad3273d8",
+      "pcb_sha256": "eca2f908205a8bba38d72b5ec8508091e01cc4d7b79d5eabbc8e9b38f95b14ab",
       "footprints_pads_nets_drills_uuid_models_preserved_except_allowed_transforms": true,
       "allowed_transforms": {
         "H3": {

@@ -55,7 +55,7 @@ The frame ends before the thumb key; the **low case and plate continue along the
 
 ### Make your own
 
-Open the native source and expand **Construction**. Duplicate a supplied theme, then edit the `Theme_*` boxes/cylinders or the frame section sketches. Preserve the cavity, mounting bosses, screen window and service cuts. The case outline is a native sketch with **19 intentional corners, analytical R0.8 arcs and one cubic below the thumbs**; mesh tessellation does not add design corners. Remove only the Block constraints you intend to edit.
+Open the native source and expand **Construction**. Duplicate a supplied theme, then edit the `Theme_*` boxes/cylinders or the frame section sketches. Preserve the cavity, mounting bosses, screen window and service cuts. The case outline is a native sketch with **21 intentional corners with locally bounded tangent arcs and straight faces parallel to each thumb**; mesh tessellation does not add design corners. Remove only the Block constraints you intend to edit.
 
 Keep decorations within the common envelope. Preserve the magnetic stations at left **(113, 52.8)**, **(133, 52.8)** and **(122.8, 64.7)**, the hidden structural screw reliefs at **(114.5, 65.5)** and **(130.6, 66.5)**, the reset tool opening at **(123, 59.5)**, and the glass window. Right-half coordinates mirror across X=80 mm. Relief adds material above the roof; cutting through it changes the validated wall thickness.
 
@@ -84,3 +84,7 @@ The JSON stores selections, not arbitrary FreeCAD shape edits. If you change wal
 KLP Lamé by braindefender, CC-BY-SA-4.0, pinned to commit `4a67a824232d3054c61599ea047c56a340faaba2`. Meshes are unchanged. [Upstream files and guidance](https://github.com/braindefender/KLP-Lame-Keycaps).
 
 Configurations are tagged revision I. Older revision H JSON is not silently converted: reselect its options in the current viewer and save a new configuration. Manual FCStd edits stay in their original file.
+
+## Case geometry
+
+Choose **Base → Solid / Color rim / Terrace** in the explorer. Each half has its own `cases` entry, for example `"left": {"style": "rim", "cover": false}`. `cover: false` omits the printed display cover and its steel targets; it retains the display and supports. JSON import validates both halves before changing anything. Older configurations without `cases` use Solid with covers. [Geometry, files and printing](cases.md).

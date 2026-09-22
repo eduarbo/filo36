@@ -25,6 +25,7 @@ for side,prefix in [('left','L_'),('right','R_')]:
     assembly=doc.getObject(prefix+'Half'); old=assembly.Placement
     assembly.Placement=A.Placement();doc.recompute()
     objects=[o for o in doc.Objects if hasattr(o,'PartID') and o.PartID.startswith(side+'-')]
+    objects=[o for o in objects if assembly.DisplayCoverInstalled or o.Layer!='lid']
     shapes={o.PartID[len(side)+1:]:o.Shape for o in objects}
     active=doc.getObject(prefix+'ActiveBattery');reference=active.LinkedObject.Shape
     assert all(abs(getattr(shapes['battery'].BoundBox,k)-getattr(reference.BoundBox,k))<1e-6 for k in ['XMin','YMin','ZMin','XMax','YMax','ZMax']),(side,'active battery placement differs from profile')
@@ -81,15 +82,41 @@ for side,prefix in [('left','L_'),('right','R_')]:
         hit=shape.common(plug).Volume
         frame_checks[obj.FrameStyle]={'component_collisions_mm3':hits,'usb_envelope_collision_mm3':round(hit,6),'volume_mm3':shape.Volume,'closed_mesh':True}
         assert not hits and hit<.001,(name,frame_checks[obj.FrameStyle])
+    case_checks={}
+    for style in json.loads((ROOT/'design/cases.json').read_text())['styles']:
+        pair={g:doc.getObject(prefix+'Case_'+style+'_'+g).Shape for g in ['base','plate']}
+        hits={}
+        for group,shape in pair.items():
+            assert shape.isValid() and len(shape.Solids)==1,(side,style,group,'invalid case')
+            mm=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.03,AngularDeflection=.12,Relative=False)
+            assert mm.isSolid(),(side,style,group,'open case mesh')
+            name=side+'-case-'+style+'-'+group
+            mm.write(str(OUT/(name+'.stl')));shape.exportStep(str(OUT/(name+'.step')))
+            for name,other in shapes.items():
+                if name in ['tray','key-plate']:continue
+                common=shape.common(other);hit=common.Volume
+                if group=='base' and name.startswith('screw-') and hit>.001:
+                    spec=json.loads((ROOT/'design/revI-mounts.json').read_text())['left'][int(name.split('-')[-1])-1]
+                    x,y=spec['xy'];x=x if side=='left' else 160-x;tip=spec['seat_z']-spec['length']
+                    hit-=common.common(Part.makeCylinder(1,3.8-tip,A.Vector(x,-y,tip))).Volume
+                if hit>.001:hits[group+' / '+name]=hit
+            for frame in [o for o in doc.Objects if o.Name.startswith(prefix) and hasattr(o,'FrameStyle') and o.TypeId!='App::Link']:
+                hit=shape.common(frame.Shape).Volume
+                if hit>.001:hits[group+' / frame '+frame.FrameStyle]=hit
+        hit=pair['base'].common(pair['plate']).Volume
+        if hit>.001:hits['base / plate']=hit
+        assert not hits,(side,style,hits)
+        case_checks[style]={'closed_meshes':True,'connected_solids':True,'component_collisions_mm3':hits,
+            'base_volume_mm3':pair['base'].Volume,'plate_volume_mm3':pair['plate'].Volume}
     compound=Part.makeCompound(list(shapes.values()));compound.exportStep(str(OUT/(side+'-assembly.step')))
     b=compound.BoundBox
     # North is max CAD Y, i.e. smallest KiCad Y.
-    electronics=[shapes[k] for k in ['electronics-lid','mcu','display','battery','cradle','mcu-riser','display-sled','mcu-sockets','jst','slider','reset']]
+    electronics=[shapes[k] for k in ['electronics-lid','mcu','display','battery','cradle','mcu-riser','display-sled','mcu-sockets','jst','slider','reset'] if k in shapes]
     north=-max(s.BoundBox.YMax for s in electronics)
-    report['halves'][side]={'battery_variants':battery_checks,'frame_variants':frame_checks,'pair_intersections_mm3':pairs,'collisions':issues,
+    report['halves'][side]={'case_variants':case_checks,'display_cover_installed':assembly.DisplayCoverInstalled,'battery_variants':battery_checks,'frame_variants':frame_checks,'pair_intersections_mm3':pairs,'collisions':issues,
         'assembly_bounds_mm':[b.XMin,b.YMin,b.ZMin,b.XMax,b.YMax,b.ZMax],
         'case_bounds_mm':[getattr(shapes['tray'].BoundBox,k) for k in ['XMin','YMin','ZMin','XMax','YMax','ZMax']],
-        'electronics_north_kicad_y_mm':north,'frame_top_mm':shapes['electronics-lid'].BoundBox.ZMax,
+        'electronics_north_kicad_y_mm':north,'frame_top_mm':shapes['electronics-lid'].BoundBox.ZMax if 'electronics-lid' in shapes else None,
         'display_top_mm':shapes['display'].BoundBox.ZMax,
         'adjacent_key_north_y_mm':10.755147934,'electronics_overhang_adjacent_mm':max(0,10.755147934-north),
         'battery_to_usb_vertical_gap_mm':doc.Parameters.MCUBottom.Value-1.6-(doc.Parameters.BatteryBottom.Value+3.8),
@@ -100,7 +127,7 @@ for side,prefix in [('left','L_'),('right','R_')]:
     print(side,'parts',len(objects),'collisions',issues,flush=True)
 doc.recompute()
 metadata['inputs']=[{'path':p,'sha256':hashlib.sha256((ROOT/p).read_bytes()).hexdigest()} for p in [
-    'design/layout.json','design/revI-profiles.json','design/revI-frame-profiles.json','keycaps/catalog.json','design/revI-mounts.json','design/batteries.json','design/revI-magnets.json','design/revI-wire-study.json','tools/freecad/build_revI.py','tools/freecad/export_revI.py']]
+    'design/cases.json','tools/keycap_config.py','tools/freecad/configuration.py','design/layout.json','design/revI-profiles.json','design/revI-frame-profiles.json','keycaps/catalog.json','design/revI-mounts.json','design/batteries.json','design/revI-magnets.json','design/revI-wire-study.json','tools/freecad/build_revI.py','tools/freecad/export_revI.py']]
 metadata['fcstd_sha256']=hashlib.sha256((OUT/'Filo36.FCStd').read_bytes()).hexdigest()
 (ROOT/'design/revI.json').write_text(json.dumps(metadata,indent=2)+'\n')
 (ROOT/'validation/revI-mechanical.json').write_text(json.dumps(report,indent=2)+'\n')

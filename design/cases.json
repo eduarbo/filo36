@@ -1,0 +1,37 @@
+{
+  "schema": "filo36-cases-1",
+  "default": "solid",
+  "styles": {
+    "solid": {
+      "label": "Solid",
+      "description": "Clean, continuous plate and base.",
+      "base_color": "#253639",
+      "plate_color": "#34494a"
+    },
+    "rim": {
+      "label": "Color rim",
+      "description": "Raised 0.9 mm rim, inset black plate.",
+      "base_color": "#d93957",
+      "plate_color": "#24292b"
+    },
+    "terrace": {
+      "label": "Terrace",
+      "description": "Two shallow recessed bands in the sidewall.",
+      "base_color": "#a3b7a7",
+      "plate_color": "#354844"
+    }
+  },
+  "geometry_mm": {
+    "rim_width": 0.9,
+    "rim_plate_inset": 1.1,
+    "rim_gap": 0.2,
+    "terrace_depth": 0.25,
+    "terrace_band_height": 0.6,
+    "terrace_band_bottoms": [
+      2,
+      4
+    ],
+    "minimum_nominal_sidewall": 1.05
+  },
+  "status": "Nominal editable study; print fit and strength untested."
+}

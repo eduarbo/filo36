@@ -15,7 +15,9 @@ Keep Piantor’s angles, a thin key area and serviceable electronics.
 
 The insulating saddle stays below the PCB. The cell and a narrow removable cage pass through a **12.5 × 33.6 mm opening**. One cavity accepts the nominal Adafruit 1570 and 301230 envelopes; select either in the viewer or FreeCAD. The model reserves two 105 mm lead paths, but actual terminal positions, wire diameter and strain relief still need measurement. [Battery dimensions and sources](parts.md#battery).
 
-The case is **116.75 × 95.10 mm per half**. Five stepped column tops, an orthogonal pinky foot and one shallow recess follow the selected reference. A **single tangent-continuous cubic** runs below the thumbs; the outside thumb flank stops exactly at the LCD frame edge. Nineteen intentional corners use **R0.8 mm** blends. Exposed finger faces keep their **4.75 mm** margin. The smooth thumb border intentionally varies that margin. Fasteners remain inside existing material; they do not determine the outline. Both halves are exact mirrors, and all 36 switch centers and angles remain unchanged.
+The case is **116.75 × 94.57 mm per half**. Five stepped column tops, an orthogonal pinky foot and a shallow rounded recess follow the reference. Straight lower faces remain parallel to each thumb key, joined by **local tangent arcs**. The outside thumb flank stops at the LCD panel edge. The 21 control corners use locally bounded radii, including R2.4 finger corners where space permits. Straight exposed faces retain their **4.75 mm** copper allowance. Fasteners stay within existing material. Both halves are exact mirrors; all 36 switch centers and angles remain unchanged.
+
+Choose [Solid, Color rim or Terrace](cases.md). These are different base/plate geometries, compatible with the same stack and six display frames. The printed display cover can be omitted while retaining the display and structural supports.
 
 ![Measured exterior rim](images/revI-rim.png)
 

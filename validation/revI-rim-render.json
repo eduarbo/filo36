@@ -1,6 +1,6 @@
 {
-  "image_sha256": "1d58ba17f4fb04bbb426429cc3ec087e26b7ffae326ee77270a9d800801d86ab",
-  "renderer_sha256": "7eacd88073bb58b31f3ef7041f3e2fb8c61fdd82c512006cefdef0ab1dbdc5ff",
-  "profile_sha256": "5cead6f6b21b271a8abe80ba94efed8ae9ddb17cd0c29bd4558367b74fc64308",
+  "image_sha256": "1092eae7250c6246fb6c7f7cb961b3478db4a4ff3f343f086b4f135857383ed4",
+  "renderer_sha256": "172b02d2f55187b9c7e4ad853fa5caa7f9b15d12e6edea4b297b3da0a166cf1b",
+  "profile_sha256": "c9e693590d035a5ff1e43e92acfb44a0e709ca162353e281741bd8f9464ae43b",
   "source": "Orthographic profile drawing; actual native-solid measurements in revI-rim-solids.json"
 }

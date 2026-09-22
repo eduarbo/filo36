@@ -55,3 +55,7 @@ The native assembly uses **X = KiCad X, Y = −KiCad Y**, with PCB top at **Z 5.
 Select a part and use **File → Export**. Store exports outside the reference folders and keep the edited FCStd. The generation scripts rebuild the reference from scratch and overwrite its files; do not run them over manual work.
 
 The project remains a digital prototype. Both boards have **zero geometric DRC violations and 104 unconnected items each**; measured minimum pad-to-outline clearance is about **0.524 mm**. Final cable/connector geometry, printed fit and retention, RF and power measurements remain open. [CAD reproduction and validation](cad.md).
+
+## Interchangeable cases
+
+[Solid, Color rim and Terrace](cases.md) are native source bodies. The configuration macro changes `ActiveTray` and `ActivePlate` per half. `DisplayCoverInstalled` records whether to include the printed frame and its steel targets; JSON import applies the corresponding visibility, and export honors this property. Save a custom FCStd copy to retain your choices. The property represents installation, independently from temporary eye visibility.
