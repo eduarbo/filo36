@@ -20,7 +20,15 @@ const offline=target.startsWith('file:');
   const requests=[],errors=[];
   if(offline)await context.route(/^https?:/,route=>{requests.push(route.request().url());return route.abort();});
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(target);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'),null,{timeout:60000});
+  await page.goto(target);
+  if(!offline){
+    // Hash the actual loaded scene in the browser. Large document responses can
+    // be evicted from Chromium's inspector cache; DOM data remains available.
+    const delivered=await page.evaluate(async()=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(document.querySelector('#scene-data').textContent)))).map(n=>n.toString(16).padStart(2,'0')).join(''));
+    const embedded=html.match(/<script id="scene-data" type="application\/octet-stream">([\s\S]*?)<\/script>/)[1];
+    assert.equal(delivered,hash(Buffer.from(embedded)),'Public browser must load the exact current CAD scene');
+  }
+  await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'),null,{timeout:60000});
   await page.screenshot({path:path.join(root,'build/viewer-desktop.png')});
   const baseline=hash(await page.locator('#canvas').screenshot());
   const count=async()=>Number((await page.locator('#status').textContent()).match(/(\d+) visible components/)[1]);
@@ -108,7 +116,7 @@ const offline=target.startsWith('file:');
   await phone.screenshot({path:path.join(root,'build/viewer-mobile.png'),fullPage:true});
   assert.deepEqual(errors,[]);if(offline)assert.deepEqual(requests,[],'Offline viewer must not request network resources');
   const receipt={viewer_sha256:hash(Buffer.from(html)),target:offline?'local file with all HTTP(S) requests blocked':'public URL',
-    browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,
+    browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,public_embedded_scene_matches_current:!offline,
     all_12_layer_filters:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
     keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:168,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
   fs.writeFileSync(path.join(root,'build/viewer-ui-check.json'),JSON.stringify(receipt,null,2)+'\n');

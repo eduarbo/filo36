@@ -18,6 +18,8 @@ The user’s red-line reference replaces the old display notch and thumb wing wi
 
 Handheld, Retro TV and Cyberpunk add actual roof relief within the same bay. Plain styles remain available. The high cover ends before the thumb; base and plate continue the aligned edge. Both KiCad contours match the new CAD reference without moving footprints or changing nets. There are still **26 DRC violations and 104 unconnected items per half**.
 
+Publication verified: all **561 source files** matched the anonymous archive. Public HTML and the browser-loaded scene matched the tested source; layers, orbit, all three themes, JSON, selected GLB geometry and narrow-screen emulation passed. Actual phone and hardware tests remain pending. [Publication receipt](../validation/revH-publication.json).
+
 [Revision review](revH-review.md) · [Keycap checks](../validation/revH-keycaps.json) · [Mechanical checks](../validation/revH-mechanical.json).
 
 ## Revision G — keycaps and frames
