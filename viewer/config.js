@@ -14,7 +14,7 @@ export function gap(a,b){
 }
 export function check(config,c){
  const errors=[],variants=new Map(c.variants.map(v=>[v.id,v]));let minimum=Infinity;
- if(config?.schema!=='filo36-config-1'||config?.revision!=='G')return {errors:['Unsupported configuration format or revision.']};
+ if(config?.schema!=='filo36-config-1'||config?.revision!=='H')return {errors:['Unsupported configuration format or revision.']};
  if(Object.keys(config.keycaps||{}).sort().join()!=='left,right'||Object.keys(config.frames||{}).sort().join()!=='left,right')return {errors:['Both halves are required.']};
  for(const [side,keys] of Object.entries(c.layout)){
    if(Object.keys(config.keycaps[side]||{}).sort().join()!==keys.map(k=>k.ref).sort().join())return {errors:['Missing keys or unknown positions.']};

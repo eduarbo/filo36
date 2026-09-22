@@ -1,0 +1,29 @@
+{
+  "revision": "H",
+  "request": "User red-line contour reference and clarification: printable Handheld/Game Boy-inspired, TV and Cyberpunk display frames; fewer uniform subtly rounded corners.",
+  "original_objective_status": "partial",
+  "digital_revision_status": "validated_locally_publication_pending",
+  "acceptance": [
+    "36 exact Piantor centers and angles",
+    "straight display-to-thumb case flank with R1.2 corners",
+    "matching CAD and KiCad board contour",
+    "three distinct printable themes plus plain styles",
+    "all advertised KLP combinations checked",
+    "native manual editing and JSON save/reopen",
+    "current public viewer, renders and downloadable source verified"
+  ],
+  "exclusions": [
+    "purchase",
+    "manufacture",
+    "physical fit acceptance",
+    "firmware completion",
+    "BLE and power acceptance"
+  ],
+  "outstanding_hardware": [
+    "unrouted boards and DRC",
+    "final module and connector dimensions",
+    "cabling and retention",
+    "printed fits",
+    "firmware, BLE, charging and measured power"
+  ]
+}

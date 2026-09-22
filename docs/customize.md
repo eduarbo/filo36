@@ -26,32 +26,53 @@ For the lowest profile, start with the flat variants. At the common nominal seat
 
 Presets: **Original**, **Sculpted Normal** and **Sculpted Saddle**. The sculpted presets use tilted upper/lower rows in opposite orientations; they are starting points for comfort trials, not an ergonomic prescription.
 
-## Display frames
+## Print a themed display frame
 
-![Three interchangeable revG frame profiles](images/revG-frames.png)
+![Actual printable Handheld, Retro TV and Cyberpunk frames](images/revH-frames.png)
 
-RevF’s rails were exposed outer cover members. They did not hold the display: the independent **display sled** underneath does that.
+Choose a theme per half in the [3D configurator](https://eduarbo.github.io/filo36/). These are different printable shapes, not color presets.
 
-RevG replaces them with opaque covers, each with a screen window, skirt, USB opening, power-switch access and a reset-tool hole. Choose **Smooth**, **Beveled** or **Faceted**, and set each half’s color. They share the same two rear M2 mounting centers and the same internal cavity. No PCB or key-position change is required to select a style.
+| Theme | Printed details |
+|---|---|
+| **Handheld** | Game Boy-inspired D-pad, two buttons and speaker bars |
+| **Retro TV** | Raised CRT-style bezel, tuning knob and speaker grille around the real portrait display |
+| **Cyberpunk** | Raised panel, vents, traces and a small node |
+| Plain options | Smooth, Beveled and Faceted |
 
-| Parameter | Reference |
+The controls are decorative. No logos, extra switches or LEDs are required. All six styles use the same window, cavity, two M2 mounting centers and independent display support. Each exports as one closed solid per half. Relief stays within the 24 mm bay, without antennas or side wings.
+
+| Interface | Nominal dimension |
 |---|---:|
-| Maximum footprint | 24 mm bay; existing revF outline |
-| Top above the case floor datum | 16.6 mm |
-| Roof thickness | 1.2 mm |
-| Side wall before upper bevel | 1.2 mm |
-| Clearance around the glass | 0.4 mm per side |
+| Frame envelope | 24 × 56 mm; 1.2 mm plan-view corner radius |
+| Plain top / themed relief top | 16.6 / 17.2 mm above the base datum |
+| Structural roof / side wall | 1.2 / 1.2 mm |
+| Glass margin, each side | 0.4 mm |
 | Screw passage / head recess diameter | 2.3 / 3.7 mm |
+| Relief height | 0.6 mm; fused into the roof |
 
-The rear mounting columns and head seats extend higher than revF’s open rails: **do not reuse a screw length without measuring it**. M2 thread engagement, head profile and printed hole fit remain provisional. The reset opening is for a tool, not a finger. A nominal 12 × 5 mm USB plug envelope and straight insertion corridor clear all styles; oversized cable housings may not.
+The frame ends before the thumb key; the **low case and plate continue along the straight flank**. The existing power-switch reference projects 1.5 mm outside the case for access. Key positions and electronics placement remain fixed.
 
-For a custom frame, open the native source and expand **Construction**. Each style has three section sketches and a ruled loft, followed by the shared clearance cuts. Duplicate a style, edit its upper outline or add a surface pattern, retain the inner cavity and mounting interface, then check intersections. Imported outline segments use Block constraints; remove only the constraints on segments you intend to edit before moving their points. Keep the display window and service openings unobstructed. The delivered viewer accepts the three supplied geometries; a new shape must be exported and rebuilt into the viewer.
+### Make your own
+
+Open the native source and expand **Construction**. Duplicate a supplied theme, then edit the `Theme_*` boxes/cylinders or the frame section sketches. Preserve the cavity, mounting bosses, screen window and service cuts. The case outline is a native sketch with **16 intentional corners and analytical R1.2 arcs**; mesh tessellation does not add design corners. Remove only the Block constraints you intend to edit.
+
+Keep decorations within the common envelope. Avoid the screw centers at left **(114.5, 64)** and **(130.6, 64)**, the reset tool opening at **(123, 59.5)**, and the glass window. Right-half coordinates mirror across X=80 mm. Relief adds material above the roof; cutting through it changes the validated wall thickness.
+
+Use the viewer’s JSON for the six supplied shapes. To share a new shape, save your FCStd, export STEP/STL, rebuild the viewer and repeat collision checks; JSON alone cannot carry arbitrary geometry.
+
+### First print
+
+Start with **one frame in PLA Basic** as a fit sample. Use 0.16 mm layers as a starting point so the 0.6 mm relief is visible; inspect it in the slicer. Face-up protects the visible details but the roof/inside may need supports. PETG HF is an alternative to compare after the fit sample; ABS requires shrinkage compensation from an actual print. No material-specific tolerance has been qualified yet.
+
+For contrasting accents, paint raised faces in the slicer if your printer setup supports multiple colors, or paint them after printing. No multi-material hardware is assumed. These are one-piece frames, not a snap-fit kit of separate colored buttons.
+
+Screw length, head fit, print orientation and extraction clearance still require a physical trial. The reset opening takes a tool. A nominal 12 × 5 mm USB plug and straight insertion corridor clear each theme; cable housings vary.
 
 ## Save a configuration for FreeCAD
 
 1. In the viewer, choose caps, rotations, frame styles and colors.
 2. Click **Save configuration** to download `Filo36-config.json`.
-3. Download and unzip the full repository. Open `mechanical/revG/Filo36.FCStd` in FreeCAD.
+3. Download and unzip the full repository. Open `mechanical/revH/Filo36.FCStd` in FreeCAD.
 4. Use **Macro → Macros → Execute** on `tools/freecad/Configure.FCMacro`. Keep the macro beside its companion files in the repository.
 5. Choose **Import viewer configuration**, select the JSON and use **Save As**.
 

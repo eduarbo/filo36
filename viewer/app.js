@@ -180,7 +180,7 @@ function applyConfiguration(next){
       o.userData.variant=v.id;o.userData.cap_rotation_deg=choice.rotation_deg;
     }
     if(group==='lid'){
-      const f=next.frames[side];o.geometry=geometryFor(`mechanical/revG/${side}-frame-${f.style}.stl`);o.material=material(f.color);o.userData.frame_style=f.style;
+      const f=next.frames[side];o.geometry=geometryFor(`mechanical/revH/${side}-frame-${f.style}.stl`);o.material=material(f.color);o.userData.frame_style=f.style;
     }
   }
   configuration=copy(next);sync();updateChoices();message('Configuration applied. Save it for FreeCAD.');

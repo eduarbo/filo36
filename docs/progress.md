@@ -1,16 +1,24 @@
 # Progress
 
-**Current mechanical revision: G. Overall keyboard: partial digital prototype.**
+**Current mechanical revision: H. Overall keyboard: partial digital prototype.**
 
 | Outcome | State | Evidence / next step |
 |---|---|---|
 | 36 Piantor key centers and angles | Checked | [Layout](../design/layout.json), upstream files and checker |
 | Editable source and CAD exchange | Available | Native FCStd, parameters and [FreeCAD/StepUp examples](freecad.md) |
-| KLP catalog and interchangeable frames | RevG digital study | 38 source variants, 28 with qualified positions; three frame styles, configuration export/import |
-| Wireless electronics and displays | Placement only | Unrouted revF PCBs; unresolved DRC and connector dimensions |
+| KLP catalog and themed frames | RevH digital study | 38 source variants, 28 with qualified positions; six frame styles, configuration export/import |
+| Wireless electronics and displays | Placement only | Unrouted revH PCBs; unresolved DRC and connector dimensions |
 | Final BOM and manufacturing files | Pending | Close routing, clearances, retention and exact supplied parts |
 | Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
 | Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
+
+## Revision H — continuous edge and printable themes
+
+The user’s red-line reference replaces the old display notch and thumb wing with one straight inner case flank. The case is approximately **8.1 mm narrower**, keeping every switch center and angle. Sixteen intentional corners use a common **1.2 mm radius**.
+
+Handheld, Retro TV and Cyberpunk add actual roof relief within the same bay. Plain styles remain available. The high cover ends before the thumb; base and plate continue the aligned edge. Both KiCad contours match the new CAD reference without moving footprints or changing nets. There are still **26 DRC violations and 104 unconnected items per half**.
+
+[Revision review](revH-review.md) · [Keycap checks](../validation/revH-keycaps.json) · [Mechanical checks](../validation/revH-mechanical.json).
 
 ## Revision G — keycaps and frames
 

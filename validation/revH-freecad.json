@@ -1,0 +1,22 @@
+{
+  "source_sha256": "d48aad0a79d6fa96cce3c1565649b468643b17ce4edda4ddbed8047948dbd0c2",
+  "native_features_no_custom_proxy": true,
+  "configuration_roundtrip": true,
+  "reopened_customized_file": true,
+  "all_36_key_centres_unchanged": true,
+  "stem_tip_datum_mm": 11.7,
+  "FrameTop_edit_mm": [
+    16.6,
+    17.2
+  ],
+  "preset": "saddle-sculpted",
+  "thumb_variant": "MX-size Normal 90deg",
+  "frames": [
+    "handheld",
+    "tv"
+  ],
+  "invalid_configuration_rejected_atomically": true,
+  "xy_margin_mm": 0.247659,
+  "source_file_unchanged": true,
+  "opaque_side_wall_samples": 168
+}

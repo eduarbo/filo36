@@ -1,0 +1,19 @@
+{
+  "image_sha256": "dbaee03982c13d4fb1314db9a8aecd2772c1f1e263957346382a0bb9e12d8a65",
+  "sources": [
+    {
+      "path": "mechanical/revH/left-frame-handheld.stl",
+      "sha256": "708baf0d24642ef101148809ab27baa3e9b4e3371b7b2d289fcfa8fc3db8919a"
+    },
+    {
+      "path": "mechanical/revH/left-frame-tv.stl",
+      "sha256": "1b79ae375399df73c3b2999f575abceb88a81836bccab8ea7a7bfc79a5b7db67"
+    },
+    {
+      "path": "mechanical/revH/left-frame-cyberpunk.stl",
+      "sha256": "99273686d754048931d3027007e88876fef51e086f7a5c9dc254d462b7c4c83c"
+    }
+  ],
+  "renderer_sha256": "69d2158d6979e045c108a9822aea1f2976dea32ab26dde411a2d285355587661",
+  "geometry_changed": false
+}

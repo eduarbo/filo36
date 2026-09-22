@@ -48,13 +48,20 @@ const offline=target.startsWith('file:');
   await page.selectOption('#key-variant','choc_stem_mx_size_normal_90deg'); // gitleaks:allow -- public upstream STL variant ID, not a credential
   assert.equal(await page.locator('#key-rotation').inputValue(),'90');
   await page.click('#apply-keys');
-  await page.selectOption('#frame-side','left');await page.selectOption('#frame-style','facet');
+  await page.selectOption('#frame-side','left');
+  const themePixels=[];
+  for(const theme of ['handheld','tv','cyberpunk']){
+    await page.selectOption('#frame-style',theme);await page.click('#apply-frame');
+    assert.equal(await page.locator('#config-status').getAttribute('data-error'),'false');
+    themePixels.push(hash(await page.locator('#canvas').screenshot()));
+  }
+  assert.equal(new Set(themePixels).size,3,'All themed covers must change actual rendered geometry');
   await page.locator('#frame-color').fill('#ad7656');await page.click('#apply-frame');
   const configDownload=page.waitForEvent('download');await page.click('#save-config');
-  const downloadedConfig=await configDownload;const configPath=path.join(root,'build/revG/viewer-config.json');await downloadedConfig.saveAs(configPath);
+  const downloadedConfig=await configDownload;const configPath=path.join(root,'build/revH/viewer-config.json');await downloadedConfig.saveAs(configPath);
   const config=JSON.parse(fs.readFileSync(configPath));
   assert.equal(config.keycaps.left.K30.variant,'choc_stem_mx_size_normal_90deg');assert.equal(config.keycaps.left.K30.rotation_deg,90);
-  assert.deepEqual(config.frames.left,{style:'facet',color:'#ad7656'});
+  assert.deepEqual(config.frames.left,{style:'cyberpunk',color:'#ad7656'});
   await page.click('#default-config');await page.locator('#load-config').setInputFiles(configPath);
   await page.waitForFunction(()=>document.querySelector('#config-status').textContent.includes('applied'));
   assert.notEqual(hash(await page.locator('#canvas').screenshot()),baseline,'Custom configuration changes the actual assembly');
@@ -68,12 +75,12 @@ const offline=target.startsWith('file:');
   const jsonLength=glb.readUInt32LE(12),gltf=JSON.parse(glb.toString('utf8',20,20+jsonLength));
   assert.equal(gltf.nodes.filter(n=>n.mesh!==undefined).length,168);
   assert.equal(gltf.nodes.filter(n=>n.name.includes('KLP ')).length,36);
-  const assembly=gltf.nodes.find(n=>n.name==='Filo36 revG · nominal');assert.deepEqual(assembly.matrix.slice(0,3),[.001,0,0]);
+  const assembly=gltf.nodes.find(n=>n.name==='Filo36 revH · nominal');assert.deepEqual(assembly.matrix.slice(0,3),[.001,0,0]);
   assert.ok(assembly.extras.attribution.includes('braindefender'));
   assert.deepEqual(assembly.extras.configuration,config);
   const customCap=gltf.nodes.find(n=>n.name==='left · KLP K30');assert.equal(customCap.extras.variant,config.keycaps.left.K30.variant);
-  const customFrame=gltf.nodes.find(n=>n.extras?.side==='left'&&n.extras?.group==='lid');assert.equal(customFrame.extras.frame_style,'facet');
-  assert.equal(download.suggestedFilename(),'Filo36-revG-assembled.glb');
+  const customFrame=gltf.nodes.find(n=>n.extras?.side==='left'&&n.extras?.group==='lid');assert.equal(customFrame.extras.frame_style,'cyberpunk');
+  assert.equal(download.suggestedFilename(),'Filo36-revH-assembled.glb');
   function positionBytes(node){
     const primitive=gltf.meshes[node.mesh].primitives[0],a=gltf.accessors[primitive.attributes.POSITION],v=gltf.bufferViews[a.bufferView];
     assert.equal(a.componentType,5126);assert.equal(a.type,'VEC3');assert.ok(!v.byteStride||v.byteStride===12);
@@ -82,7 +89,7 @@ const offline=target.startsWith('file:');
   }
   const capPath=scene.catalog.variants.find(v=>v.id===config.keycaps.left.K30.variant).path;
   assert.deepEqual(positionBytes(customCap),Buffer.from(scene.geometries[capPath].positions,'base64'),'GLB must contain selected cap vertices');
-  assert.deepEqual(positionBytes(customFrame),Buffer.from(scene.geometries['mechanical/revG/left-frame-facet.stl'].positions,'base64'),'GLB must contain selected frame vertices');
+  assert.deepEqual(positionBytes(customFrame),Buffer.from(scene.geometries['mechanical/revH/left-frame-cyberpunk.stl'].positions,'base64'),'GLB must contain selected frame vertices');
   await page.click('#default-config');await page.click('#reset');
   assert.equal(hash(await page.locator('#canvas').screenshot()),baseline,'Default config plus reset restores exact rendered assembly');
   await page.selectOption('#key-target','all');
@@ -103,7 +110,7 @@ const offline=target.startsWith('file:');
   const receipt={viewer_sha256:hash(Buffer.from(html)),target:offline?'local file with all HTTP(S) requests blocked':'public URL',
     browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,
     all_12_layer_filters:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
-    keycap_variant_selection:true,frame_style_and_color:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:168,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
+    keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:168,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
   fs.writeFileSync(path.join(root,'build/viewer-ui-check.json'),JSON.stringify(receipt,null,2)+'\n');
   console.log(JSON.stringify(receipt,null,2));await mobile.close();await context.close();
  }finally{await browser.close();}

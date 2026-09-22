@@ -1,0 +1,82 @@
+{
+  "request": "Continuous display-to-thumb inner case flank; original Piantor layout; few uniform subtly rounded corners.",
+  "source_reference": "User red-line image, hash recorded in revH-design-review.json; no key movement",
+  "physical_acceptance": false,
+  "halves": {
+    "left": {
+      "straight_flank_x_mm": 135,
+      "uninterrupted_sample_y_mm": [
+        14,
+        86
+      ],
+      "intentional_case_corners": 16,
+      "corner_radius_mm": 1.2,
+      "case_size_mm": [
+        118.1,
+        93.792
+      ],
+      "nominal_pcb_to_cavity_mm": 0.35,
+      "switch_cut_to_outer_mm": {
+        "K01": 4.0,
+        "K02": 4.0,
+        "K03": 4.0,
+        "K04": 4.0,
+        "K05": 2.68345,
+        "K11": 6.1,
+        "K12": 10.73773,
+        "K13": 17.08472,
+        "K14": 21.0,
+        "K15": 18.26546,
+        "K21": 5.0,
+        "K22": 17.0,
+        "K23": 25.62596,
+        "K24": 27.0,
+        "K25": 25.0,
+        "K30": 5.41655,
+        "K31": 4.66598,
+        "K32": 3.69752
+      },
+      "power_switch_projection_exception_mm": 1.5
+    },
+    "right": {
+      "straight_flank_x_mm": 25,
+      "uninterrupted_sample_y_mm": [
+        14,
+        86
+      ],
+      "intentional_case_corners": 16,
+      "corner_radius_mm": 1.2,
+      "case_size_mm": [
+        118.1,
+        93.792
+      ],
+      "nominal_pcb_to_cavity_mm": 0.35,
+      "switch_cut_to_outer_mm": {
+        "K01": 4.0,
+        "K02": 4.0,
+        "K03": 4.0,
+        "K04": 4.0,
+        "K05": 2.68345,
+        "K11": 6.1,
+        "K12": 10.73773,
+        "K13": 17.08472,
+        "K14": 21.0,
+        "K15": 18.26546,
+        "K21": 5.0,
+        "K22": 17.0,
+        "K23": 25.62596,
+        "K24": 27.0,
+        "K25": 25.0,
+        "K30": 5.41655,
+        "K31": 4.66598,
+        "K32": 3.69752
+      },
+      "power_switch_projection_exception_mm": 1.5
+    }
+  },
+  "inputs": {
+    "design/layout.json": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
+    "design/revH-profiles.json": "e5d3c7988c03da4f363a640a3d078e8257e0410085abb5de7d2a219d5531f79d",
+    "tools/check_revH_outline.py": "cc2e9bb4871a7a71933f08f8c3a75cf9bfbc9b1cb4f7c925a9c7485b84a0ac3a"
+  }
+}

@@ -2,7 +2,7 @@
 
 **One complete 36-key split. Quantities cover both halves.**
 
-This is a planning BOM for the revG mechanical study and revF PCB placement. **It is not a verified build kit:** the PCBs are unrouted, DRC has open findings, and final connectors/fasteners still need fit checks. Store links identify actual products; they do not certify interchangeability.
+This is a planning BOM for the revH mechanical study and PCB outline. **It is not a verified build kit:** the PCBs are unrouted, DRC has open findings, and final connectors/fasteners still need fit checks. Store links identify actual products; they do not certify interchangeability.
 
 [Typeractive shopping list](#typeractive-shopping-list) · [Controllers](#controllers) · [Displays](#displays) · [Switches](#switches-and-hot-swap) · [Battery](#battery) · [Connectors](#removable-connectors) · [Small parts](#small-electrical-parts) · [Printed parts](#printed-parts)
 
@@ -109,13 +109,13 @@ This is **not a verified swap**: the current cavity is 12 mm wide, leaving zero 
 
 ## Printed parts
 
-![Filo36 revG printed case and KLP Lamé reference assembly](images/revG-assembled.png)
+![Filo36 revH case CAD and KLP Lamé reference assembly](images/revH-assembled.png)
 
 | Part | Quantity | Files / options |
 |---|---:|---|
 | KLP Lamé keycaps | 36 | [Variant guide](customize.md); [38 source STLs](../keycaps/variants); original preset: 28 Normal + 2 Homing + 6 Thumb |
 | Case bases and key plates | 2 each | [Editable CAD, STEP and STL](cad.md) |
-| Display frames | 2 | Smooth, beveled or faceted; separate color per half |
+| Display frames | 2 | Handheld, Retro TV, Cyberpunk or three plain styles; separate color per half |
 | Battery cradles and retainers | 2 each | Retainer fastening still provisional |
 | Controller supports and display sleds | 2 each | Independent from the cover |
 | Printed spacers/washers | 10 | Check printed dimensions and screw fit |
@@ -124,7 +124,7 @@ This is **not a verified swap**: the current cavity is 12 mm wide, leaving zero 
 
 ## Fasteners, cable and tools
 
-- **M2 hardware:** 10 mounting locations, including four frame screws. Head geometry, lengths and thread engagement remain open; revG frames need different lengths from revF rails. No final fastener order yet.
+- **M2 hardware:** 10 mounting locations, including four frame screws. Head geometry, lengths and thread engagement remain open; closed frames need different lengths from revF rails. No final fastener order yet.
 - **8 adhesive rubber feet:** approximately 1–1.5 mm. Their height adds to the case.
 - **Insulation and removable retention:** small quantity; avoid loading the battery pouch. Final retention is unprototyped.
 - **1–2 USB-C data cables:** charging and firmware transfer. [Typeractive’s silicone cable](https://typeractive.xyz/products/silicone-usb-c-cable) is listed for power; its page does not establish data support. Do not assume it can flash firmware. Check plug dimensions against the opening.

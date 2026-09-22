@@ -1,4 +1,4 @@
-"""Apply viewer configurations to the open revG document; no custom proxies.
+"""Apply viewer configurations to the open revH document; no custom proxies.
 Used by the companion macro. Does not save over the user's document.
 SPDX-License-Identifier: GPL-3.0-or-later
 """
@@ -13,7 +13,7 @@ from keycap_config import load,check
 def apply(doc,config):
     catalog=load();errors,clearance=check(config,catalog)
     if errors:raise ValueError('\n'.join(errors[:12]))
-    if not doc or not all(doc.getObject(p+'ActiveFrame') for p in ['L_','R_']):raise ValueError('Open mechanical/revG/Filo36.FCStd first.')
+    if not doc or not all(doc.getObject(p+'ActiveFrame') for p in ['L_','R_']):raise ValueError('Open mechanical/revH/Filo36.FCStd first.')
     variants={v['id']:v for v in catalog['variants']};meshes={}
     for side,keys in catalog['layout'].items():
         for key in keys:
@@ -40,7 +40,7 @@ def apply(doc,config):
     return clearance
 
 def extract(doc):
-    result={'schema':'filo36-config-1','revision':'G','keycaps':{},'frames':{}}
+    result={'schema':'filo36-config-1','revision':'H','keycaps':{},'frames':{}}
     for side,prefix in [('left','L_'),('right','R_')]:
         result['keycaps'][side]={o.KeyReference:{'variant':o.KeycapVariant,'rotation_deg':int(round(o.CapRotation.Value))%360} for o in doc.Objects if hasattr(o,'KeyReference') and o.Side==side}
         cover=doc.getObject(prefix+'ActiveFrame').LinkedObject

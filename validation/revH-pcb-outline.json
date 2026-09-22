@@ -1,0 +1,19 @@
+{
+  "scope": "Mechanical outline synchronization only; unrouted; no fabrication acceptance",
+  "halves": {
+    "left": {
+      "source_sha256": "0ee7f23fba79c939039ae089728c6916d6771e3c8cd9a6e6293ca29dacc65e53",
+      "pcb_sha256": "cf970c76f35edb37729363b6fa9aebf483fceb450a0f5a3165f85cd12f4608c6",
+      "footprints_byte_identical": 46,
+      "outline_segments": 116,
+      "routing_changes": 0
+    },
+    "right": {
+      "source_sha256": "14949a5157885eaa4bc93a305e3fb9d54d7d8bfe798c305a14bd159884863dac",
+      "pcb_sha256": "f80c9a8ea0a26d0d5d440547a7242ccf2a8a768a05275d5d425e57348ed23427",
+      "footprints_byte_identical": 46,
+      "outline_segments": 116,
+      "routing_changes": 0
+    }
+  }
+}

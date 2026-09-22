@@ -1,0 +1,24 @@
+{
+  "catalog_variants": 38,
+  "variants_with_qualified_positions": 28,
+  "reference_choices_checked": 756,
+  "presets_min_conservative_xy_clearance_mm": {
+    "saddle-sculpted": 0.247659,
+    "default": 0.25508,
+    "normal-sculpted": 0.247659
+  },
+  "minimum_requested_clearance_mm": 0.2,
+  "study_travel_mm": 3.5,
+  "minimum_pressed_mesh_z_mm": 8.2,
+  "plate_top_mm": 7.6,
+  "minimum_nominal_plate_gap_mm": 0.6,
+  "scope": "Complete chosen combinations checked using unchanged STL convex XY envelopes. Non-overlap holds at rest and throughout independent vertical travel. Mesh below/above-plane bound checks plate. Does not validate switch internal travel or insertion/stem fit.",
+  "rejections": [
+    "MX-size 1U on K01",
+    "90deg stem mesh with zero rotation",
+    "1.5U with no qualified position"
+  ],
+  "layout_sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
+  "catalog_sha256": "a336046bedaf8d65688903c562e9c1b02596b61d7223c52e8b7d4c36918f8347",
+  "physical_acceptance": false
+}

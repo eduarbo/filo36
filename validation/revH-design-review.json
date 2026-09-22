@@ -1,0 +1,161 @@
+{
+  "baseline": {
+    "head": "2ec6c4c97b6dd64d2b91482116ac26264786e08f",
+    "status": "",
+    "hashes": [
+      {
+        "path": "design/layout.json",
+        "sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3"
+      },
+      {
+        "path": "design/revF-profiles.json",
+        "sha256": "4a0735a06c5502398dee7f2589226451ce8ba6d4f987f38a407f25b0d729db48"
+      },
+      {
+        "path": "design/revG-frame-profiles.json",
+        "sha256": "7b5eed194cdaaadd7aac054b6c0bb4a7653ed3272c59783f87fd5d9b706036ba"
+      },
+      {
+        "path": "tools/freecad/build_revG.py",
+        "sha256": "179fb69203a9e5ea7541ad4560fda165f091a8ed0e0c395317c02883dcc042ab"
+      },
+      {
+        "path": "tools/build_keycap_catalog.py",
+        "sha256": "8c6bd34a888b3f9832a23ba16f546eed3e66cbb6d298266883634f4eb01ec7a5"
+      },
+      {
+        "path": "tools/keycap_config.py",
+        "sha256": "676218af6086b323d5a56f16f7c4eb1f9a8b102d808b40eee493976f8cbfd409"
+      },
+      {
+        "path": "viewer/config.js",
+        "sha256": "b64a7e3cf58d5ce3e7188a9247ece8756166af2f58d8359d3aad3ff9955d742f"
+      },
+      {
+        "path": "tools/build_viewer_revG.py",
+        "sha256": "7b5e90699a6d664b50258e4cca6b5a3656bfd75e8f7f4c0178febffaece88527"
+      },
+      {
+        "path": "tools/render_frames.py",
+        "sha256": "15789083b41c09c2713291f2c516512c32872ca8c10f02ba535cdb0ebe847cac"
+      },
+      {
+        "path": "tools/check_revG_config.py",
+        "sha256": "80a6334c177a586e762bf4ffedf14399254fce160fc3d9f1d0666353d3a0296f"
+      },
+      {
+        "path": "tools/freecad/configuration.py",
+        "sha256": "0feb59cfb310be182c64bfc006402ea0fa4883b8c950a987f4d64880b8b5a018"
+      },
+      {
+        "path": "docs/customize.md",
+        "sha256": "e89411a0505830906d118c4abada0940f499025385a3e340cdaf275ec2bb5a1a"
+      }
+    ]
+  },
+  "request": "Continuous inner flank per supplied red-line reference; actual printable handheld-console, TV and cyberpunk themed frames; fewer deliberate vertices and subtly rounded corners. Preserve all Piantor centers/angles.",
+  "reviewers": {
+    "domain": "contour_domain",
+    "adversarial": "contour_risk"
+  },
+  "agreement": "New coherent revision with X=135 left / X=25 right flank; common internal frame interface and shallow in-envelope relief.",
+  "findings": {
+    "pcb_mismatch": "Update both new KiCad outlines and native PCB contours; preserve revF historical sources.",
+    "cap_interference": "Shorten high cover to Y=67; requalify true common envelope and mixed configurations.",
+    "corner_treatment": "Native analytical outline arcs of common 1.2 mm radius; intentional control polygon.",
+    "service_access": "Reapply openings after decorative features and check all themes.",
+    "slider_projection": "Retain existing functional 1.5 mm power-switch projection; no case wing added."
+  },
+  "hardware_acceptance": false,
+  "reference_image_sha256": "1a0349e28b254cb1fa6a44f55a9253fae5949d919614c4e125d7dbfdc19491bf",
+  "final_review": {
+    "reviewed_artifact_hashes": [
+      {
+        "path": "tools/build_revH_profiles.py",
+        "sha256": "1fcc7b94432d2eb0aaed24d3aa0fd861f0de1255f5a27d673cf3d707e7775246"
+      },
+      {
+        "path": "tools/freecad/build_revH.py",
+        "sha256": "c5428157819f50ac4ade624a8b9e4338f8aa890239d60837b1458f653af5bd96"
+      },
+      {
+        "path": "tools/freecad/check_revH.py",
+        "sha256": "e64506f3ab31726686caa209a8c3004acb7e8e72dc6dd76ffeef33a05b607ee6"
+      },
+      {
+        "path": "tools/check_revH_outline.py",
+        "sha256": "cc2e9bb4871a7a71933f08f8c3a75cf9bfbc9b1cb4f7c925a9c7485b84a0ac3a"
+      },
+      {
+        "path": "tools/check_revH_pcb.py",
+        "sha256": "b8ddc0d67ea0699cb0dadaa15be23c2cbbf08cfb55b9b6d4306f2d1f63709913"
+      },
+      {
+        "path": "tools/build_keycap_catalog.py",
+        "sha256": "efa7bffc157d952d74457aa6fd633cb8536067b158242be20f6f233e63e91cc3"
+      },
+      {
+        "path": "tools/check_revH_delivery.py",
+        "sha256": "c7e6f5cbe8bfece5bf6de00a3af4ecbfdc91e742718c838f5c93eeff33b6b399"
+      },
+      {
+        "path": "design/revH-profiles.json",
+        "sha256": "e5d3c7988c03da4f363a640a3d078e8257e0410085abb5de7d2a219d5531f79d"
+      },
+      {
+        "path": "design/revH-frame-profiles.json",
+        "sha256": "c590506a2f1a31d5ed8936e704c31b1c88443ce17908c7addb5c23a3449b6edf"
+      },
+      {
+        "path": "design/layout.json",
+        "sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3"
+      },
+      {
+        "path": "design/revH.json",
+        "sha256": "9147697afe8e84911978ff18d697e8f97494e93b804e641de9779108e07cd1f1"
+      },
+      {
+        "path": "validation/revH-keycaps.json",
+        "sha256": "709dd08af08e66df9c55dea27f43eac3d25a763559238ec863ed50b9eee8f41f"
+      },
+      {
+        "path": "validation/revH-freecad.json",
+        "sha256": "16d3587ffd4626e4d8021a2badf27b6841c3a3c153f80769412f05e47d577885"
+      },
+      {
+        "path": "validation/revH-electrical.json",
+        "sha256": "55f2fd48fbc3e403c079ea856847564235e99a7113180afec724028fa215bc78"
+      },
+      {
+        "path": "validation/revH-mechanical.json",
+        "sha256": "45d8835555d3823224565724ddfcf88da4beddd18c42c7da1b6814d6ec8f87f6"
+      },
+      {
+        "path": "validation/revH-outline.json",
+        "sha256": "93117738c6d6ae63e6477437ce578122ef6f1c8e02a32af0f119421634eb3d07"
+      },
+      {
+        "path": "docs/images/revH-detail.png",
+        "sha256": "037e706038220764891b1845e00385ffea80086a7fe0d61d3103ffe7180eb1e0"
+      },
+      {
+        "path": "docs/images/revH-frames.png",
+        "sha256": "dbaee03982c13d4fb1314db9a8aecd2772c1f1e263957346382a0bb9e12d8a65"
+      },
+      {
+        "path": "docs/customize.md",
+        "sha256": "65e4417859bb503bf049a8b50b50228fee0ba279e72530cad6bfcf1e110d0a15"
+      },
+      {
+        "path": "docs/revH-review.md",
+        "sha256": "64b67df84d15f9ea33bdaf96bd03c6bdef6ce28a2933516b41e82dfc53b86736"
+      }
+    ],
+    "domain": "Accept digital design milestone; no material objection.",
+    "risk": "Accept publication as nominal editable CAD; no material objection.",
+    "low_wording_finding": "Clarified reference cap choices and runtime selected-configuration checks; exhaustive combinatorial enumeration is not claimed.",
+    "baseline_unchanged": true,
+    "physical_fit": "Unverified"
+  },
+  "prepublication_note": "The scanner misclassified four source-checksum map entries as credentials. Baseline hashes were verified against the baseline Git blobs; the final review hashes match the frozen review manifest. Records now use explicit path/sha256 fields. No scanner rule or hook was disabled."
+}

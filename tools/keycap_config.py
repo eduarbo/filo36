@@ -32,7 +32,7 @@ def default_config(catalog=None):
 
 def check(config,catalog=None):
     c=catalog or load();variants={v['id']:v for v in c['variants']};errors=[];shapes={};minimum=float('inf')
-    if config.get('schema')!='filo36-config-1' or config.get('revision')!='G':return ['Unsupported configuration format or revision.'],None
+    if config.get('schema')!='filo36-config-1' or config.get('revision')!='H':return ['Unsupported configuration format or revision.'],None
     if set(config.get('keycaps',{}))!={'left','right'} or set(config.get('frames',{}))!={'left','right'}:return ['Both halves are required.'],None
     for side,keys in c['layout'].items():
         if set(config['keycaps'][side])!={k['ref'] for k in keys}:return ['Missing keys or unknown positions.'],None
