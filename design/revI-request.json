@@ -1,7 +1,7 @@
 {
   "request": "Apply the chosen Contour silhouette to the case, PCB and dependent artifacts; internal serviceable fasteners without added perimeter; support Adafruit 1570 and 301230 batteries; prefer magnets for interchangeable frames.",
   "reference_sha256": "cea0549d836b1fff20d8f38db77cf21b152814e57aab484dd50c2321d0e32aa7",
-  "status": "Local digital checks passed; public readback pending",
+  "status": "Published and verified digital revision; original hardware objective remains partial",
   "scope": "Digital mechanical revision; keep all 36 Piantor transforms and all electrical nets. No purchases, manufacture, flash or physical acceptance.",
   "acceptance": [
     "Contour silhouette with pinky foot, shallow rectangular recess, continuous thumb fan and uniform subtle radii",
@@ -11,5 +11,7 @@
     "All existing KLP configurations and six frame styles preserved",
     "Current KiCad DRC and public source/Pages readback; original hardware objective stays partial"
   ],
-  "physical_acceptance": false
+  "physical_acceptance": false,
+  "verified_source_commit": "ea46f753bc9ceafbda0f9c940174c1c61f34d487",
+  "publication_receipt": "validation/revI-publication.json"
 }

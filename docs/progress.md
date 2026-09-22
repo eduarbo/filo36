@@ -22,6 +22,8 @@ The viewer passed offline desktop and emulated mobile checks, exact selected bat
 
 The earlier slot/copper conflict and displaced mount were corrected without relaxing the 0.5 mm edge rule. Native solids, six frame styles, two battery envelopes, saved configurations, CAD-derived renders and the viewer are checked as digital artifacts. Routing, connector qualification, printed retention, charging and BLE remain open.
 
+Publication verified: all **775 source files** matched the anonymous archive; public viewer bytes and actual browser-loaded geometry matched the tested source. Desktop/touch emulation, batteries, frames, JSON and exact selected GLB geometry passed. [Public readback](../validation/revI-publication.json).
+
 [Review and limits](revI-review.md) · [Mechanical checks](../validation/revI-mechanical.json) · [PCB readback](../validation/revI-electrical.json) · [Service/coupons](../validation/revI-service.json).
 
 ## Multicolor frame previews
