@@ -52,8 +52,10 @@ for v in service['coupons'].values():assert sha(v['path'])==v['sha256']
 rim=json.loads((ROOT/'validation/revI-rim-solids.json').read_text())
 assert rim['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
 assert rim['checker_sha256']==sha('tools/freecad/check_revI_rim.py')
-assert sum(r['samples'] for r in rim['normal_samples'])==288
+assert sum(r['samples'] for r in rim['normal_samples'])==216
 assert all(abs(r['min_mm']-4.75)<.00002 and abs(r['max_mm']-4.75)<.00002 for r in rim['normal_samples'])
+assert len(rim['curve_checks'])==4 and all(r['native_cubic'] for r in rim['curve_checks'])
+assert outline['lcd_flank_protrusion_mm']==0 and outline['thumb_curve_tangent_continuity']
 assert all(r['symmetric_difference_mm3']<1e-5 for r in rim['symmetry'].values())
 rim_image=json.loads((ROOT/'validation/revI-rim-render.json').read_text())
 assert rim_image['image_sha256']==sha('docs/images/revI-rim.png')

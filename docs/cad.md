@@ -10,9 +10,9 @@ The current mechanical source is [`mechanical/revI/Filo36.FCStd`](../mechanical/
 | Display glass top | 16.1 mm |
 | Key plate top | 7.6 mm |
 | Electronics bay | 24 mm |
-| Case width × depth, each half | 119.30 × 95.10 mm |
+| Case width × depth, each half | 116.75 × 95.10 mm |
 | Case control corners / radius | 22 / R0.8 mm |
-| Exposed switch-to-rim margin | 4.75 mm |
+| Exposed finger switch-to-rim margin | 4.75 mm |
 | Battery aperture | 12.5 × 33.6 mm |
 | North overhang past adjacent cap | 0 mm nominal |
 
@@ -66,7 +66,7 @@ python3 tools/check_parts_links.py
 python3 tools/check_revI_delivery.py
 ```
 
-To regenerate the current PCB without replacing existing work, use `python3 tools/build_revI_pcb.py --output build/uniform-contour/hardware` with a new empty destination and compare its two PCB files. The source remains the immutable revH placement.
+To regenerate the current PCB without replacing existing work, use `python3 tools/build_revI_pcb.py --output build/lcd-curve/hardware` with a new empty destination and compare its two PCB files. The source remains the immutable revH placement.
 
 For a fresh PCB reconstruction, run `python3 tools/build_revI_pcb.py` only when `hardware/revI/` does not exist. Run KiCad CLI DRC for both boards with JSON outputs at `build/revI/drc-left.json` and `drc-right.json`, then run `tools/check_revI_pcb.py` with KiCad Python. It checks the explicitly allowed footprint changes, preserved keys/nets and exact new outline, and writes the actual pad polygons. Then run `python tools/check_revI_outline.py` to measure every pad-to-edge clearance. Run these PCB checks before the final delivery check.
 
@@ -80,7 +80,7 @@ The native configuration test also uses the scoped subprocess exit after its ass
 
 The catalog build verifies SHA-256 and Git blob hashes of every pinned upstream STL. The geometry exporter checks closed printable solids, pair intersections, both cell variants and all six cover variants against components and a nominal USB plug corridor. The separate keycap checker includes complete-configuration envelopes and a travel/plate bound. The service checker samples frame lift, checks closed insert capture, cage capture and the cell-motion bound against lead paths. These tests do not measure force or print tolerances. Source hashes and results are under `validation/revI-*`.
 
-`build/` is ignored and reproducible: native save/reopen trials come from `check_revI.py`; screenshots, test GLB/JSON and UI receipts from `viewer/check.cjs`; the viewer scene from `build_viewer_revI.py`. Source generations should be compared geometrically because STEP/FCStd metadata may vary. DRC JSON and pad polygons regenerate with the PCB checks above; service coupons regenerate with `check_revI_service.py`. The rim checker rejects the retained former contour, measures 288 normal samples in the actual plate solids, and compares mirrored tray/plate volumes. `tools/check_revI_fasteners.py` clips actual KLP triangles to each screw-height travel slab for all 756 qualified reference choices. `build/uniform-contour/` contains reproducible logs/staging from these commands; review decisions are retained in the public receipt. `viewer/performance.cjs` regenerates the current interaction timing receipt under `build/viewer-sidebar/`; `viewer/finishes-check.cjs` checks triangle/material identity. The native finish checker saves its current readback under `build/viewer-multicolor/freecad.json`.
+`build/` is ignored and reproducible: native save/reopen trials come from `check_revI.py`; screenshots, test GLB/JSON and UI receipts from `viewer/check.cjs`; the viewer scene from `build_viewer_revI.py`. Source generations should be compared geometrically because STEP/FCStd metadata may vary. DRC JSON and pad polygons regenerate with the PCB checks above; service coupons regenerate with `check_revI_service.py`. The rim checker rejects the retained former contour, measures 216 preserved finger/outer-thumb normal samples, verifies native cubic curves and LCD-aligned flanks in the actual plate solids, and compares mirrored tray/plate volumes. `tools/check_revI_fasteners.py` clips actual KLP triangles to each screw-height travel slab for all 756 qualified reference choices. `build/lcd-curve/` and `build/uniform-contour/` contain reproducible logs/staging from these commands; review decisions are retained in the public receipt. `viewer/performance.cjs` regenerates the current interaction timing receipt under `build/viewer-sidebar/`; `viewer/finishes-check.cjs` checks triangle/material identity. The native finish checker saves its current readback under `build/viewer-multicolor/freecad.json`.
 
 ## PCB exchange
 

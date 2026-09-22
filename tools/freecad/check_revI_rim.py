@@ -18,6 +18,16 @@ for name in ['tray','key-plate']:
  symmetry[name]={'symmetric_difference_mm3':mismatch,'left_volume_mm3':parts['left-'+name].Volume,'right_volume_mm3':b.Volume}
 layout=json.loads((R/'design/layout.json').read_text())['halves'];study=json.loads((R/'validation/revI-outline.json').read_text())
 rows=[]
+curve_checks=[]
+for side,prefix in [('left','L_'),('right','R_')]:
+ for name in ['OuterPadSketch','PlatePadSketch']:
+  sketch=doc.getObject(prefix+name);splines=[g for g in sketch.Geometry if isinstance(g,Part.BSplineCurve)]
+  assert len(splines)==1 and splines[0].Degree==3,(prefix,name,'native cubic missing')
+ for name in ['tray','key-plate']:
+  shape=parts[side+'-'+name];assert shape.isValid()
+  bound=shape.BoundBox.XMax if side=='left' else shape.BoundBox.XMin
+  assert abs(bound-(135 if side=='left' else 25))<1e-5,(side,name,bound)
+  curve_checks.append({'side':side,'part':name,'flank_mm':bound,'native_cubic':True})
 for side in ['left','right']:
  plate=parts[side+'-key-plate'];keys={k['ref']:k for k in layout[side]}
  for spec in study['halves'][side]['normal_samples']:
@@ -33,7 +43,7 @@ for side in ['left','right']:
    ray=Part.makeLine(A.Vector(qx,-qy,7),A.Vector(qx+dx*5.75,-qy-dy*5.75,7))
    length=plate.common(ray).Length;assert abs(length-4.75)<.00002,(side,spec,length);lengths.append(length)
   rows.append({'side':side,'key':spec['key'],'face':face,'min_mm':min(lengths),'max_mm':max(lengths),'samples':len(lengths)})
-report={'scope':'Actual native plate solids, 288 normal samples; tray and plate mirrored through X=80','symmetry':symmetry,'normal_samples':rows,'nominal_rim_mm':4.75,'tolerance_mm':.00002,'physical_acceptance':False,'source_sha256':hashlib.sha256((R/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest(),'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+report={'scope':'Actual native plate solids, 216 normal samples; tray and plate mirrored through X=80','curve_checks':curve_checks,'symmetry':symmetry,'normal_samples':rows,'nominal_rim_mm':4.75,'tolerance_mm':.00002,'physical_acceptance':False,'source_sha256':hashlib.sha256((R/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest(),'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 (R/'validation/revI-rim-solids.json').write_text(json.dumps(report,indent=2)+'\n')
-sys.__stdout__.write('PASS: native tray/plate mirror and 288 exposed normal samples at 4.75 mm\n');sys.__stdout__.flush();A.closeDocument(doc.Name)
+sys.__stdout__.write('PASS: native tray/plate mirror and 216 exposed normal samples at 4.75 mm\n');sys.__stdout__.flush();A.closeDocument(doc.Name)
 if os.environ.get('FILO_FREECAD_SUBPROCESS')=='1':os._exit(0)

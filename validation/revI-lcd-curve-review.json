@@ -1,0 +1,70 @@
+{
+  "scope": "LCD flank, smooth thumb curve, explicit visibility and persistent view controls; digital correction only",
+  "reviewed_commit": "0e291bbd02eda9922e49bad58f6e6940628ba9c8",
+  "reviewed_inputs": {
+    "design/layout.json": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
+    "design/revI-profiles.json": "9ec21134e0d78ede178a2a556ca3b8fb8c902a082e7c01dfd375c0a4e909625f",
+    "design/revI-mounts.json": "ee6a61232b1a8c308748af1174793664c41238a6c36cd166209e6d011d5592bd",
+    "design/revI-magnets.json": "4f953719a2e36c69fd566e90c3b0e6071d90fe5a990126e73a24186910e81ca8",
+    "design/batteries.json": "1c4d2037b6fb04ea7aab6ba1d2f780eda9d886ebf8dd1c403c2721743d0424ff",
+    "keycaps/catalog.json": "0f710bdb3e599bc86e0a8b4360eac6adda311501502fb08a75623adf14a3c03d",
+    "tools/build_revI_profiles.py": "9bfddf476019f9ad9e761207f875762b26896957b6702f7959c5552996e1e21a",
+    "tools/freecad/build_revI.py": "3e338b6560f0931361041317a0e8e713290a0d55812371af624eb3afd2046497",
+    "tools/check_revI_outline.py": "c62871bc6a7103846778ff356c9f3085571880472ac8ea6fd11807ef105101ea",
+    "viewer/template.html": "742ca3f75f126d68985b4c3a51376d6f91fb3173700d32a4b32c09bf17de4349",
+    "viewer/style.css": "d02dbe7cf64b35f2df6f034aefa43b4ac26f384d0d045aa6899ad28eebfc1682",
+    "viewer/app.js": "91ce0d9010087f057f203597792e383d3e045582e2fbd77e0fe9529542b90d83",
+    "viewer/explorer.js": "e92d51e5d63b7ec26b78edf8af00d4aaf1dc1145b922fd297811141b137495f5",
+    "viewer/check.cjs": "5176714bc743834300e5a0dcb0c56568c326b5ef54f9c6f3062cbdee139fc13e",
+    "build/revI/pads-left.json": "db37d1e99d014a19624f261fa7c5bbb8da2332641d411745dd9348646e7f90fd"
+  },
+  "independent_reviews": [
+    {
+      "lens": "domain constructive",
+      "recommendation": "Constrain flank; use tangent-continuous thumb curve; preserve protected geometry and actual copper rule. Clarify controls and keep all View tools outside inspector.",
+      "confidence": "High source confidence; candidate feasibility conditional on CAD/browser checks.",
+      "primary_conditions": [
+        "Actual copper >=0.5 mm",
+        "All 36 transforms preserved",
+        "Native mirrored valid solids",
+        "Accessible visible controls at 320px and short landscape"
+      ]
+    },
+    {
+      "lens": "adversarial reliability",
+      "recommendation": "Same constrained corrections; reject cut pads, altered protected transforms, hidden/clipped controls or nominal-only completion claims.",
+      "confidence": "High source confidence; runtime and CAD acceptance conditional.",
+      "primary_conditions": [
+        "Verify actual pad polygons after trim",
+        "Native cubic and solids, not only a visual mockup",
+        "Hidden and empty control states",
+        "No geometry obstruction by persistent controls"
+      ]
+    }
+  ],
+  "review_integrity": "All 15 frozen input hashes matched after both first reports and before root edits. Both workers reported no edits.",
+  "consensus": "Same recommended action; no unresolved objection. No second round needed.",
+  "findings_disposition": {
+    "thumb_flank": "Removed 2.550942 mm protrusion; bounds 135/25 in profiles and native tray/plate.",
+    "thumb_curve": "One native degree-3 curve, tangent to R0.8 end arcs; downstream PCB/plate/tray regenerated.",
+    "pinky": "Measured orthogonal backbone; R0.8 blends retained.",
+    "links_fit": "Clear labels, selection/empty feedback; camera uses actual canvas size, pixel framing tested.",
+    "explorer": "Padded full-row hover, explicit eyes, per-piece controls, Solo/Show all; occluded hover is temporary X-ray.",
+    "view": "All 9 controls remain outside inspector; tested during collapse and mobile layouts."
+  },
+  "retrospective": {
+    "trigger": "User annotated thumb protrusion/angular lower edge and ambiguous controls; follow-up requested per-piece visibility and occlusion highlight.",
+    "cause": "Previous face-offset contour allowed its angled outer thumb to exceed LCD flank; matching constant-thumb-margin tests constrained the newly requested curve. Control semantics and group eyes were insufficiently discoverable.",
+    "correction": "Local geometric replacement and explicit persistent/explorer controls.",
+    "prevention": "Retained former geometry fixtures; actual CAD flank/native-curve checks, computed pinky angles, rendered fit and occluded-hover pixel tests, and per-object/solo visibility acceptance."
+  },
+  "acceptance_files": [
+    "validation/revI-outline.json",
+    "validation/revI-rim-solids.json",
+    "validation/revI-electrical.json",
+    "validation/revI-freecad.json",
+    "validation/revI-service.json",
+    "validation/revI-ui.json"
+  ],
+  "physical_acceptance": false
+}

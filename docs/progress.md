@@ -14,7 +14,7 @@
 
 ## Revision I — uniform exposed rim
 
-The case and PCB use a **4.75 mm exposed rim**, with thumb faces parallel to their switch openings. H1 now sits between columns; the screws do not determine the perimeter. One contour generates both mirrored halves. Both batteries, the 24 mm bay and all key transforms are preserved. The former outline is retained as a regression fixture. [Measured view](images/revI-rim.png) · [Correction review](revI-review.md#uniform-rim-correction).
+The case, switch plate and PCB now follow a **curved lower thumb edge and LCD-aligned flank**. The 2.55 mm thumb-side protrusion is removed without moving keys or widening the bay. Finger margins stay 4.75 mm; the pinky foot retains 90° backbone corners with R0.8 blends. View tools remain below the model, with clearer Part links/Fit view feedback and full-row explorer hover. [Measured view](images/revI-rim.png) · [Correction review](revI-review.md#lcd-flank-and-thumb-curve).
 
 Publication verified: **785 source files** match the anonymous download. The public viewer passes desktop/touch emulation, layers, frame/battery selection, JSON and exact GLB checks; the dimensioned image matches its source. [Public readback](../validation/revI-rim-publication.json).
 

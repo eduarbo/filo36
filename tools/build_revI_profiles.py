@@ -64,7 +64,27 @@ def control_outline(keys, margin=MARGIN):
 
 layout=json.loads((ROOT/'design/layout.json').read_text())
 controls=control_outline(layout['halves']['left'])
-outer,arcs=rounded(controls,.8);shell=Polygon(outer);assert shell.is_valid
+# The LCD flank is the limit, independent of fasteners and key transforms.
+controls[13]=intersect(controls[13],controls[14],[135,0],[135,150])
+del controls[12]  # collinear point on the now continuous vertical flank
+_,corners=rounded(controls,.8)
+# One cubic replaces the three angular south faces. End tangents retain the
+# adjacent R0.8 blends, giving a smooth join without changing either thumb key.
+start=corners[13]['end'];end=corners[16]['start']
+curve=[start,[start[0]-20*math.cos(math.radians(25)),start[1]-20*math.sin(math.radians(25))],
+       [end[0]+20*math.cos(math.radians(5)),end[1]-20*math.sin(math.radians(5))],end]
+def bezier(t):
+    return [sum(math.comb(3,i)*(1-t)**(3-i)*t**i*curve[i][j] for i in range(4)) for j in (0,1)]
+segments=[];outer=[];kept=[i for i in range(len(corners)) if i not in (14,15)]
+for at,i in enumerate(kept):
+    arc=corners[i];segments.append(dict(kind='arc',**arc))
+    # Reuse the exact analytical-arc samples from rounded().
+    samples,_=rounded(controls,.8);outer.extend(samples[i*17:(i+1)*17])
+    if i==13:
+        segments.append({'kind':'bezier','poles':curve});outer.extend(bezier(t/256) for t in range(1,257))
+    else:segments.append({'kind':'line','start':arc['end'],'end':corners[kept[(at+1)%len(kept)]]['start']})
+arcs=[corners[i] for i in kept];controls=[controls[i] for i in kept]
+shell=Polygon(outer);assert shell.is_valid
 hood,h_arcs=rounded([[111,11],[135,11],[135,67],[111,67]],1.2)
 frame=Polygon(hood)
 coords=lambda p:[list(v) for v in p.exterior.coords][:-1]
@@ -80,6 +100,10 @@ for side in ['left','right']:
     cutouts=left.pop('pcb_cutouts',None) if side=='left' else cutouts
     profiles[side]={k:([ {n:reflect(p) for n,p in a.items()} for a in v] if k.endswith('_arcs') else [reflect(p) for p in v]) if isinstance(v,list) else v for k,v in left.items()}
     profiles[side]['pcb_cutouts']=[[reflect(p) for p in loop] for loop in cutouts]
+    profiles[side]['outer_segments']=[{k:([reflect(p) for p in v] if k=='poles' else reflect(v)) if k!='kind' else v for k,v in s.items()} for s in segments]
+    profiles[side]['thumb_curve']=[reflect(p) for p in curve]
+    profiles[side]['lcd_flank_x_mm']=reflect([135,0])[0]
+    profiles[side]['plate_frame_clearance']=[reflect(p) for p in coords(frame.buffer(.18,join_style=2))]
     frames[side]={'outer':profiles[side]['hood'],'outer_arcs':profiles[side]['hood_arcs'],
                   'inner':[reflect(p) for p in coords(frame.buffer(-1.2,join_style=2))]}
     # A modest 0.4 mm lip bevel; older styles remain available as plain options.
@@ -90,4 +114,4 @@ for side in ['left','right']:
         frames[side][style+'_arcs']=[{n:reflect(p) for n,p in a.items()} for a in arcs]
 (ROOT/'design/revI-profiles.json').write_text(json.dumps(profiles,indent=2)+'\n')
 (ROOT/'design/revI-frame-profiles.json').write_text(json.dumps(frames,indent=2)+'\n')
-print('22 R0.8 corners; 4.75 mm exposed rim, offset thumb faces and exact mirrored halves')
+print('19 R0.8 corners; native cubic thumb curve, LCD-aligned flank and exact mirrored halves')

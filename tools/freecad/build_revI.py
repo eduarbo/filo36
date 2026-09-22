@@ -97,6 +97,15 @@ for side in ('left', 'right'):
         # Native lines and arcs: the visible corner count is the control polygon,
         # not the tessellation needed for STL/PCB export.
         arcs=None
+        if points==profiles[side]['outer'] and plane=='XY':
+            vec=lambda p:A.Vector(p[0],-p[1],0)
+            for segment in profiles[side]['outer_segments']:
+                if segment['kind']=='bezier':
+                    geometry=Part.BezierCurve();geometry.setPoles([vec(p) for p in segment['poles']]);geometry=geometry.toBSpline()
+                elif segment['kind']=='arc':geometry=Part.Arc(vec(segment['start']),vec(segment['mid']),vec(segment['end']))
+                else:geometry=Part.LineSegment(vec(segment['start']),vec(segment['end']))
+                j=s.addGeometry(geometry,False);s.addConstraint(Sketcher.Constraint('Block',j))
+            return s
         if points==profiles[side]['outer']:arcs=profiles[side]['outer_arcs']
         elif points==frame_profiles[side]['outer']:arcs=frame_profiles[side]['outer_arcs']
         elif points==frame_profiles[side]['bevel']:arcs=frame_profiles[side]['bevel_arcs']
@@ -185,8 +194,11 @@ for side in ('left', 'right'):
     tray = cut('TrayPowerCut',tray,power_slot)
     done('tray',tray,'Base · editable floor','base',(.105,.145,.15),True)
 
-    plate = extrude('PlatePad',profiles[side]['plate'],6.3,1.3)
-    expr(plate,'Placement.Base.z','Parameters.PlateBottom'); expr(plate,'LengthFwd','Parameters.PlateThickness')
+    plate_pad=extrude('PlatePad',profiles[side]['outer'],6.3,1.3)
+    plate_tool=extrude('PlateFrameTool',profiles[side]['plate_frame_clearance'],6.2,1.5)
+    expr(plate_pad,'Placement.Base.z','Parameters.PlateBottom');expr(plate_pad,'LengthFwd','Parameters.PlateThickness')
+    expr(plate_tool,'Placement.Base.z','Parameters.PlateBottom - 0.1 mm');expr(plate_tool,'LengthFwd','Parameters.PlateThickness + 0.2 mm')
+    plate=cut('PlateFrameClearance',plate_pad,plate_tool)
     for key in layout['halves'][side]:
         angle = -math.radians(key['angle']); points=[]
         for x,y in [(-7,-7),(7,-7),(7,7),(-7,7)]:

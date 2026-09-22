@@ -55,7 +55,7 @@ The frame ends before the thumb key; the **low case and plate continue along the
 
 ### Make your own
 
-Open the native source and expand **Construction**. Duplicate a supplied theme, then edit the `Theme_*` boxes/cylinders or the frame section sketches. Preserve the cavity, mounting bosses, screen window and service cuts. The case outline is a native sketch with **22 intentional corners and analytical R0.8 arcs**; mesh tessellation does not add design corners. Remove only the Block constraints you intend to edit.
+Open the native source and expand **Construction**. Duplicate a supplied theme, then edit the `Theme_*` boxes/cylinders or the frame section sketches. Preserve the cavity, mounting bosses, screen window and service cuts. The case outline is a native sketch with **19 intentional corners, analytical R0.8 arcs and one cubic below the thumbs**; mesh tessellation does not add design corners. Remove only the Block constraints you intend to edit.
 
 Keep decorations within the common envelope. Preserve the magnetic stations at left **(113, 52.8)**, **(133, 52.8)** and **(122.8, 64.7)**, the hidden structural screw reliefs at **(114.5, 65.5)** and **(130.6, 66.5)**, the reset tool opening at **(123, 59.5)**, and the glass window. Right-half coordinates mirror across X=80 mm. Relief adds material above the roof; cutting through it changes the validated wall thickness.
 

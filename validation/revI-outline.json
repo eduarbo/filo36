@@ -1,13 +1,13 @@
 {
-  "scope": "Actual contour/copper and nominal fit; physical acceptance remains open",
+  "scope": "LCD-aligned flank and smooth thumb curve; actual copper and nominal fit; physical acceptance remains open",
   "halves": {
     "left": {
       "case_size_mm": [
-        119.301,
+        116.75,
         95.101
       ],
-      "case_plan_area_mm2": 8364.562,
-      "intentional_corners": 22,
+      "case_plan_area_mm2": 8404.971,
+      "intentional_corners": 19,
       "exposed_rim_mm": 4.75,
       "normal_samples": [
         {
@@ -133,39 +133,6 @@
         },
         {
           "key": "K30",
-          "face": "south",
-          "sample_count": 9,
-          "face_local_range_mm": [
-            -4,
-            4
-          ],
-          "minimum_mm": 4.749999999999993,
-          "maximum_mm": 4.749999999999993
-        },
-        {
-          "key": "K31",
-          "face": "south",
-          "sample_count": 9,
-          "face_local_range_mm": [
-            -4,
-            4
-          ],
-          "minimum_mm": 4.749999999999987,
-          "maximum_mm": 4.750000000000001
-        },
-        {
-          "key": "K32",
-          "face": "south",
-          "sample_count": 9,
-          "face_local_range_mm": [
-            -4,
-            4
-          ],
-          "minimum_mm": 4.74999999999998,
-          "maximum_mm": 4.749999999999998
-        },
-        {
-          "key": "K30",
           "face": "west",
           "sample_count": 9,
           "face_local_range_mm": [
@@ -174,17 +141,6 @@
           ],
           "minimum_mm": 4.749999999999993,
           "maximum_mm": 4.749999999999993
-        },
-        {
-          "key": "K32",
-          "face": "east",
-          "sample_count": 9,
-          "face_local_range_mm": [
-            -4,
-            4
-          ],
-          "minimum_mm": 4.749999999999998,
-          "maximum_mm": 4.750000000000024
         }
       ],
       "fastener_clearances": [
@@ -552,7 +508,7 @@
         {
           "ref": "K30",
           "pad": "1",
-          "clearance_mm": 3.18406
+          "clearance_mm": 3.717572
         },
         {
           "ref": "K30",
@@ -562,7 +518,7 @@
         {
           "ref": "K30",
           "pad": "2",
-          "clearance_mm": 12.55
+          "clearance_mm": 13.864781
         },
         {
           "ref": "SW2",
@@ -652,12 +608,12 @@
         {
           "ref": "K32",
           "pad": "1",
-          "clearance_mm": 3.185511
+          "clearance_mm": 3.650201
         },
         {
           "ref": "K32",
           "pad": "2",
-          "clearance_mm": 5.285511
+          "clearance_mm": 6.256686
         },
         {
           "ref": "K32",
@@ -752,17 +708,17 @@
         {
           "ref": "K31",
           "pad": "1",
-          "clearance_mm": 14.75
+          "clearance_mm": 15.912815
         },
         {
           "ref": "K31",
           "pad": "1",
-          "clearance_mm": 3.18696
+          "clearance_mm": 4.779795
         },
         {
           "ref": "K31",
           "pad": "2",
-          "clearance_mm": 5.28696
+          "clearance_mm": 6.932535
         },
         {
           "ref": "K31",
@@ -852,12 +808,12 @@
         {
           "ref": "D30",
           "pad": "1",
-          "clearance_mm": 6.4
+          "clearance_mm": 6.757274
         },
         {
           "ref": "D30",
           "pad": "2",
-          "clearance_mm": 6.4
+          "clearance_mm": 7.062811
         },
         {
           "ref": "D22",
@@ -932,12 +888,12 @@
         {
           "ref": "D32",
           "pad": "1",
-          "clearance_mm": 6.399999
+          "clearance_mm": 6.983826
         },
         {
           "ref": "D32",
           "pad": "2",
-          "clearance_mm": 6.4
+          "clearance_mm": 6.713308
         },
         {
           "ref": "D24",
@@ -952,12 +908,12 @@
         {
           "ref": "D31",
           "pad": "1",
-          "clearance_mm": 6.399999
+          "clearance_mm": 7.986879
         },
         {
           "ref": "D31",
           "pad": "2",
-          "clearance_mm": 6.4
+          "clearance_mm": 8.013558
         },
         {
           "ref": "D04",
@@ -986,10 +942,10 @@
         "K22": 4.75,
         "K23": 9.75,
         "K24": 11.8228,
-        "K25": 23.51061,
+        "K25": 25.27673,
         "K30": 4.75,
-        "K31": 4.75,
-        "K32": 4.75
+        "K31": 6.33653,
+        "K32": 3.69752
       },
       "batteries": {
         "adafruit-1570": {
@@ -1014,11 +970,11 @@
     },
     "right": {
       "case_size_mm": [
-        119.301,
+        116.75,
         95.101
       ],
-      "case_plan_area_mm2": 8364.562,
-      "intentional_corners": 22,
+      "case_plan_area_mm2": 8404.971,
+      "intentional_corners": 19,
       "exposed_rim_mm": 4.75,
       "normal_samples": [
         {
@@ -1144,39 +1100,6 @@
         },
         {
           "key": "K30",
-          "face": "south",
-          "sample_count": 9,
-          "face_local_range_mm": [
-            -4,
-            4
-          ],
-          "minimum_mm": 4.749999999999993,
-          "maximum_mm": 4.749999999999993
-        },
-        {
-          "key": "K31",
-          "face": "south",
-          "sample_count": 9,
-          "face_local_range_mm": [
-            -4,
-            4
-          ],
-          "minimum_mm": 4.749999999999987,
-          "maximum_mm": 4.750000000000001
-        },
-        {
-          "key": "K32",
-          "face": "south",
-          "sample_count": 9,
-          "face_local_range_mm": [
-            -4,
-            4
-          ],
-          "minimum_mm": 4.74999999999998,
-          "maximum_mm": 4.749999999999998
-        },
-        {
-          "key": "K30",
           "face": "west",
           "sample_count": 9,
           "face_local_range_mm": [
@@ -1185,17 +1108,6 @@
           ],
           "minimum_mm": 4.749999999999993,
           "maximum_mm": 4.749999999999993
-        },
-        {
-          "key": "K32",
-          "face": "east",
-          "sample_count": 9,
-          "face_local_range_mm": [
-            -4,
-            4
-          ],
-          "minimum_mm": 4.749999999999998,
-          "maximum_mm": 4.750000000000024
         }
       ],
       "fastener_clearances": [
@@ -1448,27 +1360,27 @@
         {
           "ref": "K31",
           "pad": "1",
-          "clearance_mm": 3.18696
+          "clearance_mm": 4.779795
         },
         {
           "ref": "K31",
           "pad": "2",
-          "clearance_mm": 5.286961
+          "clearance_mm": 7.02687
         },
         {
           "ref": "K31",
           "pad": "2",
-          "clearance_mm": 12.55
+          "clearance_mm": 14.269307
         },
         {
           "ref": "K32",
           "pad": "1",
-          "clearance_mm": 5.525
+          "clearance_mm": 4.139659
         },
         {
           "ref": "K32",
           "pad": "1",
-          "clearance_mm": 3.185511
+          "clearance_mm": 3.650201
         },
         {
           "ref": "K32",
@@ -1508,12 +1420,12 @@
         {
           "ref": "K30",
           "pad": "1",
-          "clearance_mm": 3.18406
+          "clearance_mm": 3.717572
         },
         {
           "ref": "K30",
           "pad": "2",
-          "clearance_mm": 5.28406
+          "clearance_mm": 6.383762
         },
         {
           "ref": "K30",
@@ -1813,12 +1725,12 @@
         {
           "ref": "D32",
           "pad": "1",
-          "clearance_mm": 6.4
+          "clearance_mm": 6.713308
         },
         {
           "ref": "D32",
           "pad": "2",
-          "clearance_mm": 6.4
+          "clearance_mm": 6.983826
         },
         {
           "ref": "D05",
@@ -1833,12 +1745,12 @@
         {
           "ref": "D31",
           "pad": "1",
-          "clearance_mm": 6.4
+          "clearance_mm": 8.013558
         },
         {
           "ref": "D31",
           "pad": "2",
-          "clearance_mm": 6.399999
+          "clearance_mm": 7.986879
         },
         {
           "ref": "D12",
@@ -1973,12 +1885,12 @@
         {
           "ref": "D30",
           "pad": "1",
-          "clearance_mm": 6.4
+          "clearance_mm": 7.062811
         },
         {
           "ref": "D30",
           "pad": "2",
-          "clearance_mm": 6.4
+          "clearance_mm": 6.757274
         }
       ],
       "all_fasteners_inside_silhouette": true,
@@ -1997,10 +1909,10 @@
         "K22": 4.75,
         "K23": 9.75,
         "K24": 11.8228,
-        "K25": 23.51061,
+        "K25": 25.27673,
         "K30": 4.75,
-        "K31": 4.75,
-        "K32": 4.75
+        "K31": 6.33653,
+        "K32": 3.69752
       },
       "batteries": {
         "adafruit-1570": {
@@ -2026,20 +1938,28 @@
   },
   "physical_acceptance": false,
   "mirror_max_error_mm": 0.0,
+  "lcd_flank_protrusion_mm": 0.0,
+  "thumb_curve_tangent_continuity": true,
+  "pinky_backbone_angles_degrees": [
+    90.0,
+    90.0
+  ],
+  "regression_angular_protruding_outline_rejected": true,
   "regression_previous_outline_rejected": true,
   "exceptions": [
     "Interior bridges between key groups",
     "Frame-to-plate service joint",
-    "Short bay-to-thumb transition",
+    "Continuous cubic under thumbs and LCD-aligned thumb flank",
     "R0.8 corner blends"
   ],
   "inputs": {
     "design/layout.json": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
-    "design/revI-profiles.json": "9ec21134e0d78ede178a2a556ca3b8fb8c902a082e7c01dfd375c0a4e909625f",
+    "design/revI-profiles.json": "5cead6f6b21b271a8abe80ba94efed8ae9ddb17cd0c29bd4558367b74fc64308",
     "design/revI-mounts.json": "ee6a61232b1a8c308748af1174793664c41238a6c36cd166209e6d011d5592bd",
     "design/batteries.json": "1c4d2037b6fb04ea7aab6ba1d2f780eda9d886ebf8dd1c403c2721743d0424ff",
-    "tools/check_revI_outline.py": "c62871bc6a7103846778ff356c9f3085571880472ac8ea6fd11807ef105101ea",
-    "tools/build_revI_profiles.py": "9bfddf476019f9ad9e761207f875762b26896957b6702f7959c5552996e1e21a",
-    "design/revI-rim-baseline.json": "22098506a8528c77043b604dbac6c1437bf44970aa15eb780515b9b40c5d2599"
+    "tools/check_revI_outline.py": "225482937b5f661f53050f3349ed6e9759e84dcec1933bf3a809a94ec4bf650d",
+    "tools/build_revI_profiles.py": "76b429182df82cda33abedd7e85bb4ebb1bc6eb7271f5ccfdff0afc8319864e1",
+    "design/revI-rim-baseline.json": "22098506a8528c77043b604dbac6c1437bf44970aa15eb780515b9b40c5d2599",
+    "design/revI-lcd-curve-baseline.json": "05281860afcfd053e811651f93af733e7c5bb994f9c8889f8a75f535a47ebffc"
   }
 }

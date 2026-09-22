@@ -52,7 +52,8 @@ function material(color){
   return materials.get(color);
 }
 const frameFinish=createFrameFinishes(geometryFor,material);
-const objects=[];
+const objects=[];const hiddenObjects=new Set();
+const matchesPart=(o,ref)=>ref&&o.userData.group===ref.group&&(!ref.side||o.userData.side===ref.side)&&(!ref.key||o.userData.key===ref.key)&&(ref.objectIndex===undefined||o.userData.objectIndex===ref.objectIndex);
 for(const part of data.parts){
   let geometry=geometryFor(part.geometry),mat=material(part.color);
   if(part.primitive){
@@ -71,7 +72,7 @@ for(const part of data.parts){
   }
   const mesh=new THREE.Mesh(geometry,mat);mesh.name=part.name;
   mesh.position.fromArray(part.position);mesh.rotation.y=THREE.MathUtils.degToRad(part.angle_deg);
-  mesh.userData={group:part.group,side:part.side,base:[...part.position],explode:part.explode_mm,key:part.key_ref};
+  mesh.userData={objectIndex:objects.length,group:part.group,side:part.side,base:[...part.position],explode:part.explode_mm,key:part.key_ref};
   if(part.name.includes('Electronics cover'))mesh.userData.frame_style=configuration.frames[part.side].style;
   objects.push(mesh);scene.add(mesh);
 }
@@ -89,12 +90,12 @@ controls.addEventListener('change',()=>{
 });
 let halfHeight=100;
 function resize(){
-  const {width,height}=canvas.parentElement.getBoundingClientRect();
+  const {width,height}=canvas.getBoundingClientRect();
   renderer.setSize(width,height,false);const aspect=width/height;
   camera.left=-halfHeight*aspect;camera.right=halfHeight*aspect;camera.top=halfHeight;camera.bottom=-halfHeight;
   camera.updateProjectionMatrix();explorer?.layoutChanged();render();
 }
-new ResizeObserver(resize).observe(canvas.parentElement);
+new ResizeObserver(()=>fit()).observe(canvas);
 
 function visibleBounds(){
   const box=new THREE.Box3();for(const o of objects)if(o.visible)box.union(new THREE.Box3().setFromObject(o));
@@ -116,23 +117,27 @@ function fit(direction){
 function sync(){
   explorer?.invalidate();
   for(const o of objects){
-    o.visible=state.layers[o.userData.group]&&(state.half==='both'||state.half===o.userData.side);
+    o.visible=!hiddenObjects.has(o.userData.objectIndex)&&state.layers[o.userData.group]&&(state.half==='both'||state.half===o.userData.side);
     o.position.fromArray(o.userData.base);o.position.y+=o.userData.explode*state.explode;
   }
   $('half').value=state.half;$('view').value=state.view;$('explode').value=Math.round(state.explode*100);
   $('explosion').textContent=Math.round(state.explode*100)+' %';
-  for(const key of Object.keys(labels))$('layer-'+key).checked=state.layers[key];
+  for(const key of Object.keys(labels)){
+    const nodes=objects.filter(o=>o.userData.group===key),shown=nodes.filter(o=>state.layers[key]&&!hiddenObjects.has(o.userData.objectIndex)).length,input=$('layer-'+key);
+    input.checked=shown>0;input.indeterminate=shown>0&&shown<nodes.length;input.parentElement.title=(shown?'Hide ':'Show ')+labels[key];
+  }
+  refreshPartVisibility();
   const count=objects.filter(o=>o.visible).length;
   $('status').textContent=`Rev${data.revision} · ${count} visible components${state.explode?' · Exploded view':''}`;
   for(const button of document.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view===state.view));
-  const isComplete=state.half==='both'&&state.explode===0&&Object.values(state.layers).every(Boolean);
+  const isComplete=state.half==='both'&&state.explode===0&&Object.values(state.layers).every(Boolean)&&hiddenObjects.size===0;
   $('complete').setAttribute('aria-pressed',String(isComplete));
   $('inside').setAttribute('aria-pressed',String(!state.layers.base&&!state.layers.lid&&state.layers.pcb));
   $('stack').setAttribute('aria-pressed',String(!state.layers.base&&!state.layers.pcb&&state.layers.mcu));
   render();
 }
 function reset(){
-  state.half='both';state.explode=0;state.view='iso';
+  hiddenObjects.clear();state.half='both';state.explode=0;state.view='iso';
   for(const key of Object.keys(labels))state.layers[key]=true;
   sync();fit(directions.iso);
 }
@@ -141,13 +146,13 @@ function setCollapsed(value){
 }
 function openPanel(id,section=id){
   setCollapsed(false);
-  for(const name of ['frames','keycaps','battery','view','files','about'])$('panel-'+name).hidden=id!==name;
+  for(const name of ['frames','keycaps','battery','files','about'])$('panel-'+name).hidden=id!==name;
   for(const button of document.querySelectorAll('.part-item'))button.setAttribute('aria-expanded',String(button.dataset.group===section));
-  for(const name of ['view','files','about'])$('nav-'+name).setAttribute('aria-expanded',String(name===section));
+  for(const name of ['files','about'])$('nav-'+name).setAttribute('aria-expanded',String(name===section));
   $('inspector').scrollTop=0;
 }
 $('collapse-detail').onclick=()=>setCollapsed($('collapse-detail').getAttribute('aria-expanded')==='true');
-for(const name of ['view','files','about'])$('nav-'+name).onclick=()=>{if(name!=='files')explorer?.clear();openPanel(name);};
+for(const name of ['files','about'])$('nav-'+name).onclick=()=>{if(name!=='files')explorer?.clear();openPanel(name);};
 $('layers').replaceChildren();
 for(const [id,label] of Object.entries(labels)){
   const row=document.createElement('div');row.className='part-row';row.dataset.group=id;
@@ -156,12 +161,13 @@ for(const [id,label] of Object.entries(labels)){
   const dot=document.createElement('span');dot.className='part-anchor';dot.dataset.group=id;dot.style.setProperty('--part-color',color);
   const name=document.createElement('span');name.className='part-name';name.textContent=partInfo[id].short;button.append(dot,name);
   const ref=()=>({group:id,side:state.half==='both'?null:state.half});
-  button.onpointerenter=e=>{if(e.pointerType!=='touch')explorer.highlight(ref());};button.onpointerleave=()=>explorer.highlight(null);
-  button.onfocus=()=>explorer.highlight(ref());button.onblur=()=>explorer.highlight(null);button.onclick=()=>explorer.select(ref());
+  row.onpointerenter=e=>{if(e.pointerType!=='touch')explorer.highlight(ref());};row.onpointerleave=()=>explorer.highlight(null);
+  row.onfocusin=()=>explorer.highlight(ref());row.onfocusout=e=>{if(!row.contains(e.relatedTarget))explorer.highlight(null);};
+  button.onclick=()=>explorer.select(ref());
   const visibility=document.createElement('label');visibility.className='visibility';visibility.title='Show / hide '+label;
   const input=document.createElement('input');input.type='checkbox';input.id='layer-'+id;input.checked=true;input.setAttribute('aria-label','Show '+label);
-  input.addEventListener('change',()=>{state.layers[id]=input.checked;sync();});
-  const eye=document.createElement('span');eye.className='eye';eye.textContent='◉';eye.setAttribute('aria-hidden','true');visibility.append(input,eye);
+  input.addEventListener('change',()=>{state.layers[id]=input.checked;if(input.checked)for(const o of objects)if(o.userData.group===id)hiddenObjects.delete(o.userData.objectIndex);sync();});
+  const eye=document.createElement('span');eye.className='eye';eye.innerHTML='<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.7"/><path class="eye-slash" d="m3 3 18 18"/></svg>';eye.setAttribute('aria-hidden','true');visibility.append(input,eye);
   row.append(button,visibility);$('layers').append(row);
 }
 $('half').addEventListener('change',e=>{state.half=e.target.value;sync();fit();});
@@ -169,7 +175,7 @@ function chooseView(view){state.view=view;sync();fit(directions[view]);}
 $('view').addEventListener('change',e=>chooseView(e.target.value));
 for(const button of document.querySelectorAll('[data-view]'))button.onclick=()=>chooseView(button.dataset.view);
 $('explode').addEventListener('input',e=>{state.explode=Number(e.target.value)/100;sync();fit();});
-$('complete').onclick=reset;$('reset').onclick=reset;$('fit').onclick=()=>fit();
+$('complete').onclick=reset;$('reset').onclick=()=>{reset();$('view-feedback').textContent='View and layers reset. Your parts are unchanged.';};$('fit').onclick=()=>{fit();$('view-feedback').textContent=objects.some(o=>o.visible)?'Visible parts centered and fitted.':'Nothing visible. Show a layer or choose Assembled.';};
 $('inside').onclick=()=>{reset();for(const k of ['base','plate','lid','keycaps','switches','fasteners'])state.layers[k]=false;sync();fit();};
 $('stack').onclick=()=>{reset();state.half='left';state.explode=.55;for(const k of Object.keys(labels))state.layers[k]=['battery','mcu','display','supports','connectors'].includes(k);sync();fit();};
 $('credits').onclick=()=>$('licenses').showModal();$('close-credits').onclick=()=>$('licenses').close();
@@ -248,8 +254,8 @@ function applyFrame(change){
   try{
     applyConfiguration(cfg);
     // A new style must be visible even when coming from the internal stack study.
-    if(change.style){const needsFit=state.explode>0||!state.layers.lid||frameSide==='both'&&state.half!=='both'||state.half!=='both'&&!frameTargets().includes(state.half);
-      if(needsFit){for(const k of Object.keys(state.layers))state.layers[k]=true;state.explode=0;state.half=frameSide;sync();fit();}}
+    if(change.style){for(const o of objects)if(o.userData.group==='lid'&&frameTargets().includes(o.userData.side))hiddenObjects.delete(o.userData.objectIndex);const needsFit=state.explode>0||!state.layers.lid||frameSide==='both'&&state.half!=='both'||state.half!=='both'&&!frameTargets().includes(state.half);
+      if(needsFit){for(const k of Object.keys(state.layers))state.layers[k]=true;state.explode=0;state.half=frameSide;sync();fit();}else sync();}
   }catch(e){message(e.message,true);}
 }
 for(const id of ['handheld','tv','cyberpunk','smooth','bevel','facet']){
@@ -285,9 +291,43 @@ function syncConfigurationUI(){
   else $('theme-palette').textContent='Each design keeps its own accent colors.';
   for(const button of $('key-presets').children){const preset=data.presets[button.dataset.preset];const same=Object.entries(configuration.keycaps).every(([side,keys])=>Object.entries(keys).every(([ref,c])=>c.variant===preset.keycaps[side][ref].variant&&c.rotation_deg===preset.keycaps[side][ref].rotation_deg));button.setAttribute('aria-pressed',String(same));}
 }
+function refreshPartVisibility(){
+  for(const input of document.querySelectorAll('[data-object-visibility]')){const o=objects[Number(input.dataset.objectVisibility)];input.checked=o.visible;}
+  if(explorer?.selected){const visible=objects.some(o=>o.visible&&matchesPart(o,explorer.selected));$('toggle-selection').textContent=visible?'Hide':'Show';}
+}
+function populatePartVisibility(ref){
+  const list=$('part-visibility-list');list.replaceChildren();const matching=objects.filter(o=>o.userData.group===ref.group);
+  $('individual-count').textContent=String(matching.length);
+  for(const o of matching){
+    const row=document.createElement('div');row.className='individual-row';
+    const label=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.dataset.objectVisibility=String(o.userData.objectIndex);input.checked=o.visible;
+    const text=document.createElement('span');text.textContent=o.userData.side.charAt(0).toUpperCase()+o.userData.side.slice(1)+' · '+(o.userData.key||o.name.replace(/^(left|right)[ -·]*/i,''));
+    input.setAttribute('aria-label','Show '+text.textContent);label.append(input,text);
+    const current={group:o.userData.group,side:o.userData.side,key:o.userData.key,objectIndex:o.userData.objectIndex};
+    input.onchange=()=>{if(input.checked){hiddenObjects.delete(o.userData.objectIndex);state.layers[o.userData.group]=true;if(state.half!==o.userData.side)state.half='both';}else hiddenObjects.add(o.userData.objectIndex);sync();};
+    row.onpointerenter=e=>{if(e.pointerType!=='touch')explorer.highlight(current);};row.onpointerleave=()=>explorer.highlight(null);
+    row.onfocusin=()=>explorer.highlight(current);row.onfocusout=e=>{if(!row.contains(e.relatedTarget))explorer.highlight(null);};
+    const solo=document.createElement('button');solo.textContent='Solo';solo.title='Isolate '+text.textContent;solo.dataset.soloObject=String(o.userData.objectIndex);solo.onclick=()=>isolate(current);
+    row.append(label,solo);list.append(row);
+  }
+  const visible=objects.some(o=>o.visible&&matchesPart(o,ref));$('toggle-selection').textContent=visible?'Hide':'Show';
+}
+function isolate(ref){
+  hiddenObjects.clear();state.half='both';for(const key of Object.keys(labels))state.layers[key]=true;
+  for(const o of objects)if(!matchesPart(o,ref))hiddenObjects.add(o.userData.objectIndex);
+  sync();fit();$('view-feedback').textContent='Showing only this selection. Show all restores the assembly.';
+}
+$('isolate-selection').onclick=()=>{if(explorer.selected)isolate(explorer.selected);};
+$('toggle-selection').onclick=()=>{
+  const ref=explorer.selected;if(!ref)return;const hide=objects.some(o=>o.visible&&matchesPart(o,ref));
+  for(const o of objects)if(matchesPart(o,ref)){if(hide)hiddenObjects.add(o.userData.objectIndex);else{hiddenObjects.delete(o.userData.objectIndex);state.layers[o.userData.group]=true;}}
+  if(!hide&&ref.side&&state.half!==ref.side)state.half='both';sync();
+};
+$('show-all').onclick=()=>{hiddenObjects.clear();state.half='both';for(const key of Object.keys(labels))state.layers[key]=true;sync();fit();$('view-feedback').textContent='All parts visible.';};
 explorer=createExplorer({scene,camera,canvas,objects,requestRender:render,
   onSelect(ref){
     $('selection').hidden=false;$('selection').classList.toggle('compact',['lid','keycaps'].includes(ref.group));$('selection-meta').textContent=(ref.side?ref.side+' half':'Both halves')+(ref.key?' / '+ref.key:'');
+    populatePartVisibility(ref);
     $('selection-title').textContent=partInfo[ref.group].name;$('selection-info').textContent=partInfo[ref.group].info;
     if(ref.group==='lid'){setFrameSide(ref.side||'both');openPanel('frames','lid');}
     else if(ref.group==='keycaps'){openPanel('keycaps','keycaps');$('key-details').open=true;if(ref.key)$('key-target').value=ref.side+':'+ref.key;else $('key-target').value='all';chooseKeyTarget();}

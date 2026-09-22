@@ -21,7 +21,25 @@ async function checkDirectory(page){
     const at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
     return{id:e.id,visible:r.width>0&&r.height>0&&r.x>=0&&r.y>=0&&r.right<=innerWidth+1&&r.bottom<=innerHeight+1&&!!at&&(e===at||e.contains(at)),textFits:!text||text.width>0&&name.scrollWidth<=name.clientWidth+1};
   }));
-  assert.equal(entries.length,16);assert.ok(entries.every(e=>e.visible&&e.textFits),'All 12 components plus 4 section controls must be unclipped: '+JSON.stringify(entries.filter(e=>!e.visible||!e.textFits)));
+  assert.equal(entries.length,15);assert.ok(entries.every(e=>e.visible&&e.textFits),'All 12 components plus 3 section controls must be unclipped: '+JSON.stringify(entries.filter(e=>!e.visible||!e.textFits)));
+  const controls=await page.locator('.view-controls button,.view-controls select,#explode').evaluateAll(nodes=>nodes.map(e=>{
+    const r=e.getBoundingClientRect(),at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+    return {id:e.id,visible:r.width>0&&r.height>=25&&r.x>=0&&r.right<=innerWidth+1&&r.y>=0&&r.bottom<=innerHeight&&!!at&&(at===e||e.contains(at))};
+  }));
+  assert.equal(controls.length,9);assert.ok(controls.every(c=>c.visible),'Persistent view controls: '+JSON.stringify(controls));
+  const separation=await page.evaluate(()=>{const c=document.querySelector('#canvas').getBoundingClientRect(),t=document.querySelector('.view-controls').getBoundingClientRect();return {gap:t.top-c.bottom,height:c.height};});
+  assert.ok(separation.gap>=-1&&separation.height>=120,'View toolbar must not cover the model: '+JSON.stringify(separation));
+}
+async function checkFramedPixels(page){
+  const png=(await page.locator('#canvas').screenshot({style:'.stage-label,#leader-lines{opacity:0!important}'})).toString('base64');
+  const bounds=await page.evaluate(async png=>{
+    const image=new Image();image.src='data:image/png;base64,'+png;await image.decode();
+    const c=document.createElement('canvas');c.width=image.width;c.height=image.height;const ctx=c.getContext('2d');ctx.drawImage(image,0,0);
+    const {data}=ctx.getImageData(0,0,c.width,c.height),bg=[...data.slice(0,3)];let x0=c.width,y0=c.height,x1=0,y1=0;
+    for(let y=0;y<c.height;y++)for(let x=0;x<c.width;x++){const i=(y*c.width+x)*4;if(bg.reduce((s,v,j)=>s+Math.abs(v-data[i+j]),0)>35){x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y);}}
+    return{x0,y0,x1,y1,w:c.width,h:c.height};
+  },png);
+  assert.ok(bounds.x1>bounds.x0&&bounds.y1>bounds.y0&&bounds.x0>5&&bounds.y0>5&&bounds.x1<bounds.w-6&&bounds.y1<bounds.h-6,'Fit view must contain the actually rendered assembly: '+JSON.stringify(bounds));
 }
 async function checkLink(page,group){
   await page.waitForFunction(group=>{const p=document.querySelector('#part-link'),r=document.querySelector('main').getBoundingClientRect(),a=document.querySelector(`.part-anchor[data-group=${group}]`).getBoundingClientRect();return !p.hasAttribute('hidden')&&p.dataset.group===group&&Math.abs(Number(p.dataset.endX)+r.x-a.x-a.width/2)<1&&Math.abs(Number(p.dataset.endY)+r.y-a.y-a.height/2)<1},group);
@@ -46,6 +64,42 @@ async function checkLink(page,group){
   }
   await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('180'),null,{timeout:60000});
   await checkDirectory(page);
+  await checkFramedPixels(page);
+  await page.click('#annotations');await page.click('#annotations');
+  assert.match(await page.locator('#view-feedback').textContent(),/Hover or select/);
+  const row=await page.locator('.part-row[data-group=plate]').boundingBox();
+  await page.mouse.move(row.x+3,row.y+row.height/2);
+  assert.equal(await page.locator('.part-row[data-group=plate]').evaluate(e=>e.matches(':hover')),true);
+  await page.locator('#layer-plate').hover();
+  assert.equal(await page.locator('.part-row[data-group=plate]').evaluate(e=>e.classList.contains('is-highlighted')),true);
+  assert.equal(await page.locator('#layer-plate').isChecked(),true,'Hover never changes visibility');
+  await page.mouse.move(10,20);await page.keyboard.press('Escape');
+  await page.mouse.move(400,350);await page.mouse.wheel(0,-700);await page.waitForTimeout(150);
+  await page.click('#fit');assert.match(await page.locator('#view-feedback').textContent(),/centered and fitted/);await checkFramedPixels(page);
+  for(const group of new Set(scene.parts.map(p=>p.group)))await page.locator('#layer-'+group).uncheck();
+  await page.click('#fit');assert.match(await page.locator('#view-feedback').textContent(),/Nothing visible/);await page.click('#reset');
+  await page.click('#part-base');await page.locator('#individual-parts summary').click();
+  assert.equal(await page.locator('[data-object-visibility]').count(),2);
+  await page.locator('[data-object-visibility]').first().uncheck();
+  assert.match(await page.locator('#status').textContent(),/179 visible/);
+  assert.equal(await page.locator('#layer-base').evaluate(e=>e.indeterminate),true);
+  await page.locator('[data-object-visibility]').first().check();
+  await page.locator('[data-solo-object]').first().click();
+  assert.match(await page.locator('#status').textContent(),/1 visible/);
+  await page.click('#show-all');assert.match(await page.locator('#status').textContent(),/180 visible/);
+  await page.click('#part-mcu');await page.click('#isolate-selection');
+  assert.match(await page.locator('#status').textContent(),/2 visible/);
+  await page.click('#toggle-selection');assert.match(await page.locator('#status').textContent(),/0 visible/);
+  await page.click('#toggle-selection');assert.match(await page.locator('#status').textContent(),/2 visible/);
+  await page.click('#show-all');await page.selectOption('#view','top');await page.keyboard.press('Escape');await page.mouse.move(10,20);
+  const beforeXray=hash(await page.locator('#canvas').screenshot({style:'.stage-label,#leader-lines{opacity:0!important}'}));
+  await page.locator('#part-mcu').hover();await checkLink(page,'mcu');
+  const duringXray=hash(await page.locator('#canvas').screenshot({style:'.stage-label,#leader-lines{opacity:0!important}'}));
+  assert.notEqual(duringXray,beforeXray,'Hover must reveal the controller through the assembled display/frame');
+  assert.match(await page.locator('#status').textContent(),/180 visible/,'X-ray hover never changes visibility');
+  await page.mouse.move(10,20);await page.keyboard.press('Escape');
+  assert.equal(hash(await page.locator('#canvas').screenshot({style:'.stage-label,#leader-lines{opacity:0!important}'})),beforeXray,'Leaving hover restores the original assembly');
+  await page.click('#reset');
   await page.screenshot({path:path.join(root,'build/viewer-desktop.png')});
   // Compare WebGL output without the overlaid DOM controls or label borders.
   // Opacity keeps hover/focus active; the separate full-page captures include UI.
@@ -56,7 +110,7 @@ async function checkLink(page,group){
   await page.click('#battery-options [data-battery="301230"]');
   assert.equal(await page.locator('#battery-options [data-battery="301230"]').getAttribute('aria-pressed'),'true');
   await page.click('#battery-options [data-battery="adafruit-1570"]');
-  await page.click('#nav-view');
+  await page.keyboard.press('Escape');
   for(const group of new Set(scene.parts.map(p=>p.group))){
     await page.locator('#layer-'+group).uncheck();
     assert.equal(await count(),180-scene.parts.filter(p=>p.group===group).length,group);
@@ -190,9 +244,9 @@ async function checkLink(page,group){
   await page.click('[data-preset=saddle-sculpted]');assert.equal(await page.locator('#config-status').getAttribute('data-error'),'false');
   await page.click('#nav-files');await page.click('#default-config');
   // The entire directory remains visible while inspector bodies change/scroll.
-  await page.click('#nav-view');await page.click('#stack');
+  await page.click('#stack');
   await page.locator('#part-mcu').hover();await checkLink(page,'mcu');
-  await page.click('#nav-view');await page.selectOption('#view','front');
+  await page.selectOption('#view','front');
   await page.locator('#part-mcu').hover();await checkLink(page,'mcu');
   await page.click('#part-lid');await page.click('[data-style=handheld]');
   assert.equal(await page.locator('#layer-lid').isChecked(),true,'A frame click reveals a previously hidden cover');
@@ -217,6 +271,7 @@ async function checkLink(page,group){
   if(offline)await mobile.route(/^https?:/,route=>{requests.push(route.request().url());return route.abort();});
   const phone=await mobile.newPage();phone.on('pageerror',e=>errors.push(e.message));await phone.goto(target);
   await phone.waitForFunction(()=>document.querySelector('#status').textContent.includes('180'));
+  await checkFramedPixels(phone);
   assert.equal(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');
   await phone.locator('[data-style=handheld]').tap();
   assert.equal(await phone.locator('[data-style=handheld]').getAttribute('aria-pressed'),'true');
@@ -225,7 +280,7 @@ async function checkLink(page,group){
   assert.equal(await phone.locator('#selection-title').textContent(),'Display frame');
   assert.equal(await phone.locator('#frame-target [data-side=both]').getAttribute('aria-pressed'),'true');
   await phone.locator('#clear-selection').tap();
-  await phone.locator('#nav-view').tap();
+
   await phone.locator('#inside').tap();assert.ok((await phone.locator('#status').textContent()).includes('components'));
   await phone.locator('#layer-display').uncheck();
   await phone.locator('#part-display').tap();
@@ -273,7 +328,7 @@ async function checkLink(page,group){
   assert.deepEqual(errors,[]);if(offline)assert.deepEqual(requests,[],'Offline viewer must not request network resources');
   const receipt={viewer_sha256:hash(Buffer.from(html)),target:offline?'local file with all HTTP(S) requests blocked':'public URL',
     browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,public_embedded_scene_matches_current:!offline,
-    all_12_layer_filters:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
+    all_12_layer_filters:true,individual_visibility:true,individual_and_group_solo:true,show_all_recovery:true,occluded_hover_xray_pixel_verified:true,persistent_view_controls:true,fit_actual_pixels_after_zoom:true,fit_empty_feedback:true,full_row_hover:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
     persistent_component_directory:true,sidebar_line_endpoints:true,directory_visible_during_scroll_and_collapse:true,keyboard_component_selection:true,direct_canvas_picking:true,labels_follow_camera:true,frame_click_reveals_hidden_cover:true,annotation_toggle:true,orbit_does_not_select:true,touch_orbit_and_pinch_do_not_select:true,small_320px_viewport:true,
     six_preview_cards:true,multicolor_glb_roles:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,theme_applies_palette_and_body_overrides_roundtrip:true,sidebar_hover_highlight:true,sidebar_opens_frame_explorer:true,touch_frame_cards_and_sidebar:true,hidden_layer_links_removed:true,highlight_excluded_from_glb:true,
     dual_battery_selection_and_exact_glb:true,captive_frame_pins_preserved:true,keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:180,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};

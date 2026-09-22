@@ -13,8 +13,8 @@ fontpath=next((p for p in ['/System/Library/Fonts/Helvetica.ttc','/usr/share/fon
 font=lambda size:ImageFont.truetype(fontpath,size) if fontpath else ImageFont.load_default()
 ink='#24413f';accent='#437f6c';scale=6
 label=lambda x,y,s,size=25,color=ink:draw.text((x,y),s,font=font(size),fill=color)
-label(80,50,'FILO36  /  A CONSISTENT RIM',43)
-label(82,111,'4.75 mm on exposed straight faces. Original Piantor key centers and angles.',27)
+label(80,50,'FILO36  /  CURVED THUMBS / ALIGNED FLANK',43)
+label(82,111,'Uniform finger rim. Smooth thumb curve. Original Piantor key centers and angles.',27)
 for side,offset in [('left',65),('right',1010)]:
  def tx(q):return(offset+(q[0]-15)*scale,225+q[1]*scale)
  p=profiles[side];draw.polygon([tx(q) for q in p['outer']],fill='#345653')
@@ -34,12 +34,12 @@ for side,offset in [('left',65),('right',1010)]:
   dim((66,5),(66,.25),'4.75',(310,200))
   dim((23,46),(18.25,46),'4.75',(5,488))
   dim((30,70),(30,74.75),'4.75',(140,690))
-  k=next(k for k in layout['left'] if k['ref']=='K31');import math
-  a=-math.radians(k['angle']);pt=lambda d:(k['x']-math.sin(a)*d,k['y']+math.cos(a)*d)
-  dim(pt(7),pt(11.75),'4.75',(545,800))
-label(80,878,'INTERNAL FASTENERS',23);label(80,917,'H1 moves between columns; the outline never depends on screws.',24)
+  draw.line([tx((135,11)),tx((135,100))],fill='#ca8a43',width=2)
+  label(575,823,'LCD flank',22)
+  label(200,765,'90° / R0.8',22)
+label(80,878,'INTERNAL FASTENERS',23);label(80,917,'Inside the silhouette; no screw-driven perimeter bulges.',24)
 label(1010,878,'EXACT MIRROR',23);label(1010,917,'One contour reflected across both halves. Bay stays 24 mm.',24)
-label(80,994,'R0.8 corner blends and the bay / thumb bridge are explicit transitions.',24,'#62796e')
+label(80,994,'One native cubic below the thumbs; R0.8 blends join its end tangents.',24,'#62796e')
 label(80,1042,'Native CAD checked. Printed fit and hardware operation remain untested.',22,'#62796e')
 p=R/'docs/images/revI-rim.png';im.save(p)
 report={'image_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'renderer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'profile_sha256':hashlib.sha256((R/'design/revI-profiles.json').read_bytes()).hexdigest(),'source':'Orthographic profile drawing; actual native-solid measurements in revI-rim-solids.json'}

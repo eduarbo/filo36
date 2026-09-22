@@ -8,11 +8,11 @@
   "sources": [
     {
       "path": "mechanical/revI/left-tray.stl",
-      "sha256": "5b28149f8f16e872ff9135240e872025996da50ea2d38c7af8231cc450c5c59b"
+      "sha256": "453d2a0938c4de39aa11f815e92a42f77002151da29d4cff9a81fad0ce821679"
     },
     {
       "path": "mechanical/revI/left-key-plate.stl",
-      "sha256": "bf728b494cd7a9556d0c952113690fdd35870f4badd28537f8ee269b0f114fff"
+      "sha256": "e1f22bc9ee275e2eaa510c8a0b05fa36a212f70896a4baa415986e326cd9fc53"
     },
     {
       "path": "mechanical/revI/left-electronics-lid.stl",
@@ -20,7 +20,7 @@
     },
     {
       "path": "mechanical/revI/left-pcb.stl",
-      "sha256": "76a0e0087394f41df91bf1b2661882f63fff58dde9932e9171eabf019c74f7a6"
+      "sha256": "d8c089a37b166e036795c1bcbc7bf1bf6f5852ce1969720558b602a83afc273a"
     },
     {
       "path": "mechanical/revI/left-battery.stl",
@@ -176,11 +176,11 @@
     },
     {
       "path": "mechanical/revI/right-tray.stl",
-      "sha256": "c740e1579c0179b1eec00df848b89e417cfc278348a2036d78f3d008d1b69595"
+      "sha256": "b23f057085ea8811f3b5d7ff83fa2f99ea723f6a3b6f68b88e3e83e2e21ac009"
     },
     {
       "path": "mechanical/revI/right-key-plate.stl",
-      "sha256": "ea2b2fd202d37ff39ac4d1c9ef2e17e2a068209ba89bc387657e403ad55ac3e0"
+      "sha256": "03f7169f329ee92b17760bd75a20139caac5613d4c2d4c893cd7f4b9b2bedc71"
     },
     {
       "path": "mechanical/revI/right-electronics-lid.stl",
@@ -188,7 +188,7 @@
     },
     {
       "path": "mechanical/revI/right-pcb.stl",
-      "sha256": "d683085b10f279a7fa6f193f73111fa22071708eee6ff2b8316d060d0ddef4ab"
+      "sha256": "3486f0b786021f64ed5dc9e968d37b3a3ee1f7192262cbd88a6895225e13193f"
     },
     {
       "path": "mechanical/revI/right-battery.stl",
@@ -432,7 +432,7 @@
     },
     {
       "path": "design/revI.json",
-      "sha256": "0a21c07324aa081734f9333b5948e2651bf71e92b58da23cb421a1bd2939e989"
+      "sha256": "8d9e45d2b8e4b6e37bdaf802d42bedce182ad8a93d0b9d323a3bda4968861278"
     },
     {
       "path": "design/layout.json",
@@ -448,7 +448,7 @@
     },
     {
       "path": "viewer/app.js",
-      "sha256": "91ce0d9010087f057f203597792e383d3e045582e2fbd77e0fe9529542b90d83"
+      "sha256": "fd70750fdd617146a4297532505ccf46847ac76d5bc6e82a60d471f605fb68e4"
     },
     {
       "path": "viewer/config.js",
@@ -456,7 +456,7 @@
     },
     {
       "path": "viewer/explorer.js",
-      "sha256": "e92d51e5d63b7ec26b78edf8af00d4aaf1dc1145b922fd297811141b137495f5"
+      "sha256": "86f6e541ae549c70028f496ea4247761e554e32a13804d7115176b967afea2fd"
     },
     {
       "path": "viewer/previews.js",
@@ -472,11 +472,11 @@
     },
     {
       "path": "viewer/style.css",
-      "sha256": "d02dbe7cf64b35f2df6f034aefa43b4ac26f384d0d045aa6899ad28eebfc1682"
+      "sha256": "2e867f74db422d53cef8cb1416e7bd6aa937b2862ab59256f644700cc38f15a9"
     },
     {
       "path": "viewer/template.html",
-      "sha256": "742ca3f75f126d68985b4c3a51376d6f91fb3173700d32a4b32c09bf17de4349"
+      "sha256": "44ce7abf89acbd8d47b49950d78a9d4dc92274006a0ff76ab2af93a06904ad35"
     },
     {
       "path": "viewer/build.mjs",
@@ -487,7 +487,7 @@
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "1a7b6129fc8540068e7696d5518b3ec9d27fd0caa7189fed5153d7d9c3f4fc63",
+  "viewer_sha256": "f78c7e985dfbd72b94d16ceb3ca677199fa71fb76980e1f4b3c28556307d3793",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,

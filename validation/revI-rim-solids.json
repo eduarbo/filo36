@@ -1,15 +1,41 @@
 {
-  "scope": "Actual native plate solids, 288 normal samples; tray and plate mirrored through X=80",
+  "scope": "Actual native plate solids, 216 normal samples; tray and plate mirrored through X=80",
+  "curve_checks": [
+    {
+      "side": "left",
+      "part": "tray",
+      "flank_mm": 135.0,
+      "native_cubic": true
+    },
+    {
+      "side": "left",
+      "part": "key-plate",
+      "flank_mm": 135.0,
+      "native_cubic": true
+    },
+    {
+      "side": "right",
+      "part": "tray",
+      "flank_mm": 25.0,
+      "native_cubic": true
+    },
+    {
+      "side": "right",
+      "part": "key-plate",
+      "flank_mm": 25.0,
+      "native_cubic": true
+    }
+  ],
   "symmetry": {
     "tray": {
       "symmetric_difference_mm3": 0.0,
-      "left_volume_mm3": 14619.966321916747,
-      "right_volume_mm3": 14619.966321916736
+      "left_volume_mm3": 14665.340289779866,
+      "right_volume_mm3": 14665.340289779886
     },
     "key-plate": {
       "symmetric_difference_mm3": 0.0,
-      "left_volume_mm3": 4503.7763999193985,
-      "right_volume_mm3": 4503.776399919391
+      "left_volume_mm3": 4556.309022181003,
+      "right_volume_mm3": 4556.309022181004
     }
   },
   "normal_samples": [
@@ -49,7 +75,7 @@
       "side": "left",
       "key": "K05",
       "face": "north",
-      "min_mm": 4.749999999999999,
+      "min_mm": 4.75,
       "max_mm": 4.75,
       "samples": 9
     },
@@ -104,41 +130,9 @@
     {
       "side": "left",
       "key": "K30",
-      "face": "south",
-      "min_mm": 4.749999999999993,
-      "max_mm": 4.749999999999993,
-      "samples": 9
-    },
-    {
-      "side": "left",
-      "key": "K31",
-      "face": "south",
-      "min_mm": 4.749999999999987,
-      "max_mm": 4.750000000000001,
-      "samples": 9
-    },
-    {
-      "side": "left",
-      "key": "K32",
-      "face": "south",
-      "min_mm": 4.749999999999979,
-      "max_mm": 4.749999999999997,
-      "samples": 9
-    },
-    {
-      "side": "left",
-      "key": "K30",
       "face": "west",
       "min_mm": 4.749999999999993,
       "max_mm": 4.749999999999993,
-      "samples": 9
-    },
-    {
-      "side": "left",
-      "key": "K32",
-      "face": "east",
-      "min_mm": 4.749999999999993,
-      "max_mm": 4.750000000000025,
       "samples": 9
     },
     {
@@ -177,7 +171,7 @@
       "side": "right",
       "key": "K05",
       "face": "north",
-      "min_mm": 4.749999999999999,
+      "min_mm": 4.75,
       "max_mm": 4.75,
       "samples": 9
     },
@@ -232,47 +226,15 @@
     {
       "side": "right",
       "key": "K30",
-      "face": "south",
-      "min_mm": 4.749999999999993,
-      "max_mm": 4.749999999999993,
-      "samples": 9
-    },
-    {
-      "side": "right",
-      "key": "K31",
-      "face": "south",
-      "min_mm": 4.749999999999987,
-      "max_mm": 4.750000000000003,
-      "samples": 9
-    },
-    {
-      "side": "right",
-      "key": "K32",
-      "face": "south",
-      "min_mm": 4.749999999999979,
-      "max_mm": 4.749999999999995,
-      "samples": 9
-    },
-    {
-      "side": "right",
-      "key": "K30",
       "face": "west",
       "min_mm": 4.749999999999993,
       "max_mm": 4.749999999999993,
-      "samples": 9
-    },
-    {
-      "side": "right",
-      "key": "K32",
-      "face": "east",
-      "min_mm": 4.750000000000011,
-      "max_mm": 4.7500000000000195,
       "samples": 9
     }
   ],
   "nominal_rim_mm": 4.75,
   "tolerance_mm": 2e-05,
   "physical_acceptance": false,
-  "source_sha256": "81efdf373cdc8f18a03a3935d0c805246f4f1075e9772a3d47c9683651658d72",
-  "checker_sha256": "7d67a1b5bfdba4a6e188454f2eacb8e53c4bb5db8afd8c4ae7d84a5267357109"
+  "source_sha256": "98382c931a8b7bd5aa4134bc89b29269e6310e6b3c7ee71b8b8aa02409e84f9f",
+  "checker_sha256": "5de699bea61a580d93586e254731cdb168c08188153197cf3f8946fd2ead1599"
 }

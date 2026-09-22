@@ -21,9 +21,10 @@ export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,req
   const ray=new THREE.Raycaster(),pointer=new THREE.Vector2(),overlay=new THREE.Group(),bounds=new Map(),highlights=new Map();
   scene.add(overlay);
   const glow=new THREE.MeshBasicMaterial({color:'#75bd86',transparent:true,opacity:.33,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2});
-  const match=(o,ref)=>ref&&o.userData.group===ref.group&&(!ref.side||o.userData.side===ref.side)&&(!ref.key||o.userData.key===ref.key);
-  const key=ref=>ref?[ref.group,ref.side||'',ref.key||''].join(':'):'';
-  const refOf=o=>({group:o.userData.group,side:o.userData.side,key:o.userData.key});
+  const xray=new THREE.MeshBasicMaterial({color:'#39a9a4',transparent:true,opacity:.38,depthTest:false,depthWrite:false});
+  const match=(o,ref)=>ref&&o.userData.group===ref.group&&(!ref.side||o.userData.side===ref.side)&&(!ref.key||o.userData.key===ref.key)&&(ref.objectIndex===undefined||o.userData.objectIndex===ref.objectIndex);
+  const key=ref=>ref?[ref.group,ref.side||'',ref.key||'',ref.objectIndex??''].join(':'):'';
+  const refOf=o=>({group:o.userData.group,side:o.userData.side,key:o.userData.key,objectIndex:o.userData.objectIndex});
   let selected=null,hovered=null,enabled=true,moving=false,down=null,pointers=new Set(),pickTimer=0,anchorTimer=0,anchor=null;
   let revision=0,boxRevision=-1,highlightStamp='',activeKey='',layoutDirty=true,layout;
   function refreshBounds(){
@@ -60,7 +61,7 @@ export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,req
   }
   function scheduleAnchor(){
     clearTimeout(anchorTimer);anchor=null;path.setAttribute('hidden','');dot.setAttribute('hidden','');
-    if(enabled&&!moving&&(hovered||selected))anchorTimer=setTimeout(()=>{anchorTimer=0;if(!moving){anchor=surface(hovered||selected);requestRender();}},70);
+    if(enabled&&!moving&&(hovered||selected))anchorTimer=setTimeout(()=>{anchorTimer=0;if(!moving){anchor=surface(hovered||selected);if(!anchor&&hovered){refreshBounds();const o=objects.find(o=>match(o,hovered));if(o)anchor={point:bounds.get(o).getCenter(new THREE.Vector3()),object:o};}requestRender();}},70);
   }
   function setHover(ref,hitPoint){
     if(key(ref)===key(hovered))return;hovered=ref;
@@ -81,16 +82,16 @@ export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,req
   canvas.addEventListener('pointerleave',()=>{clearTimeout(pickTimer);setHover(null);canvas.style.cursor='';});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('licenses').open)clear();});
   $('clear-selection').onclick=clear;
-  $('annotations').onclick=()=>{enabled=!enabled;$('annotations').setAttribute('aria-pressed',String(enabled));scheduleAnchor();requestRender();};
+  $('annotations').onclick=()=>{enabled=!enabled;$('annotations').setAttribute('aria-pressed',String(enabled));scheduleAnchor();$('view-feedback').textContent=!enabled?'Part links hidden.':!(hovered||selected)?'Part links on. Hover or select a visible component.':'Part links on. The line appears when the selected surface is visible.';requestRender();};
   new ResizeObserver(()=>{layoutDirty=true;requestRender();}).observe(main);
   function update(){
     // Keep a selected frame's palette visible; hover still highlights its surface.
     const active=hovered||selected,highlighted=hovered||(selected?.group==='lid'?null:selected),stamp=key(active)+':'+key(highlighted)+':'+revision;
     if(stamp!==highlightStamp){
       highlightStamp=stamp;for(const mesh of highlights.values())mesh.visible=false;
-      for(const o of objects)if(o.visible&&match(o,highlighted)){
+      for(const o of objects)if((o.visible||hovered)&&match(o,highlighted)){
         let mesh=highlights.get(o);if(!mesh){mesh=new THREE.Mesh(o.geometry,glow);highlights.set(o,mesh);overlay.add(mesh);}
-        mesh.geometry=o.geometry;mesh.position.copy(o.position);mesh.rotation.copy(o.rotation);mesh.scale.copy(o.scale);mesh.visible=true;
+        mesh.material=hovered?xray:glow;mesh.renderOrder=hovered?1000:0;mesh.geometry=o.geometry;mesh.position.copy(o.position);mesh.rotation.copy(o.rotation);mesh.scale.copy(o.scale);mesh.visible=true;
       }
       if(selected)$('selection-visibility').textContent=objects.some(o=>o.visible&&match(o,selected))?'':'This layer is hidden. Use its eye in the directory to show it.';
     }
@@ -98,7 +99,7 @@ export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,req
       activeKey=key(active);for(const row of document.querySelectorAll('.part-row'))row.classList.toggle('is-highlighted',active?.group===row.dataset.group);
     }
     path.setAttribute('hidden','');dot.setAttribute('hidden','');
-    if(!enabled||moving||!active||!anchor||!anchor.object.visible)return;
+    if(!enabled||moving||!active||!anchor||(!anchor.object.visible&&!hovered))return;
     if(layoutDirty){
       const r=main.getBoundingClientRect(),stage=canvas.getBoundingClientRect();layout={r,stage,targets:new Map()};
       for(const e of document.querySelectorAll('.part-anchor')){const b=e.getBoundingClientRect();layout.targets.set(e.dataset.group,{x:b.x+b.width/2-r.x,y:b.y+b.height/2-r.y});}

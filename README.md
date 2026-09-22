@@ -6,7 +6,7 @@
 
 ![Filo36 revI with interchangeable display frames and original KLP Lamé keycaps](docs/images/revI-assembled.png)
 
-*RevI: a uniform 4.75 mm exposed rim, internal fasteners, magnetic frames and one cradle for two battery sizes. Physical fit untested.*
+*RevI: an LCD-aligned flank, curved thumb edge and uniform finger rim, internal fasteners, magnetic frames and one cradle for two battery sizes. Physical fit untested.*
 
 Filo36 is a low-profile wireless split keyboard in development by [Eduardo Ruiz](https://github.com/eduarbo). It keeps Piantor’s key centers and angles, with five columns and three thumb keys per half. The name is provisional.
 
