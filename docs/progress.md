@@ -16,7 +16,7 @@
 
 The viewer now uses **Frames / Keycaps / Parts**, actual-mesh preview cards and immediate frame/color changes. Connected component labels highlight on hover or focus; clicking or tapping a frame opens its controls for that half. Layer inspection, per-key editing and save/export remain available.
 
-Local acceptance passed: six shapes, mixed per-half settings, keyboard and touch interactions, hidden/occluded labels, orbit/pinch selection suppression, exact GLB geometry and colors, JSON validation and offline loading. The model stays visible at 390 px and 320 px viewport widths. Physical phone testing remains pending. [Usage guide](viewer.md) · [Validation](../validation/viewer-ux.json).
+Local and public acceptance passed: six shapes, mixed per-half settings, keyboard and touch interactions, hidden/occluded labels, orbit/pinch selection suppression, exact GLB geometry and colors, JSON validation and offline loading. The model stays visible at 390 px and 320 px viewport widths. Physical phone testing remains pending. [Usage guide](viewer.md) · [Validation](../validation/viewer-ux.json) · [Public readback](../validation/viewer-ux-publication.json), including all 567 files in the design-commit archive.
 
 ## Revision H — continuous edge and printable themes
 

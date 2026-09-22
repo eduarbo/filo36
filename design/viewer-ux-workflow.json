@@ -2,7 +2,7 @@
   "request": "Make viewer navigation intuitive, minimal and visual: one-click frame thumbnail grid; subtle component callouts with hover highlighting, touch selection, and contextual frame explorer.",
   "baseline_commit": "376c935a7aa8c20c1f16b7e7b53ef3efb5b1a55c",
   "scope": "Viewer UI and concise English guides; existing public main and Pages. No changes to CAD, PCB, catalog, configuration format or hardware acceptance.",
-  "status": "validated_local_public_readback_pending",
+  "status": "published_and_verified",
   "original_keyboard_status": "partial",
   "acceptance": [
     "All six actual-mesh frame thumbnails apply immediately",
