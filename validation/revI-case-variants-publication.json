@@ -1,0 +1,218 @@
+{
+  "implementation_commit": "1886e85a198ebcd6ac9fe6144232352683e28bf0",
+  "status": "Published digital case/contour update; anonymous source, Pages, images and public browser interactions verified. Overall keyboard remains a partial prototype.",
+  "artifacts": [
+    {
+      "path": "docs/index.html",
+      "sha256": "366ffe8cce5a6bf371252c07078a757e13af1fb7992cc22202e816830513f9be"
+    },
+    {
+      "path": "mechanical/revI/Filo36.FCStd",
+      "sha256": "724d057e62ea5f45d051073326fcba25d29bdffb4d0c906fe47ab3080d8905e1"
+    },
+    {
+      "path": "design/revI-profiles.json",
+      "sha256": "c9e693590d035a5ff1e43e92acfb44a0e709ca162353e281741bd8f9464ae43b"
+    },
+    {
+      "path": "design/cases.json",
+      "sha256": "f84fefc1b6caf551a491c7cf6d29c6dd999654997655fb22d58748e5da44606d"
+    },
+    {
+      "path": "hardware/revI/filo36-left.kicad_pcb",
+      "sha256": "4217fefa4dcc5dea3dcbc47a75b235e3681f5725a5f71115c2249215771669e9"
+    },
+    {
+      "path": "hardware/revI/filo36-right.kicad_pcb",
+      "sha256": "eca2f908205a8bba38d72b5ec8508091e01cc4d7b79d5eabbc8e9b38f95b14ab"
+    }
+  ],
+  "geometry": {
+    "all_36_transforms_unchanged": true,
+    "case_size_mm": [
+      116.75,
+      94.573
+    ],
+    "finger_face_allowance_mm": 4.75,
+    "minimum_actual_pad_clearance_mm": 0.524093,
+    "local_arcs_per_half": 21,
+    "native_case_pairs": 6,
+    "case_component_collisions": 0,
+    "case_meshes_closed": true,
+    "physical_acceptance": false
+  },
+  "cases": [
+    "solid",
+    "rim",
+    "terrace"
+  ],
+  "optional_open_display_stack": true,
+  "native_acceptance": [
+    "Six valid connected base/plate pairs and closed meshes",
+    "Native mixed configuration save/reopen",
+    "All 36 original key transforms, fixed mounting interfaces and both battery choices preserved",
+    "Exact case geometry in selected GLB and native STEP/STL exports",
+    "Native wall/floor/joint sections and component clearances checked"
+  ],
+  "electrical": {
+    "geometric_drc_violations_per_half": 0,
+    "unconnected_items_per_half": 104,
+    "routed": false
+  },
+  "public_readback": {
+    "source_commit": "1886e85a198ebcd6ac9fe6144232352683e28bf0",
+    "archive_files_verified": 824,
+    "archive_sha256": "2d7379d4b2702e464c266d5aab1824df17f7df4b76303544b479cc0aa2f2fe93",
+    "pages_url": "https://eduarbo.github.io/filo36/",
+    "pages_matches_committed_html": true,
+    "viewer_sha256": "366ffe8cce5a6bf371252c07078a757e13af1fb7992cc22202e816830513f9be",
+    "authenticated_requests": false,
+    "method": "All anonymous ZIP entries match Git blobs; fresh public Pages bytes match committed HTML. Existing downloaded ZIP reused after Pages build delay."
+  },
+  "public_browser_acceptance": {
+    "viewer_sha256": "366ffe8cce5a6bf371252c07078a757e13af1fb7992cc22202e816830513f9be",
+    "target": "public URL",
+    "browser": "153.0.8010.53",
+    "desktop": true,
+    "narrow_viewport_emulation": true,
+    "physical_phone_tested": false,
+    "public_embedded_scene_matches_current": true,
+    "all_12_layer_filters": true,
+    "individual_visibility": true,
+    "individual_and_group_solo": true,
+    "show_all_recovery": true,
+    "occluded_hover_xray_pixel_verified": true,
+    "persistent_view_controls": true,
+    "fit_actual_pixels_after_zoom": true,
+    "fit_empty_feedback": true,
+    "full_row_hover": true,
+    "half_filters": true,
+    "orbit_drag": true,
+    "bottom_view": true,
+    "full_reset_pixel_identical": true,
+    "persistent_component_directory": true,
+    "sidebar_line_endpoints": true,
+    "directory_visible_during_scroll_and_collapse": true,
+    "keyboard_component_selection": true,
+    "direct_canvas_picking": true,
+    "labels_follow_camera": true,
+    "frame_click_reveals_hidden_cover": true,
+    "annotation_toggle": true,
+    "orbit_does_not_select": true,
+    "touch_orbit_and_pinch_do_not_select": true,
+    "small_320px_viewport": true,
+    "six_preview_cards": true,
+    "multicolor_glb_roles": true,
+    "one_click_frames": true,
+    "keyboard_frame_activation": true,
+    "mixed_style_and_color_state": true,
+    "theme_applies_palette_and_body_overrides_roundtrip": true,
+    "sidebar_hover_highlight": true,
+    "sidebar_opens_frame_explorer": true,
+    "touch_frame_cards_and_sidebar": true,
+    "hidden_layer_links_removed": true,
+    "highlight_excluded_from_glb": true,
+    "dual_battery_selection_and_exact_glb": true,
+    "captive_frame_pins_preserved": true,
+    "keycap_variant_selection": true,
+    "frame_style_and_color": true,
+    "three_distinct_themed_geometries": true,
+    "json_roundtrip": true,
+    "invalid_combination_rejected": true,
+    "glb_matches_custom_configuration": true,
+    "glb_selected_vertices_exact": true,
+    "glb_objects": 180,
+    "glb_keycaps": 36,
+    "glb_units": "metres",
+    "case_variants": 3,
+    "case_previews_distinct": true,
+    "case_glb_meshes_exact": true,
+    "open_cover_configuration": true,
+    "legacy_case_default": true,
+    "runtime_errors": [],
+    "offline_network_requests": 0
+  },
+  "public_images": [
+    {
+      "path": "docs/images/revI-case-solid.png",
+      "url": "https://eduarbo.github.io/filo36/images/revI-case-solid.png?rev=1886e85a198ebcd6ac9fe6144232352683e28bf0",
+      "sha256": "af4e6dd6c5d20a3265860c743181d4a0fdb8b2d801199fac56614e21055504bf",
+      "bytes": 83590,
+      "matches": true
+    },
+    {
+      "path": "docs/images/revI-case-rim.png",
+      "url": "https://eduarbo.github.io/filo36/images/revI-case-rim.png?rev=1886e85a198ebcd6ac9fe6144232352683e28bf0",
+      "sha256": "2dca91632dbf03a857619738462d0b277fa80b3ba05c0ea207c40f7d7ad21c41",
+      "bytes": 85865,
+      "matches": true
+    },
+    {
+      "path": "docs/images/revI-case-terrace.png",
+      "url": "https://eduarbo.github.io/filo36/images/revI-case-terrace.png?rev=1886e85a198ebcd6ac9fe6144232352683e28bf0",
+      "sha256": "59e3a77f50e5e819b947373394a3ce2e4420dac1a3d2e2f47515ae37476b0d2c",
+      "bytes": 89622,
+      "matches": true
+    },
+    {
+      "path": "docs/images/revI-case-rim-open.png",
+      "url": "https://eduarbo.github.io/filo36/images/revI-case-rim-open.png?rev=1886e85a198ebcd6ac9fe6144232352683e28bf0",
+      "sha256": "69a2156a5df3b5a296d62ab35dc9ac1494d30f53307a0f2e22f2ddc0e2b50f1d",
+      "bytes": 130719,
+      "matches": true
+    },
+    {
+      "path": "docs/images/revI-viewer.png",
+      "url": "https://eduarbo.github.io/filo36/images/revI-viewer.png?rev=1886e85a198ebcd6ac9fe6144232352683e28bf0",
+      "sha256": "72947cc0cd94e47940ea53e05a64a84a1024d3c0a3eb4113c897369c0760dc02",
+      "bytes": 179138,
+      "matches": true
+    }
+  ],
+  "performance": {
+    "baseline": false,
+    "baseline_revision": "8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a",
+    "browser": "153.0.8010.53",
+    "viewport": [
+      1200,
+      800
+    ],
+    "cpu_throttle": 4,
+    "ready_ms": 6881,
+    "viewer_sha256": "366ffe8cce5a6bf371252c07078a757e13af1fb7992cc22202e816830513f9be",
+    "link_state": "selected frame linked to sidebar",
+    "orbit": {
+      "elapsed_ms": 1239,
+      "frame_count": 74,
+      "p50_frame_ms": 16.699999999999818,
+      "p95_frame_ms": 16.799999999999272,
+      "long_tasks": 0,
+      "long_task_ms": 0
+    },
+    "frame_choice": {
+      "p50_ms": 61.599999994039536,
+      "p95_ms": 68.59999999403954,
+      "samples_ms": [
+        68.59999999403954,
+        63.099999994039536,
+        61.599999994039536,
+        58.900000005960464,
+        37.39999997615814,
+        61.400000005960464
+      ]
+    },
+    "case_choice": {
+      "p50_ms": 99.80000001192093,
+      "p95_ms": 123.5,
+      "samples_ms": [
+        43.099999994039536,
+        99.80000001192093,
+        123.5
+      ]
+    }
+  },
+  "physical_acceptance": false,
+  "remaining": "Routing, exact supplied connectors and leads, print fits, magnetic/thread strength, final integrated electronics, BLE and measured power.",
+  "git_preflight": "Normal secret scan passed after expressing source hashes as path and sha256 fields; no bypass or force push.",
+  "artifact_disposition": "Public source and validation committed on main. Ignored build outputs regenerate with docs/cad.md commands. Temporary contour studies/reference copies were removed after preserving canonical evidence; original user photo untouched."
+}

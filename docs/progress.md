@@ -16,7 +16,7 @@
 
 The contour now follows each thumb’s angle with local tangent rounds, plus softer finger corners. Solid, Color rim and Terrace are real base/plate variants. Per-half choices and optional exposed display stacks transfer between the explorer, JSON, GLB and native FreeCAD. [Case gallery and files](cases.md) · [Decision record](../validation/revI-case-variants-review.json).
 
-Native solids, all six case pairs, mixed configuration save/reopen and exact selected GLB meshes passed. The explorer uses distinct mesh previews in a two-column grid; desktop and touch emulation pass through 320 px. Local 4× CPU checks: orbit p95 **16.8 ms**, case selection p95 **123.5 ms**, frame selection p95 **68.6 ms**, zero orbit long tasks. Public readback is pending publication.
+Native solids, all six case pairs, mixed configuration save/reopen and exact selected GLB meshes passed. The explorer uses distinct mesh previews in a two-column grid; desktop and touch emulation pass through 320 px. Local 4× CPU checks: orbit p95 **16.8 ms**, case selection p95 **123.5 ms**, frame selection p95 **68.6 ms**, zero orbit long tasks. Publication verified: **824 source files** match the anonymous archive; public viewer, case gallery images, desktop/touch interactions, per-half case selection, open covers and exact JSON/GLB exports pass. [Public readback](../validation/revI-case-variants-publication.json). Physical-phone timing and printed fit remain untested.
 
 ## Previous revision I — uniform exposed rim
 
