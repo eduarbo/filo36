@@ -16,6 +16,8 @@
 
 The case and PCB use a **4.75 mm exposed rim**, with thumb faces parallel to their switch openings. H1 now sits between columns; the screws do not determine the perimeter. One contour generates both mirrored halves. Both batteries, the 24 mm bay and all key transforms are preserved. The former outline is retained as a regression fixture. [Measured view](images/revI-rim.png) · [Correction review](revI-review.md#uniform-rim-correction).
 
+Publication verified: **785 source files** match the anonymous download. The public viewer passes desktop/touch emulation, layers, frame/battery selection, JSON and exact GLB checks; the dimensioned image matches its source. [Public readback](../validation/revI-rim-publication.json).
+
 Current local viewer check: 4× CPU orbit p95 **16.7 ms**, theme change p95 **64.6 ms**, and zero orbit long tasks. Desktop/touch emulation, layers, JSON and exact GLB exports pass. Physical-phone timing remains unmeasured.
 
 ## Earlier revision I — Contour, magnetic frames and dual battery cradle
