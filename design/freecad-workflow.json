@@ -17,7 +17,7 @@
     "Verify public files and viewer after normal main push"
   ],
   "scope": "Digital design and workflow; no purchases, printing, flashing or physical acceptance. Exposed modules permitted; battery retains insulating containment.",
-  "status": "digital_verified_publication_pending",
+  "status": "digital_workflow_published_verified",
   "remaining_parent_requirements": [
     "Final PCB routing, cable routing, component dimensions/retention and physical fit",
     "Integrated firmware, BLE, charging and measured power"
@@ -27,6 +27,7 @@
     "mechanical": "validation/revF-mechanical.json",
     "electrical": "validation/revF-electrical.json",
     "stepup_roundtrip": "validation/revF-stepup.json",
-    "viewer": "validation/revF-viewer-ui.json"
+    "viewer": "validation/revF-viewer-ui.json",
+    "publication": "validation/revF-publication.json"
   }
 }

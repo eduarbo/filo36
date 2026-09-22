@@ -47,3 +47,9 @@ un pad próximo al borde, courtyards y serigrafía por corregir. Ambas placas ti
 104 conexiones sin rutear. No se redujeron reglas ni se ocultaron incidencias.
 El cable, la fijación del retenedor, los contactos y las tolerancias necesitan
 trabajo antes del primer montaje.
+
+Publicación verificada: descarga anónima de los 246 archivos del cambio de diseño,
+FCStd íntegro y visor igual al probado. Capas, giro, reset y GLB comprobados también
+en la URL pública; móvil probado mediante emulación. El intercambio StepUp se
+comprobó con una abertura desplazada 0,5 mm y readback sin alterar footprints
+ni conexiones. [Recibo](../validation/revF-publication.json).

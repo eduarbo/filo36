@@ -1,0 +1,33 @@
+{
+  "repo": "https://github.com/eduarbo/filo36",
+  "ref": "main",
+  "source_commit": "54e4918babe823a2b0b802d380e6b361cb6dc786",
+  "anonymous_archive_files_verified": 246,
+  "zip_sha256": "53cae6ae1185ceb4979bd0dd36dadd79e1ec0ae61ad2c0da28af9323ffbe1095",
+  "fcstd_sha256": "ae9fa850c4eabe222c37f6bdfe877f91cb9980896cda966587fb8355ee7b5b0f",
+  "viewer_sha256": "fc8d2e6427e1f52e2a6a9bddcb5a783817c35072c6909320b7d669c3aeed3f62",
+  "pages_url": "https://eduarbo.github.io/filo36/",
+  "pages_matches_source": true,
+  "guide_present": true,
+  "scope": "Published editable digital study; hardware incomplete",
+  "ui_acceptance": {
+    "viewer_sha256": "fc8d2e6427e1f52e2a6a9bddcb5a783817c35072c6909320b7d669c3aeed3f62",
+    "target": "public URL",
+    "browser": "152.0.7977.76",
+    "desktop": true,
+    "narrow_viewport_emulation": true,
+    "physical_phone_tested": false,
+    "all_12_layer_filters": true,
+    "half_filters": true,
+    "orbit_drag": true,
+    "bottom_view": true,
+    "full_reset_pixel_identical": true,
+    "glb_objects": 168,
+    "glb_keycaps": 36,
+    "glb_units": "metres",
+    "runtime_errors": [],
+    "offline_network_requests": 0
+  },
+  "requirement": "Editable free CAD/ECAD workflow and updated revF visual assembly",
+  "parent_objective_status": "partial: routing, DRC corrections, retention, cables, firmware and physical verification remain"
+}
