@@ -12,11 +12,15 @@
 | Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
 | Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
 
-## Visual object explorer
+## Persistent component sidebar
 
-The viewer now uses **Frames / Keycaps / Parts**, actual-mesh preview cards and immediate frame/color changes. Connected component labels highlight on hover or focus; clicking or tapping a frame opens its controls for that half. Layer inspection, per-key editing and save/export remain available.
+All 12 component entries remain visible while their details scroll or collapse. Hover, focus or select a part to highlight it; the connecting line ends at its own sidebar entry. Frame previews still apply in one click. Desktop, 390 px and 320 px touch layouts, short landscape, configuration and exact GLB export passed local checks.
 
-Local and public acceptance passed: six shapes, mixed per-half settings, keyboard and touch interactions, hidden/occluded labels, orbit/pinch selection suppression, exact GLB geometry and colors, JSON validation and offline loading. The model stays visible at 390 px and 320 px viewport widths. Physical phone testing remains pending. [Usage guide](viewer.md) · [Validation](../validation/viewer-ux.json) · [Public readback](../validation/viewer-ux-publication.json), including all 567 files in the design-commit archive.
+The previous floating-tag iteration passed functional tests but missed the intended sidebar relationship and had no latency acceptance. Its anchor search could run up to 192 full-scene intersection queries per camera update. Surface searching now pauses during gestures and resolves only the active component afterward; rendering is coalesced and highlights are reused.
+
+On the same Chromium 152 setup at 1200 × 800 with 4× CPU throttling, **p95 orbit frame interval fell from 1,616.5 to 16.8 ms**, with 59 long tasks reduced to zero. **Frame-change p95 fell from 1,692.4 to 59.0 ms**. These are local benchmark results; physical-phone performance remains untested.
+
+[Usage guide](viewer.md) · [Checks and measurements](../validation/viewer-sidebar.json) · [Correction scope](../design/viewer-sidebar-workflow.json). Historical acceptance of the first visual explorer remains in its [original receipt](../validation/viewer-ux-publication.json).
 
 ## Revision H — continuous edge and printable themes
 

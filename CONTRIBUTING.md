@@ -12,7 +12,7 @@ For keycap/frame contributions, include the complete configuration, source hashe
 
 ## Viewer changes
 
-Keep the viewer self-contained and preserve geometry, configuration checks and export metadata. Native-mesh thumbnails reuse the main renderer at startup; annotations and highlight meshes are viewing aids outside the exported assembly.
+Keep the viewer self-contained and preserve geometry, configuration checks and export metadata. Native-mesh thumbnails reuse the main renderer at startup; sidebar links and highlight meshes are viewing aids outside the exported assembly.
 
 With Python dependencies from `tools/requirements-render.txt`, the pinned npm dependencies and Playwright available:
 
@@ -27,4 +27,13 @@ python3 tools/check_revH_delivery.py
 
 If Playwright is installed outside the project or needs a particular Chromium executable, set `FILO36_PLAYWRIGHT_MODULE` and `FILO36_BROWSER`. To repeat functional acceptance against a published revision, also set `FILO36_VIEWER_URL` to its URL. The same checks exercise local HTML with HTTP(S) blocked and the public page with scene integrity verification.
 
-`build/` is ignored and reproducible: the scene generator creates its geometry bundle; the UI checker writes screenshots, configuration JSON, GLB and its receipt. `docs/images/viewer-explorer.png` is copied from `build/viewer-desktop.png`. The source of the standalone HTML is under `viewer/`; do not hand-edit `docs/index.html`.
+`build/` is ignored and reproducible: the scene generator creates its geometry bundle; the UI checker writes screenshots, configuration JSON, GLB and its receipt. `docs/images/viewer-explorer.png` is copied from `build/viewer-sidebar/desktop-linked.png`. The source of the standalone HTML is under `viewer/`; do not hand-edit `docs/index.html`.
+
+For a viewer performance change, compare the same browser and machine with a declared CPU throttle:
+
+```sh
+node viewer/performance.cjs --baseline
+node viewer/performance.cjs
+```
+
+The baseline is the immutable pre-correction HTML at `8b4edc1`. Results go to `build/viewer-sidebar/`. The benchmark separately records startup, fixed orbit input, long tasks and frame-choice response. It also measures the old viewer with labels disabled to isolate their contribution. The corrected orbit must reduce p95 frame interval by at least 35% and long-task time by at least 65%. These are regression thresholds, not physical-phone guarantees.

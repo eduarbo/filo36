@@ -1,0 +1,165 @@
+{
+  "baseline_performance": {
+    "baseline": true,
+    "baseline_revision": "8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a",
+    "browser": "152.0.7977.76",
+    "viewport": [
+      1200,
+      800
+    ],
+    "cpu_throttle": 4,
+    "ready_ms": 7418,
+    "orbit": {
+      "elapsed_ms": 86870,
+      "frame_count": 168,
+      "p50_frame_ms": 16.700000000000728,
+      "p95_frame_ms": 1616.5,
+      "long_tasks": 59,
+      "long_task_ms": 85421
+    },
+    "frame_choice": {
+      "p50_ms": 1682,
+      "p95_ms": 1692.4000000059605,
+      "samples_ms": [
+        1692.4000000059605,
+        1691.7999999821186,
+        1682,
+        1681,
+        1665.699999988079,
+        1676.7000000178814
+      ]
+    },
+    "orbit_without_labels": {
+      "elapsed_ms": 1457,
+      "frame_count": 87,
+      "p50_frame_ms": 16.69999999999709,
+      "p95_frame_ms": 16.79999999998836,
+      "long_tasks": 0,
+      "long_task_ms": 0
+    },
+    "viewer_sha256": "2e7fef8f6c88047b100d278eda0ad0ec941b7d77d1acfe05ce8b2837cdf0c79b",
+    "link_state": "all floating labels"
+  },
+  "corrected_performance": {
+    "baseline": false,
+    "baseline_revision": "8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a",
+    "browser": "152.0.7977.76",
+    "viewport": [
+      1200,
+      800
+    ],
+    "cpu_throttle": 4,
+    "ready_ms": 4584,
+    "viewer_sha256": "ee5221e8d9a3cd87891ba6272b29f2d6d5026d739e4d4bc633924a09b413e59f",
+    "link_state": "selected frame linked to sidebar",
+    "orbit": {
+      "elapsed_ms": 1573,
+      "frame_count": 94,
+      "p50_frame_ms": 16.699999999999818,
+      "p95_frame_ms": 16.800000000000182,
+      "long_tasks": 0,
+      "long_task_ms": 0
+    },
+    "frame_choice": {
+      "p50_ms": 53.599999994039536,
+      "p95_ms": 59,
+      "samples_ms": [
+        59,
+        55.69999998807907,
+        53.599999994039536,
+        50.19999998807907,
+        36.79999998211861,
+        52.29999998211861
+      ]
+    }
+  },
+  "ui": {
+    "viewer_sha256": "ee5221e8d9a3cd87891ba6272b29f2d6d5026d739e4d4bc633924a09b413e59f",
+    "target": "local file with all HTTP(S) requests blocked",
+    "browser": "152.0.7977.76",
+    "desktop": true,
+    "narrow_viewport_emulation": true,
+    "physical_phone_tested": false,
+    "public_embedded_scene_matches_current": false,
+    "all_12_layer_filters": true,
+    "half_filters": true,
+    "orbit_drag": true,
+    "bottom_view": true,
+    "full_reset_pixel_identical": true,
+    "persistent_component_directory": true,
+    "sidebar_line_endpoints": true,
+    "directory_visible_during_scroll_and_collapse": true,
+    "keyboard_component_selection": true,
+    "direct_canvas_picking": true,
+    "labels_follow_camera": true,
+    "frame_click_reveals_hidden_cover": true,
+    "annotation_toggle": true,
+    "orbit_does_not_select": true,
+    "touch_orbit_and_pinch_do_not_select": true,
+    "small_320px_viewport": true,
+    "six_preview_cards": true,
+    "one_click_frames": true,
+    "keyboard_frame_activation": true,
+    "mixed_style_and_color_state": true,
+    "style_preserves_each_color": true,
+    "sidebar_hover_highlight": true,
+    "sidebar_opens_frame_explorer": true,
+    "touch_frame_cards_and_sidebar": true,
+    "hidden_layer_links_removed": true,
+    "highlight_excluded_from_glb": true,
+    "keycap_variant_selection": true,
+    "frame_style_and_color": true,
+    "three_distinct_themed_geometries": true,
+    "json_roundtrip": true,
+    "invalid_combination_rejected": true,
+    "glb_matches_custom_configuration": true,
+    "glb_selected_vertices_exact": true,
+    "glb_objects": 168,
+    "glb_keycaps": 36,
+    "glb_units": "metres",
+    "runtime_errors": [],
+    "offline_network_requests": 0
+  },
+  "sources": [
+    {
+      "path": "viewer/app.js",
+      "sha256": "369721ef29425b56db27c2b18e6515e8036b40b73f30087a5f43627d305d4200"
+    },
+    {
+      "path": "viewer/explorer.js",
+      "sha256": "98d9eac120e408e5db5c966f628fcb9028760844902bf46a58dba7b72d068464"
+    },
+    {
+      "path": "viewer/style.css",
+      "sha256": "3dd17e02bca4df6dd228042415fa002ed0e26fd4b67b1dddae1015bb312fb9f3"
+    },
+    {
+      "path": "viewer/template.html",
+      "sha256": "69f3a9dcc7ea01f501f68eaf334b2e53ec73095d35b713e8832cbaefbf516cac"
+    },
+    {
+      "path": "viewer/check.cjs",
+      "sha256": "7d2aa63bfe6b7613dfcc329ec5e381d7c7a3956b5094df80585a183a7c7b2d70"
+    },
+    {
+      "path": "viewer/performance.cjs",
+      "sha256": "cfdf48357b9cde1c74779c83c5f09c36985b2f9770f3d1d89ea44f01d41a607d"
+    },
+    {
+      "path": "viewer/build.mjs",
+      "sha256": "62eb5809cc12c9a9011ed1b548a8b9cb87b03a9aead42612267d929a4bae3a8b"
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "ee5221e8d9a3cd87891ba6272b29f2d6d5026d739e4d4bc633924a09b413e59f"
+    },
+    {
+      "path": "docs/images/viewer-explorer.png",
+      "sha256": "300070310c9b87f4ca3a387e2b0c06f267dc7b89f1e7e78df3e2843001905080"
+    }
+  ],
+  "native_geometry_unchanged": true,
+  "physical_phone_tested": false,
+  "overall_keyboard_status": "partial",
+  "regenerate": "See CONTRIBUTING.md. build/ outputs are ignored and reproducible."
+}

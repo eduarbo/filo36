@@ -1,0 +1,111 @@
+{
+  "request": "The viewer is very slow. Lines must connect parts to their corresponding sidebar section, not floating tags. Organize the sidebar so every part/section stays visible, even with details collapsed.",
+  "baseline": {
+    "commit": "8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a",
+    "status": "",
+    "artifacts": [
+      {
+        "path": "viewer/app.js",
+        "sha256": "985a607dd99f325e379eb1a5a9853256553fb70264795f36c2e82ef69d199491"
+      },
+      {
+        "path": "viewer/explorer.js",
+        "sha256": "acca21a0bb1e6c82e68293c0e462e846a2f95fe92510207fcffddd8b959aad1d"
+      },
+      {
+        "path": "viewer/previews.js",
+        "sha256": "9ceaa8621d264ba4171830e0c83533471e2654794a13becaed13230da967f464"
+      },
+      {
+        "path": "viewer/style.css",
+        "sha256": "2f815c91073a1f7a46ce6aee8a30555cf0033c681c52064bec680eb66b859ade"
+      },
+      {
+        "path": "viewer/template.html",
+        "sha256": "7f77e2f13024a800813ee7ace3d10c72a9193e5b64f21b340a0b57922ab5bb72"
+      },
+      {
+        "path": "viewer/check.cjs",
+        "sha256": "96a4a1d0bb85dbbb950d6e352454cd8439142c9809b7f8efd9104ddd867e16e0"
+      },
+      {
+        "path": "viewer/build.mjs",
+        "sha256": "62eb5809cc12c9a9011ed1b548a8b9cb87b03a9aead42612267d929a4bae3a8b"
+      },
+      {
+        "path": "docs/viewer.md",
+        "sha256": "0f287e7c496d73cac8acb2b57e6c00e8c5466adb01b3b59b8de799785524d5fb"
+      },
+      {
+        "path": "design/viewer-ux-workflow.json",
+        "sha256": "1a522ccb866eb2cbe1302b2ab131f9a97eaa0806f42785603b43c0b751e53b53"
+      }
+    ]
+  },
+  "scope": "Viewer interaction/performance, current English guides and existing main/Pages publication. Preserve native CAD, configuration schema, catalog and exact GLB/offline behavior.",
+  "status": "validated_local_public_readback_pending",
+  "original_keyboard_status": "partial",
+  "acceptance": [
+    "No floating tags; active visible component connects directly to its own sidebar anchor",
+    "All12 component names and View/Files/About/collapse controls remain unclipped while details scroll or collapse",
+    "390x844 and320x568 touch layouts plus844x390 landscape and1440x960 desktop",
+    "Preserve mouse, keyboard, touch, six one-click frame previews, per-half settings, JSON and exact GLB geometry/materials",
+    "Same-browser CPU-throttled baseline/current measurement: p95 orbit interval improves at least35% and long-task time at least65%",
+    "Public HTML, current source and functional browser test verified"
+  ],
+  "review": {
+    "lenses": [
+      "constructive frontend/UX/performance",
+      "adversarial reliability/accessibility/performance"
+    ],
+    "agreement": "Bounded viewer-only correction; persistent component directory with separate details and no surface searching during orbit.",
+    "unexplained_mutations": false,
+    "dispositions": [
+      {
+        "severity": "HIGH",
+        "finding": "Up to192 full-scene surface queries per camera update; current cache invalidated by camera/hover.",
+        "resolution": "One coalesced render per frame; no anchor search during gestures. One active surface is resolved after settling, with bounding-box broad phase and closest-hit early exit."
+      },
+      {
+        "severity": "HIGH",
+        "finding": "Exclusive tabs and floating tags do not link parts to persistent sidebar entries.",
+        "resolution": "Permanent12-component directory and stable section controls; details can collapse/scroll independently. SVG endpoint comes from the corresponding entry rect."
+      },
+      {
+        "severity": "MEDIUM",
+        "finding": "Mobile cannot fit12 full-height vertical rows plus the model.",
+        "resolution": "Compact4-column mobile grid; actual rectangle/text/hit-target checks at320/390px, plus short landscape layout."
+      },
+      {
+        "severity": "MEDIUM",
+        "finding": "Per-frame allocation, DOM churn and duplicate rendering.",
+        "resolution": "Reuse highlight meshes, cache world bounds by geometry revision, update active-row state only when changed and schedule one render with requestAnimationFrame."
+      },
+      {
+        "severity": "MEDIUM",
+        "finding": "Prior checks proved function but not latency or literal sidebar visibility.",
+        "resolution": "Before/after performance script plus all-entry clipping, exact sidebar endpoints, collapse/scroll/resize and preserved export tests."
+      }
+    ],
+    "unresolved_material_objections": []
+  },
+  "retrospective": {
+    "trigger": "User reported severe slowness and clarified that lines should target the sidebar.",
+    "cause": "Measured old orbit cost disappeared when its floating labels were disabled. Source recomputed multi-group intersection searches synchronously during every camera movement. Prior UI tests did not measure latency or endpoint intent.",
+    "affected_outputs": [
+      "viewer UI",
+      "viewer usage guide",
+      "viewer screenshot",
+      "current progress and objective evidence"
+    ],
+    "prevention": "Keep a reproducible latency comparison and exact sidebar-destination/visibility checks; preserve the original meshes."
+  },
+  "regenerate": [
+    "node viewer/build.mjs",
+    "node viewer/check.cjs",
+    "node viewer/performance.cjs --baseline",
+    "node viewer/performance.cjs"
+  ],
+  "validation_receipt": "validation/viewer-sidebar.json",
+  "publication_receipt": "validation/viewer-sidebar-publication.json"
+}

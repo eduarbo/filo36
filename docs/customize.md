@@ -4,7 +4,7 @@ Open the **[3D configurator](https://eduarbo.github.io/filo36/)**. No account or
 
 ## KLP Lamé
 
-In **Keycaps**, click a preset preview to apply a complete set. Open **Edit keys** to choose a row, all thumbs or one key. Select a variant and rotation, then **Apply to these keys**. Each change checks the complete configuration, including neighboring keycaps and the frame.
+Open **Caps** in the directory, then click a preset preview to apply a complete set. Open **Edit keys** to choose a row, all thumbs or one key. Select a variant and rotation, then **Apply to these keys**. Each change checks the complete configuration, including neighboring keycaps and the frame.
 
 | Choc-stem family | Files | Qualified reference positions |
 |---|---:|---|
@@ -30,7 +30,7 @@ Presets: **Original**, **Sculpted Normal** and **Sculpted Saddle**. The sculpted
 
 ![Actual printable Handheld, Retro TV and Cyberpunk frames](images/revH-frames.png)
 
-In **Frames**, choose Both halves, Left or Right, then click a theme thumbnail to apply it immediately. The previews use the actual printable meshes. Shape changes preserve each half’s color; swatches change the finish separately. You can also tap the **Frame** label on the model to open these options for that half.
+Open **Frame** in the directory, then choose Both halves, Left or Right, then click a theme thumbnail to apply it immediately. The previews use the actual printable meshes. Shape changes preserve each half’s color; swatches change the finish separately. You can also select the frame directly on the model to open its sidebar options for that half.
 
 | Theme | Printed details |
 |---|---|
@@ -71,7 +71,7 @@ Screw length, head fit, print orientation and extraction clearance still require
 ## Save a configuration for FreeCAD
 
 1. In the viewer, choose caps, rotations, frame styles and colors.
-2. Open **Save & export** and click **Save configuration** to download `Filo36-config.json`.
+2. Open **Files** and click **Save configuration** to download `Filo36-config.json`.
 3. Download and unzip the full repository. Open `mechanical/revH/Filo36.FCStd` in FreeCAD.
 4. Use **Macro → Macros → Execute** on `tools/freecad/Configure.FCMacro`. Keep the macro beside its companion files in the repository.
 5. Choose **Import viewer configuration**, select the JSON and use **Save As**.

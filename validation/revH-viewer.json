@@ -344,7 +344,7 @@
     },
     {
       "path": "viewer/app.js",
-      "sha256": "985a607dd99f325e379eb1a5a9853256553fb70264795f36c2e82ef69d199491"
+      "sha256": "369721ef29425b56db27c2b18e6515e8036b40b73f30087a5f43627d305d4200"
     },
     {
       "path": "viewer/config.js",
@@ -352,7 +352,7 @@
     },
     {
       "path": "viewer/explorer.js",
-      "sha256": "acca21a0bb1e6c82e68293c0e462e846a2f95fe92510207fcffddd8b959aad1d"
+      "sha256": "98d9eac120e408e5db5c966f628fcb9028760844902bf46a58dba7b72d068464"
     },
     {
       "path": "viewer/previews.js",
@@ -360,11 +360,11 @@
     },
     {
       "path": "viewer/style.css",
-      "sha256": "2f815c91073a1f7a46ce6aee8a30555cf0033c681c52064bec680eb66b859ade"
+      "sha256": "3dd17e02bca4df6dd228042415fa002ed0e26fd4b67b1dddae1015bb312fb9f3"
     },
     {
       "path": "viewer/template.html",
-      "sha256": "7f77e2f13024a800813ee7ace3d10c72a9193e5b64f21b340a0b57922ab5bb72"
+      "sha256": "69f3a9dcc7ea01f501f68eaf334b2e53ec73095d35b713e8832cbaefbf516cac"
     },
     {
       "path": "viewer/build.mjs",
@@ -375,7 +375,7 @@
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "2e7fef8f6c88047b100d278eda0ad0ec941b7d77d1acfe05ce8b2837cdf0c79b",
+  "viewer_sha256": "ee5221e8d9a3cd87891ba6272b29f2d6d5026d739e4d4bc633924a09b413e59f",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,

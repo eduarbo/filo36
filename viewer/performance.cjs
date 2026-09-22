@@ -1,0 +1,45 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Repeatable before/after measurements on the same browser, viewport and CPU throttle.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const crypto=require('node:crypto');
+const {execFileSync}=require('node:child_process'),{pathToFileURL}=require('node:url');
+const {chromium}=require(process.env.FILO36_PLAYWRIGHT_MODULE||'playwright');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'build/viewer-sidebar');fs.mkdirSync(out,{recursive:true});
+const baseline=process.argv.includes('--baseline'),revision='8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a';
+const file=baseline?path.join(out,'baseline.html'):path.join(root,'docs/index.html');
+if(baseline)fs.writeFileSync(file,execFileSync('git',['show',revision+':docs/index.html'],{cwd:root,maxBuffer:50*1024*1024}));
+const percentile=(arr,p)=>[...arr].sort((a,b)=>a-b)[Math.min(arr.length-1,Math.floor(arr.length*p))]||0;
+(async()=>{
+ const browser=await chromium.launch({headless:true,...(process.env.FILO36_BROWSER?{executablePath:process.env.FILO36_BROWSER}:{})});
+ try{
+  const page=await browser.newPage({viewport:{width:1200,height:800},deviceScaleFactor:1});
+  const cdp=await page.context().newCDPSession(page);await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});
+  await page.addInitScript(()=>{
+   window.frameSamples=[];window.longTasks=[];window.measuring=false;let last=0;
+   function frame(t){if(window.measuring&&last)window.frameSamples.push(t-last);last=t;requestAnimationFrame(frame);}requestAnimationFrame(frame);
+   new PerformanceObserver(list=>{if(window.measuring)window.longTasks.push(...list.getEntries().map(e=>e.duration));}).observe({type:'longtask',buffered:false});
+  });
+  const start=Date.now();await page.goto(pathToFileURL(file).href);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'),null,{timeout:60000});
+  const ready=Date.now()-start;await page.waitForTimeout(250);
+  const results={baseline,baseline_revision:revision,browser:await browser.version(),viewport:[1200,800],cpu_throttle:4,ready_ms:ready};
+  async function drag(){
+   const rect=await page.locator('#canvas').boundingBox();await page.mouse.move(rect.x+rect.width*.45,rect.y+rect.height*.46);await page.mouse.down();
+   await page.evaluate(()=>{window.frameSamples=[];window.longTasks=[];window.measuring=true;});
+   const begin=Date.now();
+   for(let i=0;i<60;i++){await page.mouse.move(rect.x+rect.width*(.45+i*.003),rect.y+rect.height*(.46+Math.sin(i/12)*.07));await page.waitForTimeout(12);}
+   await page.mouse.up();await page.waitForTimeout(40);
+   const samples=await page.evaluate(()=>{window.measuring=false;return{frames:window.frameSamples,longTasks:window.longTasks}});
+   return{elapsed_ms:Date.now()-begin,frame_count:samples.frames.length,p50_frame_ms:percentile(samples.frames,.5),p95_frame_ms:percentile(samples.frames,.95),long_tasks:samples.longTasks.length,long_task_ms:samples.longTasks.reduce((a,b)=>a+b,0)};
+  }
+  results.viewer_sha256=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+  if(!baseline){await page.locator('#part-lid').click();await page.waitForTimeout(120);}
+  results.link_state=baseline?'all floating labels':'selected frame linked to sidebar';
+  results.orbit=await drag();await page.locator('#reset').click();
+  const timings=[];
+  for(const style of ['handheld','tv','cyberpunk','smooth','bevel','facet'])timings.push(await page.evaluate(async style=>{const start=performance.now();document.querySelector(`[data-style=${style}]`).click();await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));return performance.now()-start},style));
+  results.frame_choice={p50_ms:percentile(timings,.5),p95_ms:percentile(timings,.95),samples_ms:timings};
+  if(baseline){await page.locator('#annotations').click();await page.locator('#reset').click();results.orbit_without_labels=await drag();}
+  fs.writeFileSync(path.join(out,baseline?'baseline-performance.json':'performance.json'),JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results,null,2));
+  if(!baseline&&fs.existsSync(path.join(out,'baseline-performance.json'))){const old=JSON.parse(fs.readFileSync(path.join(out,'baseline-performance.json')));assert.ok(results.orbit.p95_frame_ms<old.orbit.p95_frame_ms*.65,'Orbit p95 must improve by at least 35% under the same throttle');assert.ok(results.orbit.long_task_ms<old.orbit.long_task_ms*.35,'Long task time must fall by at least 65%');}
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1});

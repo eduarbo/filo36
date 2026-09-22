@@ -13,6 +13,22 @@ const scene=JSON.parse(require('node:zlib').gunzipSync(Buffer.from(html.match(/<
 const target=process.env.FILO36_VIEWER_URL||pathToFileURL(path.join(root,'docs/index.html')).href;
 const offline=target.startsWith('file:');
 
+async function checkDirectory(page){
+  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+  assert.equal(await page.locator('.callout,#callouts').count(),0,'No floating tags');
+  const entries=await page.locator('.part-item,.section-links button,#collapse-detail').evaluateAll(nodes=>nodes.map(e=>{
+    const r=e.getBoundingClientRect(),name=e.querySelector('.part-name'),text=name?.getBoundingClientRect();
+    const at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+    return{id:e.id,visible:r.width>0&&r.height>0&&r.x>=0&&r.y>=0&&r.right<=innerWidth+1&&r.bottom<=innerHeight+1&&!!at&&(e===at||e.contains(at)),textFits:!text||text.width>0&&name.scrollWidth<=name.clientWidth+1};
+  }));
+  assert.equal(entries.length,16);assert.ok(entries.every(e=>e.visible&&e.textFits),'All 12 components plus 4 section controls must be unclipped: '+JSON.stringify(entries.filter(e=>!e.visible||!e.textFits)));
+}
+async function checkLink(page,group){
+  await page.waitForFunction(group=>{const p=document.querySelector('#part-link'),r=document.querySelector('main').getBoundingClientRect(),a=document.querySelector(`.part-anchor[data-group=${group}]`).getBoundingClientRect();return !p.hasAttribute('hidden')&&p.dataset.group===group&&Math.abs(Number(p.dataset.endX)+r.x-a.x-a.width/2)<1&&Math.abs(Number(p.dataset.endY)+r.y-a.y-a.height/2)<1},group);
+  const info=await page.evaluate(group=>{const p=document.querySelector('#part-link'),r=document.querySelector('main').getBoundingClientRect(),a=document.querySelector(`.part-anchor[data-group=${group}]`).getBoundingClientRect();return{dx:Math.abs(Number(p.dataset.endX)+r.x-a.x-a.width/2),dy:Math.abs(Number(p.dataset.endY)+r.y-a.y-a.height/2)}},group);
+  assert.ok(info.dx<1&&info.dy<1,'Line must end at its exact sidebar anchor: '+JSON.stringify(info));
+}
+
 (async()=>{
  const browser=await chromium.launch({headless:true,...(process.env.FILO36_BROWSER?{executablePath:process.env.FILO36_BROWSER}:{})});
  try{
@@ -29,13 +45,14 @@ const offline=target.startsWith('file:');
     assert.equal(delivered,hash(Buffer.from(embedded)),'Public browser must load the exact current CAD scene');
   }
   await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('168'),null,{timeout:60000});
+  await checkDirectory(page);
   await page.screenshot({path:path.join(root,'build/viewer-desktop.png')});
   // Compare WebGL output without the overlaid DOM controls or label borders.
   // Opacity keeps hover/focus active; the separate full-page captures include UI.
-  const baseline=hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas){opacity:0!important}'}));
+  const baseline=hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'}));
   const count=async()=>Number((await page.locator('#status').textContent()).match(/(\d+) visible components/)[1]);
   assert.equal(await count(),168);
-  await page.click('#tab-parts');
+  await page.click('#nav-view');
   for(const group of new Set(scene.parts.map(p=>p.group))){
     await page.locator('#layer-'+group).uncheck();
     assert.equal(await count(),168-scene.parts.filter(p=>p.group===group).length,group);
@@ -48,20 +65,20 @@ const offline=target.startsWith('file:');
   await page.selectOption('#view','bottom');await page.screenshot({path:path.join(root,'build/viewer-bottom.png')});
   await page.click('#reset');assert.equal(await count(),168);
   assert.equal(await page.locator('#half').inputValue(),'both');assert.equal(await page.locator('#explode').inputValue(),'0');
-  assert.equal(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas){opacity:0!important}'})),baseline,'Full reset must restore the original rendered assembly');
+  assert.equal(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})),baseline,'Full reset must restore the original rendered assembly');
   const box=await page.locator('#canvas').boundingBox();
   await page.mouse.move(box.x+box.width*.5,box.y+box.height*.5);await page.mouse.down();
   await page.mouse.move(box.x+box.width*.65,box.y+box.height*.65,{steps:8});await page.mouse.up();
-  assert.notEqual(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas){opacity:0!important}'})),baseline,'Orbit drag must change view');
+  assert.notEqual(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})),baseline,'Orbit drag must change view');
   assert.equal(await page.locator('#selection').isVisible(),false,'Orbit drag must not select a component');
   await page.click('#reset');
   // Select an actual alternate mesh and orientation, then export that choice.
-  await page.click('#tab-keycaps');await page.locator('#key-details summary').click();
+  await page.click('#part-keycaps');if(!await page.locator('#key-details').evaluate(d=>d.open))await page.locator('#key-details summary').click();
   await page.selectOption('#key-target','left:K30');
   await page.selectOption('#key-variant','choc_stem_mx_size_normal_90deg'); // gitleaks:allow -- public upstream STL variant ID, not a credential
   assert.equal(await page.locator('#key-rotation').inputValue(),'90');
   await page.click('#apply-keys');
-  await page.click('#tab-frames');await page.click('#frame-target [data-side=left]');
+  await page.click('#part-lid');await page.click('#frame-target [data-side=left]');
   assert.equal(await page.locator('#frame-grid button').count(),6);
   assert.equal(new Set(await page.locator('#frame-grid img').evaluateAll(imgs=>imgs.map(i=>i.src))).size,6,'Six previews use distinct actual geometries');
   const themePixels=[];
@@ -69,7 +86,7 @@ const offline=target.startsWith('file:');
     await page.click(`[data-style=${theme}]`);
     assert.equal(await page.locator(`[data-style=${theme}]`).getAttribute('aria-pressed'),'true');
     assert.equal(await page.locator('#config-status').getAttribute('data-error'),'false');
-    themePixels.push(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas){opacity:0!important}'})));
+    themePixels.push(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})));
   }
   assert.equal(new Set(themePixels).size,6,'All six covers must change actual rendered geometry');
   await page.locator('#frame-color').fill('#ad7656');
@@ -81,7 +98,7 @@ const offline=target.startsWith('file:');
   // Keyboard activation applies style only, preserving independently chosen colors.
   await page.locator('[data-style=tv]').focus();await page.keyboard.press('Enter');
   await page.click('#frame-target [data-side=left]');await page.click('[data-style=cyberpunk]');
-  await page.locator('#project-menu summary').click();
+  await page.click('#nav-files');
   const configDownload=page.waitForEvent('download');await page.click('#save-config');
   const downloadedConfig=await configDownload;const configPath=path.join(root,'build/revH/viewer-config.json');await downloadedConfig.saveAs(configPath);
   const config=JSON.parse(fs.readFileSync(configPath));
@@ -92,22 +109,24 @@ const offline=target.startsWith('file:');
   await page.waitForFunction(()=>document.querySelector('[data-style=cyberpunk]').getAttribute('aria-pressed')==='true');
   assert.equal(await page.locator('[data-style=cyberpunk]').getAttribute('aria-pressed'),'true');
   assert.equal(await page.locator('#frame-color').inputValue(),'#ad7656');
-  assert.notEqual(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas){opacity:0!important}'})),baseline,'Custom configuration changes the actual assembly');
+  assert.notEqual(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})),baseline,'Custom configuration changes the actual assembly');
   // An incompatible mixed configuration must not replace the current one.
   const invalid=JSON.parse(JSON.stringify(config));invalid.keycaps.left.K01={variant:'choc_stem_mx_size_normal',rotation_deg:0};
   await page.locator('#load-config').setInputFiles({name:'invalid.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(invalid))});
   await page.waitForFunction(()=>document.querySelector('#config-status').dataset.error==='true');
   // Labels open contextual controls and highlights never enter the export.
-  const frameLabel=page.locator('.callout[data-group=lid]');
+  const frameLabel=page.locator('#part-lid');
   assert.equal(await frameLabel.isVisible(),true);
-  const withoutHighlight=hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas){opacity:0!important}'}));
+  await page.keyboard.press('Escape');
+  const withoutHighlight=hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'}));
   await frameLabel.hover();
-  assert.notEqual(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas){opacity:0!important}'})),withoutHighlight,'Label hover highlights geometry');
+  assert.notEqual(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})),withoutHighlight,'Sidebar hover highlights geometry');
   await frameLabel.click();
   assert.equal(await page.locator('#selection-title').textContent(),'Display frame');
-  assert.equal(await page.locator('#tab-frames').getAttribute('aria-selected'),'true');
-  assert.equal(await page.locator('#frame-target [data-side=left]').getAttribute('aria-pressed'),'true');
-  assert.equal(await frameLabel.getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator('#part-lid').getAttribute('aria-expanded'),'true');
+  assert.equal(await page.locator('#frame-target [data-side=both]').getAttribute('aria-pressed'),'true');
+  assert.equal(await frameLabel.getAttribute('aria-expanded'),'true');
+  await checkLink(page,'lid');await page.click('#nav-files');
   const downloadPromise=page.waitForEvent('download');await page.click('#glb');const download=await downloadPromise;
   const glbPath=path.join(root,'build/viewer-export.glb');await download.saveAs(glbPath);const glb=fs.readFileSync(glbPath);
   assert.equal(glb.toString('ascii',0,4),'glTF');assert.equal(glb.readUInt32LE(4),2);assert.equal(glb.readUInt32LE(8),glb.length);
@@ -134,32 +153,35 @@ const offline=target.startsWith('file:');
   assert.deepEqual(positionBytes(customCap),Buffer.from(scene.geometries[capPath].positions,'base64'),'GLB must contain selected cap vertices');
   assert.deepEqual(positionBytes(customFrame),Buffer.from(scene.geometries['mechanical/revH/left-frame-cyberpunk.stl'].positions,'base64'),'GLB must contain selected frame vertices');
   await page.click('#default-config');await page.keyboard.press('Escape');await page.click('#reset');
-  assert.equal(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas){opacity:0!important}'})),baseline,'Default config plus reset restores exact rendered assembly');
-  await page.click('#tab-keycaps');
+  assert.equal(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})),baseline,'Default config plus reset restores exact rendered assembly');
+  await page.click('#part-keycaps');
   await page.selectOption('#key-target','all');
   assert.equal(await page.locator('#key-variant option[value="choc_stem_mx_size_normal"]').evaluate(o=>o.disabled),true);
   await page.click('[data-preset=saddle-sculpted]');assert.equal(await page.locator('#config-status').getAttribute('data-error'),'false');
-  await page.click('#default-config');
-  // Keyboard tabs and label focus expose the same contextual component controls.
-  await page.locator('#tab-keycaps').focus();await page.keyboard.press('ArrowRight');
-  assert.equal(await page.locator('#tab-parts').getAttribute('aria-selected'),'true');
-  await page.click('#stack');
-  const stackLines=await page.locator('#leader-lines').innerHTML();
-  await page.selectOption('#view','front');
-  assert.notEqual(await page.locator('#leader-lines').innerHTML(),stackLines,'Leader lines follow the camera');
-  await page.click('#tab-frames');await page.click('[data-style=handheld]');
+  await page.click('#nav-files');await page.click('#default-config');
+  // The entire directory remains visible while inspector bodies change/scroll.
+  await page.click('#nav-view');await page.click('#stack');
+  await page.locator('#part-mcu').hover();await checkLink(page,'mcu');
+  await page.click('#nav-view');await page.selectOption('#view','front');
+  await page.locator('#part-mcu').hover();await checkLink(page,'mcu');
+  await page.click('#part-lid');await page.click('[data-style=handheld]');
   assert.equal(await page.locator('#layer-lid').isChecked(),true,'A frame click reveals a previously hidden cover');
   assert.equal(await page.locator('#explode').inputValue(),'0');
   await page.click('#frame-target [data-side=both]');await page.click('[data-style=tv]');
   assert.equal(await page.locator('#half').inputValue(),'both','Both target reveals both halves');
-  await page.click('#reset');await page.locator('.callout[data-group=lid]').focus();await page.keyboard.press('Enter');
+  await page.click('#reset');await page.locator('#part-lid').focus();await page.keyboard.press('Enter');
   assert.equal(await page.locator('#selection-title').textContent(),'Display frame');
-  await page.keyboard.press('Escape');assert.equal(await page.locator('#selection').isVisible(),false);
-  await page.click('#annotations');assert.equal(await page.locator('.callout:visible').count(),0);
-  await page.click('#annotations');
-  // Direct picking uses an actual visible-surface anchor, not a hard-coded mesh coordinate.
-  const pick=await page.locator('#leader-lines circle').first().evaluate(el=>{const r=el.closest('.stage').getBoundingClientRect();return{x:r.x+Number(el.getAttribute('cx')),y:r.y+Number(el.getAttribute('cy'))};});
+  await checkDirectory(page);await checkLink(page,'lid');
+  await page.screenshot({path:path.join(root,'build/viewer-sidebar/desktop-linked.png')});
+  await page.evaluate(()=>document.querySelector('#inspector').scrollTop=10000);await checkDirectory(page);await checkLink(page,'lid');
+  await page.click('#collapse-detail');await checkDirectory(page);await checkLink(page,'lid');
+  assert.equal(await page.locator('#inspector').isVisible(),false);
+  await page.click('#collapse-detail');await checkDirectory(page);await checkLink(page,'lid');
+  await page.click('#annotations');assert.equal(await page.locator('#part-link').isVisible(),false);
+  await page.click('#annotations');await checkLink(page,'lid');
+  const pick=await page.locator('#part-link-dot').evaluate(el=>{const r=el.closest('main').getBoundingClientRect();return{x:r.x+Number(el.getAttribute('cx')),y:r.y+Number(el.getAttribute('cy'))};});
   await page.mouse.click(pick.x,pick.y);assert.equal(await page.locator('#selection-title').textContent(),'Display frame');
+  assert.equal(await page.locator('#frame-target [data-side=left]').getAttribute('aria-pressed'),'true');
   await page.keyboard.press('Escape');
   const mobile=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
   if(offline)await mobile.route(/^https?:/,route=>{requests.push(route.request().url());return route.abort();});
@@ -169,18 +191,21 @@ const offline=target.startsWith('file:');
   await phone.locator('[data-style=handheld]').tap();
   assert.equal(await phone.locator('[data-style=handheld]').getAttribute('aria-pressed'),'true');
   assert.ok((await phone.locator('#canvas').boundingBox()).y>=0,'Model stays visible while browsing cards');
-  await phone.locator('.callout[data-group=lid]').tap();
+  await phone.locator('#part-lid').tap();await checkLink(phone,'lid');await checkDirectory(phone);
   assert.equal(await phone.locator('#selection-title').textContent(),'Display frame');
-  assert.equal(await phone.locator('#frame-target [data-side=left]').getAttribute('aria-pressed'),'true');
+  assert.equal(await phone.locator('#frame-target [data-side=both]').getAttribute('aria-pressed'),'true');
   await phone.locator('#clear-selection').tap();
-  await phone.locator('#tab-parts').tap();
+  await phone.locator('#nav-view').tap();
   await phone.locator('#inside').tap();assert.ok((await phone.locator('#status').textContent()).includes('components'));
   await phone.locator('#layer-display').uncheck();
-  assert.equal(await phone.locator('.callout[data-group=display]').isVisible(),false,'Hidden layers have no callouts');
+  await phone.locator('#part-display').tap();
+  await phone.waitForTimeout(120);assert.equal(await phone.locator('#part-link').isVisible(),false,'Hidden layers have no line');
   await phone.locator('#reset').tap();assert.equal(await phone.locator('#explode').inputValue(),'0');
-  await phone.locator('#tab-frames').tap();
-  await phone.evaluate(()=>{document.querySelector('aside').scrollTop=0;scrollTo(0,0);});await phone.evaluate(()=>new Promise(requestAnimationFrame));
+  await phone.locator('#part-lid').tap();
+  await checkDirectory(phone);await checkLink(phone,'lid');
+  await phone.evaluate(()=>{document.querySelector('#inspector').scrollTop=0;scrollTo(0,0);});await phone.evaluate(()=>new Promise(requestAnimationFrame));
   await phone.screenshot({path:path.join(root,'build/viewer-mobile.png'),fullPage:true,animations:'disabled'});
+  await phone.locator('#clear-selection').tap();
   // Actual touch events: a one-finger orbit and two-finger gesture must not select.
   const cdp=await mobile.newCDPSession(phone),rect=await phone.locator('#canvas').boundingBox();
   const cx=rect.x+rect.width*.5,cy=rect.y+rect.height*.48;
@@ -194,15 +219,19 @@ const offline=target.startsWith('file:');
   assert.equal(await phone.locator('#selection').isVisible(),false,'Pinch/pan does not select');
   await phone.setViewportSize({width:320,height:568});await phone.locator('#reset').tap();
   assert.equal(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No overflow at 320px');
-  await phone.locator('[data-style=tv]').tap();
+  await phone.locator('[data-style=tv]').tap();await checkDirectory(phone);
+  await phone.locator('#part-lid').tap();await checkLink(phone,'lid');
+  await phone.locator('#collapse-detail').tap();await checkDirectory(phone);
+  await phone.locator('#collapse-detail').tap();await checkDirectory(phone);
   const stage=await phone.locator('.stage').boundingBox();assert.ok(stage.y>=0&&stage.y+stage.height<568,'3D view stays visible at the smallest tested viewport');
   await phone.screenshot({path:path.join(root,'build/viewer-ux/mobile-small.png'),animations:'disabled'});
+  await phone.setViewportSize({width:844,height:390});await checkDirectory(phone);
   assert.deepEqual(errors,[]);if(offline)assert.deepEqual(requests,[],'Offline viewer must not request network resources');
   const receipt={viewer_sha256:hash(Buffer.from(html)),target:offline?'local file with all HTTP(S) requests blocked':'public URL',
     browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,public_embedded_scene_matches_current:!offline,
     all_12_layer_filters:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
-    keyboard_tabs_and_callouts:true,direct_canvas_picking:true,labels_follow_camera:true,frame_click_reveals_hidden_cover:true,annotation_toggle:true,orbit_does_not_select:true,touch_orbit_and_pinch_do_not_select:true,small_320px_viewport:true,
-    six_preview_cards:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,style_preserves_each_color:true,callout_hover_highlight:true,callout_opens_frame_explorer:true,touch_frame_cards_and_labels:true,hidden_layer_callouts_removed:true,highlight_excluded_from_glb:true,
+    persistent_component_directory:true,sidebar_line_endpoints:true,directory_visible_during_scroll_and_collapse:true,keyboard_component_selection:true,direct_canvas_picking:true,labels_follow_camera:true,frame_click_reveals_hidden_cover:true,annotation_toggle:true,orbit_does_not_select:true,touch_orbit_and_pinch_do_not_select:true,small_320px_viewport:true,
+    six_preview_cards:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,style_preserves_each_color:true,sidebar_hover_highlight:true,sidebar_opens_frame_explorer:true,touch_frame_cards_and_sidebar:true,hidden_layer_links_removed:true,highlight_excluded_from_glb:true,
     keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:168,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
   fs.writeFileSync(path.join(root,'build/viewer-ui-check.json'),JSON.stringify(receipt,null,2)+'\n');
   console.log(JSON.stringify(receipt,null,2));await mobile.close();await context.close();

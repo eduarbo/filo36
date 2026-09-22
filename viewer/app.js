@@ -73,14 +73,15 @@ for(const part of data.parts){
   objects.push(mesh);scene.add(mesh);
 }
 // Runtime scene uses x=CAD x, y=CAD z, z=CAD y; right-hand meshes are not mirrored again.
-let explorer;
-function render(){explorer?.update();renderer.render(scene,camera);}
+let explorer,renderFrame=0;
+function render(){if(renderFrame)return;renderFrame=requestAnimationFrame(()=>{renderFrame=0;explorer?.update();renderer.render(scene,camera);});}
 let orbiting=false;
-controls.addEventListener('start',()=>{orbiting=true;});controls.addEventListener('end',()=>{orbiting=false;});
+controls.addEventListener('start',()=>{orbiting=true;explorer?.motion(true);});controls.addEventListener('end',()=>{orbiting=false;explorer?.motion(false);});
 controls.addEventListener('change',()=>{
   if(orbiting&&state.view!=='iso'&&camera.position.clone().sub(controls.target).normalize().distanceTo(new THREE.Vector3(...directions[state.view]).normalize())>.001){
     state.view='iso';$('view').value='iso';for(const button of document.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view==='iso'));
   }
+  if(!orbiting)explorer?.cameraChanged();
   render();
 });
 let halfHeight=100;
@@ -88,7 +89,7 @@ function resize(){
   const {width,height}=canvas.parentElement.getBoundingClientRect();
   renderer.setSize(width,height,false);const aspect=width/height;
   camera.left=-halfHeight*aspect;camera.right=halfHeight*aspect;camera.top=halfHeight;camera.bottom=-halfHeight;
-  camera.updateProjectionMatrix();render();
+  camera.updateProjectionMatrix();explorer?.layoutChanged();render();
 }
 new ResizeObserver(resize).observe(canvas.parentElement);
 
@@ -110,6 +111,7 @@ function fit(direction){
   const aspect=canvas.clientWidth/canvas.clientHeight;halfHeight=Math.max(h,w/aspect,10)*1.13;resize();
 }
 function sync(){
+  explorer?.invalidate();
   for(const o of objects){
     o.visible=state.layers[o.userData.group]&&(state.half==='both'||state.half===o.userData.side);
     o.position.fromArray(o.userData.base);o.position.y+=o.userData.explode*state.explode;
@@ -131,25 +133,25 @@ function reset(){
   for(const key of Object.keys(labels))state.layers[key]=true;
   sync();fit(directions.iso);
 }
-function openPanel(id,focus=false){
-  for(const name of ['frames','keycaps','parts']){
-    const active=id===name,tab=$('tab-'+name);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;$('panel-'+name).hidden=!active;
-    if(active&&focus)tab.focus();
-  }
-  document.querySelector('aside').scrollTop=0;
+function setCollapsed(value){
+  document.querySelector('main').classList.toggle('detail-collapsed',value);$('collapse-detail').setAttribute('aria-expanded',String(!value));$('collapse-detail').textContent=value?'›':'‹';explorer?.layoutChanged();
 }
-for(const [i,name] of ['frames','keycaps','parts'].entries()){
-  $('tab-'+name).onclick=()=>openPanel(name);
-  $('tab-'+name).onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const index=e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:2))%3;openPanel(['frames','keycaps','parts'][index],true);}};
+function openPanel(id,section=id){
+  setCollapsed(false);
+  for(const name of ['frames','keycaps','view','files','about'])$('panel-'+name).hidden=id!==name;
+  for(const button of document.querySelectorAll('.part-item'))button.setAttribute('aria-expanded',String(button.dataset.group===section));
+  for(const name of ['view','files','about'])$('nav-'+name).setAttribute('aria-expanded',String(name===section));
+  $('inspector').scrollTop=0;
 }
+$('collapse-detail').onclick=()=>setCollapsed($('collapse-detail').getAttribute('aria-expanded')==='true');
+for(const name of ['view','files','about'])$('nav-'+name).onclick=()=>{if(name!=='files')explorer?.clear();openPanel(name);};
 $('layers').replaceChildren();
 for(const [id,label] of Object.entries(labels)){
-  const row=document.createElement('div');row.className='part-row';
-  const button=document.createElement('button');button.type='button';button.className='part-item';button.dataset.group=id;button.setAttribute('aria-pressed','false');
+  const row=document.createElement('div');row.className='part-row';row.dataset.group=id;
+  const button=document.createElement('button');button.type='button';button.className='part-item';button.dataset.group=id;button.id='part-'+id;button.setAttribute('aria-expanded',String(id==='lid'));button.setAttribute('aria-controls','inspector');button.title=partInfo[id].name;button.setAttribute('aria-label',partInfo[id].name);
   const item=objects.find(o=>o.userData.group===id),color='#'+item.material.color.getHexString();
-  const dot=document.createElement('span');dot.className='part-dot';dot.style.setProperty('--part-color',color);
-  const count=document.createElement('small');count.textContent=objects.filter(o=>o.userData.group===id).length;
-  button.append(dot,document.createTextNode(label),count);
+  const dot=document.createElement('span');dot.className='part-anchor';dot.dataset.group=id;dot.style.setProperty('--part-color',color);
+  const name=document.createElement('span');name.className='part-name';name.textContent=partInfo[id].short;button.append(dot,name);
   const ref=()=>({group:id,side:state.half==='both'?null:state.half});
   button.onpointerenter=e=>{if(e.pointerType!=='touch')explorer.highlight(ref());};button.onpointerleave=()=>explorer.highlight(null);
   button.onfocus=()=>explorer.highlight(ref());button.onblur=()=>explorer.highlight(null);button.onclick=()=>explorer.select(ref());
@@ -274,11 +276,11 @@ function syncConfigurationUI(){
 }
 explorer=createExplorer({scene,camera,canvas,objects,requestRender:render,
   onSelect(ref){
-    $('selection').hidden=false;$('selection-meta').textContent=(ref.side?ref.side+' half':'Both halves')+(ref.key?' / '+ref.key:'');
+    $('selection').hidden=false;$('selection').classList.toggle('compact',['lid','keycaps'].includes(ref.group));$('selection-meta').textContent=(ref.side?ref.side+' half':'Both halves')+(ref.key?' / '+ref.key:'');
     $('selection-title').textContent=partInfo[ref.group].name;$('selection-info').textContent=partInfo[ref.group].info;
-    if(ref.group==='lid'){setFrameSide(ref.side||'both');openPanel('frames');}
-    else if(ref.group==='keycaps'){openPanel('keycaps');$('key-details').open=true;if(ref.key)$('key-target').value=ref.side+':'+ref.key;else $('key-target').value='all';chooseKeyTarget();}
-    else openPanel('parts');
+    if(ref.group==='lid'){setFrameSide(ref.side||'both');openPanel('frames','lid');}
+    else if(ref.group==='keycaps'){openPanel('keycaps','keycaps');$('key-details').open=true;if(ref.key)$('key-target').value=ref.side+':'+ref.key;else $('key-target').value='all';chooseKeyTarget();}
+    else openPanel('none',ref.group);
   },onClear(){$('selection').hidden=true;}
 });
 $('load-trigger').onclick=()=>$('load-config').click();
@@ -289,7 +291,7 @@ $('default-config').onclick=()=>applyConfiguration(catalog.default_configuration
 applyConfiguration(configuration);
 
 
-resize();reset();
+resize();reset();openPanel('frames','lid');
 
 }
 start().catch(error=>{document.getElementById('error').hidden=false;document.getElementById('error').textContent='Could not open the viewer: '+error.message;console.error(error);});
