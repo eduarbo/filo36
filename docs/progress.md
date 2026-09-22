@@ -18,7 +18,9 @@ Handheld, Retro TV and Cyberpunk now use distinct body, detail and accent colors
 
 The former thumbnails referenced different STL files, but used one green material and a distant oblique view. Their distinct-image test did not establish readable design details. Current checks identify actual left/right raised features, preserve every original vertex/normal/triangle and verify the exported material colors. Geometry and manufacturing status remain unchanged.
 
-[Color and print guide](customize.md#print-a-themed-display-frame) · [Correction scope](../design/viewer-multicolor-workflow.json).
+Verified on the public viewer, including mobile emulation, JSON and GLB; all 579 published source files matched the tested commit. FreeCAD applied four colors per native theme/half and preserved them through save/reopen. The 4× CPU benchmark retained a 16.7 ms orbit p95 and 57.5 ms theme-change p95.
+
+[Color and print guide](customize.md#print-a-themed-display-frame) · [Checks](../validation/viewer-multicolor.json) · [Public readback](../validation/viewer-multicolor-publication.json) · [Correction scope](../design/viewer-multicolor-workflow.json).
 
 ## Persistent component sidebar
 

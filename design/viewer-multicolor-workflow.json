@@ -60,7 +60,7 @@
     ]
   },
   "scope": "Multicolor finishes on existing revH faces; actual design previews; same colors in viewer, GLB and FreeCAD import; English guide and existing public main/Pages destination. No new geometry, parts or fabrication qualification.",
-  "status": "locally_verified_publication_pending",
+  "status": "published_and_verified",
   "acceptance": [
     "Three distinguishable front-facing actual-mesh thumbnails with corresponding theme colors",
     "One click applies complete theme palette; custom body color and per-half JSON preserved",
@@ -119,7 +119,9 @@
     "node viewer/check.cjs",
     "node viewer/performance.cjs",
     "python3 tools/render_frames.py",
-    "FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_finishes.py"
+    "FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_finishes.py",
+    "python3 tools/check_public_delivery.py fd34728b5a76a042e26bc9141a890e1b08959438"
   ],
-  "validation_receipt": "validation/viewer-multicolor.json"
+  "validation_receipt": "validation/viewer-multicolor.json",
+  "publication_receipt": "validation/viewer-multicolor-publication.json"
 }
