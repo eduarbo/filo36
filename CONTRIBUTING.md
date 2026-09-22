@@ -9,3 +9,22 @@ Preserve the 36-key centers and angles unless explicitly proposing a different l
 Use [FreeCAD + KiCad + StepUp](docs/freecad.md). Save mechanical work in a copy of the FCStd and include that editable source with its dimensions; STL or a render alone loses the design history. Test StepUp on a PCB copy and compare centers, angles, outlines, holes and DRC afterward. Never run the reference generator over a hand-edited FCStd.
 
 For keycap/frame contributions, include the complete configuration, source hashes and clearance results. A visually plausible combination must also pass the configuration checker. New frame geometry requires a new collision check and updated exported/viewer meshes.
+
+## Viewer changes
+
+Keep the viewer self-contained and preserve geometry, configuration checks and export metadata. Native-mesh thumbnails reuse the main renderer at startup; annotations and highlight meshes are viewing aids outside the exported assembly.
+
+With Python dependencies from `tools/requirements-render.txt`, the pinned npm dependencies and Playwright available:
+
+```sh
+python3 tools/build_viewer_revH.py
+npm ci --prefix viewer
+node viewer/build.mjs
+node viewer/check.cjs
+python3 tools/check_viewer_revH.py
+python3 tools/check_revH_delivery.py
+```
+
+If Playwright is installed outside the project or needs a particular Chromium executable, set `FILO36_PLAYWRIGHT_MODULE` and `FILO36_BROWSER`. To repeat functional acceptance against a published revision, also set `FILO36_VIEWER_URL` to its URL. The same checks exercise local HTML with HTTP(S) blocked and the public page with scene integrity verification.
+
+`build/` is ignored and reproducible: the scene generator creates its geometry bundle; the UI checker writes screenshots, configuration JSON, GLB and its receipt. `docs/images/viewer-explorer.png` is copied from `build/viewer-desktop.png`. The source of the standalone HTML is under `viewer/`; do not hand-edit `docs/index.html`.

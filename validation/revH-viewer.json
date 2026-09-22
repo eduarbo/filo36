@@ -344,30 +344,38 @@
     },
     {
       "path": "viewer/app.js",
-      "sha256": "5aaff56c1755396f861427fc171dece7b4f38f808c74c38d757af6fe0faeb36b"
+      "sha256": "985a607dd99f325e379eb1a5a9853256553fb70264795f36c2e82ef69d199491"
     },
     {
       "path": "viewer/config.js",
       "sha256": "ec3985f7d17a1e5d998e2cc7375883646672fd2f66c2f92e9f8031a160538ec0"
     },
     {
+      "path": "viewer/explorer.js",
+      "sha256": "acca21a0bb1e6c82e68293c0e462e846a2f95fe92510207fcffddd8b959aad1d"
+    },
+    {
+      "path": "viewer/previews.js",
+      "sha256": "9ceaa8621d264ba4171830e0c83533471e2654794a13becaed13230da967f464"
+    },
+    {
       "path": "viewer/style.css",
-      "sha256": "424eda51d73813f2a056490aa9eab2f82f174d962cf37472fc4453a3f7378ba0"
+      "sha256": "2f815c91073a1f7a46ce6aee8a30555cf0033c681c52064bec680eb66b859ade"
     },
     {
       "path": "viewer/template.html",
-      "sha256": "a7fec85c642c2caed577692fc309d0e6d1566122ce4ed4f31182d904829807c6"
+      "sha256": "7f77e2f13024a800813ee7ace3d10c72a9193e5b64f21b340a0b57922ab5bb72"
     },
     {
       "path": "viewer/build.mjs",
-      "sha256": "d5cde22a4bb1c12411fb7f94479291456dfcc528bc166379aace47c3a77e12a4"
+      "sha256": "62eb5809cc12c9a9011ed1b548a8b9cb87b03a9aead42612267d929a4bae3a8b"
     },
     {
       "path": "viewer/package-lock.json",
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "fe56adaaabc468ddccdc2d053ec60b75db3c770754f2da7bd2702788ff89ceaa",
+  "viewer_sha256": "2e7fef8f6c88047b100d278eda0ad0ec941b7d77d1acfe05ce8b2837cdf0c79b",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,

@@ -4,6 +4,8 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 
 import {copy,check} from './config.js';
+import {createExplorer,partInfo} from './explorer.js';
+import {createPreviewRenderer} from './previews.js';
 
 async function start(){
 const $=id=>document.getElementById(id);
@@ -71,8 +73,16 @@ for(const part of data.parts){
   objects.push(mesh);scene.add(mesh);
 }
 // Runtime scene uses x=CAD x, y=CAD z, z=CAD y; right-hand meshes are not mirrored again.
-function render(){renderer.render(scene,camera);}
-controls.addEventListener('change',render);
+let explorer;
+function render(){explorer?.update();renderer.render(scene,camera);}
+let orbiting=false;
+controls.addEventListener('start',()=>{orbiting=true;});controls.addEventListener('end',()=>{orbiting=false;});
+controls.addEventListener('change',()=>{
+  if(orbiting&&state.view!=='iso'&&camera.position.clone().sub(controls.target).normalize().distanceTo(new THREE.Vector3(...directions[state.view]).normalize())>.001){
+    state.view='iso';$('view').value='iso';for(const button of document.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view==='iso'));
+  }
+  render();
+});
 let halfHeight=100;
 function resize(){
   const {width,height}=canvas.parentElement.getBoundingClientRect();
@@ -109,6 +119,11 @@ function sync(){
   for(const key of Object.keys(labels))$('layer-'+key).checked=state.layers[key];
   const count=objects.filter(o=>o.visible).length;
   $('status').textContent=`Rev${data.revision} · ${count} visible components${state.explode?' · Exploded view':''}`;
+  for(const button of document.querySelectorAll('[data-view]'))button.setAttribute('aria-pressed',String(button.dataset.view===state.view));
+  const isComplete=state.half==='both'&&state.explode===0&&Object.values(state.layers).every(Boolean);
+  $('complete').setAttribute('aria-pressed',String(isComplete));
+  $('inside').setAttribute('aria-pressed',String(!state.layers.base&&!state.layers.lid&&state.layers.pcb));
+  $('stack').setAttribute('aria-pressed',String(!state.layers.base&&!state.layers.pcb&&state.layers.mcu));
   render();
 }
 function reset(){
@@ -116,15 +131,38 @@ function reset(){
   for(const key of Object.keys(labels))state.layers[key]=true;
   sync();fit(directions.iso);
 }
+function openPanel(id,focus=false){
+  for(const name of ['frames','keycaps','parts']){
+    const active=id===name,tab=$('tab-'+name);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;$('panel-'+name).hidden=!active;
+    if(active&&focus)tab.focus();
+  }
+  document.querySelector('aside').scrollTop=0;
+}
+for(const [i,name] of ['frames','keycaps','parts'].entries()){
+  $('tab-'+name).onclick=()=>openPanel(name);
+  $('tab-'+name).onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const index=e.key==='Home'?0:e.key==='End'?2:(i+(e.key==='ArrowRight'?1:2))%3;openPanel(['frames','keycaps','parts'][index],true);}};
+}
 $('layers').replaceChildren();
 for(const [id,label] of Object.entries(labels)){
-  const row=document.createElement('label');const input=document.createElement('input');
-  input.type='checkbox';input.id='layer-'+id;input.checked=true;
+  const row=document.createElement('div');row.className='part-row';
+  const button=document.createElement('button');button.type='button';button.className='part-item';button.dataset.group=id;button.setAttribute('aria-pressed','false');
+  const item=objects.find(o=>o.userData.group===id),color='#'+item.material.color.getHexString();
+  const dot=document.createElement('span');dot.className='part-dot';dot.style.setProperty('--part-color',color);
+  const count=document.createElement('small');count.textContent=objects.filter(o=>o.userData.group===id).length;
+  button.append(dot,document.createTextNode(label),count);
+  const ref=()=>({group:id,side:state.half==='both'?null:state.half});
+  button.onpointerenter=e=>{if(e.pointerType!=='touch')explorer.highlight(ref());};button.onpointerleave=()=>explorer.highlight(null);
+  button.onfocus=()=>explorer.highlight(ref());button.onblur=()=>explorer.highlight(null);button.onclick=()=>explorer.select(ref());
+  const visibility=document.createElement('label');visibility.className='visibility';visibility.title='Show / hide '+label;
+  const input=document.createElement('input');input.type='checkbox';input.id='layer-'+id;input.checked=true;input.setAttribute('aria-label','Show '+label);
   input.addEventListener('change',()=>{state.layers[id]=input.checked;sync();});
-  row.append(input,document.createTextNode(label));$('layers').append(row);
+  const eye=document.createElement('span');eye.className='eye';eye.textContent='◉';eye.setAttribute('aria-hidden','true');visibility.append(input,eye);
+  row.append(button,visibility);$('layers').append(row);
 }
 $('half').addEventListener('change',e=>{state.half=e.target.value;sync();fit();});
-$('view').addEventListener('change',e=>{state.view=e.target.value;fit(directions[state.view]);});
+function chooseView(view){state.view=view;sync();fit(directions[view]);}
+$('view').addEventListener('change',e=>chooseView(e.target.value));
+for(const button of document.querySelectorAll('[data-view]'))button.onclick=()=>chooseView(button.dataset.view);
 $('explode').addEventListener('input',e=>{state.explode=Number(e.target.value)/100;sync();fit();});
 $('complete').onclick=reset;$('reset').onclick=reset;$('fit').onclick=()=>fit();
 $('inside').onclick=()=>{reset();for(const k of ['base','plate','lid','keycaps','switches','fasteners'])state.layers[k]=false;sync();fit();};
@@ -183,25 +221,74 @@ function applyConfiguration(next){
       const f=next.frames[side];o.geometry=geometryFor(`mechanical/revH/${side}-frame-${f.style}.stl`);o.material=material(f.color);o.userData.frame_style=f.style;
     }
   }
-  configuration=copy(next);sync();updateChoices();message('Configuration applied. Save it for FreeCAD.');
+  configuration=copy(next);sync();updateChoices();syncConfigurationUI();message('Configuration applied.');
 }
-$('key-target').onchange=updateChoices;$('key-variant').onchange=updateChoices;$('key-rotation').onchange=updateChoices;
+function chooseKeyTarget(){
+  const target=targetKeys();if(target.length===1){const [side,k]=target[0],choice=configuration.keycaps[side][k.ref];$('key-variant').value=choice.variant;updateChoices();$('key-rotation').value=String(choice.rotation_deg);}
+  updateChoices();
+}
+$('key-target').onchange=chooseKeyTarget;$('key-variant').onchange=updateChoices;$('key-rotation').onchange=updateChoices;
 $('apply-keys').onclick=()=>{try{applyConfiguration(candidate($('key-variant').value,Number($('key-rotation').value)));}catch(e){message(e.message,true);}};
-for(const [id,label] of Object.entries(catalog.frame_styles))$('frame-style').add(new Option(label,id));
-$('frame-style').value='bevel';
-$('apply-frame').onclick=()=>{
- const cfg=copy(configuration);for(const side of ['left','right'])if($('frame-side').value==='both'||$('frame-side').value===side)cfg.frames[side]={style:$('frame-style').value,color:$('frame-color').value};
- try{applyConfiguration(cfg);}catch(e){message(e.message,true);}
-};
-for(const [id,label] of [['default','Original'],['normal-sculpted','Sculpted Normal'],['saddle-sculpted','Sculpted Saddle']])$('key-preset').add(new Option(label,id));
-$('apply-preset').onclick=()=>{const cfg=copy(configuration);cfg.keycaps=copy(data.presets[$('key-preset').value].keycaps);try{applyConfiguration(cfg);}catch(e){message(e.message,true);}};
+let frameSide='both';
+const preview=createPreviewRenderer(renderer,geometryFor);
+function card(id,label,src){
+  const button=document.createElement('button');button.type='button';button.className='preview-card';button.dataset.choice=id;button.setAttribute('aria-pressed','false');
+  const img=document.createElement('img');img.src=src;img.alt='';img.width=220;img.height=220;const text=document.createElement('span');text.textContent=label;button.append(img,text);button.setAttribute('aria-label',label);return button;
+}
+function frameTargets(){return frameSide==='both'?['left','right']:[frameSide];}
+function setFrameSide(side){frameSide=side;syncConfigurationUI();}
+function applyFrame(change){
+  const cfg=copy(configuration);for(const side of frameTargets())Object.assign(cfg.frames[side],change);
+  try{
+    applyConfiguration(cfg);
+    // A new style must be visible even when coming from the internal stack study.
+    if(change.style){const needsFit=state.explode>0||!state.layers.lid||frameSide==='both'&&state.half!=='both'||state.half!=='both'&&!frameTargets().includes(state.half);
+      if(needsFit){for(const k of Object.keys(state.layers))state.layers[k]=true;state.explode=0;state.half=frameSide;sync();fit();}}
+  }catch(e){message(e.message,true);}
+}
+for(const [id,label] of Object.entries(catalog.frame_styles)){
+  const button=card(id,label,preview.image([{path:`mechanical/revH/left-frame-${id}.stl`}]));button.dataset.style=id;
+  button.onclick=()=>applyFrame({style:id});$('frame-grid').append(button);
+}
+for(const button of $('frame-target').children)button.onclick=()=>setFrameSide(button.dataset.side);
+for(const [color,label] of [['#304d4e','Deep teal'],['#ded8c6','Linen'],['#ad7656','Clay'],['#363b3b','Graphite']]){
+  const button=document.createElement('button');button.type='button';button.dataset.color=color;button.title=label;button.setAttribute('aria-label',label);button.setAttribute('aria-pressed','false');button.style.setProperty('--swatch',color);button.onclick=()=>applyFrame({color});$('swatches').append(button);
+}
+$('frame-color').oninput=e=>applyFrame({color:e.target.value});
+for(const [id,label] of [['default','Original'],['normal-sculpted','Sculpted Normal'],['saddle-sculpted','Sculpted Saddle']]){
+  const entries=['K01','K11','K21'].map((key,i)=>({path:variants.get(data.presets[id].keycaps.left[key].variant).path,rotation:data.presets[id].keycaps.left[key].rotation_deg,center:[(i-1)*20,0,0]}));
+  const button=card(id,label,preview.image(entries,[.5,1,2]));button.dataset.preset=id;
+  button.onclick=()=>{const cfg=copy(configuration);cfg.keycaps=copy(data.presets[id].keycaps);try{applyConfiguration(cfg);}catch(e){message(e.message,true);}};$('key-presets').append(button);
+}
+preview.finish();
+function syncConfigurationUI(){
+  const frames=frameTargets().map(side=>configuration.frames[side]),styles=new Set(frames.map(f=>f.style)),colors=new Set(frames.map(f=>f.color.toLowerCase()));
+  for(const button of $('frame-target').children)button.setAttribute('aria-pressed',String(button.dataset.side===frameSide));
+  for(const button of $('frame-grid').children)button.setAttribute('aria-pressed',String(styles.size===1&&styles.has(button.dataset.style)));
+  $('frame-current').textContent=styles.size===1?catalog.frame_styles[frames[0].style]:'Mixed styles';
+  $('color-current').textContent=colors.size===1?[...colors][0]:'Mixed colors';
+  for(const button of $('swatches').children)button.setAttribute('aria-pressed',String(colors.size===1&&colors.has(button.dataset.color)));
+  // The color input has no mixed state: its visible companion explicitly names it.
+  $('frame-color').value=frames[0].color;$('frame-color').setAttribute('aria-label',colors.size===1?'Custom frame color':'Custom frame color; mixed colors, changing this applies to both halves');
+  for(const button of $('key-presets').children){const preset=data.presets[button.dataset.preset];const same=Object.entries(configuration.keycaps).every(([side,keys])=>Object.entries(keys).every(([ref,c])=>c.variant===preset.keycaps[side][ref].variant&&c.rotation_deg===preset.keycaps[side][ref].rotation_deg));button.setAttribute('aria-pressed',String(same));}
+}
+explorer=createExplorer({scene,camera,canvas,objects,requestRender:render,
+  onSelect(ref){
+    $('selection').hidden=false;$('selection-meta').textContent=(ref.side?ref.side+' half':'Both halves')+(ref.key?' / '+ref.key:'');
+    $('selection-title').textContent=partInfo[ref.group].name;$('selection-info').textContent=partInfo[ref.group].info;
+    if(ref.group==='lid'){setFrameSide(ref.side||'both');openPanel('frames');}
+    else if(ref.group==='keycaps'){openPanel('keycaps');$('key-details').open=true;if(ref.key)$('key-target').value=ref.side+':'+ref.key;else $('key-target').value='all';chooseKeyTarget();}
+    else openPanel('parts');
+  },onClear(){$('selection').hidden=true;}
+});
+$('load-trigger').onclick=()=>$('load-config').click();
 function downloadJSON(){const url=URL.createObjectURL(new Blob([JSON.stringify(configuration,null,2)+'\n'],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download='Filo36-config.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
 $('save-config').onclick=downloadJSON;
 $('load-config').onchange=async e=>{try{const f=e.target.files[0];if(f){if(f.size>100000)throw Error('File too large. Choose a configuration JSON.');applyConfiguration(JSON.parse(await f.text()));}}catch(error){message(error.message,true);}finally{e.target.value='';}};
 $('default-config').onclick=()=>applyConfiguration(catalog.default_configuration);
 applyConfiguration(configuration);
 
-if(matchMedia('(max-width:760px)').matches)$('layer-panel').open=false;
+
 resize();reset();
 
 }

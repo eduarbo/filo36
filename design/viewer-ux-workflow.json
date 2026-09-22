@@ -1,0 +1,88 @@
+{
+  "request": "Make viewer navigation intuitive, minimal and visual: one-click frame thumbnail grid; subtle component callouts with hover highlighting, touch selection, and contextual frame explorer.",
+  "baseline_commit": "376c935a7aa8c20c1f16b7e7b53ef3efb5b1a55c",
+  "scope": "Viewer UI and concise English guides; existing public main and Pages. No changes to CAD, PCB, catalog, configuration format or hardware acceptance.",
+  "status": "validated_local_public_readback_pending",
+  "original_keyboard_status": "partial",
+  "acceptance": [
+    "All six actual-mesh frame thumbnails apply immediately",
+    "Per-half styles and colors, mixed state, JSON import/default reset stay synchronized",
+    "Component labels follow visible surfaces and highlight without affecting GLB",
+    "Mouse, keyboard and touch reach the same component information; frame selection opens contextual choices",
+    "All layers, cameras, KLP checks, JSON, GLB and offline behavior remain available",
+    "Published page and source match tested artifacts"
+  ],
+  "review": {
+    "snapshot": "376c935a7aa8c20c1f16b7e7b53ef3efb5b1a55c",
+    "independent_lenses": [
+      "constructive UX/frontend",
+      "adversarial accessibility/reliability/performance"
+    ],
+    "agreement": "Proceed with a bounded viewer-only redesign subject to the recorded safeguards.",
+    "unresolved_material_objections": [],
+    "dispositions": [
+      {
+        "finding": "HIGH: highlight could leak through shared material or mesh hierarchy into GLB",
+        "resolution": "Separate overlay group outside exported objects; original materials remain immutable; export color and geometry checks run while a part is selected."
+      },
+      {
+        "finding": "HIGH/MEDIUM: asymmetric configurations and stale controls",
+        "resolution": "Derive card and color state from current configuration after each mutation/target switch/import; mixed states explicit; style changes preserve colors."
+      },
+      {
+        "finding": "MEDIUM: touch, keyboard and orbit conflict",
+        "resolution": "Semantic buttons, focus highlights, roving tabs, tap movement threshold, multitouch/cancel suppression and Escape dismissal."
+      },
+      {
+        "finding": "MEDIUM: annotation occlusion and clutter",
+        "resolution": "Raycast visible surfaces, update after view/geometry changes, two mobile labels and all components retained in Parts."
+      },
+      {
+        "finding": "MEDIUM: mobile rendering overhead",
+        "resolution": "One reused WebGL renderer for cached startup thumbnails; on-demand rendering, cached anchor projection and requestAnimationFrame-throttled picking."
+      }
+    ],
+    "baseline_clean": true,
+    "baseline_hashes": [
+      {
+        "path": "viewer/app.js",
+        "sha256": "5aaff56c1755396f861427fc171dece7b4f38f808c74c38d757af6fe0faeb36b"
+      },
+      {
+        "path": "viewer/template.html",
+        "sha256": "a7fec85c642c2caed577692fc309d0e6d1566122ce4ed4f31182d904829807c6"
+      },
+      {
+        "path": "viewer/style.css",
+        "sha256": "424eda51d73813f2a056490aa9eab2f82f174d962cf37472fc4453a3f7378ba0"
+      },
+      {
+        "path": "viewer/check.cjs",
+        "sha256": "5655a8905ef5d43e11b7c00133bd641dfb6f198028feb1172482d1f3fe437639"
+      },
+      {
+        "path": "viewer/build.mjs",
+        "sha256": "d5cde22a4bb1c12411fb7f94479291456dfcc528bc166379aace47c3a77e12a4"
+      },
+      {
+        "path": "docs/viewer.md",
+        "sha256": "a8591f3ff3b28e7fc4455524dbaab5b7e2ea6de289c81b9b1ff060000f4b3ed8"
+      },
+      {
+        "path": "docs/customize.md",
+        "sha256": "65e4417859bb503bf049a8b50b50228fee0ba279e72530cad6bfcf1e110d0a15"
+      },
+      {
+        "path": "design/revH-workflow.json",
+        "sha256": "4b71ca8fee0ca2c54e34f6b72e311100ef59f0014afcc420b2a1105637da8cbe"
+      }
+    ],
+    "unexplained_reviewer_mutations": false
+  },
+  "regenerate": [
+    "node viewer/build.mjs",
+    "FILO36_PLAYWRIGHT_MODULE=<installed Playwright module> FILO36_BROWSER=<Chromium executable> node viewer/check.cjs"
+  ],
+  "validation_receipt": "validation/viewer-ux.json",
+  "publication_receipt": "validation/viewer-ux-publication.json"
+}

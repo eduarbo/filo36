@@ -12,6 +12,12 @@
 | Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
 | Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
 
+## Visual object explorer
+
+The viewer now uses **Frames / Keycaps / Parts**, actual-mesh preview cards and immediate frame/color changes. Connected component labels highlight on hover or focus; clicking or tapping a frame opens its controls for that half. Layer inspection, per-key editing and save/export remain available.
+
+Local acceptance passed: six shapes, mixed per-half settings, keyboard and touch interactions, hidden/occluded labels, orbit/pinch selection suppression, exact GLB geometry and colors, JSON validation and offline loading. The model stays visible at 390 px and 320 px viewport widths. Physical phone testing remains pending. [Usage guide](viewer.md) · [Validation](../validation/viewer-ux.json).
+
 ## Revision H — continuous edge and printable themes
 
 The user’s red-line reference replaces the old display notch and thumb wing with one straight inner case flank. The case is approximately **8.1 mm narrower**, keeping every switch center and angle. Sixteen intentional corners use a common **1.2 mm radius**.

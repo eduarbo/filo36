@@ -1,0 +1,89 @@
+{
+  "ui": {
+    "viewer_sha256": "2e7fef8f6c88047b100d278eda0ad0ec941b7d77d1acfe05ce8b2837cdf0c79b",
+    "target": "local file with all HTTP(S) requests blocked",
+    "browser": "152.0.7977.76",
+    "desktop": true,
+    "narrow_viewport_emulation": true,
+    "physical_phone_tested": false,
+    "public_embedded_scene_matches_current": false,
+    "all_12_layer_filters": true,
+    "half_filters": true,
+    "orbit_drag": true,
+    "bottom_view": true,
+    "full_reset_pixel_identical": true,
+    "keyboard_tabs_and_callouts": true,
+    "direct_canvas_picking": true,
+    "labels_follow_camera": true,
+    "frame_click_reveals_hidden_cover": true,
+    "annotation_toggle": true,
+    "orbit_does_not_select": true,
+    "touch_orbit_and_pinch_do_not_select": true,
+    "small_320px_viewport": true,
+    "six_preview_cards": true,
+    "one_click_frames": true,
+    "keyboard_frame_activation": true,
+    "mixed_style_and_color_state": true,
+    "style_preserves_each_color": true,
+    "callout_hover_highlight": true,
+    "callout_opens_frame_explorer": true,
+    "touch_frame_cards_and_labels": true,
+    "hidden_layer_callouts_removed": true,
+    "highlight_excluded_from_glb": true,
+    "keycap_variant_selection": true,
+    "frame_style_and_color": true,
+    "three_distinct_themed_geometries": true,
+    "json_roundtrip": true,
+    "invalid_combination_rejected": true,
+    "glb_matches_custom_configuration": true,
+    "glb_selected_vertices_exact": true,
+    "glb_objects": 168,
+    "glb_keycaps": 36,
+    "glb_units": "metres",
+    "runtime_errors": [],
+    "offline_network_requests": 0
+  },
+  "artifacts": [
+    {
+      "path": "viewer/app.js",
+      "sha256": "985a607dd99f325e379eb1a5a9853256553fb70264795f36c2e82ef69d199491"
+    },
+    {
+      "path": "viewer/explorer.js",
+      "sha256": "acca21a0bb1e6c82e68293c0e462e846a2f95fe92510207fcffddd8b959aad1d"
+    },
+    {
+      "path": "viewer/previews.js",
+      "sha256": "9ceaa8621d264ba4171830e0c83533471e2654794a13becaed13230da967f464"
+    },
+    {
+      "path": "viewer/template.html",
+      "sha256": "7f77e2f13024a800813ee7ace3d10c72a9193e5b64f21b340a0b57922ab5bb72"
+    },
+    {
+      "path": "viewer/style.css",
+      "sha256": "2f815c91073a1f7a46ce6aee8a30555cf0033c681c52064bec680eb66b859ade"
+    },
+    {
+      "path": "viewer/build.mjs",
+      "sha256": "62eb5809cc12c9a9011ed1b548a8b9cb87b03a9aead42612267d929a4bae3a8b"
+    },
+    {
+      "path": "viewer/check.cjs",
+      "sha256": "96a4a1d0bb85dbbb950d6e352454cd8439142c9809b7f8efd9104ddd867e16e0"
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "2e7fef8f6c88047b100d278eda0ad0ec941b7d77d1acfe05ce8b2837cdf0c79b"
+    },
+    {
+      "path": "docs/images/viewer-explorer.png",
+      "sha256": "ce802072e968375415f1238dcf7d4f0b961a8327336eb03c0963aba4e5d05b6d"
+    }
+  ],
+  "native_geometry_unchanged": true,
+  "scene_validation": "36 original key positions/angles and 80 meshes preserve vertices and triangle counts.",
+  "delivery_validation": "Current native source, closed covers, CAD renders and relative document links checked.",
+  "ignored_outputs": "build/ is reproducible with the commands in CONTRIBUTING.md; no private artifacts.",
+  "overall_keyboard_status": "partial"
+}

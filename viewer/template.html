@@ -9,39 +9,55 @@
 <style>/*__STYLE__*/</style>
 </head>
 <body>
-<header><div><strong>FILO36</strong><span>REV H / 3D EXPLORER</span></div><a href="https://github.com/eduarbo/filo36">Repository ↗</a></header>
+<header><div><strong>FILO36</strong><span>REV H / OBJECT EXPLORER</span></div><a href="https://github.com/eduarbo/filo36">Repository ↗</a></header>
 <main>
 <section class="stage" aria-label="3D keyboard view">
-  <canvas id="canvas" aria-label="Drag to rotate; pinch or scroll to zoom"></canvas>
+  <canvas id="canvas" aria-label="Drag to rotate; pinch or scroll to zoom; tap a part to inspect"></canvas>
   <div class="stage-label"><span class="dot"></span><span id="status" role="status">Loading geometry…</span></div>
-  <div class="gesture">Drag to rotate · Scroll / pinch to zoom · Two fingers to pan</div>
+  <div class="stage-tools"><button id="annotations" aria-pressed="true" title="Show component labels">Labels</button><button id="fit" title="Fit visible parts">Fit</button></div>
+  <svg id="leader-lines" aria-hidden="true"></svg><div id="callouts" aria-label="Visible component labels"></div>
+  <div class="view-dock" aria-label="Camera views"><button data-view="iso" aria-pressed="true">3D</button><button data-view="top" aria-pressed="false">Top</button><button data-view="front" aria-pressed="false">Front</button><button id="reset" title="Restore view; keep your configuration">↺ <span>Reset view</span></button></div>
+  <div class="gesture">Drag to orbit · Pinch to zoom · Tap a part to explore</div>
   <div id="error" role="alert" hidden></div>
 </section>
-<aside>
-  <h1>Make it yours.</h1>
-  <p class="intro">Choose keycaps and frames. Rotate the keyboard and hide layers to explore the inside.</p>
-  <div class="presets"><button id="complete" class="primary">Assembled</button><button id="inside">See inside</button><button id="stack">Stack only</button></div>
-  <div class="selects"><label>Half<select id="half"><option value="both">Both</option><option value="left">Left</option><option value="right">Right</option></select></label><label>View<select id="view"><option value="iso">Free / 3D</option><option value="top">Top</option><option value="front">Front</option><option value="right">Right side</option><option value="left">Left side</option><option value="back">Back</option><option value="bottom">Bottom</option></select></label></div>
-  <label class="explode-label" for="explode">Explode parts <output id="explosion">0 %</output></label>
-  <input id="explode" type="range" min="0" max="100" value="0" step="1">
-  <p class="micro">Explosion is a visual aid; actual removal paths are untested.</p>
-  <details id="customize" open><summary>Customize <span>keycaps + frames</span></summary>
-    <p class="micro">38 Choc-stem variants catalogued; 28 qualify somewhere. No 1.5U reference configuration qualifies. Check each combination.</p>
-    <label>Keycap preset<select id="key-preset"></select></label><button id="apply-preset">Apply preset</button>
-    <label>Positions<select id="key-target"></select></label><label>KLP Lamé<select id="key-variant"></select></label><label>Rotation relative to switch<select id="key-rotation"></select></label>
-    <p id="key-fit" class="micro"></p><button id="apply-keys">Apply to these keys</button>
-    <div class="selects"><label>Frame on<select id="frame-side"><option value="both">Both</option><option value="left">Left</option><option value="right">Right</option></select></label><label>Finish<select id="frame-style"></select></label></div>
-    <label class="color-label">Frame color <input type="color" id="frame-color" value="#304d4e"></label><button id="apply-frame">Apply frame</button>
-    <p id="config-status" class="micro" role="status"></p>
-    <div class="config-actions"><button id="save-config">Save configuration</button><label class="file-label">Load JSON<input id="load-config" type="file" accept=".json,application/json"></label><button id="default-config">Default configuration</button></div>
-    <p class="micro">Use the same JSON selections in FreeCAD. “Reset view” keeps your configuration.</p>
+<aside aria-label="Object explorer">
+  <div class="explorer-heading"><div><p class="eyebrow">YOUR FILO36</p><h1>Make it yours.</h1></div><span class="nominal">CAD study</span></div>
+  <div class="tabs" role="tablist" aria-label="Explorer"><button id="tab-frames" role="tab" aria-selected="true" aria-controls="panel-frames" tabindex="0">Frames</button><button id="tab-keycaps" role="tab" aria-selected="false" aria-controls="panel-keycaps" tabindex="-1">Keycaps</button><button id="tab-parts" role="tab" aria-selected="false" aria-controls="panel-parts" tabindex="-1">Parts</button></div>
+  <section id="selection" class="selection" role="region" aria-live="polite" aria-label="Selected component" hidden><button id="clear-selection" aria-label="Clear selected component">×</button><p id="selection-meta" class="eyebrow"></p><h2 id="selection-title"></h2><p id="selection-info"></p><p id="selection-visibility" class="micro"></p></section>
+  <section id="panel-frames" role="tabpanel" aria-labelledby="tab-frames">
+    <div class="panel-heading"><h2>Display frames</h2><span id="frame-current"></span></div>
+    <p class="hint">Pick a shape. See it on your keyboard.</p>
+    <div id="frame-target" class="segments" role="group" aria-label="Apply frame changes to"><button data-side="both" aria-pressed="true">Both halves</button><button data-side="left" aria-pressed="false">Left</button><button data-side="right" aria-pressed="false">Right</button></div>
+    <div id="frame-grid" class="preview-grid" role="group" aria-label="Frame styles"></div>
+    <div class="finish-row"><span>Finish <small id="color-current"></small></span><div id="swatches" role="group" aria-label="Frame colors"></div><label class="custom-color" title="Custom frame color"><input type="color" id="frame-color" value="#304d4e" aria-label="Custom frame color"></label></div>
+    <p class="micro">Same fit. Six printable shapes. Colors are a preview.</p>
+  </section>
+  <section id="panel-keycaps" role="tabpanel" aria-labelledby="tab-keycaps" hidden>
+    <div class="panel-heading"><h2>KLP Lamé</h2><span>Choc stems</span></div>
+    <p class="hint">Start with a set, then tune individual keys.</p>
+    <div id="key-presets" class="preview-grid key-presets" role="group" aria-label="Keycap presets"></div>
+    <details id="key-details"><summary>Edit keys <span>position / shape / rotation</span></summary>
+      <label>Positions<select id="key-target"></select></label><label>Variant<select id="key-variant"></select></label><label>Rotation relative to switch<select id="key-rotation"></select></label>
+      <p id="key-fit" class="micro"></p><button id="apply-keys" class="primary">Apply to these keys</button>
+      <p class="micro">38 source variants; 28 qualify somewhere. No 1.5U reference configuration qualifies. Physical fit remains untested.</p>
+    </details>
+  </section>
+  <section id="panel-parts" role="tabpanel" aria-labelledby="tab-parts" hidden>
+    <div class="panel-heading"><h2>Inside the object</h2><span id="part-count">12 layers</span></div>
+    <p class="hint">Hover to highlight. Select to inspect. Use the eye to hide a layer.</p>
+    <div class="presets" role="group" aria-label="Assembly views"><button id="complete" aria-pressed="true">Assembled</button><button id="inside" aria-pressed="false">Inside</button><button id="stack" aria-pressed="false">Stack</button></div>
+    <div class="selects"><label>Half<select id="half"><option value="both">Both</option><option value="left">Left</option><option value="right">Right</option></select></label><label>Camera<select id="view"><option value="iso">3D</option><option value="top">Top</option><option value="front">Front</option><option value="right">Right side</option><option value="left">Left side</option><option value="back">Back</option><option value="bottom">Bottom</option></select></label></div>
+    <label class="explode-label" for="explode">Separate layers <output id="explosion">0 %</output></label><input id="explode" type="range" min="0" max="100" value="0" step="1">
+    <div id="layers" aria-label="Component explorer"></div>
+    <p class="micro">Exploded spacing is a visual aid; removal paths are untested.</p>
+  </section>
+  <p id="config-status" class="micro config-status" role="status"></p>
+  <details id="project-menu"><summary>Save &amp; export <span>JSON / GLB / offline</span></summary>
+    <div class="config-actions"><button id="save-config">Save configuration</button><button id="load-trigger">Load JSON</button><input id="load-config" type="file" accept=".json,application/json" hidden><button id="default-config">Restore default parts</button></div>
+    <p class="micro">Transfer JSON selections to FreeCAD. Reset view keeps your choices.</p>
+    <div class="downloads"><button id="glb">Download assembled GLB</button><a href="./index.html" download="Filo36-revH.html">Download offline HTML</a><a href="https://github.com/eduarbo/filo36/blob/main/docs/freecad.md">Edit in FreeCAD + KiCad ↗</a></div>
   </details>
-  <details id="layer-panel" open><summary>Layers <span>show / hide</span></summary><div id="layers"></div></details>
-  <div class="actions"><button id="reset">Reset view</button><button id="fit">Fit view</button></div>
-  <details><summary>Dimensions and limits</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame roof:</b> 16.6 mm · <b>Themed relief:</b> 17.2 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>Interchangeable opaque frame and battery recessed through the PCB. The nominal stack, including USB, stays behind the adjacent keycap’s top edge.</p><p>Nominal CAD study. Unrouted PCB. Battery opening: 0.15 mm per cradle side and 0.22 mm to pads; DRC unresolved. Cables, contacts, retention and physical fit untested. Electronics use approximate envelopes; switch bodies, keycap seating, screws and feet are illustrative.</p></div></details>
-  <div class="downloads"><a href="./index.html" download="Filo36-revH.html">Download offline HTML</a><button id="glb">Download assembled GLB</button><a href="https://github.com/eduarbo/filo36/blob/main/docs/freecad.md">Edit in FreeCAD + KiCad ↗</a></div>
-  <p class="caption">Editable revH model · Units: mm<br>36 Piantor positions · Original KLP Lamé meshes</p>
-  <button id="credits">Credits and licenses</button>
+  <details><summary>About this prototype</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame roof:</b> 16.6 mm · <b>Themed relief:</b> 17.2 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>36 Piantor positions. Original KLP Lamé meshes. Units: mm. Labels group repeated parts and follow visible surfaces; the Parts list includes all 12 layers.</p><p>Nominal CAD study. Unrouted PCB. Battery opening: 0.15 mm per cradle side and 0.22 mm to pads; DRC unresolved. Cables, contacts, retention and physical fit untested. Electronics use approximate envelopes; switch bodies, keycap seating, screws and feet are illustrative.</p></div><button id="credits">Credits and licenses</button></details>
 </aside>
 </main>
 <dialog id="licenses"><button id="close-credits">Close</button><h2>Sources and licenses</h2><!--__LICENSES__--></dialog>
