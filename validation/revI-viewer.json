@@ -8,11 +8,11 @@
   "sources": [
     {
       "path": "mechanical/revI/left-tray.stl",
-      "sha256": "4cb3d3ea7280fddd45421010bc204ee4cf68310371f446a3836a910aebabe71e"
+      "sha256": "5b28149f8f16e872ff9135240e872025996da50ea2d38c7af8231cc450c5c59b"
     },
     {
       "path": "mechanical/revI/left-key-plate.stl",
-      "sha256": "7546be6e8f30c00dc809353316746c147086131bba29935c57926afafe742a26"
+      "sha256": "bf728b494cd7a9556d0c952113690fdd35870f4badd28537f8ee269b0f114fff"
     },
     {
       "path": "mechanical/revI/left-electronics-lid.stl",
@@ -20,7 +20,7 @@
     },
     {
       "path": "mechanical/revI/left-pcb.stl",
-      "sha256": "be0847c7665d16f691eff5a052bab0ef4409face2cef12976441bbe85fa0e826"
+      "sha256": "76a0e0087394f41df91bf1b2661882f63fff58dde9932e9171eabf019c74f7a6"
     },
     {
       "path": "mechanical/revI/left-battery.stl",
@@ -68,7 +68,7 @@
     },
     {
       "path": "mechanical/revI/left-washer-1.stl",
-      "sha256": "e4a3dff22eba0895836475d9e44b80ac9cd274f87d687171928bdf552673e721"
+      "sha256": "4262051d1db645e0c95264baf75b1bb50dafe4150b99afb4e4a2ab7d4a1939d7"
     },
     {
       "path": "mechanical/revI/left-washer-2.stl",
@@ -116,7 +116,7 @@
     },
     {
       "path": "mechanical/revI/left-screw-1.stl",
-      "sha256": "298e4a4b7034c5eec9d4370bb920db1b0a2b1b090114f19f57f04cb996502e4b"
+      "sha256": "b83571eed10a8641e9cdafd3086ac4afe41420314546c23221502be9a950d7e3"
     },
     {
       "path": "mechanical/revI/left-screw-2.stl",
@@ -176,11 +176,11 @@
     },
     {
       "path": "mechanical/revI/right-tray.stl",
-      "sha256": "65ad6cce34d0978ca0be13cca34dee9ab5732e4d560e3bacc460cb0e197b5fb9"
+      "sha256": "c740e1579c0179b1eec00df848b89e417cfc278348a2036d78f3d008d1b69595"
     },
     {
       "path": "mechanical/revI/right-key-plate.stl",
-      "sha256": "9b338d325c2032186a97c0369eb2517f61fa152ad22772b8988fba35bfae1882"
+      "sha256": "ea2b2fd202d37ff39ac4d1c9ef2e17e2a068209ba89bc387657e403ad55ac3e0"
     },
     {
       "path": "mechanical/revI/right-electronics-lid.stl",
@@ -188,7 +188,7 @@
     },
     {
       "path": "mechanical/revI/right-pcb.stl",
-      "sha256": "dfd456aa38be0194962f68c8d28bb51e225237ef0cb4cbee58e7e801b2b80c23"
+      "sha256": "d683085b10f279a7fa6f193f73111fa22071708eee6ff2b8316d060d0ddef4ab"
     },
     {
       "path": "mechanical/revI/right-battery.stl",
@@ -236,7 +236,7 @@
     },
     {
       "path": "mechanical/revI/right-washer-1.stl",
-      "sha256": "efac6b9cd6862261b69ea3b0b7c34b3df0110591ef63ae21acd8c4d508e91886"
+      "sha256": "1a9dcbad91bea588c72d30a9b766a358f4eb3eb2f384029f0ec62f92c4fdd9a8"
     },
     {
       "path": "mechanical/revI/right-washer-2.stl",
@@ -272,7 +272,7 @@
     },
     {
       "path": "mechanical/revI/right-screw-1.stl",
-      "sha256": "0dfcc641cd1bf528489b7fe20b3cced292a90ffe7b41685a7c130666e9f28d2c"
+      "sha256": "feb9495862a2cfab09afd158d69415052d2247e7b9c45c0f91d58306812bec2a"
     },
     {
       "path": "mechanical/revI/right-screw-2.stl",
@@ -432,7 +432,7 @@
     },
     {
       "path": "design/revI.json",
-      "sha256": "de6fec18625e9cfe3d9c23cfcdbf8544020c147625c657837a39a95f6e534353"
+      "sha256": "0a21c07324aa081734f9333b5948e2651bf71e92b58da23cb421a1bd2939e989"
     },
     {
       "path": "design/layout.json",
@@ -487,7 +487,7 @@
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "954123503d292bd76f29bbcbbadad4f3c1e78a309811ccda7191905056289900",
+  "viewer_sha256": "1a7b6129fc8540068e7696d5518b3ec9d27fd0caa7189fed5153d7d9c3f4fc63",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,

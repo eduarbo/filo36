@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Derive Contour board mechanics from the preserved unrouted study.
-Only board outline, battery aperture, magnet clearances and five enumerated
+Only board outline, battery aperture, magnet clearances and six enumerated
 auxiliary/mount transforms change. Never overwrite routed or manual work.
 SPDX-License-Identifier: GPL-3.0-or-later
 """
-import json,re,shutil,hashlib
+import json,re,shutil,hashlib,argparse
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-source=ROOT/'hardware/revH';dest=ROOT/'hardware/revI'
+parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,default=ROOT/'hardware/revI')
+source=ROOT/'hardware/revH';dest=parser.parse_args().output.resolve()
 if dest.exists():raise SystemExit('Refusing to overwrite existing revI work. Preserve it first.')
 shutil.copytree(source,dest)
 profiles=json.loads((ROOT/'design/revI-profiles.json').read_text())
@@ -26,7 +27,7 @@ def root_children(text):
         elif c==')':
             if depth==2:yield start,i+1,text[start:i+1]
             depth-=1
-report={'scope':'Mechanical Contour revision; unrouted, not fabrication approved','allowed_footprint_changes':['H3','H4','H5','J1','SW1'],'halves':{}}
+report={'scope':'Mechanical Contour revision; unrouted, not fabrication approved','allowed_footprint_changes':['H1','H3','H4','H5','J1','SW1'],'halves':{}}
 for side in ['left','right']:
     src=source/f'filo36-{side}.kicad_pcb';path=dest/src.name;text=src.read_text();children=list(root_children(text))
     assert not any(re.match(r'\((segment|via)\s',s) for a,b,s in children),'Routing found; preserve it'

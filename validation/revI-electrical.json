@@ -3,7 +3,7 @@
   "fabrication_ready": false,
   "halves": {
     "left": {
-      "pcb_sha256": "55c95af91933a3a7910f9b5692a157e41fbb9e20ef0f21ec71fafd0eb4a9fd6c",
+      "pcb_sha256": "bd9964920f7533792c79cad1f388f4fcdd09d3586d3bc70c9dff64d7a73f3ac3",
       "footprints_pads_nets_drills_uuid_models_preserved_except_allowed_transforms": true,
       "allowed_transforms": {
         "H4": {
@@ -36,6 +36,16 @@
             65.5
           ]
         },
+        "H1": {
+          "from": [
+            21.0,
+            37.5
+          ],
+          "to": [
+            38.7,
+            37.5
+          ]
+        },
         "SW1": {
           "from": [
             132.5,
@@ -63,7 +73,7 @@
       "unconnected_items": 104
     },
     "right": {
-      "pcb_sha256": "0e707a814ee7dac294f921a46ef4d994420d4dd7b3cd5cdbb2a8f6cfc6d57b48",
+      "pcb_sha256": "650e85a6bfe9b2ba95492d602b6346cd5dbd268f7bc6cb3d1c3d516d988b3523",
       "footprints_pads_nets_drills_uuid_models_preserved_except_allowed_transforms": true,
       "allowed_transforms": {
         "H3": {
@@ -84,6 +94,16 @@
           "to": [
             29.400000000000006,
             66.5
+          ]
+        },
+        "H1": {
+          "from": [
+            139.0,
+            37.5
+          ],
+          "to": [
+            121.3,
+            37.5
           ]
         },
         "SW1": {

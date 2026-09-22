@@ -1,5 +1,5 @@
 {
-  "viewer_sha256": "954123503d292bd76f29bbcbbadad4f3c1e78a309811ccda7191905056289900",
+  "viewer_sha256": "1a7b6129fc8540068e7696d5518b3ec9d27fd0caa7189fed5153d7d9c3f4fc63",
   "target": "local file with all HTTP(S) requests blocked",
   "browser": "153.0.8010.53",
   "desktop": true,

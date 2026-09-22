@@ -6,7 +6,7 @@
 
 ![Filo36 revI with interchangeable display frames and original KLP Lamé keycaps](docs/images/revI-assembled.png)
 
-*RevI: a stepped key contour, magnetic display frames and one cradle for two battery sizes. Actual CAD geometry; physical fit untested.*
+*RevI: a uniform 4.75 mm exposed rim, internal fasteners, magnetic frames and one cradle for two battery sizes. Physical fit untested.*
 
 Filo36 is a low-profile wireless split keyboard in development by [Eduardo Ruiz](https://github.com/eduarbo). It keeps Piantor’s key centers and angles, with five columns and three thumb keys per half. The name is provisional.
 
@@ -16,6 +16,8 @@ Filo36 is a low-profile wireless split keyboard in development by [Eduardo Ruiz]
 - **Intended hardware:** Choc v1 hot-swap, two nice!nano controllers and two nice!view displays. One display remains the fallback.
 
 **Status: digital prototype, not ready to manufacture.** Both PCB studies have zero geometric DRC violations and 104 unconnected items each. Routing, exact connectors, printed retention, BLE and power consumption still require work. The visual model does not establish hardware compatibility.
+
+![Measured rim and mirrored case halves](docs/images/revI-rim.png)
 
 **[Keycaps and frames](docs/customize.md) · [Design](docs/design.md) · [Build](docs/build.md) · [CAD files](docs/cad.md) · [Progress](docs/progress.md)**
 

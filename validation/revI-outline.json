@@ -3,11 +3,217 @@
   "halves": {
     "left": {
       "case_size_mm": [
-        117.0,
-        92.848
+        119.301,
+        95.101
       ],
-      "case_plan_area_mm2": 8363.959,
-      "intentional_corners": 20,
+      "case_plan_area_mm2": 8364.562,
+      "intentional_corners": 22,
+      "exposed_rim_mm": 4.75,
+      "normal_samples": [
+        {
+          "key": "K01",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K02",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K03",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K04",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K05",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999999,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K01",
+          "face": "west",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K11",
+          "face": "west",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K21",
+          "face": "west",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K21",
+          "face": "east",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            2,
+            5
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K21",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K22",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K30",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999993,
+          "maximum_mm": 4.749999999999993
+        },
+        {
+          "key": "K31",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999987,
+          "maximum_mm": 4.750000000000001
+        },
+        {
+          "key": "K32",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.74999999999998,
+          "maximum_mm": 4.749999999999998
+        },
+        {
+          "key": "K30",
+          "face": "west",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999993,
+          "maximum_mm": 4.749999999999993
+        },
+        {
+          "key": "K32",
+          "face": "east",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999998,
+          "maximum_mm": 4.750000000000024
+        }
+      ],
+      "fastener_clearances": [
+        {
+          "id": "H1",
+          "post_to_cut_mm": 0.16715680975092884,
+          "head_to_cut_mm": 0.367156809750929
+        },
+        {
+          "id": "H2",
+          "post_to_cut_mm": 0.19999999999999996,
+          "head_to_cut_mm": 0.10000000000000009
+        },
+        {
+          "id": "H3",
+          "post_to_cut_mm": 0.9999999999999973,
+          "head_to_cut_mm": 1.3999999999999972
+        },
+        {
+          "id": "H4",
+          "post_to_cut_mm": 6.769672175964796,
+          "head_to_cut_mm": 6.869672175964796
+        },
+        {
+          "id": "H5",
+          "post_to_cut_mm": 3.5903491712186546,
+          "head_to_cut_mm": 3.6903491712186547
+        }
+      ],
       "corner_radius_mm": 0.8,
       "nominal_wall_mm": 1.3,
       "pcb_to_cavity_mm": 0.35,
@@ -61,47 +267,47 @@
         {
           "ref": "K22",
           "pad": "1",
-          "clearance_mm": 14.0
+          "clearance_mm": 14.75
         },
         {
           "ref": "K22",
           "pad": "1",
-          "clearance_mm": 2.438892
+          "clearance_mm": 3.188892
         },
         {
           "ref": "K22",
           "pad": "2",
-          "clearance_mm": 4.538892
+          "clearance_mm": 5.288892
         },
         {
           "ref": "K22",
           "pad": "2",
-          "clearance_mm": 11.8
+          "clearance_mm": 12.55
         },
         {
           "ref": "K21",
           "pad": "1",
-          "clearance_mm": 5.775
+          "clearance_mm": 5.525
         },
         {
           "ref": "K21",
           "pad": "1",
-          "clearance_mm": 3.438892
+          "clearance_mm": 3.188892
         },
         {
           "ref": "K21",
           "pad": "2",
-          "clearance_mm": 4.338892
+          "clearance_mm": 4.088892
         },
         {
           "ref": "K21",
           "pad": "2",
-          "clearance_mm": 1.481631
+          "clearance_mm": 1.773061
         },
         {
           "ref": "K05",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K05",
@@ -111,67 +317,67 @@
         {
           "ref": "K05",
           "pad": "2",
-          "clearance_mm": 12.138892
+          "clearance_mm": 12.888892
         },
         {
           "ref": "K05",
           "pad": "2",
-          "clearance_mm": 1.307487
+          "clearance_mm": 2.335465
         },
         {
           "ref": "K13",
           "pad": "1",
-          "clearance_mm": 16.030408
+          "clearance_mm": 16.599866
         },
         {
           "ref": "K13",
           "pad": "1",
-          "clearance_mm": 24.592952
+          "clearance_mm": 25.189681
         },
         {
           "ref": "K13",
           "pad": "2",
-          "clearance_mm": 25.213734
+          "clearance_mm": 25.872432
         },
         {
           "ref": "K13",
           "pad": "2",
-          "clearance_mm": 16.574291
+          "clearance_mm": 17.276429
         },
         {
           "ref": "K01",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K01",
           "pad": "1",
-          "clearance_mm": 9.338892
+          "clearance_mm": 9.088892
         },
         {
           "ref": "K01",
           "pad": "2",
-          "clearance_mm": 4.338892
+          "clearance_mm": 4.088892
         },
         {
           "ref": "K01",
           "pad": "2",
-          "clearance_mm": 4.529964
+          "clearance_mm": 5.201514
         },
         {
           "ref": "K24",
           "pad": "1",
-          "clearance_mm": 20.790335
+          "clearance_mm": 19.577275
         },
         {
           "ref": "K24",
           "pad": "1",
-          "clearance_mm": 18.341624
+          "clearance_mm": 16.039849
         },
         {
           "ref": "K24",
           "pad": "2",
-          "clearance_mm": 14.417405
+          "clearance_mm": 12.489635
         },
         {
           "ref": "K24",
@@ -321,42 +527,42 @@
         {
           "ref": "K23",
           "pad": "1",
-          "clearance_mm": 19.0
+          "clearance_mm": 19.75
         },
         {
           "ref": "K23",
           "pad": "1",
-          "clearance_mm": 7.836318
+          "clearance_mm": 8.191319
         },
         {
           "ref": "K23",
           "pad": "2",
-          "clearance_mm": 9.538892
+          "clearance_mm": 10.288892
         },
         {
           "ref": "K23",
           "pad": "2",
-          "clearance_mm": 19.227632
+          "clearance_mm": 18.843601
         },
         {
           "ref": "K30",
           "pad": "1",
-          "clearance_mm": 7.763379
+          "clearance_mm": 5.525
         },
         {
           "ref": "K30",
           "pad": "1",
-          "clearance_mm": 4.461343
+          "clearance_mm": 3.18406
         },
         {
           "ref": "K30",
           "pad": "2",
-          "clearance_mm": 5.857491
+          "clearance_mm": 4.08406
         },
         {
           "ref": "K30",
           "pad": "2",
-          "clearance_mm": 14.398588
+          "clearance_mm": 12.55
         },
         {
           "ref": "SW2",
@@ -381,42 +587,42 @@
         {
           "ref": "K11",
           "pad": "1",
-          "clearance_mm": 5.775
+          "clearance_mm": 5.525
         },
         {
           "ref": "K11",
           "pad": "1",
-          "clearance_mm": 9.338892
+          "clearance_mm": 9.088892
         },
         {
           "ref": "K11",
           "pad": "2",
-          "clearance_mm": 4.338892
+          "clearance_mm": 4.088892
         },
         {
           "ref": "K11",
           "pad": "2",
-          "clearance_mm": 17.067579
+          "clearance_mm": 17.075
         },
         {
           "ref": "K12",
           "pad": "1",
-          "clearance_mm": 10.152565
+          "clearance_mm": 10.575761
         },
         {
           "ref": "K12",
           "pad": "1",
-          "clearance_mm": 19.438892
+          "clearance_mm": 20.188892
         },
         {
           "ref": "K12",
           "pad": "2",
-          "clearance_mm": 18.562735
+          "clearance_mm": 19.181672
         },
         {
           "ref": "K12",
           "pad": "2",
-          "clearance_mm": 20.553254
+          "clearance_mm": 20.732057
         },
         {
           "ref": "K15",
@@ -446,77 +652,77 @@
         {
           "ref": "K32",
           "pad": "1",
-          "clearance_mm": 2.541037
+          "clearance_mm": 3.185511
         },
         {
           "ref": "K32",
           "pad": "2",
-          "clearance_mm": 5.198923
+          "clearance_mm": 5.285511
         },
         {
           "ref": "K32",
           "pad": "2",
-          "clearance_mm": 0.537881
+          "clearance_mm": 0.525
         },
         {
           "ref": "K02",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K02",
           "pad": "1",
-          "clearance_mm": 10.547266
+          "clearance_mm": 10.643066
         },
         {
           "ref": "K02",
           "pad": "2",
-          "clearance_mm": 5.126512
+          "clearance_mm": 5.248385
         },
         {
           "ref": "K02",
           "pad": "2",
-          "clearance_mm": 4.529964
+          "clearance_mm": 5.201514
         },
         {
           "ref": "K14",
           "pad": "1",
-          "clearance_mm": 19.1
+          "clearance_mm": 19.85
         },
         {
           "ref": "K14",
           "pad": "1",
-          "clearance_mm": 27.6017
+          "clearance_mm": 26.458926
         },
         {
           "ref": "K14",
           "pad": "2",
-          "clearance_mm": 26.215431
+          "clearance_mm": 25.531603
         },
         {
           "ref": "K14",
           "pad": "2",
-          "clearance_mm": 19.334906
+          "clearance_mm": 20.245361
         },
         {
           "ref": "K03",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K03",
           "pad": "1",
-          "clearance_mm": 14.238892
+          "clearance_mm": 14.931331
         },
         {
           "ref": "K03",
           "pad": "2",
-          "clearance_mm": 9.696641
+          "clearance_mm": 10.168638
         },
         {
           "ref": "K03",
           "pad": "2",
-          "clearance_mm": 1.21737
+          "clearance_mm": 1.434412
         },
         {
           "ref": "J2",
@@ -546,17 +752,17 @@
         {
           "ref": "K31",
           "pad": "1",
-          "clearance_mm": 15.272311
+          "clearance_mm": 14.75
         },
         {
           "ref": "K31",
           "pad": "1",
-          "clearance_mm": 3.528526
+          "clearance_mm": 3.18696
         },
         {
           "ref": "K31",
           "pad": "2",
-          "clearance_mm": 6.464863
+          "clearance_mm": 5.28696
         },
         {
           "ref": "K31",
@@ -566,112 +772,112 @@
         {
           "ref": "K04",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K04",
           "pad": "1",
-          "clearance_mm": 14.238892
+          "clearance_mm": 14.988892
         },
         {
           "ref": "K04",
           "pad": "2",
-          "clearance_mm": 12.138892
+          "clearance_mm": 12.888892
         },
         {
           "ref": "K04",
           "pad": "2",
-          "clearance_mm": 2.456263
+          "clearance_mm": 3.801109
         },
         {
           "ref": "D02",
           "pad": "1",
-          "clearance_mm": 8.540329
+          "clearance_mm": 8.490124
         },
         {
           "ref": "D02",
           "pad": "2",
-          "clearance_mm": 11.774364
+          "clearance_mm": 11.681086
         },
         {
           "ref": "D05",
           "pad": "1",
-          "clearance_mm": 11.85
+          "clearance_mm": 12.6
         },
         {
           "ref": "D05",
           "pad": "2",
-          "clearance_mm": 11.313813
+          "clearance_mm": 12.45
         },
         {
           "ref": "D01",
           "pad": "1",
-          "clearance_mm": 8.25
+          "clearance_mm": 8.0
         },
         {
           "ref": "D01",
           "pad": "2",
-          "clearance_mm": 11.55
+          "clearance_mm": 11.3
         },
         {
           "ref": "D21",
           "pad": "1",
-          "clearance_mm": 6.650001
+          "clearance_mm": 6.400001
         },
         {
           "ref": "D21",
           "pad": "2",
-          "clearance_mm": 6.650001
+          "clearance_mm": 6.400001
         },
         {
           "ref": "D13",
           "pad": "1",
-          "clearance_mm": 26.009794
+          "clearance_mm": 26.613188
         },
         {
           "ref": "D13",
           "pad": "2",
-          "clearance_mm": 26.009794
+          "clearance_mm": 26.613188
         },
         {
           "ref": "D03",
           "pad": "1",
-          "clearance_mm": 11.818947
+          "clearance_mm": 12.140192
         },
         {
           "ref": "D03",
           "pad": "2",
-          "clearance_mm": 11.818947
+          "clearance_mm": 12.140192
         },
         {
           "ref": "D30",
           "pad": "1",
-          "clearance_mm": 7.500663
+          "clearance_mm": 6.4
         },
         {
           "ref": "D30",
           "pad": "2",
-          "clearance_mm": 7.788277
+          "clearance_mm": 6.4
         },
         {
           "ref": "D22",
           "pad": "1",
-          "clearance_mm": 5.65
+          "clearance_mm": 6.4
         },
         {
           "ref": "D22",
           "pad": "2",
-          "clearance_mm": 5.65
+          "clearance_mm": 6.4
         },
         {
           "ref": "D23",
           "pad": "1",
-          "clearance_mm": 10.696036
+          "clearance_mm": 11.4
         },
         {
           "ref": "D23",
           "pad": "2",
-          "clearance_mm": 11.364547
+          "clearance_mm": 11.511586
         },
         {
           "ref": "D25",
@@ -686,12 +892,12 @@
         {
           "ref": "D14",
           "pad": "1",
-          "clearance_mm": 28.85
+          "clearance_mm": 28.163429
         },
         {
           "ref": "D14",
           "pad": "2",
-          "clearance_mm": 28.168596
+          "clearance_mm": 28.882084
         },
         {
           "ref": "D15",
@@ -706,84 +912,84 @@
         {
           "ref": "D12",
           "pad": "1",
-          "clearance_mm": 19.698825
+          "clearance_mm": 20.237569
         },
         {
           "ref": "D12",
           "pad": "2",
-          "clearance_mm": 21.485173
+          "clearance_mm": 21.951687
         },
         {
           "ref": "D11",
           "pad": "1",
-          "clearance_mm": 8.25
+          "clearance_mm": 8.0
         },
         {
           "ref": "D11",
           "pad": "2",
-          "clearance_mm": 11.55
+          "clearance_mm": 11.3
         },
         {
           "ref": "D32",
           "pad": "1",
-          "clearance_mm": 5.905155
+          "clearance_mm": 6.399999
         },
         {
           "ref": "D32",
           "pad": "2",
-          "clearance_mm": 5.527863
+          "clearance_mm": 6.4
         },
         {
           "ref": "D24",
           "pad": "1",
-          "clearance_mm": 18.175711
+          "clearance_mm": 16.125139
         },
         {
           "ref": "D24",
           "pad": "2",
-          "clearance_mm": 21.239345
+          "clearance_mm": 19.0707
         },
         {
           "ref": "D31",
           "pad": "1",
-          "clearance_mm": 6.95366
+          "clearance_mm": 6.399999
         },
         {
           "ref": "D31",
           "pad": "2",
-          "clearance_mm": 6.386857
+          "clearance_mm": 6.4
         },
         {
           "ref": "D04",
           "pad": "1",
-          "clearance_mm": 11.85
+          "clearance_mm": 12.6
         },
         {
           "ref": "D04",
           "pad": "2",
-          "clearance_mm": 11.85
+          "clearance_mm": 12.6
         }
       ],
       "all_fasteners_inside_silhouette": true,
       "switch_cut_to_outer_mm": {
-        "K01": 4.0,
-        "K02": 4.0,
-        "K03": 4.0,
-        "K04": 3.92111,
-        "K05": 2.52883,
-        "K11": 5.0,
-        "K12": 10.58853,
-        "K13": 16.97361,
-        "K14": 19.36137,
-        "K15": 18.20833,
-        "K21": 5.0,
-        "K22": 4.0,
-        "K23": 9.0,
-        "K24": 13.9938,
-        "K25": 25.0,
-        "K30": 5.41655,
-        "K31": 4.65445,
-        "K32": 3.31355
+        "K01": 4.75,
+        "K02": 4.75,
+        "K03": 4.75,
+        "K04": 4.75,
+        "K05": 4.75,
+        "K11": 4.75,
+        "K12": 11.1208,
+        "K13": 17.60671,
+        "K14": 20.48666,
+        "K15": 18.80213,
+        "K21": 4.75,
+        "K22": 4.75,
+        "K23": 9.75,
+        "K24": 11.8228,
+        "K25": 23.51061,
+        "K30": 4.75,
+        "K31": 4.75,
+        "K32": 4.75
       },
       "batteries": {
         "adafruit-1570": {
@@ -808,11 +1014,217 @@
     },
     "right": {
       "case_size_mm": [
-        117.0,
-        92.848
+        119.301,
+        95.101
       ],
-      "case_plan_area_mm2": 8363.959,
-      "intentional_corners": 20,
+      "case_plan_area_mm2": 8364.562,
+      "intentional_corners": 22,
+      "exposed_rim_mm": 4.75,
+      "normal_samples": [
+        {
+          "key": "K01",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K02",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K03",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K04",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K05",
+          "face": "north",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999999,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K01",
+          "face": "west",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K11",
+          "face": "west",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K21",
+          "face": "west",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K21",
+          "face": "east",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            2,
+            5
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K21",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K22",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.75,
+          "maximum_mm": 4.75
+        },
+        {
+          "key": "K30",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999993,
+          "maximum_mm": 4.749999999999993
+        },
+        {
+          "key": "K31",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999987,
+          "maximum_mm": 4.750000000000001
+        },
+        {
+          "key": "K32",
+          "face": "south",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.74999999999998,
+          "maximum_mm": 4.749999999999998
+        },
+        {
+          "key": "K30",
+          "face": "west",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999993,
+          "maximum_mm": 4.749999999999993
+        },
+        {
+          "key": "K32",
+          "face": "east",
+          "sample_count": 9,
+          "face_local_range_mm": [
+            -4,
+            4
+          ],
+          "minimum_mm": 4.749999999999998,
+          "maximum_mm": 4.750000000000024
+        }
+      ],
+      "fastener_clearances": [
+        {
+          "id": "H1",
+          "post_to_cut_mm": 0.16715680975092884,
+          "head_to_cut_mm": 0.367156809750929
+        },
+        {
+          "id": "H2",
+          "post_to_cut_mm": 0.19999999999999996,
+          "head_to_cut_mm": 0.10000000000000009
+        },
+        {
+          "id": "H3",
+          "post_to_cut_mm": 0.9999999999999973,
+          "head_to_cut_mm": 1.3999999999999972
+        },
+        {
+          "id": "H4",
+          "post_to_cut_mm": 6.769672175964793,
+          "head_to_cut_mm": 6.8696721759647925
+        },
+        {
+          "id": "H5",
+          "post_to_cut_mm": 3.590349171218643,
+          "head_to_cut_mm": 3.690349171218643
+        }
+      ],
       "corner_radius_mm": 0.8,
       "nominal_wall_mm": 1.3,
       "pcb_to_cavity_mm": 0.35,
@@ -821,22 +1233,22 @@
         {
           "ref": "K12",
           "pad": "1",
-          "clearance_mm": 15.141042
+          "clearance_mm": 15.355443
         },
         {
           "ref": "K12",
           "pad": "1",
-          "clearance_mm": 19.438892
+          "clearance_mm": 20.188892
         },
         {
           "ref": "K12",
           "pad": "2",
-          "clearance_mm": 21.538892
+          "clearance_mm": 22.288892
         },
         {
           "ref": "K12",
           "pad": "2",
-          "clearance_mm": 9.733645
+          "clearance_mm": 10.399267
         },
         {
           "ref": "J1",
@@ -886,22 +1298,22 @@
         {
           "ref": "K13",
           "pad": "1",
-          "clearance_mm": 16.030408
+          "clearance_mm": 16.599866
         },
         {
           "ref": "K13",
           "pad": "1",
-          "clearance_mm": 24.592952
+          "clearance_mm": 25.189681
         },
         {
           "ref": "K13",
           "pad": "2",
-          "clearance_mm": 25.213734
+          "clearance_mm": 25.872432
         },
         {
           "ref": "K13",
           "pad": "2",
-          "clearance_mm": 16.574291
+          "clearance_mm": 17.276429
         },
         {
           "ref": "K25",
@@ -926,22 +1338,22 @@
         {
           "ref": "K04",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K04",
           "pad": "1",
-          "clearance_mm": 14.238892
+          "clearance_mm": 14.988892
         },
         {
           "ref": "K04",
           "pad": "2",
-          "clearance_mm": 11.321359
+          "clearance_mm": 12.747067
         },
         {
           "ref": "K04",
           "pad": "2",
-          "clearance_mm": 4.529964
+          "clearance_mm": 5.201514
         },
         {
           "ref": "J2",
@@ -971,27 +1383,27 @@
         {
           "ref": "K02",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K02",
           "pad": "1",
-          "clearance_mm": 10.547266
+          "clearance_mm": 10.643066
         },
         {
           "ref": "K02",
           "pad": "2",
-          "clearance_mm": 12.138892
+          "clearance_mm": 12.888892
         },
         {
           "ref": "K02",
           "pad": "2",
-          "clearance_mm": 0.775
+          "clearance_mm": 0.525
         },
         {
           "ref": "K05",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K05",
@@ -1006,27 +1418,27 @@
         {
           "ref": "K05",
           "pad": "2",
-          "clearance_mm": 4.3
+          "clearance_mm": 5.201514
         },
         {
           "ref": "K21",
           "pad": "1",
-          "clearance_mm": 6.89969
+          "clearance_mm": 7.068756
         },
         {
           "ref": "K21",
           "pad": "1",
-          "clearance_mm": 3.438892
+          "clearance_mm": 3.188892
         },
         {
           "ref": "K21",
           "pad": "2",
-          "clearance_mm": 4.338892
+          "clearance_mm": 4.088892
         },
         {
           "ref": "K21",
           "pad": "2",
-          "clearance_mm": 0.775
+          "clearance_mm": 0.525
         },
         {
           "ref": "K31",
@@ -1036,32 +1448,32 @@
         {
           "ref": "K31",
           "pad": "1",
-          "clearance_mm": 3.528526
+          "clearance_mm": 3.18696
         },
         {
           "ref": "K31",
           "pad": "2",
-          "clearance_mm": 5.376886
+          "clearance_mm": 5.286961
         },
         {
           "ref": "K31",
           "pad": "2",
-          "clearance_mm": 13.973975
+          "clearance_mm": 12.55
         },
         {
           "ref": "K32",
           "pad": "1",
-          "clearance_mm": 4.139659
+          "clearance_mm": 5.525
         },
         {
           "ref": "K32",
           "pad": "1",
-          "clearance_mm": 2.541037
+          "clearance_mm": 3.185511
         },
         {
           "ref": "K32",
           "pad": "2",
-          "clearance_mm": 4.055611
+          "clearance_mm": 4.08551
         },
         {
           "ref": "K32",
@@ -1071,112 +1483,112 @@
         {
           "ref": "K01",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K01",
           "pad": "1",
-          "clearance_mm": 9.338892
+          "clearance_mm": 9.088892
         },
         {
           "ref": "K01",
           "pad": "2",
-          "clearance_mm": 12.138892
+          "clearance_mm": 12.888892
         },
         {
           "ref": "K01",
           "pad": "2",
-          "clearance_mm": 0.775
+          "clearance_mm": 0.525
         },
         {
           "ref": "K30",
           "pad": "1",
-          "clearance_mm": 14.303388
+          "clearance_mm": 12.075
         },
         {
           "ref": "K30",
           "pad": "1",
-          "clearance_mm": 4.461343
+          "clearance_mm": 3.18406
         },
         {
           "ref": "K30",
           "pad": "2",
-          "clearance_mm": 6.989131
+          "clearance_mm": 5.28406
         },
         {
           "ref": "K30",
           "pad": "2",
-          "clearance_mm": 2.649541
+          "clearance_mm": 0.525
         },
         {
           "ref": "K22",
           "pad": "1",
-          "clearance_mm": 14.0
+          "clearance_mm": 14.75
         },
         {
           "ref": "K22",
           "pad": "1",
-          "clearance_mm": 2.438892
+          "clearance_mm": 3.188892
         },
         {
           "ref": "K22",
           "pad": "2",
-          "clearance_mm": 4.538892
+          "clearance_mm": 5.288892
         },
         {
           "ref": "K22",
           "pad": "2",
-          "clearance_mm": 11.909113
+          "clearance_mm": 12.625346
         },
         {
           "ref": "K23",
           "pad": "1",
-          "clearance_mm": 19.568472
+          "clearance_mm": 19.868482
         },
         {
           "ref": "K23",
           "pad": "1",
-          "clearance_mm": 7.836318
+          "clearance_mm": 8.191319
         },
         {
           "ref": "K23",
           "pad": "2",
-          "clearance_mm": 11.795817
+          "clearance_mm": 11.284912
         },
         {
           "ref": "K23",
           "pad": "2",
-          "clearance_mm": 16.8
+          "clearance_mm": 17.55
         },
         {
           "ref": "K11",
           "pad": "1",
-          "clearance_mm": 12.325
+          "clearance_mm": 12.075
         },
         {
           "ref": "K11",
           "pad": "1",
-          "clearance_mm": 9.338892
+          "clearance_mm": 9.088892
         },
         {
           "ref": "K11",
           "pad": "2",
-          "clearance_mm": 11.696661
+          "clearance_mm": 12.218752
         },
         {
           "ref": "K11",
           "pad": "2",
-          "clearance_mm": 0.775
+          "clearance_mm": 0.525
         },
         {
           "ref": "K14",
           "pad": "1",
-          "clearance_mm": 18.065415
+          "clearance_mm": 19.358809
         },
         {
           "ref": "K14",
           "pad": "1",
-          "clearance_mm": 27.6017
+          "clearance_mm": 26.458926
         },
         {
           "ref": "K14",
@@ -1186,7 +1598,7 @@
         {
           "ref": "K14",
           "pad": "2",
-          "clearance_mm": 21.365006
+          "clearance_mm": 22.097192
         },
         {
           "ref": "SW2",
@@ -1331,22 +1743,22 @@
         {
           "ref": "K03",
           "pad": "1",
-          "clearance_mm": 2.1
+          "clearance_mm": 2.85
         },
         {
           "ref": "K03",
           "pad": "1",
-          "clearance_mm": 14.238892
+          "clearance_mm": 14.931331
         },
         {
           "ref": "K03",
           "pad": "2",
-          "clearance_mm": 9.696641
+          "clearance_mm": 10.168638
         },
         {
           "ref": "K03",
           "pad": "2",
-          "clearance_mm": 1.21737
+          "clearance_mm": 1.434412
         },
         {
           "ref": "K24",
@@ -1356,7 +1768,7 @@
         {
           "ref": "K24",
           "pad": "1",
-          "clearance_mm": 18.341624
+          "clearance_mm": 16.039849
         },
         {
           "ref": "K24",
@@ -1366,7 +1778,7 @@
         {
           "ref": "K24",
           "pad": "2",
-          "clearance_mm": 15.810876
+          "clearance_mm": 14.92103
         },
         {
           "ref": "K15",
@@ -1386,7 +1798,7 @@
         {
           "ref": "K15",
           "pad": "2",
-          "clearance_mm": 21.3
+          "clearance_mm": 21.525
         },
         {
           "ref": "D15",
@@ -1401,112 +1813,112 @@
         {
           "ref": "D32",
           "pad": "1",
-          "clearance_mm": 5.527863
+          "clearance_mm": 6.4
         },
         {
           "ref": "D32",
           "pad": "2",
-          "clearance_mm": 5.905156
+          "clearance_mm": 6.4
         },
         {
           "ref": "D05",
           "pad": "1",
-          "clearance_mm": 11.313813
+          "clearance_mm": 12.45
         },
         {
           "ref": "D05",
           "pad": "2",
-          "clearance_mm": 11.85
+          "clearance_mm": 12.6
         },
         {
           "ref": "D31",
           "pad": "1",
-          "clearance_mm": 6.386857
+          "clearance_mm": 6.4
         },
         {
           "ref": "D31",
           "pad": "2",
-          "clearance_mm": 6.95366
+          "clearance_mm": 6.399999
         },
         {
           "ref": "D12",
           "pad": "1",
-          "clearance_mm": 21.485173
+          "clearance_mm": 21.951687
         },
         {
           "ref": "D12",
           "pad": "2",
-          "clearance_mm": 19.698825
+          "clearance_mm": 20.237569
         },
         {
           "ref": "D03",
           "pad": "1",
-          "clearance_mm": 11.818947
+          "clearance_mm": 12.140192
         },
         {
           "ref": "D03",
           "pad": "2",
-          "clearance_mm": 11.818947
+          "clearance_mm": 12.140192
         },
         {
           "ref": "D22",
           "pad": "1",
-          "clearance_mm": 5.65
+          "clearance_mm": 6.4
         },
         {
           "ref": "D22",
           "pad": "2",
-          "clearance_mm": 5.65
+          "clearance_mm": 6.4
         },
         {
           "ref": "D13",
           "pad": "1",
-          "clearance_mm": 26.009794
+          "clearance_mm": 26.613188
         },
         {
           "ref": "D13",
           "pad": "2",
-          "clearance_mm": 26.009794
+          "clearance_mm": 26.613188
         },
         {
           "ref": "D14",
           "pad": "1",
-          "clearance_mm": 28.168596
+          "clearance_mm": 28.882084
         },
         {
           "ref": "D14",
           "pad": "2",
-          "clearance_mm": 28.85
+          "clearance_mm": 28.163429
         },
         {
           "ref": "D04",
           "pad": "1",
-          "clearance_mm": 11.85
+          "clearance_mm": 12.6
         },
         {
           "ref": "D04",
           "pad": "2",
-          "clearance_mm": 11.85
+          "clearance_mm": 12.6
         },
         {
           "ref": "D21",
           "pad": "1",
-          "clearance_mm": 6.650001
+          "clearance_mm": 6.400001
         },
         {
           "ref": "D21",
           "pad": "2",
-          "clearance_mm": 6.650001
+          "clearance_mm": 6.400001
         },
         {
           "ref": "D23",
           "pad": "1",
-          "clearance_mm": 11.364547
+          "clearance_mm": 11.511586
         },
         {
           "ref": "D23",
           "pad": "2",
-          "clearance_mm": 10.696036
+          "clearance_mm": 11.4
         },
         {
           "ref": "D25",
@@ -1521,74 +1933,74 @@
         {
           "ref": "D01",
           "pad": "1",
-          "clearance_mm": 11.55
+          "clearance_mm": 11.3
         },
         {
           "ref": "D01",
           "pad": "2",
-          "clearance_mm": 8.25
+          "clearance_mm": 8.0
         },
         {
           "ref": "D02",
           "pad": "1",
-          "clearance_mm": 11.774364
+          "clearance_mm": 11.681086
         },
         {
           "ref": "D02",
           "pad": "2",
-          "clearance_mm": 8.540329
+          "clearance_mm": 8.490124
         },
         {
           "ref": "D24",
           "pad": "1",
-          "clearance_mm": 21.239345
+          "clearance_mm": 19.0707
         },
         {
           "ref": "D24",
           "pad": "2",
-          "clearance_mm": 18.175711
+          "clearance_mm": 16.125139
         },
         {
           "ref": "D11",
           "pad": "1",
-          "clearance_mm": 11.55
+          "clearance_mm": 11.3
         },
         {
           "ref": "D11",
           "pad": "2",
-          "clearance_mm": 8.25
+          "clearance_mm": 8.0
         },
         {
           "ref": "D30",
           "pad": "1",
-          "clearance_mm": 7.788277
+          "clearance_mm": 6.4
         },
         {
           "ref": "D30",
           "pad": "2",
-          "clearance_mm": 7.500663
+          "clearance_mm": 6.4
         }
       ],
       "all_fasteners_inside_silhouette": true,
       "switch_cut_to_outer_mm": {
-        "K01": 4.0,
-        "K02": 4.0,
-        "K03": 4.0,
-        "K04": 3.92111,
-        "K05": 2.52883,
-        "K11": 5.0,
-        "K12": 10.58853,
-        "K13": 16.97361,
-        "K14": 19.36137,
-        "K15": 18.20833,
-        "K21": 5.0,
-        "K22": 4.0,
-        "K23": 9.0,
-        "K24": 13.9938,
-        "K25": 25.0,
-        "K30": 5.41655,
-        "K31": 4.65445,
-        "K32": 3.31355
+        "K01": 4.75,
+        "K02": 4.75,
+        "K03": 4.75,
+        "K04": 4.75,
+        "K05": 4.75,
+        "K11": 4.75,
+        "K12": 11.1208,
+        "K13": 17.60671,
+        "K14": 20.48666,
+        "K15": 18.80213,
+        "K21": 4.75,
+        "K22": 4.75,
+        "K23": 9.75,
+        "K24": 11.8228,
+        "K25": 23.51061,
+        "K30": 4.75,
+        "K31": 4.75,
+        "K32": 4.75
       },
       "batteries": {
         "adafruit-1570": {
@@ -1613,11 +2025,21 @@
     }
   },
   "physical_acceptance": false,
+  "mirror_max_error_mm": 0.0,
+  "regression_previous_outline_rejected": true,
+  "exceptions": [
+    "Interior bridges between key groups",
+    "Frame-to-plate service joint",
+    "Short bay-to-thumb transition",
+    "R0.8 corner blends"
+  ],
   "inputs": {
     "design/layout.json": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
-    "design/revI-profiles.json": "47a80ffbc05fdd2208813a2eff06eafb8364b6e5207a3e45e72bca292ac75c2c",
-    "design/revI-mounts.json": "6f15d7cf30f4049edf728db55e90199220f939e6cb53c59a3f20dd3d31641a34",
+    "design/revI-profiles.json": "9ec21134e0d78ede178a2a556ca3b8fb8c902a082e7c01dfd375c0a4e909625f",
+    "design/revI-mounts.json": "ee6a61232b1a8c308748af1174793664c41238a6c36cd166209e6d011d5592bd",
     "design/batteries.json": "1c4d2037b6fb04ea7aab6ba1d2f780eda9d886ebf8dd1c403c2721743d0424ff",
-    "tools/check_revI_outline.py": "5f05768fdf0ac34bcc16cd7b76116f8800611d4bef2ff760309068ae01dc3f59"
+    "tools/check_revI_outline.py": "c62871bc6a7103846778ff356c9f3085571880472ac8ea6fd11807ef105101ea",
+    "tools/build_revI_profiles.py": "9bfddf476019f9ad9e761207f875762b26896957b6702f7959c5552996e1e21a",
+    "design/revI-rim-baseline.json": "22098506a8528c77043b604dbac6c1437bf44970aa15eb780515b9b40c5d2599"
   }
 }

@@ -15,7 +15,9 @@ Keep Piantor’s angles, a thin key area and serviceable electronics.
 
 The insulating saddle stays below the PCB. The cell and a narrow removable cage pass through a **12.5 × 33.6 mm opening**. One cavity accepts the nominal Adafruit 1570 and 301230 envelopes; select either in the viewer or FreeCAD. The model reserves two 105 mm lead paths, but actual terminal positions, wire diameter and strain relief still need measurement. [Battery dimensions and sources](parts.md#battery).
 
-The case is **117 × 92.85 mm per half**. Five stepped column tops, a rectangular pinky foot, one shallow recess and a continuous thumb fan follow the selected reference. Twenty control corners share an **R0.8 mm** radius. All 36 switch centers and angles remain unchanged.
+The case is **119.30 × 95.10 mm per half**. Five stepped column tops, a rectangular pinky foot, one shallow recess and a continuous thumb fan follow the selected reference. Twenty-two control corners share an **R0.8 mm** radius. The exposed straight faces sit **4.75 mm from their switch openings**; thumb edges follow their original angles. H1 moves between the first two columns. The contour is derived without fastener coordinates and mirrored exactly. Corner blends, the service joint and the bay-to-thumb bridge are explicit transitions. All 36 switch centers and angles remain unchanged.
+
+![Measured exterior rim](images/revI-rim.png)
 
 The key plate stays at **7.6 mm**, plain frames at **16.6 mm**, themed relief at **17.2 mm**. The electronics bay remains **24 mm wide**; illustrative feet add 1.2 mm. The frame ends at Y=67 mm while the low base/plate continue to the thumb. The power-switch reference is now recessed 0.1 mm inside the straight X=135 mm flank.
 

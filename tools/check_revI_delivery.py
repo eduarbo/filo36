@@ -49,6 +49,19 @@ service=json.loads((ROOT/'validation/revI-service.json').read_text())
 assert service['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
 assert service['checker_sha256']==sha('tools/freecad/check_revI_service.py')
 for v in service['coupons'].values():assert sha(v['path'])==v['sha256']
+rim=json.loads((ROOT/'validation/revI-rim-solids.json').read_text())
+assert rim['source_sha256']==sha('mechanical/revI/Filo36.FCStd')
+assert rim['checker_sha256']==sha('tools/freecad/check_revI_rim.py')
+assert sum(r['samples'] for r in rim['normal_samples'])==288
+assert all(abs(r['min_mm']-4.75)<.00002 and abs(r['max_mm']-4.75)<.00002 for r in rim['normal_samples'])
+assert all(r['symmetric_difference_mm3']<1e-5 for r in rim['symmetry'].values())
+rim_image=json.loads((ROOT/'validation/revI-rim-render.json').read_text())
+assert rim_image['image_sha256']==sha('docs/images/revI-rim.png')
+assert rim_image['renderer_sha256']==sha('tools/render_rim.py') and rim_image['profile_sha256']==sha('design/revI-profiles.json')
+fasteners=json.loads((ROOT/'validation/revI-fasteners.json').read_text())
+for p,h in fasteners['inputs'].items():assert sha(p)==h,p
+assert fasteners['checked_reference_choice_head_pairs']==2268 and fasteners['minimum_xy_clearance_mm']>0
+assert outline['mirror_max_error_mm']==0 and outline['regression_previous_outline_rejected']
 assert sha('docs/parts.md')==json.loads((ROOT/'validation/revI-parts-links.json').read_text())['document_sha256']
 assert not subprocess.check_output(['git','diff','2ec6c4c','--name-only','--','hardware/revF','design/layout.json'],cwd=ROOT).strip(),'PCB/layout changed outside revision scope'
 print('PASS: current native source, 12 closed cover variants, 168 side-wall samples, renders, viewer, documentation paths, preserved historical PCB/layout.')

@@ -1,16 +1,16 @@
 {
   "revision": "I",
-  "model_sha256": "de6fec18625e9cfe3d9c23cfcdbf8544020c147625c657837a39a95f6e534353",
+  "model_sha256": "0a21c07324aa081734f9333b5948e2651bf71e92b58da23cb421a1bd2939e989",
   "layout_sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
   "renderer_sha256": "20089bed83978707cc9469e7866b5c3c5214430180985b272d5fd5cfc3984a87",
   "meshes": [
     {
       "path": "mechanical/revI/left-tray.stl",
-      "sha256": "4cb3d3ea7280fddd45421010bc204ee4cf68310371f446a3836a910aebabe71e"
+      "sha256": "5b28149f8f16e872ff9135240e872025996da50ea2d38c7af8231cc450c5c59b"
     },
     {
       "path": "mechanical/revI/left-key-plate.stl",
-      "sha256": "7546be6e8f30c00dc809353316746c147086131bba29935c57926afafe742a26"
+      "sha256": "bf728b494cd7a9556d0c952113690fdd35870f4badd28537f8ee269b0f114fff"
     },
     {
       "path": "mechanical/revI/left-electronics-lid.stl",
@@ -18,7 +18,7 @@
     },
     {
       "path": "mechanical/revI/left-pcb.stl",
-      "sha256": "be0847c7665d16f691eff5a052bab0ef4409face2cef12976441bbe85fa0e826"
+      "sha256": "76a0e0087394f41df91bf1b2661882f63fff58dde9932e9171eabf019c74f7a6"
     },
     {
       "path": "mechanical/revI/left-cradle.stl",
@@ -66,7 +66,7 @@
     },
     {
       "path": "mechanical/revI/left-washer-1.stl",
-      "sha256": "e4a3dff22eba0895836475d9e44b80ac9cd274f87d687171928bdf552673e721"
+      "sha256": "4262051d1db645e0c95264baf75b1bb50dafe4150b99afb4e4a2ab7d4a1939d7"
     },
     {
       "path": "mechanical/revI/left-washer-2.stl",
@@ -78,7 +78,7 @@
     },
     {
       "path": "mechanical/revI/left-screw-1.stl",
-      "sha256": "298e4a4b7034c5eec9d4370bb920db1b0a2b1b090114f19f57f04cb996502e4b"
+      "sha256": "b83571eed10a8641e9cdafd3086ac4afe41420314546c23221502be9a950d7e3"
     },
     {
       "path": "mechanical/revI/left-screw-2.stl",
@@ -142,11 +142,11 @@
     },
     {
       "path": "mechanical/revI/right-tray.stl",
-      "sha256": "65ad6cce34d0978ca0be13cca34dee9ab5732e4d560e3bacc460cb0e197b5fb9"
+      "sha256": "c740e1579c0179b1eec00df848b89e417cfc278348a2036d78f3d008d1b69595"
     },
     {
       "path": "mechanical/revI/right-key-plate.stl",
-      "sha256": "9b338d325c2032186a97c0369eb2517f61fa152ad22772b8988fba35bfae1882"
+      "sha256": "ea2b2fd202d37ff39ac4d1c9ef2e17e2a068209ba89bc387657e403ad55ac3e0"
     },
     {
       "path": "mechanical/revI/right-electronics-lid.stl",
@@ -154,7 +154,7 @@
     },
     {
       "path": "mechanical/revI/right-pcb.stl",
-      "sha256": "dfd456aa38be0194962f68c8d28bb51e225237ef0cb4cbee58e7e801b2b80c23"
+      "sha256": "d683085b10f279a7fa6f193f73111fa22071708eee6ff2b8316d060d0ddef4ab"
     },
     {
       "path": "mechanical/revI/right-cradle.stl",
@@ -202,7 +202,7 @@
     },
     {
       "path": "mechanical/revI/right-washer-1.stl",
-      "sha256": "efac6b9cd6862261b69ea3b0b7c34b3df0110591ef63ae21acd8c4d508e91886"
+      "sha256": "1a9dcbad91bea588c72d30a9b766a358f4eb3eb2f384029f0ec62f92c4fdd9a8"
     },
     {
       "path": "mechanical/revI/right-washer-2.stl",
@@ -214,7 +214,7 @@
     },
     {
       "path": "mechanical/revI/right-screw-1.stl",
-      "sha256": "0dfcc641cd1bf528489b7fe20b3cced292a90ffe7b41685a7c130666e9f28d2c"
+      "sha256": "feb9495862a2cfab09afd158d69415052d2247e7b9c45c0f91d58306812bec2a"
     },
     {
       "path": "mechanical/revI/right-screw-2.stl",
@@ -273,7 +273,7 @@
         "right"
       ],
       "exploded": false,
-      "image_sha256": "6756511f19872de1b304dcb88efebee7e98261fa925ca2cc20b17bd8bdc7afd7"
+      "image_sha256": "d4ebfe32a937a6ccdee020085a93f51a622bf8b66e0ba08fb958b320a70f6611"
     },
     "top": {
       "keys": 36,
@@ -282,7 +282,7 @@
         "right"
       ],
       "exploded": false,
-      "image_sha256": "72ca35566dca08a99273107940a60e0e3cb547a76ccadb00fabf8ee099901e72"
+      "image_sha256": "6b94a9990724098006bd51af6daf4535e868c2a2092ab1abfccac1ef42b95600"
     },
     "side": {
       "keys": 18,
@@ -290,7 +290,7 @@
         "left"
       ],
       "exploded": false,
-      "image_sha256": "0724122e194976664efef1b22adc9956be13cff990043579dad0096c41320bbf"
+      "image_sha256": "4346ebaeb45b2740480507d025fa43723204e378c593625ca56026cfb5426027"
     },
     "stack": {
       "keys": 18,
@@ -298,7 +298,7 @@
         "left"
       ],
       "exploded": true,
-      "image_sha256": "c051deff3fb5b6188a69bc39037e89a7ec07a6aa19d69f4f2faa5df67f0c81df"
+      "image_sha256": "2f5154750f1059996deb1fed1ba192b53f85d8ce5078c9d0140c5880e25bae22"
     },
     "detail": {
       "keys": 18,
@@ -306,7 +306,7 @@
         "left"
       ],
       "exploded": false,
-      "image_sha256": "d8d2c210f8fd3f86e7618e7f42478a67e95c39ac411a279f3d9b10254802c0af"
+      "image_sha256": "cb42098f977587f1731dd2bdc260a500be1f073b033108aa46f9938e74a060d7"
     }
   },
   "geometry_source": "generated CAD, no image retouching",

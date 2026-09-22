@@ -1,0 +1,278 @@
+{
+  "scope": "Actual native plate solids, 288 normal samples; tray and plate mirrored through X=80",
+  "symmetry": {
+    "tray": {
+      "symmetric_difference_mm3": 0.0,
+      "left_volume_mm3": 14619.966321916747,
+      "right_volume_mm3": 14619.966321916736
+    },
+    "key-plate": {
+      "symmetric_difference_mm3": 0.0,
+      "left_volume_mm3": 4503.7763999193985,
+      "right_volume_mm3": 4503.776399919391
+    }
+  },
+  "normal_samples": [
+    {
+      "side": "left",
+      "key": "K01",
+      "face": "north",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K02",
+      "face": "north",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K03",
+      "face": "north",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K04",
+      "face": "north",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K05",
+      "face": "north",
+      "min_mm": 4.749999999999999,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K01",
+      "face": "west",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K11",
+      "face": "west",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K21",
+      "face": "west",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K21",
+      "face": "east",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K21",
+      "face": "south",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K22",
+      "face": "south",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K30",
+      "face": "south",
+      "min_mm": 4.749999999999993,
+      "max_mm": 4.749999999999993,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K31",
+      "face": "south",
+      "min_mm": 4.749999999999987,
+      "max_mm": 4.750000000000001,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K32",
+      "face": "south",
+      "min_mm": 4.749999999999979,
+      "max_mm": 4.749999999999997,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K30",
+      "face": "west",
+      "min_mm": 4.749999999999993,
+      "max_mm": 4.749999999999993,
+      "samples": 9
+    },
+    {
+      "side": "left",
+      "key": "K32",
+      "face": "east",
+      "min_mm": 4.749999999999993,
+      "max_mm": 4.750000000000025,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K01",
+      "face": "north",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K02",
+      "face": "north",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K03",
+      "face": "north",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K04",
+      "face": "north",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K05",
+      "face": "north",
+      "min_mm": 4.749999999999999,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K01",
+      "face": "west",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K11",
+      "face": "west",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K21",
+      "face": "west",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K21",
+      "face": "east",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K21",
+      "face": "south",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K22",
+      "face": "south",
+      "min_mm": 4.75,
+      "max_mm": 4.75,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K30",
+      "face": "south",
+      "min_mm": 4.749999999999993,
+      "max_mm": 4.749999999999993,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K31",
+      "face": "south",
+      "min_mm": 4.749999999999987,
+      "max_mm": 4.750000000000003,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K32",
+      "face": "south",
+      "min_mm": 4.749999999999979,
+      "max_mm": 4.749999999999995,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K30",
+      "face": "west",
+      "min_mm": 4.749999999999993,
+      "max_mm": 4.749999999999993,
+      "samples": 9
+    },
+    {
+      "side": "right",
+      "key": "K32",
+      "face": "east",
+      "min_mm": 4.750000000000011,
+      "max_mm": 4.7500000000000195,
+      "samples": 9
+    }
+  ],
+  "nominal_rim_mm": 4.75,
+  "tolerance_mm": 2e-05,
+  "physical_acceptance": false,
+  "source_sha256": "81efdf373cdc8f18a03a3935d0c805246f4f1075e9772a3d47c9683651658d72",
+  "checker_sha256": "7d67a1b5bfdba4a6e188454f2eacb8e53c4bb5db8afd8c4ae7d84a5267357109"
+}

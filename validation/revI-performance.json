@@ -7,27 +7,27 @@
     800
   ],
   "cpu_throttle": 4,
-  "ready_ms": 6353,
-  "viewer_sha256": "954123503d292bd76f29bbcbbadad4f3c1e78a309811ccda7191905056289900",
+  "ready_ms": 6098,
+  "viewer_sha256": "1a7b6129fc8540068e7696d5518b3ec9d27fd0caa7189fed5153d7d9c3f4fc63",
   "link_state": "selected frame linked to sidebar",
   "orbit": {
-    "elapsed_ms": 1523,
-    "frame_count": 91,
+    "elapsed_ms": 1088,
+    "frame_count": 65,
     "p50_frame_ms": 16.699999999999818,
-    "p95_frame_ms": 16.799999999999272,
+    "p95_frame_ms": 16.700000000000728,
     "long_tasks": 0,
     "long_task_ms": 0
   },
   "frame_choice": {
-    "p50_ms": 60.400000005960464,
-    "p95_ms": 67,
+    "p50_ms": 58.89999997615814,
+    "p95_ms": 64.59999999403954,
     "samples_ms": [
-      67,
-      64,
-      60.400000005960464,
+      64.59999999403954,
+      61.099999994039536,
       58.30000001192093,
-      37,
-      59.19999998807907
+      56.80000001192093,
+      35.60000002384186,
+      58.89999997615814
     ]
   }
 }

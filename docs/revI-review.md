@@ -6,7 +6,17 @@ The source reference requested a stepped finger outline, rectangular pinky foot,
 
 Two independent read-only reviews covered geometry/serviceability and failure modes before the magnetic design was adopted. The recorded source snapshots stayed unchanged during their review. [Decision record](../validation/revI-design-review.json).
 
-## Corrections made during verification
+## Uniform rim correction
+
+The earlier contour was mirrored, but its exposed margins varied from **2.53 to 5.42 mm**. Hand-entered vertices and a containment-only test allowed that discrepancy. The current contour derives its faces from the switch openings at **4.75 mm**, with offset thumb edges and H1 relocated to **(38.7, 37.5)** inside the first two columns. Its post is R2.1; the M2 screw is unchanged.
+
+Why 4.75? The outer thumb hot-swap pad reaches 9.575 mm from its center. Preserving the 1.65 mm case-to-PCB offset and 0.5 mm copper rule requires at least **4.725 mm** of visible rim. A 4 mm draft cut that pad. The new envelope is 119.30 × 95.10 mm; its area differs by only 0.0072% from the previous contour. The electronics bay stays 24 mm.
+
+The left contour alone generates both halves. Measured straight faces, R0.8 corner blends, internal bridges and the bay joint have separate definitions. The test rejects the old outline and reads the actual native plate solids; it does not treat every interior key as peripheral. [Rim measurements](../validation/revI-rim-solids.json) · [Fastener/keycap travel](../validation/revI-fasteners.json) · [Decision and correction record](../validation/revI-rim-review.json).
+
+![Uniform measured rim](images/revI-rim.png)
+
+## Earlier corrections during verification
 
 - H3 was outside the new recess: it moved into existing material. H4/H5 moved below the electronics, with short screws and underside head reliefs.
 - The earlier wide battery opening violated the copper-edge rule: the saddle now stays below the board, with only the cell/cage crossing a 12.5 mm opening.

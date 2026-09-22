@@ -33,7 +33,7 @@ Hide the active frame and keycaps. Change `DisplayShiftY` from **2.4 to 3.4 mm**
 
 ### 3. Inspect the PCB with StepUp
 
-Open `hardware/revI/filo36-left.kicad_pro` in KiCad. RevI matches the chosen contour and adds battery/magnet clearances. H3/H4/H5, J1 and SW1 move; all key transforms, footprint identities and nets are preserved. Switches are locked to preserve the layout; both boards remain unrouted.
+Open `hardware/revI/filo36-left.kicad_pro` in KiCad. RevI matches the chosen contour and adds battery/magnet clearances. H1/H3/H4/H5, J1 and SW1 move; all key transforms, footprint identities and nets are preserved. Switches are locked to preserve the layout; both boards remain unrouted.
 
 In StepUp, enable **Virtual models**, keep **Grid Origin**, include holes from **0 mm**, and apply no outline tolerance. The boards’ grid origin is explicitly **(10, 10) mm**. In a new FreeCAD document, use **Load KiCad PCB**.
 

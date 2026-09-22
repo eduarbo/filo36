@@ -2,7 +2,7 @@
 
 **[Editing guide](freecad.md)** · **[3D configurator](https://eduarbo.github.io/filo36/)** · **[Configuration format and examples](customize.md)**
 
-The current mechanical source is [`mechanical/revI/Filo36.FCStd`](../mechanical/revI/Filo36.FCStd). It contains both halves, native sketches/operations, editable parameters and 36 original KLP meshes. Commercial modules are nominal envelopes. The matching revI KiCad studies use the chosen contour and internal battery/magnet clearances. Five auxiliary/mounting footprints move; all key transforms and nets are preserved.
+The current mechanical source is [`mechanical/revI/Filo36.FCStd`](../mechanical/revI/Filo36.FCStd). It contains both halves, native sketches/operations, editable parameters and 36 original KLP meshes. Commercial modules are nominal envelopes. The matching revI KiCad studies use the chosen contour and internal battery/magnet clearances. Six auxiliary/mounting footprints move; all key transforms and nets are preserved.
 
 | Nominal measure | Revision I |
 |---|---:|
@@ -10,8 +10,9 @@ The current mechanical source is [`mechanical/revI/Filo36.FCStd`](../mechanical/
 | Display glass top | 16.1 mm |
 | Key plate top | 7.6 mm |
 | Electronics bay | 24 mm |
-| Case width × depth, each half | 117 × 92.85 mm |
-| Case control corners / radius | 20 / R0.8 mm |
+| Case width × depth, each half | 119.30 × 95.10 mm |
+| Case control corners / radius | 22 / R0.8 mm |
+| Exposed switch-to-rim margin | 4.75 mm |
 | Battery aperture | 12.5 × 33.6 mm |
 | North overhang past adjacent cap | 0 mm nominal |
 
@@ -47,12 +48,15 @@ python tools/build_revI_profiles.py
 python tools/build_revI_wire.py
 python tools/build_keycap_catalog.py
 python tools/check_revI_config.py
+python tools/check_revI_fasteners.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/build_revI.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI_service.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI.py
+FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI_rim.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_finishes.py
 python tools/render_revI.py
 python tools/render_frames.py
+python tools/render_rim.py
 python tools/build_viewer_revI.py
 node viewer/build.mjs
 python tools/check_viewer_revI.py
@@ -61,6 +65,8 @@ node viewer/check.cjs
 python3 tools/check_parts_links.py
 python3 tools/check_revI_delivery.py
 ```
+
+To regenerate the current PCB without replacing existing work, use `python3 tools/build_revI_pcb.py --output build/uniform-contour/hardware` with a new empty destination and compare its two PCB files. The source remains the immutable revH placement.
 
 For a fresh PCB reconstruction, run `python3 tools/build_revI_pcb.py` only when `hardware/revI/` does not exist. Run KiCad CLI DRC for both boards with JSON outputs at `build/revI/drc-left.json` and `drc-right.json`, then run `tools/check_revI_pcb.py` with KiCad Python. It checks the explicitly allowed footprint changes, preserved keys/nets and exact new outline, and writes the actual pad polygons. Then run `python tools/check_revI_outline.py` to measure every pad-to-edge clearance. Run these PCB checks before the final delivery check.
 
@@ -74,11 +80,11 @@ The native configuration test also uses the scoped subprocess exit after its ass
 
 The catalog build verifies SHA-256 and Git blob hashes of every pinned upstream STL. The geometry exporter checks closed printable solids, pair intersections, both cell variants and all six cover variants against components and a nominal USB plug corridor. The separate keycap checker includes complete-configuration envelopes and a travel/plate bound. The service checker samples frame lift, checks closed insert capture, cage capture and the cell-motion bound against lead paths. These tests do not measure force or print tolerances. Source hashes and results are under `validation/revI-*`.
 
-`build/` is ignored and reproducible: native save/reopen trials come from `check_revI.py`; screenshots, test GLB/JSON and UI receipts from `viewer/check.cjs`; the viewer scene from `build_viewer_revI.py`. Source generations should be compared geometrically because STEP/FCStd metadata may vary. DRC JSON and pad polygons regenerate with the PCB checks above; service coupons regenerate with `check_revI_service.py`. Temporary failed drafts were removed. `viewer/performance.cjs` regenerates the current interaction timing receipt under `build/viewer-sidebar/`; `viewer/finishes-check.cjs` checks triangle/material identity. The native finish checker saves its current readback under `build/viewer-multicolor/freecad.json`.
+`build/` is ignored and reproducible: native save/reopen trials come from `check_revI.py`; screenshots, test GLB/JSON and UI receipts from `viewer/check.cjs`; the viewer scene from `build_viewer_revI.py`. Source generations should be compared geometrically because STEP/FCStd metadata may vary. DRC JSON and pad polygons regenerate with the PCB checks above; service coupons regenerate with `check_revI_service.py`. The rim checker rejects the retained former contour, measures 288 normal samples in the actual plate solids, and compares mirrored tray/plate volumes. `tools/check_revI_fasteners.py` clips actual KLP triangles to each screw-height travel slab for all 756 qualified reference choices. `build/uniform-contour/` contains reproducible logs/staging from these commands; review decisions are retained in the public receipt. `viewer/performance.cjs` regenerates the current interaction timing receipt under `build/viewer-sidebar/`; `viewer/finishes-check.cjs` checks triangle/material identity. The native finish checker saves its current readback under `build/viewer-multicolor/freecad.json`.
 
 ## PCB exchange
 
-RevI updates the board contour, battery opening and magnetic-station cutouts. `tools/build_revI_pcb.py` copies the historical unrouted source and refuses to overwrite existing work. Readback permits only H3/H4/H5, J1 and SW1 to move; it checks preserved pad/net/drill/UUID/model data and all 36 locked keys. The verified StepUp procedure and coordinate alignment are described in [the editing guide](freecad.md#3-inspect-the-pcb-with-stepup). To rerun the historical exchange test on temporary copies:
+RevI updates the board contour, battery opening and magnetic-station cutouts. `tools/build_revI_pcb.py` copies the historical unrouted source and refuses to overwrite existing work. Readback permits only H1/H3/H4/H5, J1 and SW1 to move; it checks preserved pad/net/drill/UUID/model data and all 36 locked keys. The verified StepUp procedure and coordinate alignment are described in [the editing guide](freecad.md#3-inspect-the-pcb-with-stepup). To rerun the historical exchange test on temporary copies:
 
 ```sh
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_stepup.py

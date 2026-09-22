@@ -1,0 +1,21 @@
+{
+  "scope": "Conservative full 3.5 mm vertical KLP travel versus actual nominal screw heads; physical seating remains untested",
+  "checked_reference_choice_head_pairs": 2268,
+  "minimum_xy_clearance_mm": 4.091006905764591,
+  "limiting": {
+    "variant": "choc_stem_choc_size_normal_homing",
+    "choice": {
+      "side": "left",
+      "key": "K02",
+      "rotation_deg": 180,
+      "clearance_mm": 0.51016
+    },
+    "mount": "H2"
+  },
+  "inputs": {
+    "keycaps/catalog.json": "0f710bdb3e599bc86e0a8b4360eac6adda311501502fb08a75623adf14a3c03d",
+    "design/revI-mounts.json": "ee6a61232b1a8c308748af1174793664c41238a6c36cd166209e6d011d5592bd",
+    "tools/check_revI_fasteners.py": "6428588754e41f411244181eeffeff2312e3cf19470245979b59b8cbf2149dee"
+  },
+  "physical_acceptance": false
+}

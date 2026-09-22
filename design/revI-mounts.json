@@ -4,10 +4,10 @@
     {
       "id": "H1",
       "xy": [
-        21,
+        38.7,
         37.5
       ],
-      "post_radius": 2.5,
+      "post_radius": 2.1,
       "seat_z": 7.6,
       "length": 6,
       "head_diameter": 3.8,

@@ -26,14 +26,50 @@ def rounded(points,radius):
     outline=[p for c in corners for p in c['samples']]
     return outline,[{'start':c['start'],'mid':c['mid'],'end':c['end']} for c in corners]
 
-# User-selected Contour: five staggered plateaus, one recess, continuous thumb fan.
-controls=[[18, 18], [36, 18], [36, 6], [54, 6], [54, 1], [78, 1], [78, 6], [94, 6], [94, 8], [111, 8], [111, 11], [135, 11], [135, 85], [129, 94], [102, 85], [67, 85], [63.7, 62], [42, 62], [42, 75], [18, 75]]
+# One margin governs exposed switch faces; fasteners are deliberately not inputs.
+# K32's unchanged hot-swap pad reaches 9.575 mm from its center:
+# 9.575 - 7 + 1.65 PCB inset + .5 copper rule = 4.725 mm minimum.
+MARGIN = 4.75
+
+def intersect(a,b,c,d):
+    u=[b[i]-a[i] for i in (0,1)];v=[d[i]-c[i] for i in (0,1)]
+    w=[c[i]-a[i] for i in (0,1)]
+    t=(w[0]*v[1]-w[1]*v[0])/(u[0]*v[1]-u[1]*v[0])
+    return [a[i]+t*u[i] for i in (0,1)]
+
+def control_outline(keys, margin=MARGIN):
+    """Column plateaus plus offset thumb faces; bay and recess are explicit bridges."""
+    d=7+margin;key={k['ref']:k for k in keys}
+    top=[key['K0'+str(i)] for i in range(1,6)]
+    points=[[top[0]['x']-d,top[0]['y']-d]]
+    for i in range(4):
+        a,b=top[i:i+2]
+        x=b['x']-d if b['y']<a['y'] else a['x']+d
+        points.extend([[x,a['y']-d],[x,b['y']-d]])
+    points += [[top[-1]['x']+d,top[-1]['y']-d],[top[-1]['x']+d,11],
+               [135,11],[135,67]]
+    thumbs=[]
+    for k in keys[-3:]:
+        a=-math.radians(k['angle'])
+        thumbs.append([[k['x']+x*math.cos(a)-y*math.sin(a),
+                        k['y']+x*math.sin(a)+y*math.cos(a)]
+                       for x,y in [(d,-d),(d,d),(-d,d),(-d,-d)]])
+    south=[intersect(a[1],a[2],b[1],b[2]) for a,b in zip(thumbs,thumbs[1:])]
+    recess=key['K22']['y']+d
+    points += [thumbs[2][0],thumbs[2][1],south[1],south[0],thumbs[0][2],
+               intersect(thumbs[0][2],thumbs[0][3],[0,recess],[160,recess]),
+               [key['K21']['x']+d,recess],[key['K21']['x']+d,key['K21']['y']+d],
+               [key['K21']['x']-d,key['K21']['y']+d]]
+    return points
+
+layout=json.loads((ROOT/'design/layout.json').read_text())
+controls=control_outline(layout['halves']['left'])
 outer,arcs=rounded(controls,.8);shell=Polygon(outer);assert shell.is_valid
 hood,h_arcs=rounded([[111,11],[135,11],[135,67],[111,67]],1.2)
 frame=Polygon(hood)
 coords=lambda p:[list(v) for v in p.exterior.coords][:-1]
 profiles={};frames={}
-left={'outer':outer,'outer_arcs':arcs,'control_vertices':controls,'corner_radius_mm':.8,
+left={'outer':outer,'outer_arcs':arcs,'control_vertices':controls,'corner_radius_mm':.8,'exposed_margin_mm':MARGIN,
       'inner':coords(shell.buffer(-1.3,join_style=2)),
       'pcb_outline':coords(shell.buffer(-1.65,join_style=2).difference(Point(133,52.8).buffer(2.05,quad_segs=32))),
       'plate':coords(shell.difference(frame.buffer(.18,join_style=2))),
@@ -54,4 +90,4 @@ for side in ['left','right']:
         frames[side][style+'_arcs']=[{n:reflect(p) for n,p in a.items()} for a in arcs]
 (ROOT/'design/revI-profiles.json').write_text(json.dumps(profiles,indent=2)+'\n')
 (ROOT/'design/revI-frame-profiles.json').write_text(json.dumps(frames,indent=2)+'\n')
-print('20 intentional R0.8 corners; five plateaus, pinky foot, one recess and continuous thumb fan')
+print('22 R0.8 corners; 4.75 mm exposed rim, offset thumb faces and exact mirrored halves')

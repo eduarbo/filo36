@@ -1,0 +1,83 @@
+{
+  "request": "Uniform exposed case rim and mirrored cutout silhouette; no expanded screw edge",
+  "baseline": {
+    "head": "dcb76fdd0b9b2829fb17ecc77d969b8d2986f848",
+    "status": "",
+    "inputs": {
+      "design/layout.json": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
+      "design/revI-profiles.json": "47a80ffbc05fdd2208813a2eff06eafb8364b6e5207a3e45e72bca292ac75c2c",
+      "design/revI-mounts.json": "6f15d7cf30f4049edf728db55e90199220f939e6cb53c59a3f20dd3d31641a34",
+      "design/revI-magnets.json": "4f953719a2e36c69fd566e90c3b0e6071d90fe5a990126e73a24186910e81ca8",
+      "design/batteries.json": "1c4d2037b6fb04ea7aab6ba1d2f780eda9d886ebf8dd1c403c2721743d0424ff",
+      "tools/build_revI_profiles.py": "1412797d18bf3cdf46bad346e805d8d6a433727f9835707795052846dd46b57f",
+      "tools/freecad/build_revI.py": "3e338b6560f0931361041317a0e8e713290a0d55812371af624eb3afd2046497",
+      "tools/check_revI_outline.py": "5f05768fdf0ac34bcc16cd7b76116f8800611d4bef2ff760309068ae01dc3f59",
+      "validation/revI-outline.json": "c1969cbdbf017e3802d9e77102424e17676471fcf0c1c165f7bf21b4ae03bfa2",
+      "docs/revI-review.md": "b5b8c7648a7b310cb0d08fa1fbc2580bb2b43d0541f1d30d539a5a2c9ea4e35e"
+    }
+  },
+  "reviewers": [
+    {
+      "role": "domain_constructive",
+      "agent": "uniform_domain",
+      "run_id": "role-run-d5fac94a1fdd359b8adadac8"
+    },
+    {
+      "role": "adversarial_risk",
+      "agent": "uniform_risk",
+      "run_id": "role-run-a5ebd04b4623c9a745637f2d"
+    }
+  ],
+  "read_only_integrity": "All 10 enumerated files and tracked/untracked state unchanged before implementation; behaviorally read-only, not isolated",
+  "round_1": "Both reviewers diagnosed varying exposed rim and exact existing reflection; proposed 4mm pending copper. Candidate H1 locations required full checks.",
+  "round_2": "Both agreed to 4.75mm and H1(38.7,37.5), R2.1 after root supplied actual K32 pad reach; independently checked arithmetic and H1-to-cut distances. No unresolved objection to implementing and verifying this candidate.",
+  "material_disposition": [
+    {
+      "finding": "4mm clips preserved K32 hot-swap pad",
+      "resolution": "4.725mm minimum = 9.575mm pad extent -7mm half-opening +1.65mm PCB inset +0.5mm edge rule. Adopt4.75mm."
+    },
+    {
+      "finding": "Old checker can pass unequal visible rim",
+      "resolution": "Explicit exposed-face normal samples, exact mirror, frozen layout and old-outline rejection; independent native-solid measurements."
+    },
+    {
+      "finding": "H1 relocation may interfere",
+      "resolution": "Native part intersections, actual PCB DRC, swept original KLP/head envelopes and sampled service paths required."
+    },
+    {
+      "finding": "Same area does not mean same shape or no local expansion",
+      "resolution": "Publish dimensioned top view and identify corner, bridge and frame-joint transitions. Bay24mm fixed; case outline ignores fastener coordinates."
+    }
+  ],
+  "confidence": "High for discrepancy/math; final geometry verified by root; print tolerances and hardware fit remain unmeasured",
+  "retrospective": {
+    "trigger": "User observed unequal rim around openings",
+    "cause": "Hand-entered control vertices were checked for containment, not consistent face offsets",
+    "prevention": "Generate from switch geometry and require normal-distance tests that reject the baseline"
+  },
+  "controller_role_records": "Closed PARTIAL because preserved pre-implementation handoffs contain product defects and unrun hardware checks; advisory agreement is not a completed implementation certificate. No retry or policy override.",
+  "overall_keyboard_status": "partial digital prototype",
+  "physical_acceptance": false,
+  "root_acceptance": {
+    "native_source": "validation/revI-rim-solids.json",
+    "normal_samples": 288,
+    "sample_rim_mm": 4.75,
+    "tray_plate_symmetric_difference_mm3": 0,
+    "previous_outline_rejected": true,
+    "actual_min_copper_to_edge_mm": 0.524093,
+    "drc_geometric_violations": 0,
+    "unconnected_per_half": 104,
+    "klp_head_sweeps": 2268,
+    "minimum_swept_xy_clearance_mm": 4.091006905764591,
+    "native_default_intersections": 0,
+    "battery_profiles_checked": [
+      "adafruit-1570",
+      "301230"
+    ],
+    "frame_styles_checked": 6,
+    "configuration_save_reopen": "passed",
+    "service_paths": "passed",
+    "offline_viewer": "passed",
+    "physical_acceptance": false
+  }
+}
