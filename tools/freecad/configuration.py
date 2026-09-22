@@ -9,6 +9,15 @@ import Mesh
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
 from keycap_config import load,check
+from frame_finishes import role,palette,rgb
+
+def apply_finish(doc,cover,side,body):
+    colors=palette(cover.FrameStyle,body)
+    roof=float(doc.Parameters.FrameTop)
+    cover.ViewObject.ShapeColor=rgb(body)
+    cover.ViewObject.DiffuseColor=[rgb(colors[role(cover.FrameStyle,side,f.CenterOfMass.x,-f.CenterOfMass.y,f.CenterOfMass.z,roof)]) for f in cover.Shape.Faces]
+    # The visible App::Link must inherit its source's per-face materials.
+    doc.getObject(('L_' if side=='left' else 'R_')+'ActiveFrame').ViewObject.OverrideMaterial=False
 
 def apply(doc,config):
     catalog=load();errors,clearance=check(config,catalog)
@@ -30,7 +39,7 @@ def apply(doc,config):
                 obj.Placement=A.Placement(A.Vector(key['x'],-key['y'],v['seating_z_mm']),A.Rotation(A.Vector(0,0,1),key['angle']+choice['rotation_deg']))
             f=config['frames'][side];cover=next(o for o in doc.Objects if o.Name.startswith(prefix) and hasattr(o,'FrameStyle') and o.FrameStyle==f['style'])
             doc.getObject(prefix+'ActiveFrame').setLink(cover)
-            rgb=tuple(int(f['color'][i:i+2],16)/255 for i in (1,3,5));cover.ViewObject.ShapeColor=rgb
+            apply_finish(doc,cover,side,f['color'])
             for o in doc.Objects:
                 if o.Name.startswith(prefix) and hasattr(o,'FrameStyle'):o.Visibility=False
             doc.getObject(prefix+'ActiveFrame').Visibility=True

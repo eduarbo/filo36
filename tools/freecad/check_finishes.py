@@ -1,0 +1,47 @@
+"""Check painted native faces, visible links and configuration save/reopen.
+SPDX-License-Identifier: GPL-3.0-or-later
+"""
+import sys,json,hashlib,os,traceback
+from pathlib import Path
+import FreeCAD as A
+import FreeCADGui as G
+ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools/freecad'))
+from configuration import apply,extract,apply_finish
+from frame_finishes import palette,rgb,role
+OUT=ROOT/'build/viewer-multicolor';OUT.mkdir(exist_ok=True)
+result={};source=ROOT/'mechanical/revH/Filo36.FCStd'
+def verify(doc):
+    records=[]
+    for side,prefix in [('left','L_'),('right','R_')]:
+        link=doc.getObject(prefix+'ActiveFrame');cover=link.LinkedObject
+        assert not link.ViewObject.OverrideMaterial
+        colors=cover.ViewObject.DiffuseColor
+        assert len(colors)==len(cover.Shape.Faces)
+        actual={tuple(round(v*255) for v in color[:3]) for color in colors}
+        expected={tuple(round(v*255) for v in rgb(c)) for c in palette(cover.FrameStyle,extract(doc)['frames'][side]['color']).values()}
+        assert actual==expected,(side,actual,expected)
+        records.append({'side':side,'style':cover.FrameStyle,'colored_faces':len(colors),'distinct_colors':len(actual),'visible_link_inherits_materials':link.Visibility and not link.ViewObject.OverrideMaterial})
+    return records
+try:
+    digest=hashlib.sha256(source.read_bytes()).hexdigest();G.showMainWindow();doc=A.openDocument(str(source));doc.recompute();cfg=extract(doc);records=[]
+    for style in ['handheld','tv','cyberpunk']:
+        for side in ['left','right']:cfg['frames'][side]={'style':style,'color':palette(style)['body']}
+        apply(doc,cfg);assert extract(doc)==cfg;records.extend(verify(doc))
+    cfg['frames']['left']['color']='#ad7656';apply(doc,cfg);assert extract(doc)==cfg
+    cell=doc.Parameters.getCellFromAlias('FrameTop');doc.Parameters.set(cell,'17.2 mm');doc.recompute()
+    for side,prefix in [('left','L_'),('right','R_')]:apply_finish(doc,doc.getObject(prefix+'ActiveFrame').LinkedObject,side,cfg['frames'][side]['color'])
+    verify(doc)
+    target=OUT/'multicolor.FCStd';doc.saveAs(str(target));A.closeDocument(doc.Name);doc=A.openDocument(str(target));doc.recompute();assert extract(doc)==cfg;verify(doc)
+    # Export the visible colored link scene, with only frames visible, for inspection.
+    for obj in doc.Objects:
+        if obj.TypeId=='App::Part':obj.Visibility=True
+        elif hasattr(obj,'ViewObject'):obj.Visibility=False
+    for prefix in ['L_','R_']:doc.getObject(prefix+'ActiveFrame').Visibility=True
+    G.activeDocument().activeView().viewTop();G.activeDocument().activeView().fitAll();G.activeDocument().activeView().saveImage(str(OUT/'freecad.png'),1000,600,'White')
+    A.closeDocument(doc.Name);assert hashlib.sha256(source.read_bytes()).hexdigest()==digest
+    result={'passed':True,'source_unchanged':True,'source_sha256':digest,'styles':records,'json_body_override_roundtrip':True,'edited_roof_mm':17.2,'saved_reopened_colors':True}
+except Exception:
+    result={'passed':False,'error':traceback.format_exc()}
+(OUT/'freecad.json').write_text(json.dumps(result,indent=2)+'\n')
+# Scoped helper process only; avoids bundled Qt teardown instability.
+if os.environ.get('FILO_FREECAD_SUBPROCESS')=='1':os._exit(0 if result.get('passed') else 1)

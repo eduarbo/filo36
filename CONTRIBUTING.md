@@ -21,13 +21,14 @@ python3 tools/build_viewer_revH.py
 npm ci --prefix viewer
 node viewer/build.mjs
 node viewer/check.cjs
+node viewer/finishes-check.cjs
 python3 tools/check_viewer_revH.py
 python3 tools/check_revH_delivery.py
 ```
 
 If Playwright is installed outside the project or needs a particular Chromium executable, set `FILO36_PLAYWRIGHT_MODULE` and `FILO36_BROWSER`. To repeat functional acceptance against a published revision, also set `FILO36_VIEWER_URL` to its URL. The same checks exercise local HTML with HTTP(S) blocked and the public page with scene integrity verification.
 
-`build/` is ignored and reproducible: the scene generator creates its geometry bundle; the UI checker writes screenshots, configuration JSON, GLB and its receipt. `docs/images/viewer-explorer.png` is copied from `build/viewer-sidebar/desktop-linked.png`. The source of the standalone HTML is under `viewer/`; do not hand-edit `docs/index.html`.
+`build/` is ignored and reproducible: the scene generator creates its geometry bundle; the UI checker writes screenshots, configuration JSON, GLB and its receipt. `docs/images/viewer-explorer.png` is copied from `build/viewer-multicolor/handheld.png`. Frame palettes live in `design/frame-finishes.json`; accent colors are assigned only to existing relief. `python3 tools/render_frames.py` rebuilds the comparison image. `FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_finishes.py` checks all three themes on both native halves, height changes and save/reopen using the installed macOS FreeCAD runtime; its temporary FCStd, image and receipt stay under ignored `build/viewer-multicolor/`. The geometry check creates a reproducible JS bundle and receipt there. The source of the standalone HTML is under `viewer/`; do not hand-edit `docs/index.html`.
 
 For a viewer performance change, compare the same browser and machine with a declared CPU throttle:
 

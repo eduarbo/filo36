@@ -1,6 +1,14 @@
 {
-  "image_sha256": "dbaee03982c13d4fb1314db9a8aecd2772c1f1e263957346382a0bb9e12d8a65",
+  "image_sha256": "36f8f43e42f6528e03487a10c9e77159fce718a6242848ae1865f32187f5eb45",
   "sources": [
+    {
+      "path": "design/frame-finishes.json",
+      "sha256": "b76bfa1ad6c5753439a8cf41a3c4ad81c2459bcdc43c1521c3ea77c239eeda18"
+    },
+    {
+      "path": "tools/frame_finishes.py",
+      "sha256": "7cc487c0e1261e35415a3596f18b3eebc50e2d3d46294434ea735e32e9b96401"
+    },
     {
       "path": "mechanical/revH/left-frame-handheld.stl",
       "sha256": "708baf0d24642ef101148809ab27baa3e9b4e3371b7b2d289fcfa8fc3db8919a"
@@ -14,6 +22,6 @@
       "sha256": "99273686d754048931d3027007e88876fef51e086f7a5c9dc254d462b7c4c83c"
     }
   ],
-  "renderer_sha256": "69d2158d6979e045c108a9822aea1f2976dea32ab26dde411a2d285355587661",
+  "renderer_sha256": "3d7a5c6d0e8923a03c7868ff31f7540100bb091a66fb89930ccbb08ba6a5c357",
   "geometry_changed": false
 }

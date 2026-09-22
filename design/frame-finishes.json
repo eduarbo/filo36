@@ -1,0 +1,115 @@
+{
+  "revision": "H",
+  "description": "Color on existing relief faces; no additional parts. XY uses the left-hand layout in millimetres. Mirror right-hand X about 80 mm.",
+  "roles": [
+    "body",
+    "detail",
+    "accent",
+    "secondary"
+  ],
+  "roof_mm": 16.6,
+  "styles": {
+    "handheld": {
+      "colors": {
+        "body": "#d8d3bd",
+        "detail": "#33343e",
+        "accent": "#9b3056",
+        "secondary": "#777780"
+      },
+      "labels": {
+        "body": "Warm shell",
+        "detail": "D-pad",
+        "accent": "Buttons",
+        "secondary": "Speaker"
+      },
+      "zones": [
+        {
+          "role": "accent",
+          "xy": [
+            123.9,
+            51.7,
+            131.1,
+            58.0
+          ]
+        },
+        {
+          "role": "secondary",
+          "xy": [
+            118.9,
+            62.9,
+            124.5,
+            65.4
+          ]
+        }
+      ]
+    },
+    "tv": {
+      "colors": {
+        "body": "#976044",
+        "detail": "#e2d5ae",
+        "accent": "#c69543",
+        "secondary": "#34373b"
+      },
+      "labels": {
+        "body": "Walnut shell",
+        "detail": "CRT bezel",
+        "accent": "Tuning knob",
+        "secondary": "Speaker"
+      },
+      "zones": [
+        {
+          "role": "accent",
+          "xy": [
+            126.7,
+            52.9,
+            131.1,
+            57.3
+          ]
+        },
+        {
+          "role": "secondary",
+          "xy": [
+            114.1,
+            52.5,
+            120.1,
+            57.9
+          ]
+        }
+      ]
+    },
+    "cyberpunk": {
+      "colors": {
+        "body": "#303440",
+        "detail": "#657584",
+        "accent": "#18c5c2",
+        "secondary": "#d74c95"
+      },
+      "labels": {
+        "body": "Graphite shell",
+        "detail": "Vents",
+        "accent": "Circuit traces",
+        "secondary": "Panel and node"
+      },
+      "zones": [
+        {
+          "role": "accent",
+          "xy": [
+            126.7,
+            51.7,
+            132.6,
+            58.2
+          ]
+        },
+        {
+          "role": "secondary",
+          "xy": [
+            119.4,
+            59.9,
+            129.2,
+            65.6
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -12,6 +12,14 @@
 | Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
 | Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
 
+## Multicolor frame previews
+
+Handheld, Retro TV and Cyberpunk now use distinct body, detail and accent colors on the existing raised faces. Larger upright previews show the corresponding meshes and palettes; one click applies both. Body-color overrides remain independent per half and survive JSON export/import. The shared palette also drives the GLB materials, FreeCAD configuration import and frame comparison image.
+
+The former thumbnails referenced different STL files, but used one green material and a distant oblique view. Their distinct-image test did not establish readable design details. Current checks identify actual left/right raised features, preserve every original vertex/normal/triangle and verify the exported material colors. Geometry and manufacturing status remain unchanged.
+
+[Color and print guide](customize.md#print-a-themed-display-frame) · [Correction scope](../design/viewer-multicolor-workflow.json).
+
 ## Persistent component sidebar
 
 All 12 component entries remain visible while their details scroll or collapse. Hover, focus or select a part to highlight it; the connecting line ends at its own sidebar entry. Frame previews still apply in one click. Desktop, 390 px and 320 px touch layouts, short landscape, configuration and exact GLB export passed local and public checks.
@@ -20,7 +28,7 @@ The previous floating-tag iteration passed functional tests but missed the inten
 
 On the same Chromium 152 setup at 1200 × 800 with 4× CPU throttling, **p95 orbit frame interval fell from 1,616.5 to 16.8 ms**, with 59 long tasks reduced to zero. **Frame-change p95 fell from 1,692.4 to 59.0 ms**. These are local benchmark results; physical-phone performance remains untested.
 
-[Usage guide](viewer.md) · [Checks and measurements](../validation/viewer-sidebar.json) · [Public readback](../validation/viewer-sidebar-publication.json), including all571 source-commit files · [Correction scope](../design/viewer-sidebar-workflow.json). Historical acceptance of the first visual explorer remains in its [original receipt](../validation/viewer-ux-publication.json).
+[Usage guide](viewer.md) · [Checks and measurements](../validation/viewer-sidebar.json) · [Public readback](../validation/viewer-sidebar-publication.json), including all 571 source-commit files · [Correction scope](../design/viewer-sidebar-workflow.json). Historical acceptance of the first visual explorer remains in its [original receipt](../validation/viewer-ux-publication.json).
 
 ## Revision H — continuous edge and printable themes
 

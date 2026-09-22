@@ -1,0 +1,266 @@
+{
+  "parent_objective": "Piantor wireless slim / Filo36; custom_display_frames and interactive_assembly",
+  "request": "Multicolor Handheld, Retro TV and Cyberpunk frames; previews must show the corresponding actual designs.",
+  "status": "locally_verified",
+  "viewer_sha256": "b7ddc25c5f3669d8364c0d320487b37a05ec8d1402e746c0390cf100566d723b",
+  "geometry": {
+    "original_vertices_normals_and_triangles": true,
+    "raised_feature_probes": true,
+    "no_extra_geometry": true,
+    "max_material_groups": 4,
+    "geometry_cached": true,
+    "checked": [
+      {
+        "side": "left",
+        "style": "smooth",
+        "triangles": 3392,
+        "groups": 1,
+        "feature_probes": 0
+      },
+      {
+        "side": "right",
+        "style": "smooth",
+        "triangles": 3392,
+        "groups": 1,
+        "feature_probes": 0
+      },
+      {
+        "side": "left",
+        "style": "bevel",
+        "triangles": 4136,
+        "groups": 1,
+        "feature_probes": 0
+      },
+      {
+        "side": "right",
+        "style": "bevel",
+        "triangles": 4136,
+        "groups": 1,
+        "feature_probes": 0
+      },
+      {
+        "side": "left",
+        "style": "facet",
+        "triangles": 4136,
+        "groups": 1,
+        "feature_probes": 0
+      },
+      {
+        "side": "right",
+        "style": "facet",
+        "triangles": 4136,
+        "groups": 1,
+        "feature_probes": 0
+      },
+      {
+        "side": "left",
+        "style": "handheld",
+        "triangles": 4328,
+        "groups": 4,
+        "feature_probes": 4
+      },
+      {
+        "side": "right",
+        "style": "handheld",
+        "triangles": 4328,
+        "groups": 4,
+        "feature_probes": 4
+      },
+      {
+        "side": "left",
+        "style": "tv",
+        "triangles": 3892,
+        "groups": 4,
+        "feature_probes": 4
+      },
+      {
+        "side": "right",
+        "style": "tv",
+        "triangles": 3892,
+        "groups": 4,
+        "feature_probes": 4
+      },
+      {
+        "side": "left",
+        "style": "cyberpunk",
+        "triangles": 3908,
+        "groups": 4,
+        "feature_probes": 4
+      },
+      {
+        "side": "right",
+        "style": "cyberpunk",
+        "triangles": 3908,
+        "groups": 4,
+        "feature_probes": 4
+      }
+    ]
+  },
+  "freecad": {
+    "passed": true,
+    "source_unchanged": true,
+    "source_sha256": "d48aad0a79d6fa96cce3c1565649b468643b17ce4edda4ddbed8047948dbd0c2",
+    "styles": [
+      {
+        "side": "left",
+        "style": "handheld",
+        "colored_faces": 83,
+        "distinct_colors": 4,
+        "visible_link_inherits_materials": true
+      },
+      {
+        "side": "right",
+        "style": "handheld",
+        "colored_faces": 83,
+        "distinct_colors": 4,
+        "visible_link_inherits_materials": true
+      },
+      {
+        "side": "left",
+        "style": "tv",
+        "colored_faces": 78,
+        "distinct_colors": 4,
+        "visible_link_inherits_materials": true
+      },
+      {
+        "side": "right",
+        "style": "tv",
+        "colored_faces": 78,
+        "distinct_colors": 4,
+        "visible_link_inherits_materials": true
+      },
+      {
+        "side": "left",
+        "style": "cyberpunk",
+        "colored_faces": 82,
+        "distinct_colors": 4,
+        "visible_link_inherits_materials": true
+      },
+      {
+        "side": "right",
+        "style": "cyberpunk",
+        "colored_faces": 82,
+        "distinct_colors": 4,
+        "visible_link_inherits_materials": true
+      }
+    ],
+    "json_body_override_roundtrip": true,
+    "edited_roof_mm": 17.2,
+    "saved_reopened_colors": true
+  },
+  "ui": {
+    "viewer_sha256": "b7ddc25c5f3669d8364c0d320487b37a05ec8d1402e746c0390cf100566d723b",
+    "target": "local file with all HTTP(S) requests blocked",
+    "browser": "152.0.7977.76",
+    "desktop": true,
+    "narrow_viewport_emulation": true,
+    "physical_phone_tested": false,
+    "public_embedded_scene_matches_current": false,
+    "all_12_layer_filters": true,
+    "half_filters": true,
+    "orbit_drag": true,
+    "bottom_view": true,
+    "full_reset_pixel_identical": true,
+    "persistent_component_directory": true,
+    "sidebar_line_endpoints": true,
+    "directory_visible_during_scroll_and_collapse": true,
+    "keyboard_component_selection": true,
+    "direct_canvas_picking": true,
+    "labels_follow_camera": true,
+    "frame_click_reveals_hidden_cover": true,
+    "annotation_toggle": true,
+    "orbit_does_not_select": true,
+    "touch_orbit_and_pinch_do_not_select": true,
+    "small_320px_viewport": true,
+    "six_preview_cards": true,
+    "multicolor_glb_roles": true,
+    "one_click_frames": true,
+    "keyboard_frame_activation": true,
+    "mixed_style_and_color_state": true,
+    "theme_applies_palette_and_body_overrides_roundtrip": true,
+    "sidebar_hover_highlight": true,
+    "sidebar_opens_frame_explorer": true,
+    "touch_frame_cards_and_sidebar": true,
+    "hidden_layer_links_removed": true,
+    "highlight_excluded_from_glb": true,
+    "keycap_variant_selection": true,
+    "frame_style_and_color": true,
+    "three_distinct_themed_geometries": true,
+    "json_roundtrip": true,
+    "invalid_combination_rejected": true,
+    "glb_matches_custom_configuration": true,
+    "glb_selected_vertices_exact": true,
+    "glb_objects": 168,
+    "glb_keycaps": 36,
+    "glb_units": "metres",
+    "runtime_errors": [],
+    "offline_network_requests": 0
+  },
+  "performance": {
+    "baseline": false,
+    "baseline_revision": "8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a",
+    "browser": "152.0.7977.76",
+    "viewport": [
+      1200,
+      800
+    ],
+    "cpu_throttle": 4,
+    "ready_ms": 4578,
+    "viewer_sha256": "b7ddc25c5f3669d8364c0d320487b37a05ec8d1402e746c0390cf100566d723b",
+    "link_state": "selected frame linked to sidebar",
+    "orbit": {
+      "elapsed_ms": 1338,
+      "frame_count": 80,
+      "p50_frame_ms": 16.699999999999818,
+      "p95_frame_ms": 16.700000000000728,
+      "long_tasks": 0,
+      "long_task_ms": 0
+    },
+    "frame_choice": {
+      "p50_ms": 54.29999998211861,
+      "p95_ms": 57.5,
+      "samples_ms": [
+        57.5,
+        54.79999998211861,
+        54.29999998211861,
+        51.099999994039536,
+        35.30000001192093,
+        53
+      ]
+    }
+  },
+  "visual_review": {
+    "upright_controls_below_window": true,
+    "distinct_theme_cards_at_desktop_and_mobile_size": true,
+    "selected_frame_keeps_true_colors": true,
+    "freecad_active_links_show_accents": true,
+    "physical_phone_tested": false
+  },
+  "artifacts": [
+    {
+      "path": "design/frame-finishes.json",
+      "sha256": "b76bfa1ad6c5753439a8cf41a3c4ad81c2459bcdc43c1521c3ea77c239eeda18"
+    },
+    {
+      "path": "viewer/finishes.js",
+      "sha256": "9eb5a21947b32867411716ed54c2520382803a96d542b3b4b8f546d40e22ca16"
+    },
+    {
+      "path": "tools/frame_finishes.py",
+      "sha256": "7cc487c0e1261e35415a3596f18b3eebc50e2d3d46294434ea735e32e9b96401"
+    },
+    {
+      "path": "tools/freecad/configuration.py",
+      "sha256": "b88ec7dc3f6a5d51a57d0d247bf6874f1c48c07b5e1b37743034920e64ef6817"
+    },
+    {
+      "path": "docs/images/viewer-explorer.png",
+      "sha256": "6534b669e1fa6e4451296f0b27e1ac0e3f2379ba8b628cea74458b6f3f085bf1"
+    },
+    {
+      "path": "docs/images/revH-frames.png",
+      "sha256": "36f8f43e42f6528e03487a10c9e77159fce718a6242848ae1865f32187f5eb45"
+    }
+  ],
+  "limits": "Colored faces on existing one-piece frames. STL does not store colors; slicer face painting or manual painting required. No printable multicolor toolpaths, hardware print, or physical-phone acceptance."
+}

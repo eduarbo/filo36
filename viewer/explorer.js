@@ -84,10 +84,11 @@ export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,req
   $('annotations').onclick=()=>{enabled=!enabled;$('annotations').setAttribute('aria-pressed',String(enabled));scheduleAnchor();requestRender();};
   new ResizeObserver(()=>{layoutDirty=true;requestRender();}).observe(main);
   function update(){
-    const active=hovered||selected,stamp=key(active)+':'+revision;
+    // Keep a selected frame's palette visible; hover still highlights its surface.
+    const active=hovered||selected,highlighted=hovered||(selected?.group==='lid'?null:selected),stamp=key(active)+':'+key(highlighted)+':'+revision;
     if(stamp!==highlightStamp){
       highlightStamp=stamp;for(const mesh of highlights.values())mesh.visible=false;
-      for(const o of objects)if(o.visible&&match(o,active)){
+      for(const o of objects)if(o.visible&&match(o,highlighted)){
         let mesh=highlights.get(o);if(!mesh){mesh=new THREE.Mesh(o.geometry,glow);highlights.set(o,mesh);overlay.add(mesh);}
         mesh.geometry=o.geometry;mesh.position.copy(o.position);mesh.rotation.copy(o.rotation);mesh.scale.copy(o.scale);mesh.visible=true;
       }

@@ -11,7 +11,7 @@
 Filo36 is a low-profile wireless split keyboard in development by [Eduardo Ruiz](https://github.com/eduarbo). It keeps Piantor’s key centers and angles, with five columns and three thumb keys per half. The name is provisional.
 
 - **KLP Lamé choices:** all 38 Choc-stem variants catalogued; 28 qualify in at least one position. The viewer checks complete combinations and exports a configuration for FreeCAD.
-- **Interchangeable frames:** Handheld, Retro TV and Cyberpunk, plus three plain styles and separate colors per half. Opaque skirts hide the stack; the display has its own support.
+- **Interchangeable frames:** Handheld, Retro TV and Cyberpunk, with multicolor relief palettes, plus three plain styles and separate body colors per half. Opaque skirts hide the stack; the display has its own support.
 - **Free tools:** KiCad for electronics, FreeCAD for the case, StepUp for exchange. Editable source, STEP/STL, offline viewer and GLB included.
 - **Intended hardware:** Choc v1 hot-swap, two nice!nano controllers and two nice!view displays. One display remains the fallback.
 

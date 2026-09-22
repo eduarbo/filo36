@@ -6,6 +6,7 @@ import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 import {copy,check} from './config.js';
 import {createExplorer,partInfo} from './explorer.js';
 import {createPreviewRenderer} from './previews.js';
+import {createFrameFinishes,framePalette,finishes} from './finishes.js';
 
 async function start(){
 const $=id=>document.getElementById(id);
@@ -50,6 +51,7 @@ function material(color){
   if(!materials.has(color))materials.set(color,new THREE.MeshStandardMaterial({color,roughness:.78,metalness:0}));
   return materials.get(color);
 }
+const frameFinish=createFrameFinishes(geometryFor,material);
 const objects=[];
 for(const part of data.parts){
   let geometry=geometryFor(part.geometry),mat=material(part.color);
@@ -220,7 +222,7 @@ function applyConfiguration(next){
       o.userData.variant=v.id;o.userData.cap_rotation_deg=choice.rotation_deg;
     }
     if(group==='lid'){
-      const f=next.frames[side];o.geometry=geometryFor(`mechanical/revH/${side}-frame-${f.style}.stl`);o.material=material(f.color);o.userData.frame_style=f.style;
+      const f=next.frames[side],finish=frameFinish(f.style,side,f.color);o.geometry=finish.geometry;o.material=finish.material;o.userData.frame_style=f.style;o.userData.frame_palette=finish.palette;
     }
   }
   configuration=copy(next);sync();updateChoices();syncConfigurationUI();message('Configuration applied.');
@@ -248,15 +250,17 @@ function applyFrame(change){
       if(needsFit){for(const k of Object.keys(state.layers))state.layers[k]=true;state.explode=0;state.half=frameSide;sync();fit();}}
   }catch(e){message(e.message,true);}
 }
-for(const [id,label] of Object.entries(catalog.frame_styles)){
-  const button=card(id,label,preview.image([{path:`mechanical/revH/left-frame-${id}.stl`}]));button.dataset.style=id;
-  button.onclick=()=>applyFrame({style:id});$('frame-grid').append(button);
+for(const id of ['handheld','tv','cyberpunk','smooth','bevel','facet']){
+  const finish=frameFinish(id,'left'),button=card(id,catalog.frame_styles[id],preview.image([finish],[0,1,.16],{width:220,height:360,up:[0,0,-1]}));button.dataset.style=id;
+  const img=button.querySelector('img');img.width=220;img.height=360;img.alt=catalog.frame_styles[id]+' frame in its original palette';
+  button.onclick=()=>applyFrame({style:id,color:finish.palette.body});$('frame-grid').append(button);
 }
 for(const button of $('frame-target').children)button.onclick=()=>setFrameSide(button.dataset.side);
 for(const [color,label] of [['#304d4e','Deep teal'],['#ded8c6','Linen'],['#ad7656','Clay'],['#363b3b','Graphite']]){
   const button=document.createElement('button');button.type='button';button.dataset.color=color;button.title=label;button.setAttribute('aria-label',label);button.setAttribute('aria-pressed','false');button.style.setProperty('--swatch',color);button.onclick=()=>applyFrame({color});$('swatches').append(button);
 }
 $('frame-color').oninput=e=>applyFrame({color:e.target.value});
+$('theme-colors').onclick=()=>{const cfg=copy(configuration);for(const side of frameTargets())cfg.frames[side].color=framePalette(cfg.frames[side].style).body;applyConfiguration(cfg);};
 for(const [id,label] of [['default','Original'],['normal-sculpted','Sculpted Normal'],['saddle-sculpted','Sculpted Saddle']]){
   const entries=['K01','K11','K21'].map((key,i)=>({path:variants.get(data.presets[id].keycaps.left[key].variant).path,rotation:data.presets[id].keycaps.left[key].rotation_deg,center:[(i-1)*20,0,0]}));
   const button=card(id,label,preview.image(entries,[.5,1,2]));button.dataset.preset=id;
@@ -272,6 +276,9 @@ function syncConfigurationUI(){
   for(const button of $('swatches').children)button.setAttribute('aria-pressed',String(colors.size===1&&colors.has(button.dataset.color)));
   // The color input has no mixed state: its visible companion explicitly names it.
   $('frame-color').value=frames[0].color;$('frame-color').setAttribute('aria-label',colors.size===1?'Custom frame color':'Custom frame color; mixed colors, changing this applies to both halves');
+  $('theme-palette').replaceChildren();
+  if(styles.size===1){const style=frames[0].style,palette=framePalette(style,frames[0].color);for(const [role,color] of Object.entries(palette)){if(role==='body')continue;const chip=document.createElement('span');chip.style.setProperty('--swatch',color);chip.textContent=finishes.styles[style].labels[role];$('theme-palette').append(chip);}}
+  else $('theme-palette').textContent='Each design keeps its own accent colors.';
   for(const button of $('key-presets').children){const preset=data.presets[button.dataset.preset];const same=Object.entries(configuration.keycaps).every(([side,keys])=>Object.entries(keys).every(([ref,c])=>c.variant===preset.keycaps[side][ref].variant&&c.rotation_deg===preset.keycaps[side][ref].rotation_deg));button.setAttribute('aria-pressed',String(same));}
 }
 explorer=createExplorer({scene,camera,canvas,objects,requestRender:render,

@@ -95,9 +95,14 @@ async function checkLink(page,group){
   assert.equal(await page.locator('#frame-current').textContent(),'Mixed styles');
   assert.equal(await page.locator('#color-current').textContent(),'Mixed colors');
   assert.equal(await page.locator('#frame-grid [aria-pressed=true]').count(),0);
-  // Keyboard activation applies style only, preserving independently chosen colors.
+  // Keyboard activation applies a complete theme; later body overrides stay independent.
   await page.locator('[data-style=tv]').focus();await page.keyboard.press('Enter');
+  assert.equal(await page.locator('#frame-color').inputValue(),'#976044');
   await page.click('#frame-target [data-side=left]');await page.click('[data-style=cyberpunk]');
+  assert.equal(await page.locator('#frame-color').inputValue(),'#303440');
+  await page.locator('#frame-color').fill('#ad7656');
+  await page.click('#frame-target [data-side=right]');await page.click('[data-color="#ded8c6"]');
+  await page.click('#frame-target [data-side=left]');
   await page.click('#nav-files');
   const configDownload=page.waitForEvent('download');await page.click('#save-config');
   const downloadedConfig=await configDownload;const configPath=path.join(root,'build/revH/viewer-config.json');await downloadedConfig.saveAs(configPath);
@@ -142,6 +147,17 @@ async function checkLink(page,group){
   const linear=n=>{n/=255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4;};
   const expected=[173,118,86].map(linear);
   frameMaterial.pbrMetallicRoughness.baseColorFactor.slice(0,3).forEach((n,i)=>assert.ok(Math.abs(n-expected[i])<1e-5,'Highlight must not affect exported frame color'));
+  const palettes=JSON.parse(fs.readFileSync(path.join(root,'design/frame-finishes.json')));
+  for(const node of gltf.nodes.filter(n=>n.extras?.group==='lid')){
+    const primitives=gltf.meshes[node.mesh].primitives,style=node.extras.frame_style;
+    assert.equal(primitives.length,4,'Themed GLB retains four surface colors');
+    for(const [i,role] of palettes.roles.entries()){
+      const hex=role==='body'?config.frames[node.extras.side].color:palettes.styles[style].colors[role];
+      const expected=[1,3,5].map(at=>linear(parseInt(hex.slice(at,at+2),16)));
+      const actual=gltf.materials[primitives[i].material].pbrMetallicRoughness.baseColorFactor;
+      expected.forEach((n,j)=>assert.ok(Math.abs(n-actual[j])<1e-5,'GLB '+style+' '+role+' color'));
+    }
+  }
   assert.equal(download.suggestedFilename(),'Filo36-revH-assembled.glb');
   function positionBytes(node){
     const primitive=gltf.meshes[node.mesh].primitives[0],a=gltf.accessors[primitive.attributes.POSITION],v=gltf.bufferViews[a.bufferView];
@@ -226,12 +242,26 @@ async function checkLink(page,group){
   const stage=await phone.locator('.stage').boundingBox();assert.ok(stage.y>=0&&stage.y+stage.height<568,'3D view stays visible at the smallest tested viewport');
   await phone.screenshot({path:path.join(root,'build/viewer-ux/mobile-small.png'),animations:'disabled'});
   await phone.setViewportSize({width:844,height:390});await checkDirectory(phone);
+  // Capture the actual designs and readable palette cards, including mobile.
+  fs.mkdirSync(path.join(root,'build/viewer-multicolor'),{recursive:true});
+  await page.click('#reset');await page.click('#part-lid');await page.click('#frame-target [data-side=both]');
+  for(const style of ['handheld','tv','cyberpunk']){
+    await page.click(`[data-style=${style}]`);await page.mouse.move(10,100);
+    assert.equal(await page.locator('#frame-color').inputValue(),palettes.styles[style].colors.body);
+    await page.screenshot({path:path.join(root,`build/viewer-multicolor/${style}.png`)});
+  }
+  await page.locator('#frame-color').fill('#ad7656');await page.click('#theme-colors');
+  assert.equal(await page.locator('#frame-color').inputValue(),palettes.styles.cyberpunk.colors.body);
+  await page.locator('#frame-grid').screenshot({path:path.join(root,'build/viewer-multicolor/previews.png')});
+  await phone.setViewportSize({width:390,height:844});await phone.locator('#reset').tap();await phone.locator('#part-lid').tap();await phone.locator('[data-style=cyberpunk]').tap();
+  await phone.evaluate(()=>document.querySelector('#inspector').scrollTop=0);await checkDirectory(phone);
+  await phone.screenshot({path:path.join(root,'build/viewer-multicolor/mobile.png')});
   assert.deepEqual(errors,[]);if(offline)assert.deepEqual(requests,[],'Offline viewer must not request network resources');
   const receipt={viewer_sha256:hash(Buffer.from(html)),target:offline?'local file with all HTTP(S) requests blocked':'public URL',
     browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,public_embedded_scene_matches_current:!offline,
     all_12_layer_filters:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
     persistent_component_directory:true,sidebar_line_endpoints:true,directory_visible_during_scroll_and_collapse:true,keyboard_component_selection:true,direct_canvas_picking:true,labels_follow_camera:true,frame_click_reveals_hidden_cover:true,annotation_toggle:true,orbit_does_not_select:true,touch_orbit_and_pinch_do_not_select:true,small_320px_viewport:true,
-    six_preview_cards:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,style_preserves_each_color:true,sidebar_hover_highlight:true,sidebar_opens_frame_explorer:true,touch_frame_cards_and_sidebar:true,hidden_layer_links_removed:true,highlight_excluded_from_glb:true,
+    six_preview_cards:true,multicolor_glb_roles:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,theme_applies_palette_and_body_overrides_roundtrip:true,sidebar_hover_highlight:true,sidebar_opens_frame_explorer:true,touch_frame_cards_and_sidebar:true,hidden_layer_links_removed:true,highlight_excluded_from_glb:true,
     keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:168,glb_keycaps:36,glb_units:'metres',runtime_errors:errors,offline_network_requests:requests.length};
   fs.writeFileSync(path.join(root,'build/viewer-ui-check.json'),JSON.stringify(receipt,null,2)+'\n');
   console.log(JSON.stringify(receipt,null,2));await mobile.close();await context.close();

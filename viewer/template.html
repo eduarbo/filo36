@@ -30,11 +30,13 @@
     <section id="selection" class="selection" role="region" aria-live="polite" aria-label="Selected component" hidden><button id="clear-selection" aria-label="Clear selected component">×</button><p id="selection-meta" class="eyebrow"></p><h2 id="selection-title"></h2><p id="selection-info"></p><p id="selection-visibility" class="micro"></p></section>
   <section id="panel-frames" aria-label="Frame options">
     <div class="panel-heading"><h2>Display frames</h2><span id="frame-current"></span></div>
-    <p class="hint">Pick a shape. See it on your keyboard.</p>
+    <p class="hint">Pick a design and its colors in one click.</p>
     <div id="frame-target" class="segments" role="group" aria-label="Apply frame changes to"><button data-side="both" aria-pressed="true">Both halves</button><button data-side="left" aria-pressed="false">Left</button><button data-side="right" aria-pressed="false">Right</button></div>
     <div id="frame-grid" class="preview-grid" role="group" aria-label="Frame styles"></div>
-    <div class="finish-row"><span>Finish <small id="color-current"></small></span><div id="swatches" role="group" aria-label="Frame colors"></div><label class="custom-color" title="Custom frame color"><input type="color" id="frame-color" value="#304d4e" aria-label="Custom frame color"></label></div>
-    <p class="micro">Same fit. Six printable shapes. Colors are a preview.</p>
+    <div class="finish-row"><span>Body <small id="color-current"></small></span><div id="swatches" role="group" aria-label="Frame body colors"></div><label class="custom-color" title="Custom frame color"><input type="color" id="frame-color" value="#304d4e" aria-label="Custom frame color"></label></div>
+    <div id="theme-palette" aria-label="Theme accent colors"></div>
+    <button id="theme-colors" class="palette-reset">Restore design colors</button>
+    <p class="micro">Previews show each design’s original palette. Color the raised details in your slicer or paint after printing.</p>
   </section>
   <section id="panel-keycaps" aria-label="Keycap options" hidden>
     <div class="panel-heading"><h2>KLP Lamé</h2><span>Choc stems</span></div>

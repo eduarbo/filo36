@@ -8,9 +8,9 @@ The component directory stays visible while you inspect or customize the keyboar
 
 ## Follow a component
 
-Hover or focus a directory entry to highlight its visible parts. Click or tap to keep the selection. You can also select a part directly in 3D. A fine line connects the active visible part to its exact directory entry; there are no floating tags. Hidden or occluded parts keep their directory entries but do not receive a visible-surface line.
+Hover or focus a directory entry to highlight its visible parts. Click or tap to keep the selection. A selected frame keeps its actual colors; its surface highlight appears only while hovering or focusing the component entry. You can also select a part directly in 3D. A fine line connects the active visible part to its exact directory entry; there are no floating tags. Hidden or occluded parts keep their directory entries but do not receive a visible-surface line.
 
-**Frame** opens six actual-mesh previews. Choose a half, then click a thumbnail to apply the shape immediately. Shape changes preserve each half’s color; swatches change the finish. **Caps** opens KLP presets and individual key editing. Other entries explain the component and its current limitations.
+**Frame** opens six actual-mesh previews. Choose a half, then click a thumbnail to apply the shape immediately. A thumbnail applies that design and its original multicolor palette. **Body** overrides the shell color while preserving the theme’s accents; **Restore design colors** resets it. The front-facing previews show the actual raised details. **Caps** opens KLP presets and individual key editing. Other entries explain the component and its current limitations.
 
 The arrow beside the directory collapses only the details. Component names and section controls stay visible, including while the details scroll. The mobile directory uses a compact grid; all entries stay visible while the detail area scrolls and the model stays on screen.
 

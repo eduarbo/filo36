@@ -1,0 +1,125 @@
+{
+  "request": "Multicolor Handheld, Retro TV and Cyberpunk frames; previews must show the corresponding actual designs.",
+  "parent_objective": "Piantor wireless slim / Filo36; custom_display_frames and interactive_assembly",
+  "baseline": {
+    "commit": "523915c648f4032cb118b5dda86a0f57720063b7",
+    "status": "",
+    "artifacts": [
+      {
+        "path": "viewer/app.js",
+        "sha256": "369721ef29425b56db27c2b18e6515e8036b40b73f30087a5f43627d305d4200"
+      },
+      {
+        "path": "viewer/previews.js",
+        "sha256": "9ceaa8621d264ba4171830e0c83533471e2654794a13becaed13230da967f464"
+      },
+      {
+        "path": "viewer/config.js",
+        "sha256": "ec3985f7d17a1e5d998e2cc7375883646672fd2f66c2f92e9f8031a160538ec0"
+      },
+      {
+        "path": "viewer/check.cjs",
+        "sha256": "7d2aa63bfe6b7613dfcc329ec5e381d7c7a3956b5094df80585a183a7c7b2d70"
+      },
+      {
+        "path": "viewer/build.mjs",
+        "sha256": "62eb5809cc12c9a9011ed1b548a8b9cb87b03a9aead42612267d929a4bae3a8b"
+      },
+      {
+        "path": "viewer/template.html",
+        "sha256": "69f3a9dcc7ea01f501f68eaf334b2e53ec73095d35b713e8832cbaefbf516cac"
+      },
+      {
+        "path": "viewer/style.css",
+        "sha256": "3dd17e02bca4df6dd228042415fa002ed0e26fd4b67b1dddae1015bb312fb9f3"
+      },
+      {
+        "path": "tools/render_frames.py",
+        "sha256": "69d2158d6979e045c108a9822aea1f2976dea32ab26dde411a2d285355587661"
+      },
+      {
+        "path": "tools/freecad/build_revH.py",
+        "sha256": "c5428157819f50ac4ade624a8b9e4338f8aa890239d60837b1458f653af5bd96"
+      },
+      {
+        "path": "tools/freecad/configuration.py",
+        "sha256": "38959203ebd4109d72a92d76e8414efcbf6f5d742af6978c95a9de2a091fcdf5"
+      },
+      {
+        "path": "docs/customize.md",
+        "sha256": "911cd513d89cf701aedd54d26704ef98ed48a9f3744a4e80cf017a8186697d14"
+      },
+      {
+        "path": "docs/viewer.md",
+        "sha256": "9cd89423830f0951490eef671881af12a9403fc320d294a647650caba4b90c8c"
+      },
+      {
+        "path": "viewer/explorer.js",
+        "sha256": "98d9eac120e408e5db5c966f628fcb9028760844902bf46a58dba7b72d068464"
+      }
+    ]
+  },
+  "scope": "Multicolor finishes on existing revH faces; actual design previews; same colors in viewer, GLB and FreeCAD import; English guide and existing public main/Pages destination. No new geometry, parts or fabrication qualification.",
+  "status": "locally_verified_publication_pending",
+  "acceptance": [
+    "Three distinguishable front-facing actual-mesh thumbnails with corresponding theme colors",
+    "One click applies complete theme palette; custom body color and per-half JSON preserved",
+    "Identical mesh positions/normals and oriented triangle membership with at most four material groups",
+    "Raised feature roles match actual left/right D-pad, buttons, grille, bezel, vents, traces, panel and node",
+    "GLB and FreeCAD active-link colors match the theme, with JSON/save-reopen",
+    "Offline, sidebar, mobile touch and performance remain functional; public readback"
+  ],
+  "review": {
+    "reviewers": [
+      "multicolor_domain",
+      "multicolor_risk"
+    ],
+    "baseline_unchanged_after_review": true,
+    "agreement": "Use shared implicit style palettes on existing relief, retain configuration schema and verify actual colored faces; no material objection.",
+    "findings": [
+      {
+        "severity": "MEDIUM",
+        "finding": "Uniform preview/runtime material conflicts with already contrasted documentary render.",
+        "disposition": "Shared palette and actual relief material groups across viewer and FreeCAD."
+      },
+      {
+        "severity": "MEDIUM",
+        "finding": "Distinct PNG hashes do not prove legibility or matching theme.",
+        "disposition": "Larger upright front previews; inspect rendered cards and verify role locations/materials."
+      },
+      {
+        "severity": "MEDIUM",
+        "finding": "Theme preset changes prior preserve-body-color behavior.",
+        "disposition": "Intentional complete-theme choice; explicit guide and tests. Body override remains separate and JSON preserves it."
+      },
+      {
+        "severity": "MEDIUM",
+        "finding": "Material arrays, mirror and editable FreeCAD heights can diverge.",
+        "disposition": "At most four contiguous groups; exact geometry, GLB, active-link face-color and height-aware checks."
+      },
+      {
+        "severity": "LOW",
+        "finding": "A persistent green selection overlay obscures the new frame palette.",
+        "disposition": "Retain the frame selection/link but color its surface only during hover; selected theme colors remain visible. Exact export and hover tests passed."
+      }
+    ],
+    "unresolved_material_objections": []
+  },
+  "original_keyboard_status": "partial",
+  "retrospective": {
+    "trigger": "User expected multicolor themed frames and distinct previews.",
+    "cause": "Each correct STL was rendered with one green material in small oblique thumbnails; testing PNG uniqueness did not establish visible relief or theme color. The existing documentation render had contrasting accents that the interactive view did not reproduce.",
+    "correction": "One shared four-color palette per theme; face/triangle roles on existing raised features, readable upright previews, actual palette selection, matching GLB and native face colors.",
+    "prevention": "Verify physical feature locations on both meshes, all four exported materials, JSON/native save-reopen and actual desktop/mobile cards.",
+    "geometry_changed": false
+  },
+  "regenerate": [
+    "node viewer/build.mjs",
+    "node viewer/finishes-check.cjs",
+    "node viewer/check.cjs",
+    "node viewer/performance.cjs",
+    "python3 tools/render_frames.py",
+    "FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_finishes.py"
+  ],
+  "validation_receipt": "validation/viewer-multicolor.json"
+}

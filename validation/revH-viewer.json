@@ -344,7 +344,7 @@
     },
     {
       "path": "viewer/app.js",
-      "sha256": "369721ef29425b56db27c2b18e6515e8036b40b73f30087a5f43627d305d4200"
+      "sha256": "397fa8c99cebc214301af41ee406b886fe1e4237e552c3e1ca375a2abd3bfa22"
     },
     {
       "path": "viewer/config.js",
@@ -352,30 +352,38 @@
     },
     {
       "path": "viewer/explorer.js",
-      "sha256": "98d9eac120e408e5db5c966f628fcb9028760844902bf46a58dba7b72d068464"
+      "sha256": "4897684f6614bfb5034a0f7e1173892deaa00324685bea94b3f46933fe1a0d9a"
     },
     {
       "path": "viewer/previews.js",
-      "sha256": "9ceaa8621d264ba4171830e0c83533471e2654794a13becaed13230da967f464"
+      "sha256": "be0ef91d25070e29c640dbecb248a345d44faea853d80ae60b050eb8d696cd00"
+    },
+    {
+      "path": "viewer/finishes.js",
+      "sha256": "9eb5a21947b32867411716ed54c2520382803a96d542b3b4b8f546d40e22ca16"
+    },
+    {
+      "path": "design/frame-finishes.json",
+      "sha256": "b76bfa1ad6c5753439a8cf41a3c4ad81c2459bcdc43c1521c3ea77c239eeda18"
     },
     {
       "path": "viewer/style.css",
-      "sha256": "3dd17e02bca4df6dd228042415fa002ed0e26fd4b67b1dddae1015bb312fb9f3"
+      "sha256": "d02dbe7cf64b35f2df6f034aefa43b4ac26f384d0d045aa6899ad28eebfc1682"
     },
     {
       "path": "viewer/template.html",
-      "sha256": "69f3a9dcc7ea01f501f68eaf334b2e53ec73095d35b713e8832cbaefbf516cac"
+      "sha256": "7680dce44625ccc4b827b7d07de2595d52edf43a4a63989d890339dcbb1e833c"
     },
     {
       "path": "viewer/build.mjs",
-      "sha256": "62eb5809cc12c9a9011ed1b548a8b9cb87b03a9aead42612267d929a4bae3a8b"
+      "sha256": "8591db175a7f6ceba4ef216732c0e5d95e36c048953610fedb6f1bd49b1cf347"
     },
     {
       "path": "viewer/package-lock.json",
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "ee5221e8d9a3cd87891ba6272b29f2d6d5026d739e4d4bc633924a09b413e59f",
+  "viewer_sha256": "b7ddc25c5f3669d8364c0d320487b37a05ec8d1402e746c0390cf100566d723b",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,
