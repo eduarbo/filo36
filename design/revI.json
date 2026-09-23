@@ -8143,5 +8143,12 @@
       "sha256": "577d88ec935029d9c6093c91f19aa585bb562c58fc1ecceedf868dbb27a6063f"
     }
   ],
-  "fcstd_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf"
+  "fcstd_sha256": "60197835a81e125df4066694211d8983653e37282106257b837a3fe589529c07",
+  "identity_migration": {
+    "baseline_commit": "819a01883b2faec3682ac457328bc361dc43e355",
+    "method": "Only branding tokens in native Document.xml changed; shape and mesh members preserved byte for byte",
+    "file_map": "validation/rebrand-file-map.json",
+    "native_readback": "validation/rebrand-native.json",
+    "geometry_rebuilt": false
+  }
 }

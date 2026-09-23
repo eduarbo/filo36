@@ -1,0 +1,8 @@
+{
+  "fixtures": 4,
+  "legacy_and_new_equivalent": true,
+  "legacy_storage_preserved": true,
+  "new_key_preferred": true,
+  "invalid_new_falls_back": true,
+  "quota_does_not_lose_restored_configuration": true
+}

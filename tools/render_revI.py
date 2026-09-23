@@ -103,7 +103,7 @@ def render(kind):
         mp=vtk.vtkPolyDataMapper();mp.SetInputData(rev.GetOutput());a.SetMapper(mp);a.SetPosition(0,0,0);a.SetOrientation(0,0,0);a.SetScale(1,1,1)
     def label(text,x,y,size,color=(.14,.24,.22)):
         a=vtk.vtkTextActor();a.SetInput(text);a.SetPosition(x,y);p=a.GetTextProperty();p.SetFontFamilyToArial();p.SetFontSize(size);p.SetColor(*color);ren.AddActor2D(a)
-    titles={'assembled':'FILO36  /  REV I','top':'FILO36  /  TOP VIEW','side':'FILO36  /  SIDE PROFILE','stack':'FILO36  /  REMOVABLE STACK','detail':'FILO36  /  CONTOUR + MAGNETIC FRAMES','corner':'FILO36  /  SHARED CORNER'}
+    titles={'assembled':'FLAN36  /  REV I','top':'FLAN36  /  TOP VIEW','side':'FLAN36  /  SIDE PROFILE','stack':'FLAN36  /  REMOVABLE STACK','detail':'FLAN36  /  CONTOUR + MAGNETIC FRAMES','corner':'FLAN36  /  SHARED CORNER'}
     if kind!='corner':label(titles[kind],105,1380,44)
     sub=('Left half  /  KLP LAME  /  Orthographic profile' if kind=='side' else '36 keys  /  KLP LAME  /  Two nice!view displays  /  24 mm bay') if kind!='stack' else 'Adafruit 1570 or 301230. Captured battery cage and magnetic frame.'
     sub='Contour / Original thumb angles / Local tangent corners' if kind=='detail' else sub

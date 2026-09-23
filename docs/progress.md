@@ -112,6 +112,6 @@ Publication verified: an anonymous archive matched all **404 files** of the desi
 
 RevF’s CAD/StepUp exchange, anonymous source download and public viewer were checked; physical acceptance was not. [Historical review](revF-review.md) · [publication receipt](../validation/revF-publication.json).
 
-On September 22, 2026, Eduardo selected **Flan36**. [Three logo concepts](branding.md) explore dessert, split-keyboard and retro references. Earlier candidates included Filo36, Flan, Flancito, Caramelo, Comal, Comala, Dango, Flanstein, Sesgo36 and Brizna36. Existing repository URLs, native filenames and configuration identifiers remain compatible; the rename does not change geometry or retire unfinished electrical or physical requirements.
+On September 22, 2026, Eduardo selected **Flan36** and the **Outline** logo. The current presentation shows only that selection. On September 23, the rename was extended to the repository, Pages site, current native filenames and new configuration exports. Legacy configuration imports remain supported. Geometry and unfinished electrical/physical requirements are unchanged.
 
 The LCD-flank/curved-thumb and viewer correction is published. Anonymous source readback verified all **788 implementation files**; public browser checks passed for individual visibility, Solo/Show all, temporary X-ray hover, fixed View controls and mobile layouts. [Publication receipt](../validation/revI-lcd-curve-publication.json). Physical assembly and electronics acceptance remain open.

@@ -6,7 +6,7 @@ from pathlib import Path
 import FreeCAD as A
 import FreeCADGui as G
 import Part
-R=Path(__file__).resolve().parents[2];source=R/'mechanical/revI/Filo36.FCStd';digest=hashlib.sha256(source.read_bytes()).hexdigest()
+R=Path(__file__).resolve().parents[2];source=R/'mechanical/revI/Flan36.FCStd';digest=hashlib.sha256(source.read_bytes()).hexdigest()
 G.showMainWindow();doc=A.openDocument(str(source))
 # Inspect the stored native solids; rebuilding and edit/reopen checks are separate.
 rows=[]

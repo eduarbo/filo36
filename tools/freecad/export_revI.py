@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'mechanical/revI'
 doc=A.ActiveDocument
 if not doc or not doc.getObject('Parameters'):
-    raise RuntimeError('Open mechanical/revI/Filo36.FCStd first.')
+    raise RuntimeError('Open mechanical/revI/Flan36.FCStd first.')
 doc.recompute()
 metadata=json.loads((ROOT/'design/revI.json').read_text())
 report={'scope':'Native PartID solids only; switch/keycap meshes and unqualified socket registration excluded; not a manufacturing release','halves':{},'unresolved':[
@@ -132,7 +132,7 @@ for side,prefix in [('left','L_'),('right','R_')]:
 doc.recompute()
 metadata['inputs']=[{'path':p,'sha256':hashlib.sha256((ROOT/p).read_bytes()).hexdigest()} for p in [
     'design/cases.json','tools/freecad/components.py','tools/freecad/switch_instances.py','components/switches.json','components/sources.json','tools/frame_finishes.py','tools/keycap_config.py','tools/freecad/configuration.py','design/layout.json','design/revI-profiles.json','design/revI-frame-profiles.json','keycaps/catalog.json','design/revI-mounts.json','design/batteries.json','design/revI-magnets.json','design/revI-wire-study.json','tools/freecad/build_revI.py','tools/freecad/export_revI.py']]
-metadata['fcstd_sha256']=hashlib.sha256((OUT/'Filo36.FCStd').read_bytes()).hexdigest()
+metadata['fcstd_sha256']=hashlib.sha256((OUT/'Flan36.FCStd').read_bytes()).hexdigest()
 (ROOT/'design/revI.json').write_text(json.dumps(metadata,indent=2)+'\n')
 (ROOT/'validation/revI-mechanical.json').write_text(json.dumps(report,indent=2)+'\n')
 assert not any(v['collisions'] for v in report['halves'].values()),'Unresolved nominal intersections; see validation/revI-mechanical.json'

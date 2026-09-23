@@ -33,7 +33,7 @@ for f in manifest['files']:
         stem_axis_deg=axis,rotations_deg=[axis,axis+180],hull_xy_mm=[list(x) for x in MultiPoint(points[:,:2]).convex_hull.exterior.coords][:-1],
         qualified_reference_positions=[]))
 cases=json.loads((ROOT/'design/cases.json').read_text())
-byid={v['id']:v for v in variants};cfg={'schema':'filo36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{'left':'adafruit-1570','right':'adafruit-1570'}}
+byid={v['id']:v for v in variants};cfg={'schema':'flan36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{'left':'adafruit-1570','right':'adafruit-1570'}}
 cfg['cases']={side:{'style':cases['default'],'cover':True} for side in layout}
 for side,keys in layout.items():
     cfg['keycaps'][side]={k['ref']:{'variant':'choc_stem_choc_size_'+('thumb' if k['row']==3 else 'normal_homing' if k['ref']=='K14' else 'normal'),'rotation_deg':0} for k in keys}
@@ -49,7 +49,7 @@ for v in variants:
     v['status']='conditional' if v['qualified_reference_positions'] else 'unqualified'
     v['note']='Check the complete configuration before applying.' if v['qualified_reference_positions'] else '1.5U: no qualified position with the reference neighbors; unavailable in this layout.'
     print(v['label'],len(v['qualified_reference_positions']),flush=True)
-catalog={'schema':'filo36-klp-catalog-1','revision':'I','upstream':manifest['upstream'],'commit':manifest['commit'],'license':'CC-BY-SA-4.0','author':'braindefender',
+catalog={'schema':'flan36-klp-catalog-1','revision':'I','upstream':manifest['upstream'],'commit':manifest['commit'],'license':'CC-BY-SA-4.0','author':'braindefender',
     'qualification':'Conservative convex XY envelopes, including stems. >=0.20 mm separating-axis clearance. Every chosen configuration rechecked. Nominal stem-tip datum 11.7 mm; unmeasured physical seating.',
     'minimum_clearance_mm':.2,'study_travel_mm':3.5,'minimum_pressed_mesh_z_mm':8.2,'plate_top_mm':7.6,
     'case_styles':cases['styles'],

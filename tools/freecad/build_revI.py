@@ -26,8 +26,8 @@ import faulthandler
 faulthandler.enable()
 G.showMainWindow()
 print('GUI ready',flush=True)
-doc = A.newDocument('Filo36_revI')
-doc.Label = 'Filo36 · revI · editable study'
+doc = A.newDocument('Flan36_revI')
+doc.Label = 'Flan36 · revI · editable study'
 doc.Comment = 'GPL-3.0-or-later; Piantor/beekeeb, KLP Lame/braindefender CC-BY-SA-4.0. Nominal study, not manufacturing release.'
 layout = json.loads((ROOT / 'design/layout.json').read_text())
 profiles = json.loads((ROOT / 'design/revI-profiles.json').read_text())
@@ -146,10 +146,10 @@ for side in ('left', 'right'):
     def done(name, obj, label, group, color, printable=False):
         assembly.addObject(obj); finished.append(obj)
         obj.Label = label
-        obj.addProperty('App::PropertyString', 'PartID', 'Filo36'); obj.PartID = side + '-' + name
-        obj.addProperty('App::PropertyString', 'Layer', 'Filo36'); obj.Layer = group
-        obj.addProperty('App::PropertyBool', 'PrototypePrintable', 'Filo36'); obj.PrototypePrintable = printable
-        obj.addProperty('App::PropertyString', 'ModelStatus', 'Filo36'); obj.ModelStatus = 'Nominal study; physical fit untested'
+        obj.addProperty('App::PropertyString', 'PartID', 'Flan36'); obj.PartID = side + '-' + name
+        obj.addProperty('App::PropertyString', 'Layer', 'Flan36'); obj.Layer = group
+        obj.addProperty('App::PropertyBool', 'PrototypePrintable', 'Flan36'); obj.PrototypePrintable = printable
+        obj.addProperty('App::PropertyString', 'ModelStatus', 'Flan36'); obj.ModelStatus = 'Nominal study; physical fit untested'
         view=obj.LinkedObject.ViewObject if obj.TypeId=='App::Link' else obj.ViewObject
         view.ShapeColor = color; view.LineColor = (.13,.18,.17)
         if hasattr(obj,'VisualFaceColors'):view.DiffuseColor=[tuple(c) for c in json.loads(obj.VisualFaceColors)]
@@ -227,8 +227,8 @@ for side in ('left', 'right'):
         for group,source in zip(('base','plate'),pair):
             # Separate native compounds allow shared plate geometry without conflicting styles.
             variant=add('Part::Compound','Case_'+style+'_'+group);variant.Links=[source]
-            variant.addProperty('App::PropertyString','CaseStyle','Filo36');variant.CaseStyle=style
-            variant.addProperty('App::PropertyString','CaseGroup','Filo36');variant.CaseGroup=group
+            variant.addProperty('App::PropertyString','CaseStyle','Flan36');variant.CaseStyle=style
+            variant.addProperty('App::PropertyString','CaseGroup','Flan36');variant.CaseGroup=group
             variant.Label=case_catalog['styles'][style]['label']+' · '+group
             color=case_catalog['styles'][style][group+'_color']
             variant.ViewObject.ShapeColor=tuple(int(color[i:i+2],16)/255 for i in (1,3,5))
@@ -238,7 +238,7 @@ for side in ('left', 'right'):
         done(part_id,active,('Base' if group=='base' else 'Plate')+' · interchangeable','base' if group=='base' else 'plate',(.145,.205,.207),True)
         active.LinkedObject.ViewObject.ShapeColor=tuple(int(case_catalog['styles'][configuration['cases'][side]['style']][group+'_color'][i:i+2],16)/255 for i in (1,3,5))
         active.ViewObject.OverrideMaterial=False
-    assembly.addProperty('App::PropertyBool','DisplayCoverInstalled','Filo36')
+    assembly.addProperty('App::PropertyBool','DisplayCoverInstalled','Flan36')
     assembly.DisplayCoverInstalled=True
 
     pcb=extrude('PCBPad',profiles[side]['pcb_outline'],3.8,1.6)
@@ -283,7 +283,7 @@ for side in ('left', 'right'):
         # App::Link replaces a source object's Placement. A native compound
         # retains the placed cell in its shape, keeping every profile registered.
         o=add('Part::Compound','Cell_'+ident.replace('-','_'));o.Links=[raw]
-        o.addProperty('App::PropertyString','BatteryStyle','Filo36');o.BatteryStyle=ident
+        o.addProperty('App::PropertyString','BatteryStyle','Flan36');o.BatteryStyle=ident
         o.Label=spec['label'];cells[ident]=o
     activecell=doc.addObject('App::Link',prefix+'ActiveBattery');activecell.setLink(cells['adafruit-1570'])
     done('battery',activecell,'Battery · Adafruit 1570 or 301230','battery',(.72,.75,.74))
@@ -451,7 +451,7 @@ for side in ('left', 'right'):
         for i,(x,y) in enumerate(mounts[3:],4):
             cover=cut('Frame_'+style+'_HeadRelief'+str(i),cover,cyl('Frame_'+style+'_HeadTool'+str(i),x,y,5.3,2.15,1.45))
         cover.Label='Frame · '+label+' · variant'
-        cover.addProperty('App::PropertyString','FrameStyle','Filo36');cover.FrameStyle=style
+        cover.addProperty('App::PropertyString','FrameStyle','Flan36');cover.FrameStyle=style
         cover.ViewObject.ShapeColor=(.16,.25,.23);styles[style]=cover
     active=doc.addObject('App::Link',prefix+'ActiveFrame');active.setLink(styles[configuration['frames'][side]['style']])
     done('electronics-lid',active,'Magnetic frame · vertical lift','lid',tuple(int(configuration['frames'][side]['color'][i:i+2],16)/255 for i in (1,3,5)),True)
@@ -469,8 +469,8 @@ for side in ('left', 'right'):
         o.Placement=A.Placement(A.Vector(key['x'],-key['y'],v['seating_z_mm']),A.Rotation(A.Vector(0,0,1),key['angle']+choice['rotation_deg']))
         o.Label='KLP '+key['ref'];o.ViewObject.ShapeColor=(.25,.55,.45) if key['row']==3 else (.91,.878,.783)
         for prop,value in [('KeycapVariant',v['id']),('KeyReference',key['ref']),('Side',side),('Source','KLP Lame / braindefender / CC-BY-SA-4.0 / unchanged mesh; nominal stem-tip datum')]:
-            o.addProperty('App::PropertyString',prop,'Filo36');setattr(o,prop,value)
-        o.addProperty('App::PropertyAngle','CapRotation','Filo36');o.CapRotation=choice['rotation_deg']
+            o.addProperty('App::PropertyString',prop,'Flan36');setattr(o,prop,value)
+        o.addProperty('App::PropertyAngle','CapRotation','Flan36');o.CapRotation=choice['rotation_deg']
     print(side,'recomputing',flush=True)
     doc.recompute()
     print(side,'recomputed',flush=True)
@@ -488,9 +488,9 @@ from switch_instances import ensure
 ensure(doc)
 A.setActiveDocument(doc.Name)
 G.activeDocument().activeView().viewTop();G.activeDocument().activeView().fitAll()
-doc.saveAs(str(OUT/'Filo36.FCStd'))
+doc.saveAs(str(OUT/'Flan36.FCStd'))
 (ROOT/'design/revI.json').write_text(json.dumps(metadata,indent=2)+'\n')
-print('Saved native editable FreeCAD assembly:',OUT/'Filo36.FCStd',flush=True)
+print('Saved native editable FreeCAD assembly:',OUT/'Flan36.FCStd',flush=True)
 exec(compile((ROOT/'tools/freecad/export_revI.py').read_text(),str(ROOT/'tools/freecad/export_revI.py'),'exec'))
 
 import os

@@ -166,9 +166,8 @@ def derive():
     assert [p['id'] for p in paths]==['flan-symbol','glyph-f','glyph-l','glyph-a','glyph-n','glyph-3','glyph-6']
     assert all(p['d'].strip().endswith('Z') and p['fill-rule']=='evenodd' for p in paths)
     exports=[]
-    for name,color,white in [('black',False,False),('white',False,True),('color',True,False)]:
-        exports.append(export(paths,name,30,color,white))
-        exports.append(export(paths[:1],'symbol-'+name,12,color,white))
+    exports.append(export(paths,'black',30))
+    exports.append(export(paths[:1],'symbol-black',12))
     exports.append(export(paths[1:],'wordmark-black',30))
     report={'master':'docs/branding/outline/flan36-outline-master.svg','master_sha256':sha(MASTER),
         'exports':exports,'units':'mm','shared_contours':True,'font_dependency':False,
@@ -177,23 +176,18 @@ def derive():
     (ROOT/'design/branding-outline-vectors.json').write_text(json.dumps(report,indent=2)+'\n')
 
 def preview():
-    root=ET.Element(f'{{{SVG}}}svg',{'width':'1200','height':'530','viewBox':'0 0 1200 530'})
-    ET.SubElement(root,f'{{{SVG}}}rect',{'width':'1200','height':'530','fill':'#F7F4EB'})
-    ET.SubElement(root,f'{{{SVG}}}text',{'x':'40','y':'48','font-family':'sans-serif','font-size':'24','fill':'#263E3B'}).text='Flan36 / Outline — vector artwork'
-    for i,(name,label) in enumerate([('color','Color'),('black','One ink'),('white','Reversed')]):
-        x=40+i*390
-        ET.SubElement(root,f'{{{SVG}}}rect',{'x':str(x),'y':'80','width':'340','height':'390','rx':'16','fill':'#263E3B' if name=='white' else '#FFFCF5'})
-        art=ET.parse(OUT/f'flan36-outline-{name}.svg').getroot()
-        art.attrib.update({'x':str(x+20),'y':'108','width':'300','height':'294','preserveAspectRatio':'xMidYMid meet'})
-        root.append(art)
-        ET.SubElement(root,f'{{{SVG}}}text',{'x':str(x+170),'y':'441','text-anchor':'middle','font-family':'sans-serif','font-size':'18','fill':'#FFFCF5' if name=='white' else '#263E3B'}).text=label
+    root=ET.Element(f'{{{SVG}}}svg',{'width':'800','height':'640','viewBox':'0 0 800 640'})
+    ET.SubElement(root,f'{{{SVG}}}rect',{'width':'800','height':'640','fill':'#F7F4EB'})
+    art=ET.parse(OUT/'flan36-outline-black.svg').getroot()
+    art.attrib.update({'x':'140','y':'80','width':'520','height':'480','preserveAspectRatio':'xMidYMid meet'})
+    root.append(art)
     write_svg(OUT/'preview.svg',root)
 
 def package():
-    paths=sorted(OUT.glob('flan36-*.svg'))+[OUT/'preview.svg',OUT/'README.md']
+    paths=[MASTER,*[OUT/f'flan36-outline-{name}.svg' for name in ['black','symbol-black','wordmark-black']]]+[OUT/'preview.svg',OUT/'README.md']
     assert all(p.exists() for p in paths),'The kit requires its integration README'
     manifest={'master':'flan36-outline-master.svg','units':'mm','files':[{ 'path':p.name,'sha256':sha(p)} for p in paths],
-        'manufacturing_qualified':False,'repository':'https://github.com/eduarbo/filo36',
+        'manufacturing_qualified':False,'repository':'https://github.com/eduarbo/flan36',
         'note':'SVG art and import guide. No placed PCB logo, case cut, toolpath or G-code.'}
     with zipfile.ZipFile(OUT/'flan36-outline-svg-kit.zip','w',zipfile.ZIP_DEFLATED) as z:
         for name,data in [(p.name,p.read_bytes()) for p in paths]+[('LICENSE.txt',(ROOT/'LICENSE').read_bytes()),('manifest.json',(json.dumps(manifest,indent=2)+'\n').encode())]:
@@ -211,4 +205,4 @@ if __name__=='__main__':
         import cairosvg
         cairosvg.svg2png(url=str(OUT/'preview.svg'),write_to=str(ROOT/'docs/images/branding/flan36-outline-vector-preview.png'),output_width=2400)
     if args.package:package()
-    print('Wrote one editable master and seven derived SVGs; PCB and case geometry unchanged.')
+    print('Wrote one editable master and three same-logo SVG exports; PCB and case geometry unchanged.')

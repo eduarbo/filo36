@@ -9,8 +9,8 @@ import FreeCADGui as G
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools/freecad'))
 from configuration import apply,extract
 from keycap_config import normalize
-G.showMainWindow();doc=A.openDocument(str(ROOT/'mechanical/revI/Filo36.FCStd'));doc.recompute()
-sourcehash=hashlib.sha256((ROOT/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest()
+G.showMainWindow();doc=A.openDocument(str(ROOT/'mechanical/revI/Flan36.FCStd'));doc.recompute()
+sourcehash=hashlib.sha256((ROOT/'mechanical/revI/Flan36.FCStd').read_bytes()).hexdigest()
 opaque_samples=0
 for obj in [o for o in doc.Objects if hasattr(o,'FrameStyle')]:
     right=obj.Name.startswith('R_')
@@ -63,7 +63,7 @@ for prefix in ['L_','R_']:
 path=ROOT/'build/revI/customized.FCStd';doc.saveAs(str(path));A.closeDocument(doc.Name)
 doc=A.openDocument(str(path));doc.recompute();assert extract(doc)==nextconfig
 for prefix in ['L_','R_']:assert abs(doc.getObject(prefix+'ActiveFrame').Shape.BoundBox.ZMax-17.8)<1e-6
-assert hashlib.sha256((ROOT/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest()==sourcehash
+assert hashlib.sha256((ROOT/'mechanical/revI/Flan36.FCStd').read_bytes()).hexdigest()==sourcehash
 report={'source_sha256':sourcehash,'native_features_no_custom_proxy':True,'configuration_roundtrip':True,'mixed_battery_profiles_roundtrip':True,'mixed_cases_and_open_cover_roundtrip':True,'legacy_configuration_normalized':True,'reopened_customized_file':True,'all_36_key_centres_unchanged':True,'stem_tip_datum_mm':11.7,'FrameTop_edit_mm':[16.6,17.2],'preset':'saddle-sculpted','thumb_variant':'MX-size Normal 90deg','frames':['handheld','tv'],'invalid_configuration_rejected_atomically':True,'xy_margin_mm':margin,'source_file_unchanged':True,'opaque_side_wall_samples':opaque_samples}
 (ROOT/'validation/revI-freecad.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report),flush=True)

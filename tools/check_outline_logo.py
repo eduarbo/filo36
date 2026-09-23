@@ -20,7 +20,7 @@ master=read('flan36-outline-master.svg'); canonical=paths(master)
 assert len(canonical)==7
 assert sum(d.count('M') for d in canonical.values())==11
 assert sum(d.count('Z') for d in canonical.values())==11
-files=sorted(OUT.glob('flan36-*.svg')); assert len(files)==8
+files=sorted(OUT.glob('flan36-*.svg')); assert len(files)==4
 for file in files:
     root=read(file.name)
     assert root.attrib['width'].endswith('mm') and root.attrib['height'].endswith('mm')
@@ -36,8 +36,9 @@ for file in files:
     expected={'flan-symbol'} if '-symbol-' in file.name else set(canonical)-{'flan-symbol'} if '-wordmark-' in file.name else set(canonical)
     assert set(actual)&set(canonical)==expected
     assert len(actual)==len(expected)+(2 if '-color' in file.name else 0)
-black=read('flan36-outline-black.svg');white=read('flan36-outline-white.svg')
-assert np.array_equal(alpha(black),alpha(white))
+black=read('flan36-outline-black.svg')
+master.set('viewBox',black.attrib['viewBox'])
+assert np.array_equal(alpha(black),alpha(master))
 # Same original pixel coordinate frame; independent raster comparison at 1:1.
 black.set('viewBox','0 0 435 345');black.set('width','435');black.set('height','345')
 render=np.array(Image.open(io.BytesIO(cairosvg.svg2png(bytestring=ET.tostring(black)))).convert('RGBA'))[:,:,3]>128
@@ -46,14 +47,14 @@ iou=float((render&reference).sum()/(render|reference).sum());assert iou>.97,iou
 with zipfile.ZipFile(OUT/'flan36-outline-svg-kit.zip') as z:
     assert z.testzip() is None
     manifest=json.loads(z.read('manifest.json'))
-    assert len(z.namelist())==12
+    assert len(z.namelist())==8
     for entry in manifest['files']:
         assert sha(z.read(entry['path']))==entry['sha256']==sha((OUT/entry['path']).read_bytes())
     assert z.read('LICENSE.txt')==(ROOT/'LICENSE').read_bytes()
 native=json.loads((ROOT/'validation/branding-outline-freecad.json').read_text())
 for item in native['imports']: assert item['sha256']==sha((ROOT/item['path']).read_bytes())
 report={'svg_count':len(files),'master_components':7,'closed_rings':11,'holes':4,
-        'same_contours_all_variants':True,'black_white_alpha_identical':True,
+        'same_contours_all_variants':True,'master_export_alpha_identical':True,
         'reference_mask_intersection_over_union':iou,'package_integrity':True,
         'package_sha256':sha((OUT/'flan36-outline-svg-kit.zip').read_bytes()),
         'freecad_report_matches_current_assets':True,'manufacturing_qualified':False,

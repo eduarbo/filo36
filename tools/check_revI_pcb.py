@@ -19,7 +19,7 @@ transforms=json.loads((ROOT/'validation/revI-pcb-outline.json').read_text())
 report={'kicad_version':p.GetBuildVersion(),'fabrication_ready':False,'halves':{}}
 pattern=r'\(gr_line\s+\(start\s+([\d.eE+-]+)\s+([\d.eE+-]+)\)\s+\(end\s+([\d.eE+-]+)\s+([\d.eE+-]+)\).*?\(layer\s+"?Edge.Cuts"?\)'
 for side in ['left','right']:
-    old=ROOT/f'hardware/revH/filo36-{side}.kicad_pcb';new=ROOT/f'hardware/revI/filo36-{side}.kicad_pcb'
+    old=ROOT/f'hardware/revH/filo36-{side}.kicad_pcb';new=ROOT/f'hardware/revI/flan36-{side}.kicad_pcb'
     board,actual=snapshot(new);_,original=snapshot(old);assert set(actual)==set(original)
     for ref,state in actual.items():
         before=original[ref];after=dict(state)

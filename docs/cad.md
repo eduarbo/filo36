@@ -1,8 +1,8 @@
 # Editable CAD and 3D files
 
-**[Editing guide](freecad.md)** · **[3D configurator](https://eduarbo.github.io/filo36/)** · **[Configuration format and examples](customize.md)**
+**[Editing guide](freecad.md)** · **[3D configurator](https://eduarbo.github.io/flan36/)** · **[Configuration format and examples](customize.md)**
 
-The current mechanical source is [`mechanical/revI/Filo36.FCStd`](../mechanical/revI/Filo36.FCStd). It contains both halves, native sketches/operations, editable parameters and 36 original KLP meshes. Commercial modules use [nominal component models](../components/README.md); some connectors remain dimensional reserves. The matching revI KiCad studies use the chosen contour and internal battery/magnet clearances. Six auxiliary/mounting footprints move; all key transforms and nets are preserved.
+The current mechanical source is [`mechanical/revI/Flan36.FCStd`](../mechanical/revI/Flan36.FCStd). It contains both halves, native sketches/operations, editable parameters and 36 original KLP meshes. Commercial modules use [nominal component models](../components/README.md); some connectors remain dimensional reserves. The matching revI KiCad studies use the chosen contour and internal battery/magnet clearances. Six auxiliary/mounting footprints move; all key transforms and nets are preserved.
 
 | Nominal measure | Revision I |
 |---|---:|
@@ -20,7 +20,7 @@ Heights exclude the illustrative 1.2 mm feet. USB is only 0.045 mm behind the ad
 
 ## Files
 
-- `mechanical/revI/Filo36.FCStd`: editable assembly.
+- `mechanical/revI/Flan36.FCStd`: editable assembly.
 - `mechanical/revI/*-case-{solid,rim,terrace}-{base,plate}.{step,stl}`: [three real case variants](cases.md).
 - `mechanical/revI/*-assembly.step`: installed solid parts per half; no KLP mesh bodies.
 - `mechanical/revI/*-frame-{smooth,bevel,facet,handheld,tv,cyberpunk}.{step,stl}`: all interchangeable cover styles.
@@ -77,7 +77,7 @@ cp build/themes-print/print-validation.json validation/revI-print-kit.json
 cp build/themes-print/themes-desktop.png docs/images/revI-themes.png
 cp build/themes-print/nano-v2.png docs/images/revI-nano-v2.png
 python3 tools/check_parts_links.py
-python3 tools/check_revI_delivery.py
+python3 tools/check_rebrand.py
 ```
 
 To regenerate the current PCB without replacing existing work, use `python3 tools/build_revI_pcb.py --output build/lcd-curve/hardware` with a new empty destination and compare its two PCB files. The source remains the immutable revH placement.
@@ -90,7 +90,7 @@ After an authorized publication, `python3 tools/check_public_delivery.py COMMIT_
 
 The corner check inspects all 12 saved frame bodies against the native case outline and rejects the former R1.2 overhang. The height study changes only an in-memory document, checks affected left-half pairs at two candidate heights and writes its receipt without saving the CAD source. It does not qualify connectors or select a printable configuration. `build/corner-stack/` contains ignored regenerable logs and staging for these commands.
 
-The browser check needs Playwright and a Chromium-compatible browser. Set `FILO36_PLAYWRIGHT_MODULE` and `FILO36_BROWSER` if they are not on the usual path. It tests the generated file with HTTP(S) requests blocked; `FILO36_VIEWER_URL` instead selects the published URL.
+The browser check needs Playwright and a Chromium-compatible browser. Set `FLAN36_PLAYWRIGHT_MODULE` and `FLAN36_BROWSER` if they are not on the usual path. It tests the generated file with HTTP(S) requests blocked; `FLAN36_VIEWER_URL` instead selects the published URL.
 
 The native configuration test also uses the scoped subprocess exit after its assertions, file writes and save/reopen readback to avoid the same Qt teardown crash. It does not suppress failed assertions or change installed FreeCAD.
 
@@ -117,3 +117,5 @@ Then run `tools/check_stepup_readback.py` with KiCad’s Python. The StepUp harn
 The battery opening now leaves approximately **0.524 mm minimum measured pad clearance**, above the configured 0.5 mm rule. Both boards have **zero geometric DRC violations and 104 unconnected items each**. They remain unrouted; do not order them as finished PCBs.
 
 Exact cable terminals, sockets/contact lengths, magnetic retention, printed fits, keycap insertion, screw access with real tools, RF, charging and consumption still need verification. [Revision review](revI-review.md).
+
+The September 23 identity migration preserves the original geometry. Native metadata and current filenames use Flan36; previous generation receipts keep their original source hashes. [Rename checks](../validation/rebrand-file-map.json) bind the previous snapshot to the current files.

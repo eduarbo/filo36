@@ -5,13 +5,13 @@ const path=require('node:path');
 const assert=require('node:assert/strict');
 const {pathToFileURL}=require('node:url');
 const crypto=require('node:crypto');
-const {chromium}=require(process.env.FILO36_PLAYWRIGHT_MODULE||'playwright');
+const {chromium}=require(process.env.FLAN36_PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..');
 fs.mkdirSync(path.join(root,'build/case-variants'),{recursive:true});
 const hash=buffer=>crypto.createHash('sha256').update(buffer).digest('hex');
 const html=fs.readFileSync(path.join(root,'docs/index.html'),'utf8');
 const scene=JSON.parse(require('node:zlib').gunzipSync(Buffer.from(html.match(/<script id="scene-data" type="application\/octet-stream">([\s\S]*?)<\/script>/)[1],'base64')));
-const target=process.env.FILO36_VIEWER_URL||pathToFileURL(path.join(root,'docs/index.html')).href;
+const target=process.env.FLAN36_VIEWER_URL||pathToFileURL(path.join(root,'docs/index.html')).href;
 const offline=target.startsWith('file:');
 
 async function checkDirectory(page){
@@ -49,7 +49,7 @@ async function checkLink(page,group){
 }
 
 (async()=>{
- const browser=await chromium.launch({headless:true,...(process.env.FILO36_BROWSER?{executablePath:process.env.FILO36_BROWSER}:{})});
+ const browser=await chromium.launch({headless:true,...(process.env.FLAN36_BROWSER?{executablePath:process.env.FLAN36_BROWSER}:{})});
  try{
   const context=await browser.newContext({viewport:{width:1440,height:960},acceptDownloads:true});
   const requests=[],errors=[];

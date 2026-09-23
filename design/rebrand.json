@@ -1,0 +1,87 @@
+{
+  "request": "User 2026-09-23: show only the chosen logo; update all current references including repository name to Flan36",
+  "baseline_commit": "819a01883b2faec3682ac457328bc361dc43e355",
+  "repository_id": 1380608588,
+  "target": "eduarbo/flan36",
+  "requirements": [
+    "One visible selected Outline logo, no proposal gallery",
+    "Canonical repository and Pages use flan36",
+    "Current native filenames, document labels, guides and exports use Flan36",
+    "Legacy saved configurations remain importable",
+    "Geometry, nets and original historical evidence preserved"
+  ],
+  "reviews": {
+    "domain_constructive": "rename_domain_review",
+    "adversarial_risk": "rename_risk_review",
+    "consensus": "Proceed with current identity migration and dual-read legacy compatibility",
+    "dispositions": {
+      "config_loss": "Accept both schemas, normalize to new, preserve legacy storage",
+      "native_geometry": "Metadata-only native migration; byte-compare non-XML members and verify native reopen",
+      "pages": "Verify same repository id, new Pages URL and functional downloads",
+      "history": "Keep prior validation and request records as historical evidence; current policy supersedes URL preservation"
+    }
+  },
+  "baseline_files": [
+    {
+      "path": "README.md",
+      "sha256": "3e378de834ceef42d1ef4303c9aa2a1adf1840a2d4abc4618d680a59b3bbe805"
+    },
+    {
+      "path": "docs/branding.html",
+      "sha256": "a8e20291024a12d9519b05cacd6a47b741e45a760dd290e4f6036696bb669b26"
+    },
+    {
+      "path": "docs/branding.md",
+      "sha256": "35ed5ff93eb40aea5454cce5e53e9efd20dceaaf4be0314a955796da8fca9a19"
+    },
+    {
+      "path": "design/branding.json",
+      "sha256": "75afd0c6a92f6b7f5d9992c0111b97b01a7e174fe737bd4b3e65caaa3d845a5b"
+    },
+    {
+      "path": "viewer/config.js",
+      "sha256": "0d91179c3463225a70cb07185852e3cfae173b54ab51b5e3eeead0ffd8727bfa"
+    },
+    {
+      "path": "viewer/app.js",
+      "sha256": "af1cffb07dc071768babbef40217fc25335f7817a78f90c4e6cae3e55144e3b6"
+    },
+    {
+      "path": "viewer/build.mjs",
+      "sha256": "9d65aea33540ed34c8dc696579f4bec44344cd11114cd06a45c714280238df41"
+    },
+    {
+      "path": "tools/keycap_config.py",
+      "sha256": "98789de3ca71ed61cf3403fc174460769b6156ade963b9355a7d8343cd398eba"
+    },
+    {
+      "path": "tools/build_outline_logo.py",
+      "sha256": "a9734de2cb8bdffc742196700b1f84aa41c92537f29b6eaf0c44e69aa55bce79"
+    },
+    {
+      "path": "tools/freecad/configuration.py",
+      "sha256": "541619beab3098dfd0cc71091c7cce163d052029f68368be62bffc318e40767f"
+    },
+    {
+      "path": "docs/freecad.md",
+      "sha256": "45adbc1572d8e09a3d958d92c4eabdaa3468d9158f52e9876740a578c13d4deb"
+    },
+    {
+      "path": "tools/freecad/build_revI.py",
+      "sha256": "41bb149b14396539ada86c3e7544d0000575fd6ae6d0ba2efb409badaae06ced"
+    }
+  ],
+  "historical_exceptions": [
+    "Previous revision sources and files",
+    "Original generation prompts, selected raster reference and historical validation receipts",
+    "Explicit legacy configuration import identifiers"
+  ],
+  "status": "Local identity migration verified; remote rename and public readback pending",
+  "verification": [
+    "validation/rebrand-native.json",
+    "validation/rebrand-local.json",
+    "validation/rebrand-config.json",
+    "validation/rebrand-browser.json",
+    "validation/rebrand-functional.json"
+  ]
+}

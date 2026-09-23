@@ -13,7 +13,7 @@ import Part
 
 ROOT = Path(__file__).resolve().parents[2]
 G.showMainWindow()
-doc = A.openDocument(str(ROOT/'mechanical/revI/Filo36.FCStd'))
+doc = A.openDocument(str(ROOT/'mechanical/revI/Flan36.FCStd'))
 profiles = json.loads((ROOT/'design/revI-profiles.json').read_text())
 frames = json.loads((ROOT/'design/revI-frame-profiles.json').read_text())
 rows = []
@@ -46,7 +46,7 @@ for side, prefix in [('left', 'L_'), ('right', 'R_')]:
     # Old R1.2 outer corner has material at this XY point; new case does not.
     old_mid = A.Vector(134.648528137 if side == 'left' else 25.351471863, -11.351471863, 8)
     assert not envelope.isInside(old_mid, 1e-7, True), 'Former mismatch not rejected'
-report = {'source_sha256': hashlib.sha256((ROOT/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest(),
+report = {'source_sha256': hashlib.sha256((ROOT/'mechanical/revI/Flan36.FCStd').read_bytes()).hexdigest(),
           'checker_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
           'shared_corner_checks': rows, 'previous_corner_rejected': True,
           'scope': 'Native corner geometry; physical fit remains untested'}

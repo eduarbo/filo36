@@ -13,10 +13,10 @@ export function gap(a,b){
  }
  return result;
 }
-export function normalize(config,c){const result=copy(config);if(!('cases' in result))result.cases=copy(c.default_configuration.cases);for(const side of ['left','right']){const cs=result.cases[side],style=c.case_styles[cs.style];cs.base_color??=style.base_color;cs.plate_color??=style.plate_color;cs.match_frame??=false;const f=result.frames[side],p=framePalette(f.style,f.color,f.accents);f.accents=Object.fromEntries(['detail','accent','secondary'].map(k=>[k,p[k]]));}return result;}
+export function normalize(config,c){const result=copy(config);result.schema="flan36-config-1";if(!('cases' in result))result.cases=copy(c.default_configuration.cases);for(const side of ['left','right']){const cs=result.cases[side],style=c.case_styles[cs.style];cs.base_color??=style.base_color;cs.plate_color??=style.plate_color;cs.match_frame??=false;const f=result.frames[side],p=framePalette(f.style,f.color,f.accents);f.accents=Object.fromEntries(['detail','accent','secondary'].map(k=>[k,p[k]]));}return result;}
 export function check(config,c){
  const errors=[],variants=new Map(c.variants.map(v=>[v.id,v]));let minimum=Infinity;
- if(config?.schema!=='filo36-config-1'||config?.revision!=='I')return {errors:['Unsupported configuration format or revision.']};
+ if(!['flan36-config-1','filo36-config-1'].includes(config?.schema)||config?.revision!=='I')return {errors:['Unsupported configuration format or revision.']};
  if(Object.keys(config.keycaps||{}).sort().join()!=='left,right'||Object.keys(config.frames||{}).sort().join()!=='left,right')return {errors:['Both halves are required.']};
  if(Object.keys(config.batteries||{}).sort().join()!=='left,right')return {errors:['Select a battery for each half.']};
  if('cases' in config){if(Object.keys(config.cases||{}).sort().join()!=='left,right')return {errors:['Select a case for each half.']};for(const choice of Object.values(config.cases))if(typeof choice?.style!=='string'||!Object.hasOwn(c.case_styles,choice.style)||typeof choice?.cover!=='boolean')return {errors:['Invalid case or display cover option.']};}

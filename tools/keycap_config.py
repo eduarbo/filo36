@@ -32,7 +32,7 @@ def default_config(catalog=None):
     c=catalog or load();return normalize(c['default_configuration'],c)
 
 def normalize(config,catalog=None):
-    c=catalog or load();result=copy.deepcopy(config)
+    c=catalog or load();result=copy.deepcopy(config);result['schema']='flan36-config-1'
     if 'cases' not in result:result['cases']=copy.deepcopy(c['default_configuration']['cases'])
     for side in ['left','right']:
         case=result['cases'][side];style=c['case_styles'][case['style']]
@@ -45,7 +45,7 @@ def valid_color(v):return isinstance(v,str) and len(v)==7 and v[0]=='#' and all(
 
 def check(config,catalog=None):
     c=catalog or load();variants={v['id']:v for v in c['variants']};errors=[];shapes={};minimum=float('inf')
-    if config.get('schema')!='filo36-config-1' or config.get('revision')!='I':return ['Unsupported configuration format or revision.'],None
+    if config.get('schema') not in ('flan36-config-1','filo36-config-1') or config.get('revision')!='I':return ['Unsupported configuration format or revision.'],None
     if set(config.get('keycaps',{}))!={'left','right'} or set(config.get('frames',{}))!={'left','right'}:return ['Both halves are required.'],None
     if set(config.get('batteries',{}))!={'left','right'}:return ['Select a battery for each half.'],None
     if 'cases' in config:

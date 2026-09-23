@@ -6,6 +6,7 @@ import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 import {copy,check,normalize} from './config.js';
 import {printKit} from './printing.js';
 import {createAppearance,setColor,savedKey} from './appearance.js';
+import {restoreConfiguration} from './storage.js';
 import {createExplorer,partInfo} from './explorer.js';
 import {createPreviewRenderer} from './previews.js';
 import {createFrameFinishes,framePalette,finishes} from './finishes.js';
@@ -15,7 +16,7 @@ const $=id=>document.getElementById(id);
 const compressed=Uint8Array.from(atob($('scene-data').textContent),c=>c.charCodeAt(0));
 const data=JSON.parse(await new Response(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
 const catalog=data.catalog;let configuration=normalize(catalog.default_configuration,catalog);
-let restored=false,storageMessage='';try{const raw=localStorage.getItem(savedKey);if(raw){if(raw.length>100000)throw Error();const saved=JSON.parse(raw);if(check(saved,catalog).errors.length)throw Error();configuration=normalize(saved,catalog);restored=true;}}catch(e){storageMessage='Saved settings could not be loaded. Defaults are available; use JSON to restore.';}
+let restored=false,storageMessage='';try{const saved=restoreConfiguration(localStorage,catalog);if(saved.configuration){configuration=saved.configuration;restored=true;}storageMessage=saved.message;}catch(e){storageMessage='Device storage unavailable; use JSON to restore.';}
 const variants=new Map(catalog.variants.map(v=>[v.id,v]));
 const labels={base:'Bases',plate:'Plates',lid:'Frames / covers',keycaps:'Keycaps',switches:'Switches',pcb:'PCB',battery:'Batteries',mcu:'Controllers',display:'Displays',connectors:'Connectors',supports:'Supports',fasteners:'Fasteners / feet'};
 const state={half:'both',layers:Object.fromEntries(Object.keys(labels).map(k=>[k,true])),explode:0,view:'iso'};
@@ -190,11 +191,11 @@ $('glb').onclick=async()=>{
   try{
     const assembly=new THREE.Group();assembly.name=`Flan36 rev${data.revision} · nominal`;assembly.scale.setScalar(.001);
     for(const object of objects){if(object.userData.installed===false)continue;const clone=object.clone();clone.visible=true;clone.position.fromArray(object.userData.base);assembly.add(clone);}
-    assembly.userData={configuration:copy(configuration),units:'metres',source:'https://github.com/eduarbo/filo36',limitations:data.limits,
+    assembly.userData={configuration:copy(configuration),units:'metres',source:'https://github.com/eduarbo/flan36',limitations:data.limits,
       attribution:'Flan36 / Eduardo Ruiz, derived from Piantor by beekeeb (GPL-3.0); KLP Lame keycaps by braindefender (CC-BY-SA-4.0), unchanged meshes, placed and coloured. Choc models by keyswitch-kicad-library contributors (MIT); reset and power switch geometry by KiCad (CC-BY-SA-4.0 with library exception).',
       licenses:['https://www.gnu.org/licenses/gpl-3.0.html','https://creativecommons.org/licenses/by-sa/4.0/'],
-      component_sources:'https://github.com/eduarbo/filo36/blob/main/components/sources.json',
-      component_licenses:'https://github.com/eduarbo/filo36/blob/main/components/README.md',
+      component_sources:'https://github.com/eduarbo/flan36/blob/main/components/sources.json',
+      component_licenses:'https://github.com/eduarbo/flan36/blob/main/components/README.md',
       keycap_source:'https://github.com/braindefender/KLP-Lame-Keycaps/tree/4a67a824232d3054c61599ea047c56a340faaba2'};
     const buffer=await new GLTFExporter().parseAsync(assembly,{binary:true,onlyVisible:true});
     const url=URL.createObjectURL(new Blob([buffer],{type:'model/gltf-binary'}));const link=document.createElement('a');

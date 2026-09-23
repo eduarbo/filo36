@@ -2,7 +2,7 @@
 
 **36 keys. Piantor angles. Your keycaps, your frames.**
 
-**[Explore and customize in 3D →](https://eduarbo.github.io/filo36/)** · **[Parts and buying links →](docs/parts.md)** · **[Edit in FreeCAD →](docs/freecad.md)**
+**[Explore and customize in 3D →](https://eduarbo.github.io/flan36/)** · **[Parts and buying links →](docs/parts.md)** · **[Edit in FreeCAD →](docs/freecad.md)**
 
 ![Flan36 revI with interchangeable display frames and original KLP Lamé keycaps](docs/images/revI-assembled.png)
 
@@ -10,12 +10,12 @@
 
 **[Themes and print kits](docs/themes-printing.md)** — Sixteen palettes, linked rim/frame colors and selected STL/3MF parts.
 
-**[Outline logo](docs/branding.md)** — Editable SVG kit with color, one-ink and reversed versions, plus a KiCad / FreeCAD import guide.
+**[Outline logo](docs/branding.md)** — The selected Outline logo, editable SVG and KiCad / FreeCAD import guide.
 
 **[Case variants](docs/cases.md)** — Solid, Color rim and Terrace; actual meshes in the explorer.
 
 
-Flan36 is a low-profile wireless split keyboard in development by [Eduardo Ruiz](https://github.com/eduarbo). It keeps Piantor’s key centers and angles, with five columns and three thumb keys per half. The name is **Flan36** (formerly Filo36).
+Flan36 is a low-profile wireless split keyboard in development by [Eduardo Ruiz](https://github.com/eduarbo). It keeps Piantor’s key centers and angles, with five columns and three thumb keys per half. The name is **Flan36**.
 
 - **KLP Lamé choices:** all 38 Choc-stem variants catalogued; 28 qualify in at least one position. The viewer checks complete combinations and exports a configuration for FreeCAD.
 - **Magnetic frames:** Handheld, Retro TV and Cyberpunk, with multicolor relief palettes, plus three plain styles and separate body colors per half. Opaque skirts hide the stack; the display has its own support.

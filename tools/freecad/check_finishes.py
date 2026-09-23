@@ -10,7 +10,7 @@ from configuration import apply,extract,apply_finish
 from keycap_config import normalize
 from frame_finishes import palette,rgb,role
 OUT=ROOT/'build/viewer-multicolor';OUT.mkdir(exist_ok=True)
-result={};source=ROOT/'mechanical/revI/Filo36.FCStd'
+result={};source=ROOT/'mechanical/revI/Flan36.FCStd'
 def verify(doc):
     records=[]
     for side,prefix in [('left','L_'),('right','R_')]:

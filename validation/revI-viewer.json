@@ -652,7 +652,7 @@
     },
     {
       "path": "design/revI.json",
-      "sha256": "fa89d134c9a0ab8528e2714e36576c2736f01f34fdf0341490ae35c280ff8265"
+      "sha256": "dfd94b9e13dfa50ee3996e4bc628f2998a742cb150ea109dfbc785efdf501f31"
     },
     {
       "path": "design/layout.json",
@@ -672,23 +672,27 @@
     },
     {
       "path": "keycaps/catalog.json",
-      "sha256": "1678ddc573b3f794356835de12efa3bc87b4425bee806ecebd176078127d809d"
+      "sha256": "732369232dddc55f9ad1f589c43e748e28676fafb1433db98a88fccd104cbcc0"
     },
     {
       "path": "viewer/app.js",
-      "sha256": "af1cffb07dc071768babbef40217fc25335f7817a78f90c4e6cae3e55144e3b6"
+      "sha256": "12a2a30ebae6ae3d52bf47985f73e42d57efc2fe20b5078f205cada7f09c7fa3"
     },
     {
       "path": "viewer/config.js",
-      "sha256": "0d91179c3463225a70cb07185852e3cfae173b54ab51b5e3eeead0ffd8727bfa"
+      "sha256": "f4f1642dde95d6056210c868ae010e8e6ba5e75165dc0e183cdeac24f49658e8"
+    },
+    {
+      "path": "viewer/storage.js",
+      "sha256": "f8daeb8702b9d3fad93d93e2c18e6a66cee29e85a5a70f83da1184769823ceba"
     },
     {
       "path": "viewer/appearance.js",
-      "sha256": "284b5bdf4e2580a6a4af3d6fecf319756c09425a2dd0a65d89ea0d63c86f174e"
+      "sha256": "84a0619809d534fe37cf19fbf3acf8643e7cff34f26c51da45c6e1ab93d49c3b"
     },
     {
       "path": "viewer/printing.js",
-      "sha256": "8ad0bc845b5183fb2709106fc177292d219e9fc861da5dc8a0e7639b8981a027"
+      "sha256": "508e7b584111635ffcc0a4562c611888a62e9feff66e93bf801eaf1732c7f91c"
     },
     {
       "path": "design/themes.json",
@@ -716,18 +720,18 @@
     },
     {
       "path": "viewer/template.html",
-      "sha256": "4797a1a9440a820304e3e363126a65e6db7f5ca3b8ac56d3daec3c6657e89e1c"
+      "sha256": "af5ed4b79fb88826e32b92842bc6c3e4f746e74fa567d82781a68e68001aecef"
     },
     {
       "path": "viewer/build.mjs",
-      "sha256": "9d65aea33540ed34c8dc696579f4bec44344cd11114cd06a45c714280238df41"
+      "sha256": "9012242120e5ddf82f807cb7dc0c8c7a6ea6ba644ecb032f946b4ad94216cfb9"
     },
     {
       "path": "viewer/package-lock.json",
-      "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
+      "sha256": "a62090e2bb0ab32205ff582bd3612ff167dc03d9db4c2b6879bb98f5bf25d550"
     }
   ],
-  "viewer_sha256": "aaa20eb800a7e38d28ff00b49bcf4949d43692adae64a5b6f353df6ce430e864",
+  "viewer_sha256": "5221cbd4002d56c34921039e1aab2c1ab331290734104fc0d9b071bf7cd4958e",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,

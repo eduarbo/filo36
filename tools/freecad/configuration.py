@@ -14,7 +14,7 @@ from frame_finishes import role,palette,rgb
 def apply_finish(doc,cover,side,body,accents=None):
     if accents is None:accents=json.loads(getattr(cover,'PaletteAccents','{}'))
     colors=palette(cover.FrameStyle,body,accents)
-    if not hasattr(cover,'PaletteAccents'):cover.addProperty('App::PropertyString','PaletteAccents','Filo36')
+    if not hasattr(cover,'PaletteAccents'):cover.addProperty('App::PropertyString','PaletteAccents','Flan36')
     cover.PaletteAccents=json.dumps({k:colors[k] for k in ['detail','accent','secondary']})
     roof=float(doc.Parameters.FrameTop)
     cover.ViewObject.ShapeColor=rgb(body)
@@ -26,7 +26,7 @@ def apply(doc,config):
     catalog=load();errors,clearance=check(config,catalog)
     if errors:raise ValueError('\n'.join(errors[:12]))
     config=normalize(config,catalog)
-    if not doc or not all(doc.getObject(p+'ActiveFrame') for p in ['L_','R_']):raise ValueError('Open mechanical/revI/Filo36.FCStd first.')
+    if not doc or not all(doc.getObject(p+'ActiveFrame') for p in ['L_','R_']):raise ValueError('Open mechanical/revI/Flan36.FCStd first.')
     variants={v['id']:v for v in catalog['variants']};meshes={}
     for side,keys in catalog['layout'].items():
         for key in keys:
@@ -34,7 +34,7 @@ def apply(doc,config):
             if ident not in meshes:
                 path=ROOT/v['path'];assert hashlib.sha256(path.read_bytes()).hexdigest()==v['sha256'],'Modified STL: '+ident
                 mesh=Mesh.Mesh(str(path));mat=A.Matrix();mat.A22=-1;mesh.transform(mat);mesh.flipNormals();meshes[ident]=mesh
-    doc.openTransaction('Filo36 configuration')
+    doc.openTransaction('Flan36 configuration')
     try:
         for side,prefix in [('left','L_'),('right','R_')]:
             for key in catalog['layout'][side]:
@@ -51,7 +51,7 @@ def apply(doc,config):
                 link=doc.getObject(prefix+name);source=doc.getObject(prefix+'Case_'+case['style']+'_'+group);link.setLink(source);link.ViewObject.OverrideMaterial=False
                 source.ViewObject.ShapeColor=rgb(case[group+'_color']);source.ViewObject.DiffuseColor=[rgb(case[group+'_color'])]*len(source.Shape.Faces)
             half=doc.getObject(prefix+'Half');half.DisplayCoverInstalled=case['cover']
-            if not hasattr(half,'MatchFrameColor'):half.addProperty('App::PropertyBool','MatchFrameColor','Filo36')
+            if not hasattr(half,'MatchFrameColor'):half.addProperty('App::PropertyBool','MatchFrameColor','Flan36')
             half.MatchFrameColor=case['match_frame']
             for o in doc.Objects:
                 if o.Name.startswith(prefix) and hasattr(o,'CaseStyle'):o.Visibility=False
@@ -69,7 +69,7 @@ def apply(doc,config):
     return clearance
 
 def extract(doc):
-    result={'schema':'filo36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{},'cases':{}}
+    result={'schema':'flan36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{},'cases':{}}
     for side,prefix in [('left','L_'),('right','R_')]:
         hexcolor=lambda o:'#'+''.join(f'{round(v*255):02x}' for v in o.ViewObject.ShapeColor[:3])
         result['cases'][side]={'style':doc.getObject(prefix+'ActiveTray').LinkedObject.CaseStyle,'cover':doc.getObject(prefix+'Half').DisplayCoverInstalled,'base_color':hexcolor(doc.getObject(prefix+'ActiveTray').LinkedObject),'plate_color':hexcolor(doc.getObject(prefix+'ActivePlate').LinkedObject),'match_frame':getattr(doc.getObject(prefix+'Half'),'MatchFrameColor',False)}

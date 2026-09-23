@@ -1,6 +1,6 @@
 # Pick a case
 
-[Open the 3D explorer](https://eduarbo.github.io/filo36/) → **Base** or **Plate** → choose a thumbnail. Apply a design to both halves or mix them.
+[Open the 3D explorer](https://eduarbo.github.io/flan36/) → **Base** or **Plate** → choose a thumbnail. Apply a design to both halves or mix them.
 
 | Solid | Color rim | Terrace |
 |---|---|---|
@@ -26,7 +26,7 @@ Uncheck **Printed display cover** to expose the current stack. The display, cont
 
 ## Edit and print
 
-Download [Filo36.FCStd](../mechanical/revI/Filo36.FCStd) and use the [FreeCAD guide](freecad.md). `ActiveTray` and `ActivePlate` link to native `Case_solid`, `Case_rim` or `Case_terrace` bodies. Edit their source sketches and boolean operations under **Construction**. No custom Python proxy is needed to reopen the document.
+Download [Flan36.FCStd](../mechanical/revI/Flan36.FCStd) and use the [FreeCAD guide](freecad.md). `ActiveTray` and `ActivePlate` link to native `Case_solid`, `Case_rim` or `Case_terrace` bodies. Edit their source sketches and boolean operations under **Construction**. No custom Python proxy is needed to reopen the document.
 
 [All case parts](../mechanical/revI) use `left-case-{solid,rim,terrace}-{base,plate}.{step,stl}` and matching `right-` names. Exported parts retain assembly coordinates. The viewer saves per-half case and cover choices in JSON; import that JSON with the configuration macro. Older JSON defaults to Solid with covers installed. The assembled GLB includes the selected meshes, including when view layers are hidden.
 

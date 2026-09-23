@@ -13,7 +13,7 @@ fontpath=next((p for p in ['/System/Library/Fonts/Helvetica.ttc','/usr/share/fon
 font=lambda size:ImageFont.truetype(fontpath,size) if fontpath else ImageFont.load_default()
 ink='#24413f';accent='#437f6c';scale=6
 label=lambda x,y,s,size=25,color=ink:draw.text((x,y),s,font=font(size),fill=color)
-label(80,50,'FILO36  /  CURVED THUMBS / ALIGNED FLANK',43)
+label(80,50,'FLAN36  /  CURVED THUMBS / ALIGNED FLANK',43)
 label(82,111,'Uniform finger rim. Local thumb curves. Original Piantor key centers and angles.',27)
 for side,offset in [('left',65),('right',1010)]:
  def tx(q):return(offset+(q[0]-15)*scale,225+q[1]*scale)

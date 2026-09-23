@@ -1,6 +1,6 @@
 # Make it yours
 
-Open [the 3D explorer](https://eduarbo.github.io/filo36/), choose **Themes**, and pick a starting palette. Sixteen presets coordinate the case and frame. Their previews use your selected shapes.
+Open [the 3D explorer](https://eduarbo.github.io/flan36/), choose **Themes**, and pick a starting palette. Sixteen presets coordinate the case and frame. Their previews use your selected shapes.
 
 ![Theme gallery and coordinated rim/frame colors](images/revI-themes.png)
 

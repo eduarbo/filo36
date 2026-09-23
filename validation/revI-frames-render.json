@@ -1,5 +1,5 @@
 {
-  "image_sha256": "c1ff16eabed4796fb928ee67eb8c1edf4131de0db688152afd09dfcdfbdbf5b2",
+  "image_sha256": "3307e0e29214fd4dea2f0675440a71674bc21549d018b9ec463e8d98d1807d05",
   "sources": [
     {
       "path": "design/frame-finishes.json",
@@ -22,6 +22,6 @@
       "sha256": "2ed546b7872985dfa06c08c2dc5e43f31355ca83d43781530df1fe435fb8c6a2"
     }
   ],
-  "renderer_sha256": "bab6db8ef27fd4b01d1beafb0e2dd61bcca6cc8cd9049bee337cdc63241a2697",
+  "renderer_sha256": "79983faba3df2d37e514dc12e84dc747a13306ec140e54553e5a0739b999ce2a",
   "geometry_changed": false
 }

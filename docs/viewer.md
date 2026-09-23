@@ -1,6 +1,6 @@
 # Explore the assembly
 
-**[Open the 3D viewer →](https://eduarbo.github.io/filo36/)**
+**[Open the 3D viewer →](https://eduarbo.github.io/flan36/)**
 
 The component directory stays visible while you inspect or customize the keyboard. Its 12 entries include **Frame**, **Caps**, **PCB**, **Battery** and **MCU**. Open an entry for its controls or information; use its eye to show or hide that layer. Open **Individual parts** within a selected entry to toggle a single piece. **Hide / Show** acts on the selection, **Solo** hides everything else, and **Show all** restores every piece and both halves. Each individual piece also has its own Solo button. **Files** and **About** remain beside the directory. View controls have a fixed bar below the model, independent of the details panel.
 

@@ -8,7 +8,7 @@ import hashlib,json,subprocess,sys,urllib.request,zipfile
 ROOT=Path(__file__).resolve().parents[1];out=ROOT/'build/revI';out.mkdir(parents=True,exist_ok=True)
 commit=sys.argv[1] if len(sys.argv)>1 else subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
 assert len(commit)==40 and all(c in '0123456789abcdef' for c in commit)
-url='https://codeload.github.com/eduarbo/filo36/zip/'+commit
+url='https://codeload.github.com/eduarbo/flan36/zip/'+commit
 path=out/'public-source.zip'
 with urllib.request.urlopen(url,timeout=60) as remote,path.open('wb') as local:
     while data:=remote.read(1048576):local.write(data)
@@ -25,7 +25,7 @@ with zipfile.ZipFile(path) as archive:
         raw=archive.read(prefix+name)
         assert hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()==digest,name
 print('Anonymous archive verified:',len(expected),'files',flush=True)
-pageurl='https://eduarbo.github.io/filo36/'
+pageurl='https://eduarbo.github.io/flan36/'
 html=urllib.request.urlopen(pageurl+'?rev='+commit,timeout=60).read()
 assert hashlib.sha1(b'blob '+str(len(html)).encode()+b'\0'+html).hexdigest()==expected['docs/index.html'],'Pages is not yet the published source revision'
 report={'source_commit':commit,'archive_files_verified':len(expected),'archive_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'pages_url':pageurl,'pages_matches_committed_html':True,'viewer_sha256':hashlib.sha256(html).hexdigest(),'authenticated_requests':False,'method':'All archive entries matched against Git blob IDs; public Pages bytes matched the committed viewer.'}

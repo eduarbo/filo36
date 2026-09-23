@@ -1,5 +1,5 @@
 {
-  "schema": "filo36-klp-catalog-1",
+  "schema": "flan36-klp-catalog-1",
   "revision": "I",
   "upstream": "https://github.com/braindefender/KLP-Lame-Keycaps",
   "commit": "4a67a824232d3054c61599ea047c56a340faaba2",
@@ -33231,7 +33231,7 @@
     }
   ],
   "default_configuration": {
-    "schema": "filo36-config-1",
+    "schema": "flan36-config-1",
     "revision": "I",
     "keycaps": {
       "left": {

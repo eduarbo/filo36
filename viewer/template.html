@@ -9,7 +9,7 @@
 <style>/*__STYLE__*/</style>
 </head>
 <body>
-<header><div><strong>FLAN36</strong><span>REV I / OBJECT EXPLORER</span></div><a href="https://github.com/eduarbo/filo36">Repository ↗</a></header>
+<header><div><strong>FLAN36</strong><span>REV I / OBJECT EXPLORER</span></div><a href="https://github.com/eduarbo/flan36">Repository ↗</a></header>
 <main>
 <section class="stage" aria-label="3D keyboard view">
   <canvas id="canvas" aria-label="Drag to rotate; pinch or scroll to zoom; tap a part to inspect"></canvas>
@@ -46,7 +46,7 @@
     <div id="case-colors" class="color-fields"></div><label class="cover-option"><input type="checkbox" id="case-link-colors"> Match frame and rim</label>
     <label class="cover-option"><input type="checkbox" id="case-cover" checked> Printed display cover <small id="cover-state"></small></label>
     <p class="micro">Uncheck to expose the stack while keeping the display. This choice is saved in JSON and GLB. Eye controls only change the view.</p>
-    <a class="case-guide" href="https://github.com/eduarbo/filo36/blob/main/docs/cases.md">Case files &amp; printing guide ↗</a>
+    <a class="case-guide" href="https://github.com/eduarbo/flan36/blob/main/docs/cases.md">Case files &amp; printing guide ↗</a>
   </section>
   <section id="panel-frames" aria-label="Frame options">
     <div class="panel-heading"><h2>Display frames</h2><span id="frame-current"></span></div>
@@ -76,9 +76,9 @@
     <p class="micro">Transfer JSON selections to FreeCAD. Reset view keeps your choices.</p>
 
     <h3>Print your parts</h3><label>Halves<select id="print-half"><option value="both">Both</option><option value="left">Left</option><option value="right">Right</option></select></label><label>Parts<select id="print-scope"><option value="shells">Case, plate &amp; installed frame</option><option value="complete">Complete printed set, with supports &amp; washers</option></select></label><button id="print-kit" class="primary">Download print kit</button><p id="print-status" class="micro">ZIP with STL, generic color 3MF, configuration and part list. Bambu palette setup is manual. Screwed case; captive magnetic frame. No clips modeled.</p>
-    <div class="downloads"><button id="glb">Download assembled GLB</button><a href="./index.html" download="Flan36-revI.html">Download offline HTML</a><a href="https://github.com/eduarbo/filo36/blob/main/docs/freecad.md">Edit in FreeCAD + KiCad ↗</a></div>
+    <div class="downloads"><button id="glb">Download assembled GLB</button><a href="./index.html" download="Flan36-revI.html">Download offline HTML</a><a href="https://github.com/eduarbo/flan36/blob/main/docs/freecad.md">Edit in FreeCAD + KiCad ↗</a></div>
   </details>
-  </section><section id="panel-about" aria-label="Prototype information" hidden><details open><summary>About this prototype</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame roof:</b> 16.6 mm · <b>Themed relief:</b> 17.2 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>36 Piantor positions. Original KLP Lamé meshes. Units: mm. The directory includes all 12 component groups. A fine line connects the active visible part to its entry.</p><p>Nominal CAD study. Zero geometric DRC violations; 104 unconnected items per PCB. Both battery profiles fit the modeled aperture. Magnetic frames, printed threads, actual cables/contacts and hardware operation require physical tests. Commercial models mix documented dimensions, licensed library CAD and reconstructed details. See the component guide for remaining fit reserves.</p></div><a href="https://github.com/eduarbo/filo36/blob/main/components/README.md">Component models &amp; dimensions ↗</a><button id="credits">Credits and licenses</button></details>
+  </section><section id="panel-about" aria-label="Prototype information" hidden><details open><summary>About this prototype</summary><div class="notes"><p><b>Bay:</b> 24 mm · <b>Frame roof:</b> 16.6 mm · <b>Themed relief:</b> 17.2 mm · <b>Plate:</b> 7.6 mm. Heights above the base, without feet.</p><p>36 Piantor positions. Original KLP Lamé meshes. Units: mm. The directory includes all 12 component groups. A fine line connects the active visible part to its entry.</p><p>Nominal CAD study. Zero geometric DRC violations; 104 unconnected items per PCB. Both battery profiles fit the modeled aperture. Magnetic frames, printed threads, actual cables/contacts and hardware operation require physical tests. Commercial models mix documented dimensions, licensed library CAD and reconstructed details. See the component guide for remaining fit reserves.</p></div><a href="https://github.com/eduarbo/flan36/blob/main/components/README.md">Component models &amp; dimensions ↗</a><button id="credits">Credits and licenses</button></details>
 </section></div>
 </aside>
 <svg id="leader-lines" aria-hidden="true"><path id="part-link" hidden></path><circle id="part-link-dot" r="2.5" hidden></circle></svg>

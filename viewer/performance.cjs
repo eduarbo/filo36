@@ -3,14 +3,14 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const crypto=require('node:crypto');
 const {execFileSync}=require('node:child_process'),{pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.FILO36_PLAYWRIGHT_MODULE||'playwright');
+const {chromium}=require(process.env.FLAN36_PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'..'),out=path.join(root,'build/viewer-sidebar');fs.mkdirSync(out,{recursive:true});
 const baseline=process.argv.includes('--baseline'),revision='8b4edc1d8230a5ad4d35b5e4a9b0f66d912f689a';
 const file=baseline?path.join(out,'baseline.html'):path.join(root,'docs/index.html');
 if(baseline)fs.writeFileSync(file,execFileSync('git',['show',revision+':docs/index.html'],{cwd:root,maxBuffer:50*1024*1024}));
 const percentile=(arr,p)=>[...arr].sort((a,b)=>a-b)[Math.min(arr.length-1,Math.floor(arr.length*p))]||0;
 (async()=>{
- const browser=await chromium.launch({headless:true,...(process.env.FILO36_BROWSER?{executablePath:process.env.FILO36_BROWSER}:{})});
+ const browser=await chromium.launch({headless:true,...(process.env.FLAN36_BROWSER?{executablePath:process.env.FLAN36_BROWSER}:{})});
  try{
   const page=await browser.newPage({viewport:{width:1200,height:800},deviceScaleFactor:1});
   const cdp=await page.context().newCDPSession(page);await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});

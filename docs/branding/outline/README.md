@@ -1,19 +1,15 @@
 # Flan36 Outline — SVG kit
 
-The selected Outline concept is now an editable, font-free vector. Its symbol and six letters are closed filled Bézier paths; the four internal holes remain open. Color and monochrome exports share the same outline geometry.
+The selected Outline concept is now an editable, font-free vector. Its symbol and six letters are closed filled Bézier paths; the four internal holes remain open. One chosen logo, supplied as a complete mark, symbol and lettering.
 
 | File | Use | SVG page width |
 | --- | --- | --- |
 | `flan36-outline-master.svg` | Editable source; symbol and each letter have a named path | 30 mm |
 | `flan36-outline-black.svg` | Complete logo, one ink; starting point for graphics import | 30 mm |
-| `flan36-outline-white.svg` | Reversed logo on a dark background | 30 mm |
-| `flan36-outline-color.svg` | Flat caramel/custard identity | 30 mm |
 | `flan36-outline-symbol-black.svg` | Symbol alone, one ink; starting point for a small case/PCB mark | 12 mm |
-| `flan36-outline-symbol-white.svg` | Reversed symbol | 12 mm |
-| `flan36-outline-symbol-color.svg` | Color symbol | 12 mm |
 | `flan36-outline-wordmark-black.svg` | Lettering alone, already converted to paths | 30 mm |
 
-Backgrounds are transparent. White exports need a dark background to be visible. `preview.svg` is a presentation sheet, **not** a manufacturing master; its labels use a system font. The logo SVGs have no fonts, raster images, live strokes, masks or external resources.
+Backgrounds are transparent. `preview.svg` is a presentation sheet, **not** a manufacturing master; it presents the same logo on a light background. The logo SVGs have no fonts, raster images, live strokes, masks or external resources.
 
 ## PCB: KiCad
 
@@ -29,7 +25,7 @@ The supplied black logo, symbol and wordmark were imported headlessly into FreeC
 
 ## Edit and regenerate
 
-Edit `flan36-outline-master.svg` in a vector editor. For the repository generator, keep the seven named top-level paths, explicit absolute M/C/Z commands, no transforms and `fill-rule="evenodd"`; closed cubic contours keep the import path simple. Color fills are derived from the two holes in the symbol, so color variants do not drift from the master.
+Edit `flan36-outline-master.svg` in a vector editor. For the repository generator, keep the seven named top-level paths, explicit absolute M/C/Z commands, no transforms and `fill-rule="evenodd"`; closed cubic contours keep the import path simple.
 
 From the repository root, use a Python environment with `tools/requirements-branding.txt`:
 
@@ -43,4 +39,4 @@ CairoSVG needs the Cairo system library for PNG rendering and raster readback. O
 
 `--trace` intentionally recreates the master from the selected concept and **replaces manual master edits**. Normal regeneration omits that flag. The vector trace uses the bottom-left monochrome reference from `docs/images/branding/flan36-caramel-outline.png`; earlier concept boards remain historical references.
 
-The kit contains SVG art, this guide, a hash manifest and the repository license. It contains no placed PCB artwork, case cut, G-code or print-process approval. [Source and provenance](https://github.com/eduarbo/filo36/blob/main/design/branding-outline-vectors.json).
+The kit contains SVG art, this guide, a hash manifest and the repository license. It contains no placed PCB artwork, case cut, G-code or print-process approval. [Source and provenance](https://github.com/eduarbo/flan36/blob/main/design/branding-outline-vectors.json).

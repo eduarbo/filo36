@@ -4,10 +4,10 @@
 
 ## Start here
 
-1. Download the [complete repository ZIP](https://github.com/eduarbo/filo36/archive/refs/heads/main.zip) and unzip it.
+1. Download the [complete repository ZIP](https://github.com/eduarbo/flan36/archive/refs/heads/main.zip) and unzip it.
 2. Install [FreeCAD](https://www.freecad.org/downloads.php) and [KiCad](https://www.kicad.org/download/).
 3. In FreeCAD’s Addon Manager, install [KiCad StepUp](https://github.com/easyw/kicadStepUpMod).
-4. Open [`mechanical/revI/Filo36.FCStd`](../mechanical/revI/Filo36.FCStd). Importing STEP instead loses the editable history.
+4. Open [`mechanical/revI/Flan36.FCStd`](../mechanical/revI/Flan36.FCStd). Importing STEP instead loses the editable history.
 
 The source opens and recomputes without StepUp, CadQuery or custom Python proxies. StepUp is only needed for exchange with KiCad. KLP keycaps and the 36 linked Choc v1 instances are meshes. The nano, display and standard switches have separate nominal visual parts; some connectors remain dimensional reserves. [Component sources and limits](../components/README.md).
 
@@ -33,7 +33,7 @@ Hide the active frame and keycaps. Change `DisplayShiftY` from **2.4 to 3.4 mm**
 
 ### 3. Inspect the PCB with StepUp
 
-Open `hardware/revI/filo36-left.kicad_pro` in KiCad. RevI matches the chosen contour and adds battery/magnet clearances. H1/H3/H4/H5, J1 and SW1 move; all key transforms, footprint identities and nets are preserved. Switches are locked to preserve the layout; both boards remain unrouted.
+Open `hardware/revI/flan36-left.kicad_pro` in KiCad. RevI matches the chosen contour and adds battery/magnet clearances. H1/H3/H4/H5, J1 and SW1 move; all key transforms, footprint identities and nets are preserved. Switches are locked to preserve the layout; both boards remain unrouted.
 
 The project-relative STEP files show the current nominal component models in KiCad's 3D Viewer. Their source, colors and placement are checked without changing footprints. Connector reserves and unqualified fit remain identified in the [component guide](../components/README.md).
 

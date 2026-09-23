@@ -2,7 +2,7 @@
 import themes from '../design/themes.json';
 import {copy} from './config.js';
 import {framePalette,finishes} from './finishes.js';
-export const savedKey='filo36.configuration.v1';
+export {savedKey} from './storage.js';
 export function applyTheme(config,theme,sides){const c=copy(config);for(const side of sides){Object.assign(c.cases[side],{base_color:theme.base,plate_color:theme.plate,match_frame:true});c.frames[side].color=theme.frame.body;c.frames[side].accents=Object.fromEntries(['detail','accent','secondary'].map(k=>[k,theme.frame[k]]));}return c;}
 export function setColor(config,sides,part,role,color){const c=copy(config);for(const side of sides){const cs=c.cases[side],f=c.frames[side];if(part==='case')cs[role]=color;else if(role==='body')f.color=color;else f.accents[role]=color;if(cs.match_frame){if(part==='case'&&role==='base_color')f.color=color;if(part==='frame'&&role==='body')cs.base_color=color;}}return c;}
 export function createAppearance({$,get,apply,targets,preview,frameFinish,material,resize}){

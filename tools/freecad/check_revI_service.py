@@ -7,7 +7,7 @@ import FreeCAD as A
 import FreeCADGui as G
 import Part,MeshPart
 ROOT=Path(__file__).resolve().parents[2]
-G.showMainWindow();doc=A.openDocument(str(ROOT/'mechanical/revI/Filo36.FCStd'));doc.recompute()
+G.showMainWindow();doc=A.openDocument(str(ROOT/'mechanical/revI/Flan36.FCStd'));doc.recompute()
 def log(*args):sys.__stdout__.write(' '.join(map(str,args))+'\n');sys.__stdout__.flush()
 def volume(a,b):
     return a.common(b).Volume if a.BoundBox.intersect(b.BoundBox) else 0
@@ -84,7 +84,7 @@ for side,prefix in [('left','L_'),('right','R_')]:
             mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.03,AngularDeflection=.12,Relative=False);assert mesh.isSolid()
             p=ROOT/'mechanical/revI'/('coupon-'+name+'.stl');mesh.write(str(p));shape.exportStep(str(p.with_suffix('.step')))
             report['coupons'][name]={'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
-report['source_sha256']=hashlib.sha256((ROOT/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest()
+report['source_sha256']=hashlib.sha256((ROOT/'mechanical/revI/Flan36.FCStd').read_bytes()).hexdigest()
 report['checker_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 (ROOT/'validation/revI-service.json').write_text(json.dumps(report,indent=2)+'\n')
 log('PASS: sampled frame release, captive inserts, captive battery cage, cell/lead separation and closed coupons')

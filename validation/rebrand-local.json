@@ -1,0 +1,17 @@
+{
+  "baseline_commit": "819a01883b2faec3682ac457328bc361dc43e355",
+  "renamed_files": [
+    "hardware/revI/flan36-left.kicad_pcb",
+    "hardware/revI/flan36-left.kicad_pro",
+    "hardware/revI/flan36-left.kicad_sch",
+    "hardware/revI/flan36-right.kicad_pcb",
+    "hardware/revI/flan36-right.kicad_pro",
+    "hardware/revI/flan36-right.kicad_sch",
+    "mechanical/revI/Flan36.FCStd"
+  ],
+  "native_zip_only_brand_metadata_changed": true,
+  "pcb_only_brand_tokens_changed": true,
+  "python_legacy_and_new_configurations_equal": 4,
+  "current_guide_links_valid": true,
+  "single_selected_logo": true
+}

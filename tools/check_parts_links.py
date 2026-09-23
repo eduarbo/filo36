@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1];doc=ROOT/'docs/parts.md';body=doc.read_
 urls=sorted(set(re.findall(r'https://[^\s)\"<>]+',body)))
 def read(url):
     try:
-        req=urllib.request.Request(url,headers={'User-Agent':'Filo36 documentation link check'},method='HEAD')
+        req=urllib.request.Request(url,headers={'User-Agent':'Flan36 documentation link check'},method='HEAD')
         with urllib.request.urlopen(req,timeout=25) as r:return {'url':url,'status':r.status,'content_type':r.headers.get('Content-Type',''),'resolved_url':r.url}
     except Exception as e:return {'url':url,'error':str(e)}
 with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:rows=list(executor.map(read,urls))

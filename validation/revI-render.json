@@ -1,8 +1,8 @@
 {
   "revision": "I",
-  "model_sha256": "fa89d134c9a0ab8528e2714e36576c2736f01f34fdf0341490ae35c280ff8265",
+  "model_sha256": "dfd94b9e13dfa50ee3996e4bc628f2998a742cb150ea109dfbc785efdf501f31",
   "layout_sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
-  "renderer_sha256": "9b1a15d8dc193385a094e4e0a43d078227facd7d1d10b55f9409cfc97b438c80",
+  "renderer_sha256": "05c1ac0ca17e55fb4b1633e915464a83ab31e0e2e8e996f04ebb8ada5a2d8192",
   "meshes": [
     {
       "path": "mechanical/revI/left-tray.stl",
@@ -457,7 +457,7 @@
         "right"
       ],
       "exploded": false,
-      "image_sha256": "fd4c1062ba937cf0c3de2fd32bbf7ff836ea835e96d0fd6b9084c1fa7949a043"
+      "image_sha256": "0f07f705c2280d1e269adf7d7ddd713f198a77b49446c8e2bf50ecb5571a7287"
     },
     "top": {
       "keys": 36,
@@ -466,7 +466,7 @@
         "right"
       ],
       "exploded": false,
-      "image_sha256": "e976ab340bae088170a34078f62d28eb3f0b890ad3c53972d557897808b4b0d9"
+      "image_sha256": "9a797aa446a8fb43820869cb83758e098ac0c6c9491a62777f512c52a2a4d723"
     },
     "side": {
       "keys": 18,
@@ -474,7 +474,7 @@
         "left"
       ],
       "exploded": false,
-      "image_sha256": "af519b2be9046c62f018cefd6a34d7fece2c155246cc119bed405c582e0a50bb"
+      "image_sha256": "7d35f26ac7cd650c12551cb8045fd53d79d994057a065a8c9d7e0b8047a09cc6"
     },
     "stack": {
       "keys": 18,
@@ -482,7 +482,7 @@
         "left"
       ],
       "exploded": true,
-      "image_sha256": "055bee41903e20b1cc9380dd5756d9662048ff891c49e8c0a28d104fc6b226dd"
+      "image_sha256": "3a004ce04c75fad243730a307b6ff883ff85664bbe3c3da48f1dfed199b2ed63"
     },
     "detail": {
       "keys": 18,
@@ -490,7 +490,7 @@
         "left"
       ],
       "exploded": false,
-      "image_sha256": "978001e32adf7fabb514a08397a8fb41db64542a9150c71b9d55c9c4b0ca9953"
+      "image_sha256": "55daff183f9ea49d082bb009b49f2f147575f94ab5f69b7b23447df157a1c840"
     },
     "corner": {
       "keys": 18,

@@ -1,0 +1,15 @@
+{
+  "headless": true,
+  "freecad_version": [
+    "1",
+    "1",
+    "3"
+  ],
+  "path": "mechanical/revI/Flan36.FCStd",
+  "sha256": "60197835a81e125df4066694211d8983653e37282106257b837a3fe589529c07",
+  "objects": 1577,
+  "native_reopen_recompute": true,
+  "geometry_placements_expressions_links_identical": true,
+  "label": "Flan36",
+  "baseline_commit": "819a01883b2faec3682ac457328bc361dc43e355"
+}

@@ -98,7 +98,7 @@
       "manufacturing_qualified": false
     }
   ],
-  "selected_asset": "docs/images/branding/flan36-caramel-outline.png",
+  "selected_asset": "docs/branding/outline/flan36-outline-black.svg",
   "selection_request": "User: me gusta el outline",
   "vector_preparation": {
     "request": "User: ok, dale (accept SVG conversion of selected Outline)",
@@ -107,5 +107,15 @@
     "kit": "docs/branding/outline/flan36-outline-svg-kit.zip",
     "status": "Vector artwork prepared and geometry-import checked; no placed PCB logo or case relief",
     "manufacturing_qualified": false
-  }
+  },
+  "current_identity": {
+    "name": "Flan36",
+    "repository": "https://github.com/eduarbo/flan36",
+    "site": "https://eduarbo.github.io/flan36/",
+    "logo": "caramel-outline",
+    "visible_asset": "docs/branding/outline/flan36-outline-black.svg",
+    "scope_change": "design/rebrand.json",
+    "supersedes": "Previous choice to preserve public repository URLs and current native filenames. Historical scope and assets above record the earlier work."
+  },
+  "selected_concept_asset": "docs/images/branding/flan36-caramel-outline.png"
 }

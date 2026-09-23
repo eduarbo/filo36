@@ -6,7 +6,7 @@ from pathlib import Path
 import FreeCAD as A
 import FreeCADGui as G
 import Part
-R=Path(__file__).resolve().parents[2];G.showMainWindow();doc=A.openDocument(str(R/'mechanical/revI/Filo36.FCStd'))
+R=Path(__file__).resolve().parents[2];G.showMainWindow();doc=A.openDocument(str(R/'mechanical/revI/Flan36.FCStd'))
 for prefix in ['L_','R_']:doc.getObject(prefix+'Half').Placement=A.Placement()
 doc.recompute();parts={o.PartID:o.Shape.copy() for o in doc.Objects if hasattr(o,'PartID')}
 mirror=A.Matrix();mirror.A11=-1;mirror.A14=160
@@ -43,7 +43,7 @@ for side in ['left','right']:
    ray=Part.makeLine(A.Vector(qx,-qy,7),A.Vector(qx+dx*5.75,-qy-dy*5.75,7))
    length=plate.common(ray).Length;assert abs(length-4.75)<.00002,(side,spec,length);lengths.append(length)
   rows.append({'side':side,'key':spec['key'],'face':face,'min_mm':min(lengths),'max_mm':max(lengths),'samples':len(lengths)})
-report={'scope':'Actual native plate solids, 216 normal samples; tray and plate mirrored through X=80','curve_checks':curve_checks,'symmetry':symmetry,'normal_samples':rows,'nominal_rim_mm':4.75,'tolerance_mm':.00002,'physical_acceptance':False,'source_sha256':hashlib.sha256((R/'mechanical/revI/Filo36.FCStd').read_bytes()).hexdigest(),'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+report={'scope':'Actual native plate solids, 216 normal samples; tray and plate mirrored through X=80','curve_checks':curve_checks,'symmetry':symmetry,'normal_samples':rows,'nominal_rim_mm':4.75,'tolerance_mm':.00002,'physical_acceptance':False,'source_sha256':hashlib.sha256((R/'mechanical/revI/Flan36.FCStd').read_bytes()).hexdigest(),'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 (R/'validation/revI-rim-solids.json').write_text(json.dumps(report,indent=2)+'\n')
 sys.__stdout__.write('PASS: native tray/plate mirror and 216 exposed normal samples at 4.75 mm\n');sys.__stdout__.flush();A.closeDocument(doc.Name)
 if os.environ.get('FILO_FREECAD_SUBPROCESS')=='1':os._exit(0)

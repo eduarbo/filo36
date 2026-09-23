@@ -7,7 +7,7 @@ import hashlib,json,re,os,sys
 import FreeCAD as A,FreeCADGui as G,Part
 G.showMainWindow()
 import ImportGui
-R=Path(__file__).resolve().parents[2];source=R/'mechanical/revI/Filo36.FCStd';digest=hashlib.sha256(source.read_bytes()).hexdigest()
+R=Path(__file__).resolve().parents[2];source=R/'mechanical/revI/Flan36.FCStd';digest=hashlib.sha256(source.read_bytes()).hexdigest()
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def children(text):
  depth=0;quoted=False;escaped=False;start=None
@@ -68,7 +68,7 @@ def export(name,shape,colors,pose=None,reference=None):
  report['models'][name]={'path':str(p.relative_to(R)),'sha256':sha(p),'import_difference_mm3':diff,'native_placement_difference_mm3':placed,'distinct_colors':distinct,'color_area_error_mm2':area_error,'footprint_pose_xy_deg':pose}
  A.closeDocument(loaded.Name);sys.__stdout__.write(name+' verified\n');sys.__stdout__.flush()
 for side in ['left','right']:
- pcb=R/f'hardware/revI/filo36-{side}.kicad_pcb';before=sha(pcb);footprints={}
+ pcb=R/f'hardware/revI/flan36-{side}.kicad_pcb';before=sha(pcb);footprints={}
  for block in children(pcb.read_text()):
   if not block.startswith('(footprint '):continue
   ref=re.search(r'\(property\s+"Reference"\s+"([^\"]+)"',block)[1];at=re.search(r'\(at\s+([\d.eE+-]+)\s+([\d.eE+-]+)(?:\s+([\d.eE+-]+))?\)',block);footprints[ref]=(block,[float(at[1]),float(at[2]),float(at[3] or 0)])

@@ -1,13 +1,13 @@
 {
-  "svg_count": 8,
+  "svg_count": 4,
   "master_components": 7,
   "closed_rings": 11,
   "holes": 4,
   "same_contours_all_variants": true,
-  "black_white_alpha_identical": true,
+  "master_export_alpha_identical": true,
   "reference_mask_intersection_over_union": 0.9873310555437971,
   "package_integrity": true,
-  "package_sha256": "39aa31279af4d3c6ed8079b7ed6b23dd3c5cd6769a0a89568eb2e71e0053b9d0",
+  "package_sha256": "92ae6c0ea5f0d0af05e8d54953b180118b5bb94615755fe6d1b8e367c905dea1",
   "freecad_report_matches_current_assets": true,
   "manufacturing_qualified": false,
   "assets": [
@@ -16,28 +16,12 @@
       "sha256": "9e456f81f9d9aef6f8c340ae2c2ea29413ae3c14a72a00461e0e8eeec0847d7c"
     },
     {
-      "path": "docs/branding/outline/flan36-outline-color.svg",
-      "sha256": "c6f7745722a878f6112ce50e09c4a4851bdacb4df10185e31383f7845558a461"
-    },
-    {
       "path": "docs/branding/outline/flan36-outline-master.svg",
       "sha256": "47add933334ae193ceb266732cca63cabbfc1b5bc7632db5f81ac13ef9e4eec8"
     },
     {
       "path": "docs/branding/outline/flan36-outline-symbol-black.svg",
       "sha256": "67c1007fa58490c324ffa2a7c24e5eb9463c1ffc09d25a992401d8136e20f4f3"
-    },
-    {
-      "path": "docs/branding/outline/flan36-outline-symbol-color.svg",
-      "sha256": "9a7d174022aedefc5b27a19d77c465b79bc3b3bedcd9589004563feb7d0a1e0a"
-    },
-    {
-      "path": "docs/branding/outline/flan36-outline-symbol-white.svg",
-      "sha256": "07ea08d83f1c45e4858e206318ba193dde9e6c7b2d87dbfd7009be4eeccaf8d4"
-    },
-    {
-      "path": "docs/branding/outline/flan36-outline-white.svg",
-      "sha256": "b0662a267e707451f05fae650809f37d0e9361bc792be653fe1769e0ae9efe6a"
     },
     {
       "path": "docs/branding/outline/flan36-outline-wordmark-black.svg",
