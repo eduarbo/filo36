@@ -18,7 +18,7 @@ Flan36 is a derivative project developed by Eduardo Ruiz. Its case and wireless 
 
 The viewer retains source notices; exported GLB includes attribution and source/license links. Viewer code is under GPL-3.0-or-later; esbuild is a pinned build dependency. Gzip packaging does not alter the underlying geometry.
 
-The three `docs/images/branding/flan36-*-concept.png` boards were generated with OpenAI's built-in image generation tool for Eduardo's Flan36 identity exploration. They are concept art, not renders of the measured CAD. Prompts and provenance are retained in `design/branding-prompts.json` and `design/branding.json`; their reuse follows the repository's GPL-3.0-or-later terms to the extent applicable.
+The three `docs/images/branding/flan36-*-concept.png` boards were generated with OpenAI's built-in image generation tool for Eduardo's Flan36 identity exploration. They are concept art, not renders of the measured CAD. Four additional Caramel refinements (`flan36-caramel-soft.png`, `flan36-caramel-drop.png`, `flan36-caramel-bold.png`, `flan36-caramel-outline.png`) use the selected Caramel board as their reference. Prompts and provenance are retained in `design/branding-prompts.json`, `design/branding-caramel-prompts.json` and `design/branding.json`; their reuse follows the repository's GPL-3.0-or-later terms to the extent applicable.
 
 Full texts: [GPL](LICENSE), [CC-BY-SA-4.0](LICENSES/CC-BY-SA-4.0.txt). Original upstream hashes: [sources/manifest.json](sources/manifest.json).
 

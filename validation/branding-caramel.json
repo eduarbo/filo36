@@ -1,0 +1,46 @@
+{
+  "request": "User selected the first Caramel direction and requested logo variants",
+  "baseline_commit": "943334b8781522caad889931b75f9eb3ff18d4e8",
+  "selected_direction": "caramel",
+  "variants": [
+    {
+      "path": "docs/images/branding/flan36-caramel-soft.png",
+      "sha256": "dab42588e3bd426a491c10f6fd64c0d0cba0e576798addb3373899059cd0e05b",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "docs/images/branding/flan36-caramel-drop.png",
+      "sha256": "32dccd292cbdfd15748911461ef7160f9061cf85b183837f9e5a914cdebb12c3",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "docs/images/branding/flan36-caramel-bold.png",
+      "sha256": "09307323c23d4ed8788202d57a1ff854e0e30685bafdd0d9582841d88f574a20",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "docs/images/branding/flan36-caramel-outline.png",
+      "sha256": "5f128bcd8a3cd5054c11abf70743a63fd32c7d7cc3a3d417e3cb923cce280395",
+      "width": 1254,
+      "height": 1254
+    }
+  ],
+  "gallery_sha256": "85564ecddeec40d2345066c70ff2e814be50dcba8841aacdbe9df9a470a90e44",
+  "local_browser": {
+    "protocol": "HTTP loopback",
+    "four_distinct_variants_loaded": true,
+    "original_directions_recoverable": true,
+    "widths_without_overflow": [
+      1440,
+      390,
+      320
+    ],
+    "png_download_verified": true
+  },
+  "geometry_changed": false,
+  "vector_masters": false,
+  "manufacturing_qualified": false
+}

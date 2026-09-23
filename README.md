@@ -10,7 +10,7 @@
 
 **[Themes and print kits](docs/themes-printing.md)** — Sixteen palettes, linked rim/frame colors and selected STL/3MF parts.
 
-**[Logo concepts](docs/branding.md)** — Caramel, Split and Pixel, with PCB and case application studies.
+**[Caramel logo variants](docs/branding.md)** — Four refinements of the selected identity, in color and one ink.
 
 **[Case variants](docs/cases.md)** — Solid, Color rim and Terrace; actual meshes in the explorer.
 

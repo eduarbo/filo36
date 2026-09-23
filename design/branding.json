@@ -47,5 +47,55 @@
     "filo36.configuration.v1 browser storage",
     "Historical validation receipts and render captions"
   ],
-  "next_step": "Select a visual direction, construct a consistent closed-path SVG master, then qualify PCB placement and printable relief at actual size."
+  "next_step": "Choose a Caramel refinement, construct one consistent closed-path SVG master, then qualify PCB placement and printable relief at actual size.",
+  "selected_direction": "caramel",
+  "refinement_request": "User: me gusta el primero, dame variantes del logo",
+  "selected_variant": null,
+  "variant_prompt_source": "design/branding-caramel-prompts.json",
+  "variants": [
+    {
+      "id": "soft",
+      "label": "A",
+      "title": "Soft",
+      "description": "Closest to the original: soft shoulders, a shorter side drip and a quiet silhouette.",
+      "path": "docs/images/branding/flan36-caramel-soft.png",
+      "sha256": "dab42588e3bd426a491c10f6fd64c0d0cba0e576798addb3373899059cd0e05b",
+      "format": "PNG concept board",
+      "vector_master": false,
+      "manufacturing_qualified": false
+    },
+    {
+      "id": "drop",
+      "label": "B",
+      "title": "Drop",
+      "description": "A centered caramel drop and a balanced, symmetrical silhouette.",
+      "path": "docs/images/branding/flan36-caramel-drop.png",
+      "sha256": "32dccd292cbdfd15748911461ef7160f9061cf85b183837f9e5a914cdebb12c3",
+      "format": "PNG concept board",
+      "vector_master": false,
+      "manufacturing_qualified": false
+    },
+    {
+      "id": "bold",
+      "label": "C",
+      "title": "Bold",
+      "description": "A lower, wider shape, a short drip and a heavier wordmark.",
+      "path": "docs/images/branding/flan36-caramel-bold.png",
+      "sha256": "09307323c23d4ed8788202d57a1ff854e0e30685bafdd0d9582841d88f574a20",
+      "format": "PNG concept board",
+      "vector_master": false,
+      "manufacturing_qualified": false
+    },
+    {
+      "id": "outline",
+      "label": "D",
+      "title": "Outline",
+      "description": "An open contour interpretation with a solid wordmark.",
+      "path": "docs/images/branding/flan36-caramel-outline.png",
+      "sha256": "5f128bcd8a3cd5054c11abf70743a63fd32c7d7cc3a3d417e3cb923cce280395",
+      "format": "PNG concept board",
+      "vector_master": false,
+      "manufacturing_qualified": false
+    }
+  ]
 }
