@@ -10,8 +10,6 @@
 
 **[Themes and print kits](docs/themes-printing.md)** — Sixteen palettes, linked rim/frame colors and selected STL/3MF parts.
 
-**[Outline logo](docs/branding.md)** — The selected Outline logo, editable SVG and KiCad / FreeCAD import guide.
-
 **[Case variants](docs/cases.md)** — Solid, Color rim and Terrace; actual meshes in the explorer.
 
 
