@@ -13,6 +13,8 @@ These models make the assembly easier to inspect. They are **nominal representat
 
 The right half uses the **same** commercial nano/display geometry, translated into place. The power switch is rotated to its footprint. Neither module is mirrored.
 
+FreeCAD, the web viewer and the revI KiCad relative STEP models share this nominal geometry. The STEP export is reimported and compared with the native solids at each existing footprint datum; PCB files and model references remain unchanged. [Readback](../validation/revI-pcb-component-models.json).
+
 The controller support has scalloped upper ledges. These keep clear of a 1.05 mm radius reserve around the underside pads. They do not establish solder tolerance or retention force.
 
 The nice!view PCB remains 8.8 mm above the main PCB in this study. The Typeractive connector publishes 7 mm installed height. **That connection is still unresolved**; the visual model does not stretch a pin to hide the difference.

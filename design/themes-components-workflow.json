@@ -72,14 +72,30 @@
       "scope": "Attributable staged source and generated viewer",
       "bytes_scanned": 50807444,
       "findings": 0
-    }
+    },
+    "pcb_component_models": "validation/revI-pcb-component-models.json",
+    "rebuild_regression": {
+      "baseline": "771a5397dd6ba48f2a9959bea42e55b292ace82c",
+      "current_source_sha256": "d4004ebc932f8c7d9c3b7e59f5c81c18ee602186f773d38ea1bbfa3bfdbb902c",
+      "parameters_unchanged": true,
+      "part_bounds_max_difference_mm": 7.105427357601002e-15,
+      "scope": "Bounding-box and parameter regression only; full nominal solid checks are separate."
+    },
+    "full_source_rebuild": "Native assembly regenerated from source; component, parameter/save-reopen, finishes, cases, rim and service checks all passed for the new source digest."
   },
   "retrospective": {
     "trigger": "Actual component geometry exposed support and power-switch registration errors hidden by the earlier boxes.",
     "cause": "The old board width left only 0.09 mm nominal support after correction; initial switch placement used an estimated center and wrong handed rotation instead of the existing footprint datum.",
     "correction": "Scalloped ledges clear all 26 underside pad reserves; PCM12 centers match the current footprints, rotated +90/-90 degrees. Derived USB-to-battery clearance now uses actual bounds (1.9 mm), replacing the old 1.6 mm USB depth assumption.",
     "prevention": "Keep local commercial geometry separate from half placement, compare unchanged source meshes and exact handedness, and check actual native intersection/support area before publication.",
-    "validation": "Both halves have zero unallowed native solid intersections; each nano has 30.815 mm2 nominal support and zero pad-reserve overlap. Physical solder, socket engagement and retention remain unqualified."
+    "validation": "Both halves have zero unallowed native solid intersections; each nano has 30.815 mm2 nominal support and zero pad-reserve overlap. Physical solder, socket engagement and retention remain unqualified.",
+    "downstream_correction": {
+      "trigger": "Closure readback found the existing KiCad STEP references still contained old simplified boxes; color inspection also found the power/reset library materials were lost in the geometry-only importer.",
+      "correction": "Export the current nominal solids at each unchanged footprint datum; use ImportGui to preserve source face materials in the native assembly and all derived representations.",
+      "prevention": "Reimport every relative STEP, compare constituent solids and colored surface areas, reconstruct at actual footprint poses, and assert PCB hashes remain unchanged. Native checks reject missing switch palettes.",
+      "scope": "Component appearance and relative models only; no change to PCB footprints, routing or manufacturing qualification.",
+      "rebuild_fix": "Full source regeneration exposed a FreeCAD color assignment type mismatch; decoded JSON colors are now converted to tuples before applying DiffuseColor. Validation regenerates the native assembly from source."
+    }
   },
   "artifact_disposition": {
     "committed": "Source, pinned licensed component assets, generated reference CAD, screenshots, public documentation and validation receipts.",
@@ -94,6 +110,7 @@
       "Display connector 7 mm versus modeled PCB gap 8.8 mm",
       "Hotswap socket assembly registration",
       "Physical fit, retained hardware, routed PCB, firmware and operation"
-    ]
+    ],
+    "bambu_gui": "GUI palette import/save/reopen remains unverified; explicit manual filament mapping is required."
   }
 }

@@ -6835,7 +6835,7 @@
         6.300000000000001
       ],
       "visuals": [],
-      "stl_sha256": "8a6c42fa198bd6c09e73d40a3c19d7bc993c6f825661e58e6cbec22d7505e771"
+      "stl_sha256": "4262051d1db645e0c95264baf75b1bb50dafe4150b99afb4e4a2ab7d4a1939d7"
     },
     "left-washer-2": {
       "object": "L_Washer2",
@@ -6851,7 +6851,7 @@
         6.300000000000001
       ],
       "visuals": [],
-      "stl_sha256": "ffe120f92854875873ccc7937febcd0b7d60b5e7f56f5ad12125c5f49cb55e9c"
+      "stl_sha256": "9e69e0cf48c6ef7760a2cba6306ce528aef17dd2dcc8382fb1efef2790d8a099"
     },
     "left-washer-3": {
       "object": "L_Washer3",
@@ -6867,7 +6867,7 @@
         6.300000000000001
       ],
       "visuals": [],
-      "stl_sha256": "8f6f56146a0b38f369f7f2b722a3012790688023114ce0c2e4fc6d71e384f762"
+      "stl_sha256": "c516fab6ba07bc08bf45e32391257208243f836819a2d31925dd9f470bcacf4a"
     },
     "left-screw-1": {
       "object": "L_Screw1",
@@ -6877,7 +6877,7 @@
       "bounds_mm": [
         36.800850378661345,
         -39.39978739343952,
-        1.6,
+        1.5999999999999996,
         40.6,
         -35.60021260656048,
         8.9
@@ -6893,7 +6893,7 @@
       "bounds_mm": [
         55.10085037866134,
         -22.39978739343952,
-        1.6,
+        1.5999999999999996,
         58.9,
         -18.60021260656048,
         8.9
@@ -6909,7 +6909,7 @@
       "bounds_mm": [
         78.10085037866135,
         -63.199787393439514,
-        1.6,
+        1.5999999999999996,
         81.9,
         -59.40021260656048,
         8.9
@@ -6925,7 +6925,7 @@
       "bounds_mm": [
         128.60089513543298,
         -68.49977620362054,
-        1.4,
+        1.4000000000000004,
         132.6,
         -64.50022379637946,
         6.5
@@ -6941,7 +6941,7 @@
       "bounds_mm": [
         112.500895135433,
         -67.49977620362054,
-        1.4,
+        1.4000000000000004,
         116.5,
         -63.50022379637945,
         6.5
@@ -7055,11 +7055,11 @@
         -94.8244432362655,
         0.0,
         135.0,
-        -0.249999999999999,
+        -0.2499999999999989,
         6.6
       ],
       "visuals": [],
-      "stl_sha256": "b013b9f4b27ed8014e161f6a357b204cea3e940d2c6f7205c0e87ce2780f60f1"
+      "stl_sha256": "55a0ae4b9ae4ac7ad8bd1855d955e140bb5df97cc5a4e1412945b8cdaf98432c"
     },
     "left-key-plate": {
       "object": "L_ActivePlate",
@@ -7071,11 +7071,11 @@
         -94.8244432362655,
         6.3,
         135.0,
-        -0.249999999999999,
+        -0.2499999999999989,
         7.6
       ],
       "visuals": [],
-      "stl_sha256": "2a0916661d3eb1dbba131bd638fcb877da9f446daa3db5c53daf5beff5c0fe9d"
+      "stl_sha256": "6478144294f4c0cd0da126e165768f929225f3e85233e1ff0523540f27c89459"
     },
     "left-pcb": {
       "object": "L_PCBAllDrills",
@@ -7085,13 +7085,13 @@
       "bounds_mm": [
         19.9,
         -93.1727567220168,
-        3.8,
+        3.8000000000000003,
         133.35,
-        -1.899999999999999,
+        -1.8999999999999995,
         5.4
       ],
       "visuals": [],
-      "stl_sha256": "31855ee97b7211b34f8aeaf43ef3f6a3a3ea5b285c3158517a3d878d8696a004"
+      "stl_sha256": "9e2ef4f0c665b8ca7c1aada0cc4f8eddb95cfc19602bce61f9be49c0d9b8b502"
     },
     "left-cradle": {
       "object": "L_CageSeat1",
@@ -7139,7 +7139,7 @@
         6.8
       ],
       "visuals": [],
-      "stl_sha256": "d125c8f1fc3c6b65008713e776ac684028a3859c9d871a7e635f9e29e0194430"
+      "stl_sha256": "a250a34ac3a5ea69df6ad998c6cefb82a5bc550898a220dee3e5950031352f48"
     },
     "left-mcu-riser": {
       "object": "L_Riser",
@@ -7155,7 +7155,7 @@
         8.8
       ],
       "visuals": [],
-      "stl_sha256": "2106ec5fab2cee5764ec96668a9a83e4373efa6dcc3842c0af7d4a99b5c20cdf"
+      "stl_sha256": "f4ae2c71aa9da456881aca9b8bb05d891b227ac97301f596939dbb01e2b0dfca"
     },
     "left-mcu": {
       "object": "L_NanoV2",
@@ -7183,7 +7183,7 @@
         },
         {
           "path": "mechanical/revI/left-mcu-visual-2.stl",
-          "color": "#abb3ba",
+          "color": "#abb2ba",
           "name": "USB-C mid-mount shell"
         },
         {
@@ -7208,12 +7208,12 @@
         },
         {
           "path": "mechanical/revI/left-mcu-visual-7.stl",
-          "color": "#abb3ba",
+          "color": "#abb2ba",
           "name": "Crystal"
         },
         {
           "path": "mechanical/revI/left-mcu-visual-8.stl",
-          "color": "#abb3ba",
+          "color": "#abb2ba",
           "name": "Crystal001"
         },
         {
@@ -7223,7 +7223,7 @@
         },
         {
           "path": "mechanical/revI/left-mcu-visual-10.stl",
-          "color": "#abb3ba",
+          "color": "#abb2ba",
           "name": "Terminations"
         },
         {
@@ -7232,7 +7232,7 @@
           "name": "Indicator LEDs \u00b7 unlit"
         }
       ],
-      "stl_sha256": "2a5a8e3aff541fc941530463a5c30a7a47473fd4d16b389f9be32e55ef588ec5"
+      "stl_sha256": "5d523c26e0bbb0e75ca9470a8f193db14e82106d3aded2d40ecb6271b0cbfb91"
     },
     "left-mcu-sockets": {
       "object": "L_MCUSockets",
@@ -7264,7 +7264,7 @@
         15.399999999999999
       ],
       "visuals": [],
-      "stl_sha256": "c2c0a053935ffed1cddd7be85131480db691b4f8c6db668b0f12a4c03174f73f"
+      "stl_sha256": "194391b4435dfe8b8ae91873d2e97f7f09bf6b0bccd6f17ac317d294856fe64e"
     },
     "left-display": {
       "object": "L_NiceView",
@@ -7335,11 +7335,26 @@
       "visuals": [
         {
           "path": "mechanical/revI/left-reset-visual-0.stl",
-          "color": "#727980",
+          "color": "#aaaaaa",
           "name": "SW_SPST_TL3342.step material 0"
+        },
+        {
+          "path": "mechanical/revI/left-reset-visual-1.stl",
+          "color": "#000000",
+          "name": "SW_SPST_TL3342.step material 1"
+        },
+        {
+          "path": "mechanical/revI/left-reset-visual-2.stl",
+          "color": "#818181",
+          "name": "SW_SPST_TL3342.step material 2"
+        },
+        {
+          "path": "mechanical/revI/left-reset-visual-3.stl",
+          "color": "#d6991e",
+          "name": "SW_SPST_TL3342.step material 3"
         }
       ],
-      "stl_sha256": "3837d12ceb4489ca861c44c9f34ab3835fd6340a8274cf4be15038bd75d032ac"
+      "stl_sha256": "b9923a51c84265ce9fb2db3f6f251472df2ef6d027957c519df73d5cafec9ef9"
     },
     "left-slider": {
       "object": "L_SliderModel",
@@ -7357,8 +7372,18 @@
       "visuals": [
         {
           "path": "mechanical/revI/left-slider-visual-0.stl",
-          "color": "#727980",
+          "color": "#d2d1c7",
           "name": "SW_SPDT_PCM12.step material 0"
+        },
+        {
+          "path": "mechanical/revI/left-slider-visual-1.stl",
+          "color": "#262525",
+          "name": "SW_SPDT_PCM12.step material 1"
+        },
+        {
+          "path": "mechanical/revI/left-slider-visual-2.stl",
+          "color": "#5f5f5f",
+          "name": "SW_SPDT_PCM12.step material 2"
         }
       ],
       "stl_sha256": "01e503b40af99b367c823082b751b3712e7382d217f06af6823c995d78bb51f7"
@@ -7377,7 +7402,7 @@
         7.599966430543082
       ],
       "visuals": [],
-      "stl_sha256": "93d1d7ed4d27c5c13f2f69b23e752bda74b0d2d0c53f0237369ec61a0aef5125"
+      "stl_sha256": "f01000a6c4f02415997754f65649f3f1d832e5a1dad449e27e6555674b71db61"
     },
     "left-battery-lead-1": {
       "object": "L_WireStudy1",
@@ -7393,7 +7418,7 @@
         8.399966430543081
       ],
       "visuals": [],
-      "stl_sha256": "7aea058d90c2e7269564e0b2cb8bd32201eb4a811605cd14ee1abf0353cb5abb"
+      "stl_sha256": "6d501e3a969e1999c463289f0eaa8e0cd04bf5cfbea3cf2f3346dce60229d0df"
     },
     "left-electronics-lid": {
       "object": "L_ActiveFrame",
@@ -7409,7 +7434,7 @@
         16.6
       ],
       "visuals": [],
-      "stl_sha256": "8d6cefc01a30e2e65af4a42f4e5c206b2ef178fd6744bd1892f2a920298eb296"
+      "stl_sha256": "9581df3d24ae215a1e1aac762863cf0bcaefb22b32f90d81759606c595e038ec"
     },
     "right-washer-1": {
       "object": "R_Washer1",
@@ -7425,7 +7450,7 @@
         6.300000000000001
       ],
       "visuals": [],
-      "stl_sha256": "1bae41d2d93d017e9a3231c87397be6404a52136638b2d12bcbe8dcd3c1804ee"
+      "stl_sha256": "1a9dcbad91bea588c72d30a9b766a358f4eb3eb2f384029f0ec62f92c4fdd9a8"
     },
     "right-washer-2": {
       "object": "R_Washer2",
@@ -7441,7 +7466,7 @@
         6.300000000000001
       ],
       "visuals": [],
-      "stl_sha256": "373e94bea8c3600074fafbeade575b9c2acbd4d1b673d55fe2b5fec95ecfdec8"
+      "stl_sha256": "4f3012d318af75ef3c5d8f1fc99dec2c2a6f63b6811b281d0b526dc8db1a4f17"
     },
     "right-washer-3": {
       "object": "R_Washer3",
@@ -7457,7 +7482,7 @@
         6.300000000000001
       ],
       "visuals": [],
-      "stl_sha256": "8f6f56146a0b38f369f7f2b722a3012790688023114ce0c2e4fc6d71e384f762"
+      "stl_sha256": "c516fab6ba07bc08bf45e32391257208243f836819a2d31925dd9f470bcacf4a"
     },
     "right-screw-1": {
       "object": "R_Screw1",
@@ -7467,7 +7492,7 @@
       "bounds_mm": [
         119.40085037866135,
         -39.39978739343952,
-        1.6,
+        1.5999999999999996,
         123.2,
         -35.60021260656048,
         8.9
@@ -7483,7 +7508,7 @@
       "bounds_mm": [
         101.10085037866135,
         -22.39978739343952,
-        1.6,
+        1.5999999999999996,
         104.9,
         -18.60021260656048,
         8.9
@@ -7499,7 +7524,7 @@
       "bounds_mm": [
         78.10085037866135,
         -63.199787393439514,
-        1.6,
+        1.5999999999999996,
         81.9,
         -59.40021260656048,
         8.9
@@ -7515,7 +7540,7 @@
       "bounds_mm": [
         27.400895135433,
         -68.49977620362054,
-        1.4,
+        1.4000000000000004,
         31.400000000000006,
         -64.50022379637946,
         6.5
@@ -7531,7 +7556,7 @@
       "bounds_mm": [
         43.50089513543299,
         -67.49977620362054,
-        1.4,
+        1.4000000000000004,
         47.5,
         -63.50022379637945,
         6.5
@@ -7645,11 +7670,11 @@
         -94.8244432362655,
         0.0,
         141.75,
-        -0.249999999999999,
+        -0.2499999999999989,
         6.6
       ],
       "visuals": [],
-      "stl_sha256": "bf12ec1c0c9d54ca71efcf6f06f290a7e825483f3215c35bb5e9482ba5c4dc19"
+      "stl_sha256": "0706d2985e0653a6afbc28e2077937c3512316833baea68f4b1abafec31cfdb6"
     },
     "right-key-plate": {
       "object": "R_ActivePlate",
@@ -7661,11 +7686,11 @@
         -94.8244432362655,
         6.3,
         141.75,
-        -0.249999999999999,
+        -0.2499999999999989,
         7.6
       ],
       "visuals": [],
-      "stl_sha256": "f236ccb48874accb4f459dd3238ea409a67dad1ae8857427ffb76235d26aa5e6"
+      "stl_sha256": "f58420c1163c7708f21f4b7cb5844a005de6a2529dc8bc9bdd5352c1f5ce6d29"
     },
     "right-pcb": {
       "object": "R_PCBAllDrills",
@@ -7675,13 +7700,13 @@
       "bounds_mm": [
         26.650000000000006,
         -93.1727567220168,
-        3.8,
+        3.8000000000000003,
         140.1,
-        -1.899999999999999,
+        -1.8999999999999995,
         5.4
       ],
       "visuals": [],
-      "stl_sha256": "7e29269b7d62f7340702492370db5e07e766927799ad28a4e496549638c5b07f"
+      "stl_sha256": "1cd45dc7d3e3b7369f02ff9f77aa52ce4593151faea01d45283a13716403e875"
     },
     "right-cradle": {
       "object": "R_CageSeat1",
@@ -7697,7 +7722,7 @@
         3.65
       ],
       "visuals": [],
-      "stl_sha256": "c58132abb283a6d33360c743358f4acc3edcdcd1065ee725a1f0f8397b34c012"
+      "stl_sha256": "9d045293c5bfb2714d33836b7d9047d5718edd05f4f9974578afa49ac0905072"
     },
     "right-battery": {
       "object": "R_ActiveBattery",
@@ -7729,7 +7754,7 @@
         6.8
       ],
       "visuals": [],
-      "stl_sha256": "356b792c569cd921f0abe198f7a0ba19b6f413e798cdccb81f23c7adb9b10b22"
+      "stl_sha256": "c145f95c469f3731755a890953b5193e03047bc1cb2e4db151a96f95297a993f"
     },
     "right-mcu-riser": {
       "object": "R_Riser",
@@ -7745,7 +7770,7 @@
         8.8
       ],
       "visuals": [],
-      "stl_sha256": "575c6b8ceaf9ca2226979b5848eac239a6ee299e4ebdc8e4954ff52b0d4c1442"
+      "stl_sha256": "080d08c20da5074d45c564ed6043e7b3cdc2a93adbf577a7d8061655c75f562f"
     },
     "right-mcu": {
       "object": "R_NanoV2",
@@ -7773,7 +7798,7 @@
         },
         {
           "path": "mechanical/revI/right-mcu-visual-2.stl",
-          "color": "#abb3ba",
+          "color": "#abb2ba",
           "name": "USB-C mid-mount shell001"
         },
         {
@@ -7798,12 +7823,12 @@
         },
         {
           "path": "mechanical/revI/right-mcu-visual-7.stl",
-          "color": "#abb3ba",
+          "color": "#abb2ba",
           "name": "Crystal002"
         },
         {
           "path": "mechanical/revI/right-mcu-visual-8.stl",
-          "color": "#abb3ba",
+          "color": "#abb2ba",
           "name": "Crystal003"
         },
         {
@@ -7813,7 +7838,7 @@
         },
         {
           "path": "mechanical/revI/right-mcu-visual-10.stl",
-          "color": "#abb3ba",
+          "color": "#abb2ba",
           "name": "Terminations001"
         },
         {
@@ -7822,7 +7847,7 @@
           "name": "Indicator LEDs \u00b7 unlit001"
         }
       ],
-      "stl_sha256": "57b1af8c3fb80368849f34c5a6ba2076dbb7f484afb7add86d0969a88ea0480a"
+      "stl_sha256": "720d10c242fc95265a4494738bcc5eea392915ce4f2e3c4bf3017495e7518971"
     },
     "right-mcu-sockets": {
       "object": "R_MCUSockets",
@@ -7854,7 +7879,7 @@
         15.399999999999999
       ],
       "visuals": [],
-      "stl_sha256": "4d7c09a8786951cbad640389d58757935bc324dcaef0c70893dd937bf660604f"
+      "stl_sha256": "25ad7d857a83145ffefa8b4350009fbde71bd427e3e159fa6f3630df03fae8e1"
     },
     "right-display": {
       "object": "R_NiceView",
@@ -7925,11 +7950,26 @@
       "visuals": [
         {
           "path": "mechanical/revI/right-reset-visual-0.stl",
-          "color": "#727980",
+          "color": "#aaaaaa",
           "name": "SW_SPST_TL3342.step material 001"
+        },
+        {
+          "path": "mechanical/revI/right-reset-visual-1.stl",
+          "color": "#000000",
+          "name": "SW_SPST_TL3342.step material 002"
+        },
+        {
+          "path": "mechanical/revI/right-reset-visual-2.stl",
+          "color": "#818181",
+          "name": "SW_SPST_TL3342.step material 003"
+        },
+        {
+          "path": "mechanical/revI/right-reset-visual-3.stl",
+          "color": "#d6991e",
+          "name": "SW_SPST_TL3342.step material 004"
         }
       ],
-      "stl_sha256": "38b6fe8d07c554c97930270dade784d05dc9aec03f1f0c19b5b98e97c158c82b"
+      "stl_sha256": "2513de37bbbbe7e801409978003b96764a6d49b366fbc87944df837ce60f3469"
     },
     "right-slider": {
       "object": "R_SliderModel",
@@ -7937,21 +7977,31 @@
       "group": "connectors",
       "prototype_part": false,
       "bounds_mm": [
-        25.970000000000002,
+        25.969999999999995,
         -63.5,
         4.9,
-        30.970000000000002,
+        30.969999999999995,
         -55.8,
         6.9
       ],
       "visuals": [
         {
           "path": "mechanical/revI/right-slider-visual-0.stl",
-          "color": "#727980",
+          "color": "#d2d1c7",
           "name": "SW_SPDT_PCM12.step material 001"
+        },
+        {
+          "path": "mechanical/revI/right-slider-visual-1.stl",
+          "color": "#262525",
+          "name": "SW_SPDT_PCM12.step material 002"
+        },
+        {
+          "path": "mechanical/revI/right-slider-visual-2.stl",
+          "color": "#5f5f5f",
+          "name": "SW_SPDT_PCM12.step material 003"
         }
       ],
-      "stl_sha256": "05a233a1258e9533d08b55a9dbff4b887299c82aef34cb0dc112fbf6ab34428b"
+      "stl_sha256": "dace916b467a75f15fc0c62fcfd904cbe2c9a360b761f846330fe307296b22b2"
     },
     "right-battery-lead-0": {
       "object": "R_WireStudy0",
@@ -7967,7 +8017,7 @@
         7.599966430543082
       ],
       "visuals": [],
-      "stl_sha256": "3d8248276fb87530653645ba7f74f88dc4b2e211b81907e6fc3153dee47dfb42"
+      "stl_sha256": "c64bfddce7a13b9d6ba9b41c0f828badce3aa43dd733fc90d9fe51073dde2b33"
     },
     "right-battery-lead-1": {
       "object": "R_WireStudy1",
@@ -7983,7 +8033,7 @@
         8.399966430543081
       ],
       "visuals": [],
-      "stl_sha256": "3e662be7118ef25d4a1aa454fe48a4cbe443f30cb876a1dc0a304c736d015c5e"
+      "stl_sha256": "6c9dc6160e5944642ca31b70286c273d55e4ceddef5f0670a71239f76e4d8631"
     },
     "right-electronics-lid": {
       "object": "R_ActiveFrame",
@@ -7993,13 +8043,13 @@
       "bounds_mm": [
         25.0,
         -67.0,
-        6.299999999999994,
+        6.2999999999999945,
         49.0,
         -11.0,
         16.6
       ],
       "visuals": [],
-      "stl_sha256": "67ade0cdd23054b5c772416659c3d3ff1286b400d54b1858f9d3343b758a528b"
+      "stl_sha256": "0493ad3ec9139dceeb31ede71afaadd0a82f3e22aef1eabacf07ea89cf1b7fcf"
     }
   },
   "parameter_values_mm": {
@@ -8026,7 +8076,7 @@
     },
     {
       "path": "tools/freecad/components.py",
-      "sha256": "c824b59ff712c7469ff9c8d98fc6fa1c2ba37f4a81819d71d623b74e58644a16"
+      "sha256": "b467197a100a3b9dd45fae34603c16801e98706d23bd7fca38d1e5a60c0d4dd9"
     },
     {
       "path": "tools/freecad/switch_instances.py",
@@ -8086,12 +8136,12 @@
     },
     {
       "path": "tools/freecad/build_revI.py",
-      "sha256": "dd2be85448a4b2fd6a7f678d2d0896de093c4b406d3de5ed46d6fd73baf2303d"
+      "sha256": "41bb149b14396539ada86c3e7544d0000575fd6ae6d0ba2efb409badaae06ced"
     },
     {
       "path": "tools/freecad/export_revI.py",
       "sha256": "577d88ec935029d9c6093c91f19aa585bb562c58fc1ecceedf868dbb27a6063f"
     }
   ],
-  "fcstd_sha256": "32bb006c01e6f206d8afad975cf8d09d24269d8e7ff0d020eb774c16eeb229a9"
+  "fcstd_sha256": "d4004ebc932f8c7d9c3b7e59f5c81c18ee602186f773d38ea1bbfa3bfdbb902c"
 }

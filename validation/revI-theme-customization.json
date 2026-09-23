@@ -1,5 +1,6 @@
 {
-  "viewer_sha256": "0333e19a9160eef44539b040aa28d108077fb6f4b369fbc9ef0ecdcd207d2976",
+  "viewer_sha256": "71123ab1bbf95cafe14e7ea5825ad32202faeb2021383cab2bf95f7b24241f29",
+  "target": "local file",
   "themes": 16,
   "preview_images_distinct": 16,
   "linked_colors_bidirectional": true,

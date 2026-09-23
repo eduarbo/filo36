@@ -152,7 +152,7 @@ for side in ('left', 'right'):
         obj.addProperty('App::PropertyString', 'ModelStatus', 'Filo36'); obj.ModelStatus = 'Nominal study; physical fit untested'
         view=obj.LinkedObject.ViewObject if obj.TypeId=='App::Link' else obj.ViewObject
         view.ShapeColor = color; view.LineColor = (.13,.18,.17)
-        if hasattr(obj,'VisualFaceColors'):view.DiffuseColor=json.loads(obj.VisualFaceColors)
+        if hasattr(obj,'VisualFaceColors'):view.DiffuseColor=[tuple(c) for c in json.loads(obj.VisualFaceColors)]
         finals[side + '-' + name] = obj
         return obj
 

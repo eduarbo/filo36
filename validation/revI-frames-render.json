@@ -1,5 +1,5 @@
 {
-  "image_sha256": "9bdcf51899e4a1e04714a905d28510a0dd5d6d2b412fb024f8d89a08f40ff248",
+  "image_sha256": "9077c3dddec58eb9f11be9922ad6bd70d5cbe6d80171337cc0229837fc385b34",
   "sources": [
     {
       "path": "design/frame-finishes.json",
@@ -11,15 +11,15 @@
     },
     {
       "path": "mechanical/revI/left-frame-handheld.stl",
-      "sha256": "359ed37219b226758dca3aceb580a6609b51613ebb8088abb1a5c54c7fcb2d4b"
+      "sha256": "ee0a7e6c308363e3823a40a1e6c150bc59932517ded7fb3232096899d7ab6917"
     },
     {
       "path": "mechanical/revI/left-frame-tv.stl",
-      "sha256": "0ed0115ed1376217b9d1a61972fd3e902cf1e5b4291c173af089961c968a0dce"
+      "sha256": "6f165ab33d1c88e8560e28641cf6773fe871694e023c57ca2acaf56aea0af748"
     },
     {
       "path": "mechanical/revI/left-frame-cyberpunk.stl",
-      "sha256": "147724377a2387eb512dcb5a1825558a325796e29407abe23f466f07a0c3c18c"
+      "sha256": "10053f3ed54d47c87284f3fe05dd8e5c45c1a844a7a68caf39e37107d4f84202"
     }
   ],
   "renderer_sha256": "bab6db8ef27fd4b01d1beafb0e2dd61bcca6cc8cd9049bee337cdc63241a2697",

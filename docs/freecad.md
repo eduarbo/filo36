@@ -35,6 +35,8 @@ Hide the active frame and keycaps. Change `DisplayShiftY` from **2.4 to 3.4 mm**
 
 Open `hardware/revI/filo36-left.kicad_pro` in KiCad. RevI matches the chosen contour and adds battery/magnet clearances. H1/H3/H4/H5, J1 and SW1 move; all key transforms, footprint identities and nets are preserved. Switches are locked to preserve the layout; both boards remain unrouted.
 
+The project-relative STEP files show the current nominal component models in KiCad's 3D Viewer. Their source, colors and placement are checked without changing footprints. Connector reserves and unqualified fit remain identified in the [component guide](../components/README.md).
+
 In StepUp, enable **Virtual models**, keep **Grid Origin**, include holes from **0 mm**, and apply no outline tolerance. The boards’ grid origin is explicitly **(10, 10) mm**. In a new FreeCAD document, use **Load KiCad PCB**.
 
 Work on a copy for **Pull Sketch from PCB** / **Push Sketch to PCB**. The historical revF exchange example moves only the battery opening’s rear edge from KiCad **Y 46.95 to 47.45 mm**, along with its two connecting segments. Reopen the copy in KiCad and verify that switch centers, angles, pads, connectivity and the outer contour are unchanged. This demonstrates exchange, not an approved battery-opening improvement.

@@ -3,7 +3,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 """
 from pathlib import Path
 import json
-import FreeCAD as A, Part, Import
+import FreeCAD as A, Part
 ROOT=Path(__file__).resolve().parents[2]
 V=A.Vector
 COLORS={'pcb':(.045,.049,.053),'gold':(.77,.61,.28),'metal':(.67,.70,.73),'chip':(.09,.095,.105),'ceramic':(.63,.57,.43),'white':(.83,.84,.78),'glass':(.19,.22,.21),'flex':(.67,.39,.12)}
@@ -45,7 +45,10 @@ _cache={}
 _facecolors={}
 def standard(name):
  if name not in _cache:
-  source=A.newDocument('ComponentSource');Import.insert(str(ROOT/'components/sources'/name),source.Name)
+  # Geometry-only Import drops STEP face materials. The builder initializes GUI
+  # before this call, allowing ImportGui to retain the library's surface colors.
+  import ImportGui
+  source=A.newDocument('ComponentSource');ImportGui.insert(str(ROOT/'components/sources'/name),source.Name)
   obj=next(o for o in source.Objects if hasattr(o,'Shape') and not o.Shape.isNull());shape=obj.Shape.copy();colors=list(obj.ViewObject.DiffuseColor);colors=colors if len(colors)==len(shape.Faces) else [obj.ViewObject.ShapeColor]*len(shape.Faces)
   buckets={}
   for face,c in zip(shape.Faces,colors):buckets.setdefault(tuple(c[:3]),[]).append(face)

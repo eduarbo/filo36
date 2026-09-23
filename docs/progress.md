@@ -20,7 +20,7 @@ The nice!nano v2 and nice!view now have nominal board/contact/package geometry. 
 
 The offline explorer passed desktop/touch emulation down to 320 px, per-half configuration and custom-color GLB export. Native FreeCAD preserved colors through save/reopen. Selected print kits preserve native STL bytes and closed, oriented 3MF surfaces. [Configuration checks](../validation/revI-theme-customization.json) · [Print checks](../validation/revI-print-kit.json).
 
-With 4× CPU throttling, orbit p95 is **16.8 ms**, frame choice **173 ms** and case choice **275 ms**, with no orbit long tasks. First readiness takes **11.2 s** in this local stress test; the self-contained viewer is about **45 MiB**. Physical-phone loading and timing remain unmeasured. [Measurement](../validation/revI-theme-performance.json).
+With 4× CPU throttling, orbit p95 is **16.7 ms**, frame choice **68 ms** and case choice **124 ms**, with no orbit long tasks. First readiness takes **8.7 s** in this local stress test; the self-contained viewer is about **45 MiB**. Physical-phone loading and timing remain unmeasured. [Measurement](../validation/revI-theme-performance.json).
 
 **Still partial:** Bambu Studio needs manual palette mapping; GUI import/save/reopen has not been validated. Hotswap socket registration, actual connector contacts, the 7 versus 8.8 mm display connection and physical fit remain open. [Scope and review](../design/themes-components-workflow.json).
 
