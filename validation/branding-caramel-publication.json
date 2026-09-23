@@ -1,0 +1,85 @@
+{
+  "commit": "53a84f9c85c4bbf827839b56c2f4b469ed3af686",
+  "checked_at": "2026-09-23T02:44:39.043018+00:00",
+  "repository": "https://github.com/eduarbo/filo36",
+  "ref": "main",
+  "anonymous_files": [
+    {
+      "path": "ATTRIBUTION.md",
+      "sha256": "87b2170a9cc0517b988568776cb1e06f3a5d2012b19eecc6438dbeef9268e673"
+    },
+    {
+      "path": "README.md",
+      "sha256": "67f0039044d92b071ca7f8aff0838b775dc6c572d94bae8ce31117d35a94714e"
+    },
+    {
+      "path": "design/branding-caramel-prompts.json",
+      "sha256": "e854b931c9515ff6e62dc0ddc39a24019351d0b015049f54036acaac8cf77a5f"
+    },
+    {
+      "path": "design/branding.json",
+      "sha256": "b6e943a3ff3091811f51cc946975980476d08933344db7b49aac19779226531d"
+    },
+    {
+      "path": "docs/branding.html",
+      "sha256": "85564ecddeec40d2345066c70ff2e814be50dcba8841aacdbe9df9a470a90e44"
+    },
+    {
+      "path": "docs/branding.md",
+      "sha256": "c3b8d6712de1f98ad9a2f37adc6103d3562d92c76e66c955df451ad85fd15e4b"
+    },
+    {
+      "path": "docs/images/branding/flan36-caramel-bold.png",
+      "sha256": "09307323c23d4ed8788202d57a1ff854e0e30685bafdd0d9582841d88f574a20"
+    },
+    {
+      "path": "docs/images/branding/flan36-caramel-drop.png",
+      "sha256": "32dccd292cbdfd15748911461ef7160f9061cf85b183837f9e5a914cdebb12c3"
+    },
+    {
+      "path": "docs/images/branding/flan36-caramel-outline.png",
+      "sha256": "5f128bcd8a3cd5054c11abf70743a63fd32c7d7cc3a3d417e3cb923cce280395"
+    },
+    {
+      "path": "docs/images/branding/flan36-caramel-soft.png",
+      "sha256": "dab42588e3bd426a491c10f6fd64c0d0cba0e576798addb3373899059cd0e05b"
+    },
+    {
+      "path": "validation/branding-caramel.json",
+      "sha256": "6511977ab652e043f62ee285df241d56902966c744aed470cda321caa8faf0f0"
+    }
+  ],
+  "pages": [
+    {
+      "path": "branding.html",
+      "sha256": "85564ecddeec40d2345066c70ff2e814be50dcba8841aacdbe9df9a470a90e44",
+      "matches": true
+    },
+    {
+      "path": "images/branding/flan36-caramel-soft.png",
+      "sha256": "dab42588e3bd426a491c10f6fd64c0d0cba0e576798addb3373899059cd0e05b",
+      "matches": true
+    },
+    {
+      "path": "images/branding/flan36-caramel-drop.png",
+      "sha256": "32dccd292cbdfd15748911461ef7160f9061cf85b183837f9e5a914cdebb12c3",
+      "matches": true
+    },
+    {
+      "path": "images/branding/flan36-caramel-bold.png",
+      "sha256": "09307323c23d4ed8788202d57a1ff854e0e30685bafdd0d9582841d88f574a20",
+      "matches": true
+    },
+    {
+      "path": "images/branding/flan36-caramel-outline.png",
+      "sha256": "5f128bcd8a3cd5054c11abf70743a63fd32c7d7cc3a3d417e3cb923cce280395",
+      "matches": true
+    }
+  ],
+  "browser": {
+    "url": "https://eduarbo.github.io/filo36/branding.html?rev=53a84f9c85c4bbf827839b56c2f4b469ed3af686",
+    "four_variants_loaded": true,
+    "mobile_390px_without_overflow": true,
+    "png_download_verified": true
+  }
+}
