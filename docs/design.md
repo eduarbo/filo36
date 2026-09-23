@@ -23,6 +23,26 @@ Choose [Solid, Color rim or Terrace](cases.md). These are different base/plate g
 
 The key plate stays at **7.6 mm**, plain frames at **16.6 mm**, themed relief at **17.2 mm**. The electronics bay remains **24 mm wide**; illustrative feet add 1.2 mm. The frame ends at Y=67 mm while the low base/plate continue to the thumb. The power-switch reference is now recessed 0.1 mm inside the straight X=135 mm flank.
 
+The frame now shares the case's **R2.4 north/outside corner** beside USB, including its tangency points. The former independent R1.2 frame corner projected about **0.497 mm** beyond that curve. The cavity, plate clearance and beveled lips follow the corrected corner; the case and PCB outlines stay unchanged.
+
+![Shared corner on the actual Color rim and Smooth frame meshes](images/revI-corner.png)
+
+### Can the stack be thinner?
+
+**The current height is not a proven minimum.** Dimensions below start at the bottom of the case, excluding feet and keycaps.
+
+| Configuration | Plain cover | Raised themed cover | Status |
+|---|---:|---:|---|
+| Current model | 16.6 mm | 17.2 mm | Published nominal assembly |
+| Lower display candidate | 15.6 mm | 16.2 mm | Preliminary nominal study; not selected for printing |
+| Full 1.8 mm reduction | 14.8 mm | 15.4 mm | Rejected with the current battery connector envelope |
+
+The display PCB currently sits 8.8 mm above the main PCB. [Typeractive's 5-pin connector](https://typeractive.xyz/products/5-pin-sockets) is described as 7 mm installed, suggesting a display-bottom candidate of **12.4 mm** instead of 14.2 mm. That interpretation still needs a measured mounting datum and qualified pin engagement.
+
+The left-half study at 15.6 mm finds no intersections in the affected nominal component/frame pairs, with **0.82 mm** between the modeled MCU and display and **0.5 mm** above the battery connector. At 14.8 mm, the roof cuts **0.3 mm** into that connector envelope in every frame style. The connector is still an approximate block, so these numbers identify constraints, not final tolerances. [Reproducible study](../tools/freecad/study_stack_height.py) · [Measured results](../validation/revI-stack-study.json).
+
+The Adafruit battery controls the required cell height (3.8 mm); the 301230 controls width (12 mm). Both remain supported. Final compactness depends on the actual sockets, solder, display backing, battery connector, leads and removable supports. The lower candidate has not passed connector engagement, extraction paths or physical fit; the printable source retains its current height.
+
 ### Magnetic frame, independent structure
 
 Three captive **Ø2 × 3 mm magnets** in the base attract three captive **Ø2 × 4 mm steel pins** in each frame. Shallow guides locate the cover; it lifts vertically. The frame carries no battery or display load. Five internal M2 fasteners per half retain the plate/PCB independently, with no added perimeter lobes. Three use 6 mm shafts; the two hidden under the frame use 4 mm shafts.

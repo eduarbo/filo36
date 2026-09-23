@@ -1,0 +1,37 @@
+{
+  "request_reference": "User 2026-09-22: inconsistent frame/case corner beside USB; suggest names including Flan; confirm whether the battery/MCU/display stack is as compact as possible.",
+  "parent_objective": "A slim, modular, wireless 36-key Piantor-derived keyboard with printable cases/frames, both battery alternatives and editable, inspectable CAD.",
+  "scope": "Correct the digital corner interface and its dependent artifacts; measure current stack constraints; propose names without renaming the project. No purchase or manufacturing release.",
+  "baseline_commit": "01e115269132ee70e9b21ef5c0204b7a5a039d2e",
+  "required_outcomes": [
+    "Frame/case share the outside north corner without widening the outline; all six styles and both halves preserve nominal fits, service access and print exports.",
+    "CAD, meshes, renders and public viewer show the same correction.",
+    "Explain current cover heights and distinguish a compact candidate from a proven minimum or physical fit.",
+    "Offer names influenced by Flan and the user's creative references; retain the existing name until selected."
+  ],
+  "status": "Digital corner correction and preliminary height study validated locally; public readback pending",
+  "physical_acceptance": false,
+  "verified_so_far": [
+    "Both halves / all 12 native frame corners share R2.4 and reject the previous overhang.",
+    "All six saved case pairs retain their checked wall/floor/rim-joint dimensions.",
+    "Case and PCB profile coordinates unchanged from baseline.",
+    "Preliminary left-half study at cover 15.6/display bottom 12.4 has no affected-pair nominal intersections; 14.8 cover intersects battery connector.",
+    "Complete rebuilt native exports have no unallowed nominal component intersections; all six styles and both battery alternatives checked.",
+    "Native configuration save/reopen, color variants, service checks, component readback, renders and browser/print exports passed.",
+    "Current-source left-half study: 15.6 mm cover has zero affected-pair intersections, 0.82 mm MCU/display clearance and 0.5 mm battery-connector roof gap."
+  ],
+  "native_source_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf",
+  "viewer_sha256": "7081a0fc51e316b34eae2379fe1e7bb6ade586458a0dba7e095e4e75db684deb",
+  "name_shortlist": [
+    "Flan",
+    "Flancito",
+    "Caramelo",
+    "Comal",
+    "Comala",
+    "Dango",
+    "Flanstein"
+  ],
+  "selected_name": null,
+  "review_receipt": "validation/revI-corner-stack-review.json",
+  "stack_study_receipt": "validation/revI-stack-study.json"
+}

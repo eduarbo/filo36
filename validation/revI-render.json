@@ -1,8 +1,8 @@
 {
   "revision": "I",
-  "model_sha256": "86ad8a787f2b92529e3b82d183f71ac851287cf70a83ade700c9c19ece46cc93",
+  "model_sha256": "fa89d134c9a0ab8528e2714e36576c2736f01f34fdf0341490ae35c280ff8265",
   "layout_sha256": "7c250ff02fb09d913379783bce71d7fc18e037e93ae33a8006cf40280c4d6af3",
-  "renderer_sha256": "a0d0100277050ec817d8d66b067509900b5eb1123bb694bd1d7a869b5b32b057",
+  "renderer_sha256": "9b1a15d8dc193385a094e4e0a43d078227facd7d1d10b55f9409cfc97b438c80",
   "meshes": [
     {
       "path": "mechanical/revI/left-tray.stl",
@@ -14,7 +14,7 @@
     },
     {
       "path": "mechanical/revI/left-electronics-lid.stl",
-      "sha256": "9581df3d24ae215a1e1aac762863cf0bcaefb22b32f90d81759606c595e038ec"
+      "sha256": "371b719d3fcc531655a6bdf7f83f69097a80d010c9e6135c9a4e537d881a4bda"
     },
     {
       "path": "mechanical/revI/left-pcb.stl",
@@ -246,7 +246,7 @@
     },
     {
       "path": "mechanical/revI/right-electronics-lid.stl",
-      "sha256": "0493ad3ec9139dceeb31ede71afaadd0a82f3e22aef1eabacf07ea89cf1b7fcf"
+      "sha256": "ae676cfe3479cfccf7bdda25fde8d67ef14aecb32cc3cb089160877a215d97e9"
     },
     {
       "path": "mechanical/revI/right-pcb.stl",
@@ -435,6 +435,18 @@
     {
       "path": "mechanical/revI/right-battery-lead-1.stl",
       "sha256": "6c9dc6160e5944642ca31b70286c273d55e4ceddef5f0670a71239f76e4d8631"
+    },
+    {
+      "path": "mechanical/revI/left-case-rim-base.stl",
+      "sha256": "99759605500187f85360eee17df21a2e17041cf80c707a93470bb56020e87d38"
+    },
+    {
+      "path": "mechanical/revI/left-case-rim-plate.stl",
+      "sha256": "1d365d7d30d8be0541b25c8ce343066a8b2512fef2a82eb11ef9eee56e896560"
+    },
+    {
+      "path": "mechanical/revI/left-frame-smooth.stl",
+      "sha256": "8100d4e06672c4365ae220fae5c1d9ddd4a20f5df6ab6ef8d748223b1c2a7774"
     }
   ],
   "views": {
@@ -445,7 +457,7 @@
         "right"
       ],
       "exploded": false,
-      "image_sha256": "f02c8536e481d45115839b7245b0d31abe0d6bfb9560cf53017235affd237b6c"
+      "image_sha256": "fd4c1062ba937cf0c3de2fd32bbf7ff836ea835e96d0fd6b9084c1fa7949a043"
     },
     "top": {
       "keys": 36,
@@ -454,7 +466,7 @@
         "right"
       ],
       "exploded": false,
-      "image_sha256": "d788459fcd33d733b6022b75593d314e3f3916e70f6e775f937e5f14681edd47"
+      "image_sha256": "e976ab340bae088170a34078f62d28eb3f0b890ad3c53972d557897808b4b0d9"
     },
     "side": {
       "keys": 18,
@@ -462,7 +474,7 @@
         "left"
       ],
       "exploded": false,
-      "image_sha256": "9146da8f3c616a930a2c997d9d75586c205aa3e28be286a416bb0796c7c8583e"
+      "image_sha256": "af519b2be9046c62f018cefd6a34d7fece2c155246cc119bed405c582e0a50bb"
     },
     "stack": {
       "keys": 18,
@@ -470,7 +482,7 @@
         "left"
       ],
       "exploded": true,
-      "image_sha256": "4c3f2ed399140b154f908dc6a849154a673c40ae18ea5c8d9d51d09ace50e78a"
+      "image_sha256": "055bee41903e20b1cc9380dd5756d9662048ff891c49e8c0a28d104fc6b226dd"
     },
     "detail": {
       "keys": 18,
@@ -478,7 +490,15 @@
         "left"
       ],
       "exploded": false,
-      "image_sha256": "cf1bf32f6b399e2b60a8285e1d69fec163653db7f13151cb18bf4739f7e216cd"
+      "image_sha256": "978001e32adf7fabb514a08397a8fb41db64542a9150c71b9d55c9c4b0ca9953"
+    },
+    "corner": {
+      "keys": 18,
+      "halves": [
+        "left"
+      ],
+      "exploded": false,
+      "image_sha256": "6b6d50d7fc11f33078d0b0592cf480599e3b23885dd6ea9f142da56fca332ae2"
     }
   },
   "geometry_source": "generated CAD, no image retouching",

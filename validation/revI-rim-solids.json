@@ -235,6 +235,6 @@
   "nominal_rim_mm": 4.75,
   "tolerance_mm": 2e-05,
   "physical_acceptance": false,
-  "source_sha256": "d4004ebc932f8c7d9c3b7e59f5c81c18ee602186f773d38ea1bbfa3bfdbb902c",
+  "source_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf",
   "checker_sha256": "766dcd72b1594f024affde2aecd556359b1a1b30363af0efc41681c460930b22"
 }

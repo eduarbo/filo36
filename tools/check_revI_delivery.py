@@ -64,6 +64,14 @@ assert all(abs(r['min_mm']-4.75)<.00002 and abs(r['max_mm']-4.75)<.00002 for r i
 assert len(rim['curve_checks'])==4 and all(r['native_local_arcs'] for r in rim['curve_checks'])
 assert outline['lcd_flank_protrusion_mm']==0 and outline['thumb_curve_tangent_continuity']
 assert all(r['symmetric_difference_mm3']<1e-5 for r in rim['symmetry'].values())
+corner=json.loads((ROOT/'validation/revI-frame-corner.json').read_text())
+assert corner['source_sha256']==sha('mechanical/revI/Filo36.FCStd') and corner['checker_sha256']==sha('tools/freecad/check_frame_corner.py')
+assert len(corner['shared_corner_checks'])==12 and corner['previous_corner_rejected']
+assert all(c['outside_case_corner_mm3']<1e-6 and c['radius_mm']==2.4 for c in corner['shared_corner_checks'])
+stack=json.loads((ROOT/'validation/revI-stack-study.json').read_text())
+assert stack['source_sha256']==sha('mechanical/revI/Filo36.FCStd') and stack['checker_sha256']==sha('tools/freecad/study_stack_height.py')
+assert stack['candidates']['14.8']['collisions_mm3'] and not stack['candidates']['15.6']['collisions_mm3']
+assert m['parameter_values_mm']['FrameTop']==16.6, 'Exploratory height must not silently replace the printable source'
 rim_image=json.loads((ROOT/'validation/revI-rim-render.json').read_text())
 assert rim_image['image_sha256']==sha('docs/images/revI-rim.png')
 assert rim_image['renderer_sha256']==sha('tools/render_rim.py') and rim_image['profile_sha256']==sha('design/revI-profiles.json')

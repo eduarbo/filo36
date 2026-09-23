@@ -54,37 +54,37 @@
         "smooth": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2659.5460620898707,
+          "volume_mm3": 2652.8504567429404,
           "closed_mesh": true
         },
         "bevel": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2621.841566651234,
+          "volume_mm3": 2615.2695719621843,
           "closed_mesh": true
         },
         "facet": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2584.539195072253,
+          "volume_mm3": 2578.0908110410874,
           "closed_mesh": true
         },
         "handheld": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2686.909645289147,
+          "volume_mm3": 2680.2140399422155,
           "closed_mesh": true
         },
         "tv": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2774.6332693146005,
+          "volume_mm3": 2767.9376639676702,
           "closed_mesh": true
         },
         "cyberpunk": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2686.2290176820215,
+          "volume_mm3": 2679.533412335087,
           "closed_mesh": true
         }
       },
@@ -572,7 +572,7 @@
         -0.2499999999999989,
         6.6
       ],
-      "electronics_north_kicad_y_mm": 10.999999999999995,
+      "electronics_north_kicad_y_mm": 11.0,
       "frame_top_mm": 16.6,
       "display_top_mm": 16.099999999999998,
       "adjacent_key_north_y_mm": 10.755147934,
@@ -634,37 +634,37 @@
         "smooth": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2659.5460620898743,
+          "volume_mm3": 2652.850456742938,
           "closed_mesh": true
         },
         "bevel": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2621.8415666512324,
+          "volume_mm3": 2615.2695719621875,
           "closed_mesh": true
         },
         "facet": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2584.539195072256,
+          "volume_mm3": 2578.090811041092,
           "closed_mesh": true
         },
         "handheld": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2686.909645289151,
+          "volume_mm3": 2680.214039942216,
           "closed_mesh": true
         },
         "tv": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2774.6332693146032,
+          "volume_mm3": 2767.9376639676716,
           "closed_mesh": true
         },
         "cyberpunk": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2686.229017682026,
+          "volume_mm3": 2679.5334123350935,
           "closed_mesh": true
         }
       },

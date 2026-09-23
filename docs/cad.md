@@ -58,6 +58,8 @@ FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_re
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_revI_rim.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_cases.py
+FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_frame_corner.py
+FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/study_stack_height.py
 FILO_QT_PLATFORM=cocoa python3 tools/freecad/run_macos.py tools/freecad/check_finishes.py
 python tools/render_revI.py
 python tools/render_frames.py
@@ -85,6 +87,8 @@ For a fresh PCB reconstruction, run `python3 tools/build_revI_pcb.py` only when 
 The macOS helper uses an existing FreeCAD installation. It disables optional `flatmesh` only in its subprocess because that installed extension crashes on import; it does not modify application preferences. Cocoa is used because that runtime’s offscreen Qt backend failed on mesh recompute. On other systems, run the scripts through the equivalent installed FreeCAD Python environment.
 
 After an authorized publication, `python3 tools/check_public_delivery.py COMMIT_SHA` checks an anonymous full source ZIP against every Git blob and compares public Pages with that commit. Its ZIP and receipt are reproducible under `build/revI/`; it does not publish anything.
+
+The corner check inspects all 12 saved frame bodies against the native case outline and rejects the former R1.2 overhang. The height study changes only an in-memory document, checks affected left-half pairs at two candidate heights and writes its receipt without saving the CAD source. It does not qualify connectors or select a printable configuration. `build/corner-stack/` contains ignored regenerable logs and staging for these commands.
 
 The browser check needs Playwright and a Chromium-compatible browser. Set `FILO36_PLAYWRIGHT_MODULE` and `FILO36_BROWSER` if they are not on the usual path. It tests the generated file with HTTP(S) requests blocked; `FILO36_VIEWER_URL` instead selects the published URL.
 

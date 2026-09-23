@@ -36,7 +36,7 @@
     },
     {
       "path": "mechanical/revI/left-electronics-lid.stl",
-      "sha256": "9581df3d24ae215a1e1aac762863cf0bcaefb22b32f90d81759606c595e038ec"
+      "sha256": "371b719d3fcc531655a6bdf7f83f69097a80d010c9e6135c9a4e537d881a4bda"
     },
     {
       "path": "mechanical/revI/left-pcb.stl",
@@ -200,27 +200,27 @@
     },
     {
       "path": "mechanical/revI/left-frame-smooth.stl",
-      "sha256": "a35dcd11337aab70897c33e5de84cddff500e5ebb595c2a2de4cf3311759a6d8"
+      "sha256": "8100d4e06672c4365ae220fae5c1d9ddd4a20f5df6ab6ef8d748223b1c2a7774"
     },
     {
       "path": "mechanical/revI/left-frame-bevel.stl",
-      "sha256": "9581df3d24ae215a1e1aac762863cf0bcaefb22b32f90d81759606c595e038ec"
+      "sha256": "371b719d3fcc531655a6bdf7f83f69097a80d010c9e6135c9a4e537d881a4bda"
     },
     {
       "path": "mechanical/revI/left-frame-facet.stl",
-      "sha256": "2234e6716b6f1a1358db89b8d305f5d54e3bbaaeb3208c6f15e71379c15f9970"
+      "sha256": "8a87ab2231393dcadd2d39b739267d0838896a950f508e1b17fb180301ef441a"
     },
     {
       "path": "mechanical/revI/left-frame-handheld.stl",
-      "sha256": "ee0a7e6c308363e3823a40a1e6c150bc59932517ded7fb3232096899d7ab6917"
+      "sha256": "278cfb46ed28b94f9cb48a19c4a344eb0bd352ae48de03aa9fa7073aab37a3a9"
     },
     {
       "path": "mechanical/revI/left-frame-tv.stl",
-      "sha256": "6f165ab33d1c88e8560e28641cf6773fe871694e023c57ca2acaf56aea0af748"
+      "sha256": "e29969644e171442e7aec99f70ecb4dcfb7ce1a29cff34122f4a977bff0f3134"
     },
     {
       "path": "mechanical/revI/left-frame-cyberpunk.stl",
-      "sha256": "10053f3ed54d47c87284f3fe05dd8e5c45c1a844a7a68caf39e37107d4f84202"
+      "sha256": "2ed546b7872985dfa06c08c2dc5e43f31355ca83d43781530df1fe435fb8c6a2"
     },
     {
       "path": "keycaps/variants/Choc_Stem_Choc_Size_Normal.stl",
@@ -304,7 +304,7 @@
     },
     {
       "path": "mechanical/revI/right-electronics-lid.stl",
-      "sha256": "0493ad3ec9139dceeb31ede71afaadd0a82f3e22aef1eabacf07ea89cf1b7fcf"
+      "sha256": "ae676cfe3479cfccf7bdda25fde8d67ef14aecb32cc3cb089160877a215d97e9"
     },
     {
       "path": "mechanical/revI/right-pcb.stl",
@@ -456,7 +456,7 @@
     },
     {
       "path": "mechanical/revI/right-case-rim-plate.stl",
-      "sha256": "90f131819af004ae910864e9f9fd825f1382f49e4bd61d2cca6c743ced139aa8"
+      "sha256": "30b075945dddbf8e65661c2337206a7c2d4e95fe40f8651b76e18b4e8b299305"
     },
     {
       "path": "mechanical/revI/right-case-terrace-base.stl",
@@ -468,27 +468,27 @@
     },
     {
       "path": "mechanical/revI/right-frame-smooth.stl",
-      "sha256": "cd750190b0912192530806feb2ff493f763d59e3d5e824830dac417651997ab9"
+      "sha256": "4c0297947a19eae3f00a36e41ab35fb88fcdb772f9e4102779fa45b93226038a"
     },
     {
       "path": "mechanical/revI/right-frame-bevel.stl",
-      "sha256": "0493ad3ec9139dceeb31ede71afaadd0a82f3e22aef1eabacf07ea89cf1b7fcf"
+      "sha256": "ae676cfe3479cfccf7bdda25fde8d67ef14aecb32cc3cb089160877a215d97e9"
     },
     {
       "path": "mechanical/revI/right-frame-facet.stl",
-      "sha256": "056659cfe340e964e5cedccd5d44abe7898f4f742b079a875cfe6bc17f123a45"
+      "sha256": "9e6b66a57fed77c14fb605a77597503c6539a38f5d3f834ba1b7ea930fac9850"
     },
     {
       "path": "mechanical/revI/right-frame-handheld.stl",
-      "sha256": "4983e6d2377c6c82c7216d5ad4bfa75bc37d418283aace586e2085a7b5ae8bf2"
+      "sha256": "82655d8f25f73c299aa53a500b0c32fc18d6904e49da9912ed353afe92b11f51"
     },
     {
       "path": "mechanical/revI/right-frame-tv.stl",
-      "sha256": "c434f4b8d41fb82abecbd676696cb89db746c9403c13644f999a31a66c223ed3"
+      "sha256": "a8b4394424a53c577d2b24f6d3ab1ce164ec711f674e5ddee2584af88822cd3e"
     },
     {
       "path": "mechanical/revI/right-frame-cyberpunk.stl",
-      "sha256": "302129ca46acb943be65b8796b20a34198d706bd39bd2a622edd3cf30ebec0ec"
+      "sha256": "e3082ffa4db3f4543d2ead0b7e9dac369c86c6e56f1f8abe21ad0484f0526ebe"
     },
     {
       "path": "mechanical/revI/right-screw-1.stl",
@@ -652,7 +652,7 @@
     },
     {
       "path": "design/revI.json",
-      "sha256": "86ad8a787f2b92529e3b82d183f71ac851287cf70a83ade700c9c19ece46cc93"
+      "sha256": "fa89d134c9a0ab8528e2714e36576c2736f01f34fdf0341490ae35c280ff8265"
     },
     {
       "path": "design/layout.json",
@@ -727,7 +727,7 @@
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "71123ab1bbf95cafe14e7ea5825ad32202faeb2021383cab2bf95f7b24241f29",
+  "viewer_sha256": "7081a0fc51e316b34eae2379fe1e7bb6ade586458a0dba7e095e4e75db684deb",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,

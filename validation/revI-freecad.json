@@ -1,5 +1,5 @@
 {
-  "source_sha256": "d4004ebc932f8c7d9c3b7e59f5c81c18ee602186f773d38ea1bbfa3bfdbb902c",
+  "source_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf",
   "native_features_no_custom_proxy": true,
   "configuration_roundtrip": true,
   "mixed_battery_profiles_roundtrip": true,

@@ -44,6 +44,8 @@ def rounded(points,radius):
 # 9.575 - 7 + 1.65 PCB inset + .5 copper rule = 4.725 mm minimum.
 MARGIN = 4.75
 THUMB_MARGIN = 4.75
+CORNER_RADIUS = 2.4
+FRAME_WALL = 1.2
 
 def intersect(a,b,c,d):
     u=[b[i]-a[i] for i in (0,1)];v=[d[i]-c[i] for i in (0,1)]
@@ -89,7 +91,7 @@ radii=[]
 for i,v in enumerate(controls):
     a=controls[i-1];b=controls[(i+1)%len(controls)]
     turn=(v[0]-a[0])*(b[1]-v[1])-(v[1]-a[1])*(b[0]-v[0])
-    radii.append(2.4 if turn>0 else 1.3)
+    radii.append(CORNER_RADIUS if turn>0 else 1.3)
 radii[14]=radii[15]=35
 radii[17]=3;radii[18]=4
 outer,arcs=rounded(controls,radii)
@@ -98,7 +100,13 @@ for i,arc in enumerate(arcs):
     segments.append(dict(kind='arc',**arc))
     segments.append({'kind':'line','start':arc['end'],'end':arcs[(i+1)%len(arcs)]['start']})
 shell=Polygon(outer);assert shell.is_valid
-hood,h_arcs=rounded([[111,11],[135,11],[135,67],[111,67]],1.2)
+# The frame and case share the north/outside corner, including its tangencies.
+# Inset lips use concentric radii; changing the radius must not widen the bay.
+shared_corner=controls.index([135,11])
+shared_radius=math.dist(arcs[shared_corner]['start'],controls[shared_corner])
+frame_radii=[1.2,shared_radius,1.2,1.2]
+hood,h_arcs=rounded([[111,11],[135,11],[135,67],[111,67]],frame_radii)
+assert all(math.dist(h_arcs[1][k],arcs[shared_corner][k])<1e-9 for k in ('start','mid','end'))
 frame=Polygon(hood)
 coords=lambda p:[list(v) for v in p.exterior.coords][:-1]
 profiles={};frames={}
@@ -120,11 +128,11 @@ for side in ['left','right']:
     profiles[side]['lcd_flank_x_mm']=reflect([135,0])[0]
     profiles[side]['plate_frame_clearance']=[reflect(p) for p in coords(frame.buffer(.18,join_style=2))]
     frames[side]={'outer':profiles[side]['hood'],'outer_arcs':profiles[side]['hood_arcs'],
-                  'inner':[reflect(p) for p in coords(frame.buffer(-1.2,join_style=2))]}
+                  'inner':[reflect(p) for p in coords(frame.buffer(-FRAME_WALL,join_style=2))]}
     # A modest 0.4 mm lip bevel; older styles remain available as plain options.
     for style,inset in [('bevel',.4),('facet',.8)]:
         outline,arcs=rounded([[111+inset,11+inset],[135-inset,11+inset],
-                             [135-inset,67-inset],[111+inset,67-inset]],1.2-inset)
+                             [135-inset,67-inset],[111+inset,67-inset]],[r-inset for r in frame_radii])
         frames[side][style]=[reflect(p) for p in outline]
         frames[side][style+'_arcs']=[{n:reflect(p) for n,p in a.items()} for a in arcs]
 (ROOT/'design/revI-profiles.json').write_text(json.dumps(profiles,indent=2)+'\n')

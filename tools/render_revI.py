@@ -48,12 +48,16 @@ def render(kind):
     rgb=lambda color:tuple(int(color[i:i+2],16)/255 for i in (1,3,5))
     style=catalog['case_styles'][cfg['cases']['left']['style']]
     body=rgb(style['base_color']);plate_color=rgb(style['plate_color']);cover=rgb(cfg['frames']['left']['color'])
-    sides=['left'] if kind in ['side','stack','detail'] else ['left','right']
+    sides=['left'] if kind in ['side','stack','detail','corner'] else ['left','right']
     for side in sides:
         offset=0 if side=='left' else 161
         stack=kind=='stack';lid_dx=32 if stack else 0;lid_dz=13 if stack else 0
-        part(side,'tray',body);part(side,'key-plate',plate_color)
-        part(side,'electronics-lid',cover,lid_dz,lid_dx)
+        if kind=='corner':
+            part(side,'case-rim-base',(.64,.12,.23));part(side,'case-rim-plate',plate_color)
+            part(side,'frame-smooth',(.64,.12,.23))
+        else:
+            part(side,'tray',body);part(side,'key-plate',plate_color)
+            part(side,'electronics-lid',cover,lid_dz,lid_dx)
         part(side,'pcb',(.10,.32,.26))
         part(side,'cradle',(.30,.38,.39),10 if stack else 0)
         part(side,'battery-retainer',(.30,.38,.39),15 if stack else 0)
@@ -99,17 +103,19 @@ def render(kind):
         mp=vtk.vtkPolyDataMapper();mp.SetInputData(rev.GetOutput());a.SetMapper(mp);a.SetPosition(0,0,0);a.SetOrientation(0,0,0);a.SetScale(1,1,1)
     def label(text,x,y,size,color=(.14,.24,.22)):
         a=vtk.vtkTextActor();a.SetInput(text);a.SetPosition(x,y);p=a.GetTextProperty();p.SetFontFamilyToArial();p.SetFontSize(size);p.SetColor(*color);ren.AddActor2D(a)
-    titles={'assembled':'FILO36  /  REV I','top':'FILO36  /  TOP VIEW','side':'FILO36  /  SIDE PROFILE','stack':'FILO36  /  REMOVABLE STACK','detail':'FILO36  /  CONTOUR + MAGNETIC FRAMES'}
-    label(titles[kind],105,1380,44)
+    titles={'assembled':'FILO36  /  REV I','top':'FILO36  /  TOP VIEW','side':'FILO36  /  SIDE PROFILE','stack':'FILO36  /  REMOVABLE STACK','detail':'FILO36  /  CONTOUR + MAGNETIC FRAMES','corner':'FILO36  /  SHARED CORNER'}
+    if kind!='corner':label(titles[kind],105,1380,44)
     sub=('Left half  /  KLP LAME  /  Orthographic profile' if kind=='side' else '36 keys  /  KLP LAME  /  Two nice!view displays  /  24 mm bay') if kind!='stack' else 'Adafruit 1570 or 301230. Captured battery cage and magnetic frame.'
     sub='Contour / Original thumb angles / Local tangent corners' if kind=='detail' else sub
-    label(sub,108,1334,25,(.37,.44,.41))
+    if kind=='corner':sub='Color rim + Smooth frame / Shared R2.4 corner / Actual CAD meshes'
+    if kind!='corner':label(sub,108,1334,25,(.37,.44,.41))
     label('RevI CAD study. Wiring, final connectors, fit and operation remain untested.',108,60,24,(.36,.42,.39))
     cam=ren.GetActiveCamera();cam.ParallelProjectionOn()
     if kind=='assembled':focal=(160,-44,7);pos=(182,-255,360);up=(0,0,1);scale=99
     elif kind=='top':focal=(160,-43,5);pos=(160,-43,450);up=(0,1,0);scale=99
     elif kind=='side':focal=(78,-38,8);pos=(350,-38,8);up=(0,0,1);scale=53
     elif kind=='detail':focal=(115,-45,7);pos=(115,-45,450);up=(0,1,0);scale=68
+    elif kind=='corner':focal=(127,-18,8);pos=(180,65,48);up=(0,0,1);scale=17
     else:focal=(88,-39,28);pos=(225,-270,205);up=(0,0,1);scale=70
     cam.SetFocalPoint(*focal);cam.SetPosition(*pos);cam.SetViewUp(*up);cam.SetParallelScale(scale);ren.ResetCameraClippingRange();win.Render()
     if kind=='side':
@@ -124,7 +130,7 @@ def render(kind):
     print(kind,'rendered',flush=True)
 
 
-for kind in ['assembled','top','side','stack','detail']:render(kind)
+for kind in ['assembled','top','side','stack','detail','corner']:render(kind)
 receipt={'revision':'I','model_sha256':hashlib.sha256((ROOT/'design/revI.json').read_bytes()).hexdigest(),
          'layout_sha256':hashlib.sha256((ROOT/'design/layout.json').read_bytes()).hexdigest(),
          'renderer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

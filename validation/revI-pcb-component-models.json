@@ -1,10 +1,10 @@
 {
-  "source_sha256": "d4004ebc932f8c7d9c3b7e59f5c81c18ee602186f773d38ea1bbfa3bfdbb902c",
+  "source_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf",
   "checker_sha256": "59adf44ae00ccf99c961e98a7ef9f8c9555076c7c427198b0039c20a52ff56f6",
   "models": {
     "left-mcu": {
       "path": "hardware/revI/models/left-mcu.step",
-      "sha256": "cb9c004493dcdf3b2946e8c9802cfce5e5b9c2abcd6302d6ac857e4e26da7ee1",
+      "sha256": "4cd417dbfa73eb46442ac05f252899fcf5f992ad5959ebaf9459dbb98a5144db",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 6,
@@ -17,7 +17,7 @@
     },
     "left-display": {
       "path": "hardware/revI/models/left-display.step",
-      "sha256": "fdb97e95b066d9e3ae570cf971e1178bcdd82e771aa353ed421b4e9f07e4979c",
+      "sha256": "3ac00f94aeb3090b5813915646a82a036a99d5330291c4265758370c88fc14cc",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 4,
@@ -30,7 +30,7 @@
     },
     "left-jst": {
       "path": "hardware/revI/models/left-jst.step",
-      "sha256": "24e515343b70791c1119c39bd549b805db54dcfc772710c56a2d60933dd44d9e",
+      "sha256": "3b41e6a7c9819978b33f4de403ba7fbede8092dc4ba3d403291676967b421fc4",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 1,
@@ -43,7 +43,7 @@
     },
     "left-slider": {
       "path": "hardware/revI/models/left-slider.step",
-      "sha256": "8f1ba90c7d3a8ea8738a4b7d2ef47c7e43a0d6b6c6b5c58c581d068ff6b3139f",
+      "sha256": "7f12196185e24031bb3a317b0904f3fd6757b9849e6c731ef3df165db1424480",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 3,
@@ -56,7 +56,7 @@
     },
     "left-reset": {
       "path": "hardware/revI/models/left-reset.step",
-      "sha256": "6f4db0e9785cf29f6d3df74b7334b91a4c30ae24cd2b7c12c649591917777c51",
+      "sha256": "91a93a1434463a488f13f7aab39fb0115a55b05cbca6c8d4ffc00ee1d34959c6",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 4,
@@ -69,7 +69,7 @@
     },
     "right-mcu": {
       "path": "hardware/revI/models/right-mcu.step",
-      "sha256": "c5a5615ff62e48b97b00fe0cedf5b5beea75c41360bea2ccee6317943c4aa235",
+      "sha256": "5199dc11249b50d41ccdc3b34d9c0b99ea61458cd2e3b95114c328d28545506e",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 6,
@@ -82,7 +82,7 @@
     },
     "right-display": {
       "path": "hardware/revI/models/right-display.step",
-      "sha256": "f982114a9ffc5dcd8bd45ba1f98a4439febbda01aab66816df7257ad572f396e",
+      "sha256": "70c8c86841957874c16d4cb022c3325637fc6e74123176cfa195a20339c627b7",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 4,
@@ -95,7 +95,7 @@
     },
     "right-jst": {
       "path": "hardware/revI/models/right-jst.step",
-      "sha256": "40caedb131c414ae29773f95a401c8a74d89c29932afd628afea47edf97a55a0",
+      "sha256": "7e36bcde06496ed7cd745ac60bd2ac43f46a0ed64b2ff32a28667292ec7f4c8f",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 1,
@@ -108,7 +108,7 @@
     },
     "right-slider": {
       "path": "hardware/revI/models/right-slider.step",
-      "sha256": "e9e9e31ee4df3cf08f8b4bb7ab87882a49772f970beaba30833d75ba08726f6d",
+      "sha256": "1c6c65cff7192b638904361fd797a37aaeb8ac9cef597e5671edbaf9b3c792de",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 3,
@@ -121,7 +121,7 @@
     },
     "right-reset": {
       "path": "hardware/revI/models/right-reset.step",
-      "sha256": "b21bd8bba80e368dcdfdaabdd0c8b3e359f9922a1f7911579f21f0136c12dcaf",
+      "sha256": "d97094d4d9cc8be18a6cdccc792ab0e0ee2f1fc38adfb7654f255bcada0d7a58",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0.0,
       "distinct_colors": 4,
@@ -134,7 +134,7 @@
     },
     "choc-envelope": {
       "path": "hardware/revI/models/choc-envelope.step",
-      "sha256": "de1b2dd5fdd00d91b214451db8d533942c3d503ba8ca44033845588c27fb5bf7",
+      "sha256": "07fbe48b94271e9baa7c6af3acc639403e6336ab0478c4f52e739f85a2c73614",
       "import_difference_mm3": 0.0,
       "native_placement_difference_mm3": 0,
       "distinct_colors": 4,

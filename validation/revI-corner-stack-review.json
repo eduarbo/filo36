@@ -1,0 +1,46 @@
+{
+  "snapshot_commit": "01e115269132ee70e9b21ef5c0204b7a5a039d2e",
+  "baseline_tracked_and_untracked": "clean",
+  "snapshot_hashes": {
+    "tools/build_revI_profiles.py": "96f06fe3be0011f6a0c353381bd27fcce3e0f440ae648a04a6f54dcc2ef10211",
+    "tools/freecad/build_revI.py": "41bb149b14396539ada86c3e7544d0000575fd6ae6d0ba2efb409badaae06ced",
+    "tools/freecad/components.py": "b467197a100a3b9dd45fae34603c16801e98706d23bd7fca38d1e5a60c0d4dd9",
+    "tools/freecad/export_revI.py": "577d88ec935029d9c6093c91f19aa585bb562c58fc1ecceedf868dbb27a6063f",
+    "design/revI.json": "86ad8a787f2b92529e3b82d183f71ac851287cf70a83ade700c9c19ece46cc93",
+    "design/batteries.json": "1c4d2037b6fb04ea7aab6ba1d2f780eda9d886ebf8dd1c403c2721743d0424ff",
+    "design/revI-magnets.json": "4f953719a2e36c69fd566e90c3b0e6071d90fe5a990126e73a24186910e81ca8",
+    "docs/parts.md": "51c807d1bdfed2d45f3262eb20d2fd32f47ee7a750991f22a74a58732f023fc9",
+    "components/README.md": "2ed24e67980628b93ecbe871c38319f086d7b1c5c272d25523e11d3d89b8500b"
+  },
+  "independence": "Two native subagents, separate constructive and adversarial briefs; same neutral artifact set, no root recommendation or cross-review before first reports. No model diversity claimed.",
+  "snapshot_unchanged_after_reviews": true,
+  "reviewers": [
+    {
+      "role": "domain_constructive",
+      "run": "role-run-40b2b34b9f91b8fc10700f9d",
+      "runtime_terminal": "PARTIAL: advisory evidence received; source defects and hardware qualification remain outside advisory acceptance."
+    },
+    {
+      "role": "adversarial_risk",
+      "run": "role-run-7b2f4342cbdbc382574fed57",
+      "runtime_terminal": "PARTIAL: advisory evidence received; source defects and hardware qualification remain outside advisory acceptance."
+    }
+  ],
+  "agreed_action": "Correct only the shared corner and dependent profiles without growing the case. Preserve current printable height; study lower display separately. Do not claim minimum or physical acceptance.",
+  "dispositions": {
+    "corner_mismatch": "Confirmed in source: R1.2 frame versus R2.4 case, 0.497056 mm diagonal overhang. Correct shared geometry and inspect actual native solids/meshes.",
+    "derived_profiles": "Cavity, plate clearance and bevel/facet arcs follow the effective shared case radius.",
+    "unproven_minimum": "No minimum claim; exact connector datums, pins and tolerances remain open.",
+    "jst_interference": "Reject 14.8 mm cover with existing connector; nominal collision confirmed in all six styles in the exploratory left-half study.",
+    "battery_mcu_hotswap": "Retain both batteries, MCU/PCB positions and hot-swap requirements. Physical engagement, wiring and extraction remain pending.",
+    "different_exploratory_heights": "Domain suggested 15.4\u201315.6; risk mentioned 15.3 with only 0.2 mm connector gap. Root studies 15.6 with 0.5 mm nominal gap. No production height is selected, so no unresolved disagreement on the executed correction."
+  },
+  "physical_acceptance": false,
+  "bounded_retrospective": {
+    "trigger": "User close-up showed different case and frame rounding beside USB.",
+    "verified_cause": "Case corners had changed to R2.4 while the independently generated frame retained R1.2. Existing rim checks verified case shape, not the shared case/frame arc.",
+    "affected_outputs": "Native frame solids, dependent cavity/clearance/lip profiles, STEP/STL, print kits, viewer and rendered images.",
+    "prevention": "Derive the frame corner from the effective case arc; check all 12 saved native frame bodies against the case and reject the former overhang.",
+    "height_statement": "Current height was a nominal prototype choice; a minimum is not established by component envelopes or this study."
+  }
+}
