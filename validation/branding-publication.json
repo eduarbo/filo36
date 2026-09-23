@@ -1,0 +1,170 @@
+{
+  "commit": "c61ae166d9ace6d8753c322eeb250fac32f36901",
+  "checked_at": "2026-09-23T02:35:13.416361+00:00",
+  "repository": "https://github.com/eduarbo/filo36",
+  "ref": "main",
+  "anonymous_changed_files_matched": [
+    {
+      "path": "ATTRIBUTION.md",
+      "sha256": "ed95519fac06ac92d886ec52623946dfbe76933481ea9560ac8db88e047d62af"
+    },
+    {
+      "path": "README.md",
+      "sha256": "60031c8ca9e8cdd1ec9bbcbe93294e525e074a3c0873e3b8af71094ac33c0c6d"
+    },
+    {
+      "path": "design/branding-prompts.json",
+      "sha256": "a617ae6cc5163d705a1a5cdcc60b813c57bb5af5850984284cbd4f7d1163a276"
+    },
+    {
+      "path": "design/branding.json",
+      "sha256": "9ac150031aeadfa0d52f01370be6c890f51c1f711af49d7a0216250c87361900"
+    },
+    {
+      "path": "docs/branding.html",
+      "sha256": "ed5eb9efb3b8c269d4c1a4b4b100c1ec32edfd210ae5852db73e3091dcb33506"
+    },
+    {
+      "path": "docs/branding.md",
+      "sha256": "ee23f5b09f06dcf07f4c8e80a065e21bf8b806cbd1d1360ef706bfef77a85a5d"
+    },
+    {
+      "path": "docs/build.md",
+      "sha256": "defa822cf646d899c44a4a4544501c9e6bbe85b4329a83292301e30f11a58b67"
+    },
+    {
+      "path": "docs/customize.md",
+      "sha256": "928932d2cb5e529dd2af8ae6ae29d09fd5bba9dc9c4c4ea2993b1de23dcd866c"
+    },
+    {
+      "path": "docs/images/branding/flan36-caramel-concept.png",
+      "sha256": "748ff50dee5460b450f41f9c4974b6a0d1be200a78bd0708c48dfbdd631d3f72"
+    },
+    {
+      "path": "docs/images/branding/flan36-pixel-concept.png",
+      "sha256": "f37cf5d6cff241a0827260174699600d566605f56b6a91801d5ca757bed6b5b8"
+    },
+    {
+      "path": "docs/images/branding/flan36-split-concept.png",
+      "sha256": "6525ead4cdf16c8675e0bd5e6e75e20a686ee080756672a651dbf3ff99058415"
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "aaa20eb800a7e38d28ff00b49bcf4949d43692adae64a5b6f353df6ce430e864"
+    },
+    {
+      "path": "docs/parts.md",
+      "sha256": "5381a691e07329f5dc3a6036c3e04fa82a8a89fa35391dead5dbd0ab883ccf7d"
+    },
+    {
+      "path": "docs/progress.md",
+      "sha256": "5bbd4482657694d31866e268e8f83630e6a98010c496935e1580a6dbb5b0de89"
+    },
+    {
+      "path": "tools/check_print_kit.py",
+      "sha256": "12e3e6bb76199d0d51f41ca34cf44b28bc41c8951d71e5304cacaa0da34abaf7"
+    },
+    {
+      "path": "validation/branding.json",
+      "sha256": "bcbfbfcefde61f878c51b34777ba0db7d2a158db8c53cb09cf8acbe816ef7495"
+    },
+    {
+      "path": "validation/revI-cases-render.json",
+      "sha256": "bd19feb569195db593f5422901843c20ba230f3c716a8c6bd39172df893ab4f9"
+    },
+    {
+      "path": "validation/revI-parts-links.json",
+      "sha256": "dbf90446a91c57223bda03bc87a8e66b15a584eec870b995009ec5fbc0b5789e"
+    },
+    {
+      "path": "validation/revI-theme-customization.json",
+      "sha256": "69707ace14c1bace91004b62e1b1339a3baa8c04f9a4bfffb0c0cc269ac5e30d"
+    },
+    {
+      "path": "validation/revI-viewer.json",
+      "sha256": "e7f0f4557f88d27971b431daaff81d920050d74d8fd401b8a6afa084dbac45d6"
+    },
+    {
+      "path": "viewer/app.js",
+      "sha256": "af1cffb07dc071768babbef40217fc25335f7817a78f90c4e6cae3e55144e3b6"
+    },
+    {
+      "path": "viewer/build.mjs",
+      "sha256": "9d65aea33540ed34c8dc696579f4bec44344cd11114cd06a45c714280238df41"
+    },
+    {
+      "path": "viewer/check.cjs",
+      "sha256": "24d7630be7938c76bc898402aa21eb12ea8ef7545b108ac330d8a82787b01a2c"
+    },
+    {
+      "path": "viewer/printing.js",
+      "sha256": "8ad0bc845b5183fb2709106fc177292d219e9fc861da5dc8a0e7639b8981a027"
+    },
+    {
+      "path": "viewer/template.html",
+      "sha256": "4797a1a9440a820304e3e363126a65e6db7f5ca3b8ac56d3daec3c6657e89e1c"
+    }
+  ],
+  "pages": [
+    {
+      "path": "branding.html",
+      "sha256": "ed5eb9efb3b8c269d4c1a4b4b100c1ec32edfd210ae5852db73e3091dcb33506",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "sha256": "aaa20eb800a7e38d28ff00b49bcf4949d43692adae64a5b6f353df6ce430e864",
+      "matches": true
+    },
+    {
+      "path": "images/branding/flan36-caramel-concept.png",
+      "sha256": "748ff50dee5460b450f41f9c4974b6a0d1be200a78bd0708c48dfbdd631d3f72",
+      "matches": true
+    },
+    {
+      "path": "images/branding/flan36-split-concept.png",
+      "sha256": "6525ead4cdf16c8675e0bd5e6e75e20a686ee080756672a651dbf3ff99058415",
+      "matches": true
+    },
+    {
+      "path": "images/branding/flan36-pixel-concept.png",
+      "sha256": "f37cf5d6cff241a0827260174699600d566605f56b6a91801d5ca757bed6b5b8",
+      "matches": true
+    }
+  ],
+  "initial_pages": [
+    {
+      "path": "branding.html",
+      "error": "HTTP Error 404: Not Found",
+      "matches": false
+    },
+    {
+      "path": "index.html",
+      "sha256": "7081a0fc51e316b34eae2379fe1e7bb6ade586458a0dba7e095e4e75db684deb",
+      "matches": false
+    },
+    {
+      "path": "images/branding/flan36-caramel-concept.png",
+      "error": "HTTP Error 404: Not Found",
+      "matches": false
+    },
+    {
+      "path": "images/branding/flan36-split-concept.png",
+      "error": "HTTP Error 404: Not Found",
+      "matches": false
+    },
+    {
+      "path": "images/branding/flan36-pixel-concept.png",
+      "error": "HTTP Error 404: Not Found",
+      "matches": false
+    }
+  ],
+  "pages_checked_at": "2026-09-23T02:36:32.272098+00:00",
+  "browser": {
+    "target": "https://eduarbo.github.io/filo36/branding.html?rev=c61ae166d9ace6d8753c322eeb250fac32f36901",
+    "title_verified": true,
+    "three_images_loaded": true,
+    "mobile_390px_without_overflow": true,
+    "download_filename_verified": true
+  }
+}
