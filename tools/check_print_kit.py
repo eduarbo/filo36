@@ -29,7 +29,7 @@ def topo(t):
  return {'vertices':len(vertices),'edges':len(edges),'open_or_nonmanifold_edges':sum(v!=2 for v in edges.values()),'signed_volume_mm3':float(np.einsum('ij,ij->i',t[:,0],np.cross(t[:,1],t[:,2])).sum()/6)}
 results=[]
 for filename,expected in [('complete.zip',19),('left-shells.zip',3)]:
- z=zipfile.ZipFile(OUT/filename);manifest=json.loads(z.read('manifest.json'));config=json.loads(z.read('Filo36-config.json'));assert config==manifest['configuration'];assert len(manifest['parts'])==expected
+ z=zipfile.ZipFile(OUT/filename);manifest=json.loads(z.read('manifest.json'));config=json.loads(z.read('Flan36-config.json'));assert config==manifest['configuration'];assert len(manifest['parts'])==expected
  assert all(p['side']=='left' for p in manifest['parts']) if filename.startswith('left') else True
  assert not any('right-frame' in p['id'] for p in manifest['parts'])
  assert sum('washer' in p['id'] for p in manifest['parts'])==(6 if filename=='complete.zip' else 0)

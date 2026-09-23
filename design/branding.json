@@ -1,0 +1,51 @@
+{
+  "request_reference": "User 2026-09-22: ponle flan36 y generame dise\u00f1os de logos relacionado a esto para integrar en el pcb y case",
+  "parent_objective": "Slim modular wireless 36-key Piantor-derived keyboard",
+  "selected_name": "Flan36",
+  "wordmark": "flan36",
+  "previous_name": "Filo36",
+  "scope": "Apply the selected name to current public presentation and new viewer downloads; deliver three visual logo concepts for PCB/case integration. Preserve existing geometry, identifiers, URLs and historical evidence.",
+  "required_outcomes": [
+    "Flan36 visible in current README and explorer",
+    "Three distinct reviewable visual logo proposals with monochrome, PCB and case applications",
+    "Assets, exact prompts and integration limits available in the public repository"
+  ],
+  "selected_logo": null,
+  "assets": [
+    {
+      "id": "caramel",
+      "path": "docs/images/branding/flan36-caramel-concept.png",
+      "sha256": "748ff50dee5460b450f41f9c4974b6a0d1be200a78bd0708c48dfbdd631d3f72",
+      "format": "PNG concept board",
+      "vector_master": false,
+      "manufacturing_qualified": false
+    },
+    {
+      "id": "split",
+      "path": "docs/images/branding/flan36-split-concept.png",
+      "sha256": "6525ead4cdf16c8675e0bd5e6e75e20a686ee080756672a651dbf3ff99058415",
+      "format": "PNG concept board",
+      "vector_master": false,
+      "manufacturing_qualified": false
+    },
+    {
+      "id": "pixel",
+      "path": "docs/images/branding/flan36-pixel-concept.png",
+      "sha256": "f37cf5d6cff241a0827260174699600d566605f56b6a91801d5ca757bed6b5b8",
+      "format": "PNG concept board",
+      "vector_master": false,
+      "manufacturing_qualified": false
+    }
+  ],
+  "generator": "OpenAI built-in image_gen",
+  "prompt_source": "design/branding-prompts.json",
+  "geometry_changed": false,
+  "compatibility_preserved": [
+    "Repository slug and published URL filo36",
+    "Native CAD and PCB filenames",
+    "filo36-config-1 schema",
+    "filo36.configuration.v1 browser storage",
+    "Historical validation receipts and render captions"
+  ],
+  "next_step": "Select a visual direction, construct a consistent closed-path SVG master, then qualify PCB placement and printable relief at actual size."
+}

@@ -94,7 +94,7 @@ These are nominal clearances, not maximum finished-pack tolerances. Confirm prot
 
 **Display connectors:** 2 × 5-position sockets and 10 matching pins. [Typeractive 5-pin sockets](https://typeractive.xyz/products/5-pin-sockets) are the included nice!view type, sold separately in pairs; 5 mm socket plus 2 mm display pin gives a stated 7 mm installation height. Our reference display PCB is **8.8 mm above the main PCB top**, so contact lengths and support height need reconciliation. No separate connector datasheet is linked.
 
-[No-solder spring headers](https://typeractive.xyz/products/no-solder-spring-headers) require the supplier’s specified **0.8–0.9 mm holes** and different installed heights. They are not qualified for the current Filo36 hole/contact geometry. Do not buy them as an assumed shortcut.
+[No-solder spring headers](https://typeractive.xyz/products/no-solder-spring-headers) require the supplier’s specified **0.8–0.9 mm holes** and different installed heights. They are not qualified for the current Flan36 hole/contact geometry. Do not buy them as an assumed shortcut.
 
 ## Small electrical parts
 
@@ -116,7 +116,7 @@ These are nominal clearances, not maximum finished-pack tolerances. Confirm prot
 
 ## Printed parts
 
-![Filo36 revI case CAD and KLP Lamé reference assembly](images/revI-assembled.png)
+![Flan36 revI case CAD and KLP Lamé reference assembly](images/revI-assembled.png)
 
 | Part | Quantity | Files / options |
 |---|---:|---|
@@ -143,7 +143,7 @@ These are nominal clearances, not maximum finished-pack tolerances. Confirm prot
 
 Original store links and pack quantities were checked on **2026-09-21**; battery specifications and magnetic hardware sources were revisited on **2026-09-22**. The current automated link check could not read the Arrow socket PDF (timeout) or the C&K PDF (403); those historical technical references remain listed, not freshly verified. Manufacturer/supplier documentation takes precedence over approximate CAD envelopes. Missing exact datasheets and unresolved substitutions are explicitly identified above.
 
-Product photos are embedded from Typeractive/Adafruit and linked to their original listings. They remain the property of their respective owners; they are not relicensed under this repository’s license. They need internet access and are not bundled in the offline 3D viewer. Filo36 renders have separate [attribution](../ATTRIBUTION.md).
+Product photos are embedded from Typeractive/Adafruit and linked to their original listings. They remain the property of their respective owners; they are not relicensed under this repository’s license. They need internet access and are not bundled in the offline 3D viewer. Flan36 renders have separate [attribution](../ATTRIBUTION.md).
 
 ## What the component models represent
 

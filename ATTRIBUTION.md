@@ -1,6 +1,6 @@
 # Credits and licenses
 
-Filo36 is a derivative project developed by Eduardo Ruiz. Its case and wireless electronics are developed here; its key layout comes from Piantor. There is no implied affiliation or certification by beekeeb or component manufacturers.
+Flan36 is a derivative project developed by Eduardo Ruiz. Its case and wireless electronics are developed here; its key layout comes from Piantor. There is no implied affiliation or certification by beekeeb or component manufacturers.
 
 | Material | Author / source | License and changes |
 |---|---|---|
@@ -11,16 +11,18 @@ Filo36 is a derivative project developed by Eduardo Ruiz. Its case and wireless 
 | Standard KiCad footprints, including `Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder` | [KiCad libraries](https://www.kicad.org/libraries/license/) | [CC-BY-SA-4.0 with design exception](LICENSES/KiCad-Libraries.md) |
 | `design/layout.json`, layout diagram | Derived from Piantor coordinates | GPL-3.0; outer column removed and origin translated, relative centers and angles retained |
 | `keycaps/*.stl`, `keycaps/variants/*.stl`, KLP meshes in FCStd/viewer/GLB | [KLP Lamé by braindefender](https://github.com/braindefender/KLP-Lame-Keycaps), commit `4a67a824232d3054c61599ea047c56a340faaba2` | CC-BY-SA-4.0; unchanged meshes, placed and colored. RevG catalogs all 38 Choc-stem files, Choc/MX body sizes. [Original three sources](keycaps/sources.json), [complete pinned sources](keycaps/variants-source.json) |
-| `docs/images/revE-*.png` through `revI-*.png`, including case screenshots | Filo36 CAD renders incorporating Piantor-derived design and KLP Lamé | CC-BY-SA-4.0; calculated from attributed meshes, no image retouching |
-| Derived CAD, project tools and original documentation | Eduardo Ruiz / Filo36 contributors | GPL-3.0-or-later, except identified materials above |
+| `docs/images/revE-*.png` through `revI-*.png`, including case screenshots | Flan36 CAD renders incorporating Piantor-derived design and KLP Lamé | CC-BY-SA-4.0; calculated from attributed meshes, no image retouching |
+| Derived CAD, project tools and original documentation | Eduardo Ruiz / Flan36 contributors | GPL-3.0-or-later, except identified materials above |
 | Embedded 3D engine | [Three.js](https://github.com/mrdoob/three.js), 0.180.0 | MIT; full [notice](LICENSES/Three-MIT.txt) also embedded in offline HTML |
 | External product photos in the parts guide | Typeractive, Adafruit and respective rights holders | Linked/embedded from supplier listings; not copied into the asset tree or relicensed under the repository license |
 
 The viewer retains source notices; exported GLB includes attribution and source/license links. Viewer code is under GPL-3.0-or-later; esbuild is a pinned build dependency. Gzip packaging does not alter the underlying geometry.
 
+The three `docs/images/branding/flan36-*-concept.png` boards were generated with OpenAI's built-in image generation tool for Eduardo's Flan36 identity exploration. They are concept art, not renders of the measured CAD. Prompts and provenance are retained in `design/branding-prompts.json` and `design/branding.json`; their reuse follows the repository's GPL-3.0-or-later terms to the extent applicable.
+
 Full texts: [GPL](LICENSE), [CC-BY-SA-4.0](LICENSES/CC-BY-SA-4.0.txt). Original upstream hashes: [sources/manifest.json](sources/manifest.json).
 
-Libraries under `hardware/revF/libraries` contain KiCad sources with the design exception, daprice’s Choc footprint under CC-BY-SA-4.0, and Filo36 symbols/footprints. STEP files under `hardware/revF/models` are original nominal envelopes, not manufacturer-certified models.
+Libraries under `hardware/revF/libraries` contain KiCad sources with the design exception, daprice’s Choc footprint under CC-BY-SA-4.0, and Flan36 symbols/footprints. STEP files under `hardware/revF/models` are original nominal envelopes, not manufacturer-certified models.
 
 FreeCAD, StepUp, ZMK, Zephyr, nice!nano and nice!view retain their own names/licenses. FreeCAD/StepUp are installed separately; firmware binaries are not distributed here. Supplier links do not imply sponsorship.
 

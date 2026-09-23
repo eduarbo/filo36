@@ -72,7 +72,7 @@ Print capture, magnet temperature, holding force and extraction still require a 
 ## Save a configuration for FreeCAD
 
 1. In the viewer, choose caps, rotations, frame styles and colors. In **Battery**, select Adafruit 1570 or 301230.
-2. Open **Files** and click **Save configuration** to download `Filo36-config.json`.
+2. Open **Files** and click **Save configuration** to download `Flan36-config.json`.
 3. Download and unzip the full repository. Open `mechanical/revI/Filo36.FCStd` in FreeCAD.
 4. Use **Macro → Macros → Execute** on `tools/freecad/Configure.FCMacro`. Keep the macro beside its companion files in the repository.
 5. Choose **Import viewer configuration**, select the JSON and use **Save As**.

@@ -676,7 +676,7 @@
     },
     {
       "path": "viewer/app.js",
-      "sha256": "5aac846b0d79a7120afefeee8740883294ec7f610a75ae69d6573c90f3b51cbe"
+      "sha256": "af1cffb07dc071768babbef40217fc25335f7817a78f90c4e6cae3e55144e3b6"
     },
     {
       "path": "viewer/config.js",
@@ -688,7 +688,7 @@
     },
     {
       "path": "viewer/printing.js",
-      "sha256": "ebba0f6b63c125be48d762dc1fc258981ed42cd6c3ac9eb1a8090fca1401ed24"
+      "sha256": "8ad0bc845b5183fb2709106fc177292d219e9fc861da5dc8a0e7639b8981a027"
     },
     {
       "path": "design/themes.json",
@@ -716,18 +716,18 @@
     },
     {
       "path": "viewer/template.html",
-      "sha256": "844f1a1e68bca989706f7a4525d19debfcc9c98e67119f52345c8a02b58a9e36"
+      "sha256": "4797a1a9440a820304e3e363126a65e6db7f5ca3b8ac56d3daec3c6657e89e1c"
     },
     {
       "path": "viewer/build.mjs",
-      "sha256": "7c0b864ab54bd48c104ca845996ec168ee490c10f6ab47d6145d4cfd146b0e65"
+      "sha256": "9d65aea33540ed34c8dc696579f4bec44344cd11114cd06a45c714280238df41"
     },
     {
       "path": "viewer/package-lock.json",
       "sha256": "b9103aa932a659b2bc4d7560d74bc672bcd60e2a89fed110e91eb547bd22fb5c"
     }
   ],
-  "viewer_sha256": "7081a0fc51e316b34eae2379fe1e7bb6ade586458a0dba7e095e4e75db684deb",
+  "viewer_sha256": "aaa20eb800a7e38d28ff00b49bcf4949d43692adae64a5b6f353df6ce430e864",
   "measurements": {
     "bay_width_mm": 24,
     "plate_top_mm": 7.6,

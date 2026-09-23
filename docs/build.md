@@ -22,7 +22,7 @@ python3 tools/check_layout.py
 python3 tools/render_layout.py
 ```
 
-The checker compares all 36 positions/rotations with the original boards. The renderer regenerates the layout diagram. `sources/piantor/` contains the original **wired** reference boards, not Filo36’s wireless PCB designs.
+The checker compares all 36 positions/rotations with the original boards. The renderer regenerates the layout diagram. `sources/piantor/` contains the original **wired** reference boards, not Flan36’s wireless PCB designs.
 
 ## Magnetic frame and service
 

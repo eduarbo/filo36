@@ -18,7 +18,7 @@ const license=fs.readFileSync(path.join(here,'node_modules/three/LICENSE'),'utf8
 fs.writeFileSync(path.join(root,'LICENSES/Three-MIT.txt'),license);
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const licenses=['LICENSE','LICENSES/CC-BY-SA-4.0.txt','LICENSES/Three-MIT.txt','LICENSES/fflate-MIT.txt','components/sources/KiSwitch-MIT.txt'].map(p=>`<h3>${p}</h3><pre>${escape(fs.readFileSync(path.join(root,p),'utf8'))}</pre>`).join('');
-const credits=`<p>Filo36: Eduardo Ruiz. CAD derived from Piantor (beekeeb, GPL-3.0). KLP Lamé by braindefender, CC-BY-SA-4.0, commit 4a67a824232d3054c61599ea047c56a340faaba2; unchanged meshes, placed and colored. KiSwitch Choc v1: MIT; KiCad component models: CC-BY-SA-4.0 with library exception. See the component guide for per-file provenance. Three.js 0.180.0: MIT. Source code and full notices: <a href="https://github.com/eduarbo/filo36">github.com/eduarbo/filo36</a>.</p>`;
+const credits=`<p>Flan36: Eduardo Ruiz. CAD derived from Piantor (beekeeb, GPL-3.0). KLP Lamé by braindefender, CC-BY-SA-4.0, commit 4a67a824232d3054c61599ea047c56a340faaba2; unchanged meshes, placed and colored. KiSwitch Choc v1: MIT; KiCad component models: CC-BY-SA-4.0 with library exception. See the component guide for per-file provenance. Three.js 0.180.0: MIT. Source code and full notices: <a href="https://github.com/eduarbo/filo36">github.com/eduarbo/filo36</a>.</p>`;
 const template=fs.readFileSync(path.join(here,'template.html'),'utf8');
 const html=template.replace('/*__STYLE__*/',()=>fs.readFileSync(path.join(here,'style.css'),'utf8'))
   .replace('<!--__LICENSES__-->',()=>credits+licenses)

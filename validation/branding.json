@@ -1,0 +1,56 @@
+{
+  "baseline_commit": "9c4d80460cc324fa74f0af9de0a61e181d3a341e",
+  "status": "Local branding and viewer checks passed; public readback is separate.",
+  "name": "Flan36",
+  "asset_record": "design/branding.json",
+  "viewer_sha256": "aaa20eb800a7e38d28ff00b49bcf4949d43692adae64a5b6f353df6ce430e864",
+  "gallery_sha256": "ed5eb9efb3b8c269d4c1a4b4b100c1ec32edfd210ae5852db73e3091dcb33506",
+  "geometry_changed": false,
+  "protected_geometry_source_files_unchanged": 654,
+  "preserved_compatibility": [
+    "repository URL",
+    "native source filenames",
+    "filo36-config-1",
+    "filo36.configuration.v1"
+  ],
+  "gallery": {
+    "title": "Flan36 \u00b7 Logo concepts",
+    "images": [
+      {
+        "src": "images/branding/flan36-caramel-concept.png",
+        "loaded": true,
+        "width": 1254,
+        "height": 1254
+      },
+      {
+        "src": "images/branding/flan36-split-concept.png",
+        "loaded": true,
+        "width": 1254,
+        "height": 1254
+      },
+      {
+        "src": "images/branding/flan36-pixel-concept.png",
+        "loaded": true,
+        "width": 1254,
+        "height": 1254
+      }
+    ],
+    "widths_without_overflow": [
+      1440,
+      390,
+      320
+    ],
+    "local": true
+  },
+  "validation_commands": [
+    "node viewer/build.mjs",
+    "CAD_PY tools/check_viewer_revI.py",
+    "FILO36_PLAYWRIGHT_MODULE=<installed-playwright> FILO36_BROWSER=<chromium> node viewer/check.cjs",
+    "FILO36_PLAYWRIGHT_MODULE=<installed-playwright> FILO36_BROWSER=<chromium> node viewer/customize-check.cjs",
+    "CAD_PY tools/check_print_kit.py",
+    "python3 tools/check_revI_delivery.py"
+  ],
+  "logo_vector_master_selected": false,
+  "logo_physical_integration": false,
+  "scope_notes": "Three generated proposal boards with application illustrations; no geometry or electrical changes. Visible name and new viewer exports use Flan36. Historical source names and evidence remain intact."
+}

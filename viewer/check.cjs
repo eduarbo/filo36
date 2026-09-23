@@ -91,7 +91,7 @@ async function checkLink(page,group){
   assert.equal(caseGLTF.nodes.filter(n=>n.mesh!==undefined).length,176);
   assert.equal(caseGLTF.nodes.filter(n=>n.extras?.group==='lid'&&n.extras?.side==='left').length,0);
   assert.equal(caseGLTF.nodes.filter(n=>n.extras?.group==='display').length,4);
-  assert.deepEqual(caseGLTF.nodes.find(n=>n.name==='Filo36 revI · nominal').extras.configuration,caseConfig,'Invalid case must leave configuration untouched');
+  assert.deepEqual(caseGLTF.nodes.find(n=>n.name==='Flan36 revI · nominal').extras.configuration,caseConfig,'Invalid case must leave configuration untouched');
   for(const [side,style] of [['left','rim'],['right','terrace']])for(const group of ['base','plate']){
     const node=caseGLTF.nodes.find(n=>n.extras?.side===side&&n.extras?.group===group),primitive=caseGLTF.meshes[node.mesh].primitives[0],a=caseGLTF.accessors[primitive.attributes.POSITION],v=caseGLTF.bufferViews[a.bufferView];
     const at=20+caseJsonLength+8+(v.byteOffset||0)+(a.byteOffset||0);
@@ -242,7 +242,7 @@ async function checkLink(page,group){
   const jsonLength=glb.readUInt32LE(12),gltf=JSON.parse(glb.toString('utf8',20,20+jsonLength));
   assert.equal(gltf.nodes.filter(n=>n.mesh!==undefined).length,180);
   assert.equal(gltf.nodes.filter(n=>n.name.includes('KLP ')).length,36);
-  const assembly=gltf.nodes.find(n=>n.name==='Filo36 revI · nominal');assert.deepEqual(assembly.matrix.slice(0,3),[.001,0,0]);
+  const assembly=gltf.nodes.find(n=>n.name==='Flan36 revI · nominal');assert.deepEqual(assembly.matrix.slice(0,3),[.001,0,0]);
   assert.ok(assembly.extras.attribution.includes('braindefender'));
   assert.deepEqual(assembly.extras.configuration,config);
   const customCap=gltf.nodes.find(n=>n.name==='left · KLP K30');assert.equal(customCap.extras.variant,config.keycaps.left.K30.variant);
@@ -262,7 +262,7 @@ async function checkLink(page,group){
       expected.forEach((n,j)=>assert.ok(Math.abs(n-actual[j])<1e-5,'GLB '+style+' '+role+' color'));
     }
   }
-  assert.equal(download.suggestedFilename(),'Filo36-revI-assembled.glb');
+  assert.equal(download.suggestedFilename(),'Flan36-revI-assembled.glb');
   function positionBytes(node){
     const primitive=gltf.meshes[node.mesh].primitives[0],a=gltf.accessors[primitive.attributes.POSITION],v=gltf.bufferViews[a.bufferView];
     assert.equal(a.componentType,5126);assert.equal(a.type,'VEC3');assert.ok(!v.byteStride||v.byteStride===12);
