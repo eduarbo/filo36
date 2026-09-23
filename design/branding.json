@@ -10,7 +10,7 @@
     "Three distinct reviewable visual logo proposals with monochrome, PCB and case applications",
     "Assets, exact prompts and integration limits available in the public repository"
   ],
-  "selected_logo": null,
+  "selected_logo": "caramel-outline",
   "assets": [
     {
       "id": "caramel",
@@ -47,10 +47,10 @@
     "filo36.configuration.v1 browser storage",
     "Historical validation receipts and render captions"
   ],
-  "next_step": "Choose a Caramel refinement, construct one consistent closed-path SVG master, then qualify PCB placement and printable relief at actual size.",
+  "next_step": "Construct one consistent closed-path SVG master from the selected Outline concept, then qualify PCB placement and printable relief at actual size.",
   "selected_direction": "caramel",
   "refinement_request": "User: me gusta el primero, dame variantes del logo",
-  "selected_variant": null,
+  "selected_variant": "outline",
   "variant_prompt_source": "design/branding-caramel-prompts.json",
   "variants": [
     {
@@ -97,5 +97,7 @@
       "vector_master": false,
       "manufacturing_qualified": false
     }
-  ]
+  ],
+  "selected_asset": "docs/images/branding/flan36-caramel-outline.png",
+  "selection_request": "User: me gusta el outline"
 }

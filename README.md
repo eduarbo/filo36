@@ -10,7 +10,7 @@
 
 **[Themes and print kits](docs/themes-printing.md)** — Sixteen palettes, linked rim/frame colors and selected STL/3MF parts.
 
-**[Caramel logo variants](docs/branding.md)** — Four refinements of the selected identity, in color and one ink.
+**[Outline logo](docs/branding.md)** — The selected Flan36 identity, with color and one-ink concept references.
 
 **[Case variants](docs/cases.md)** — Solid, Color rim and Terrace; actual meshes in the explorer.
 

@@ -6,7 +6,7 @@
 
 ## Caramel refinements
 
-**Caramel is the selected direction.** These four variations refine its drip, silhouette and weight. A final variant has not been selected.
+**D — Outline is the selected Flan36 logo.** It pairs an open flan contour with a solid lowercase wordmark. The other refinements remain here as design history.
 
 ### A — Soft
 
@@ -26,7 +26,7 @@ A lower, wider shape, a short drip and a heavier wordmark.
 
 ![Caramel Bold: color and one-ink logo variants](images/branding/flan36-caramel-bold.png)
 
-### D — Outline
+### D — Outline · Selected
 
 An open contour interpretation with a solid wordmark.
 
@@ -58,7 +58,7 @@ A coarse pixel silhouette for Handheld, Retro TV and Cyberpunk themes.
 
 These PNG boards are **AI-generated identity concepts**, including illustrative PCB and case applications. They are not vector masters, measured CAD, PCB artwork or printable parts. Small differences between each board's color, monochrome and application samples must be resolved in the chosen vector master.
 
-After selecting a Caramel variant, create one closed-path SVG master and derive the one-ink PCB mark and the case emboss/deboss from it. Check the PCB fabricator's silkscreen limits at the actual placement and size; keep clear of exposed pads, legends and holes. Check any case relief against its wall thickness, joining features and the chosen print process. The current case/PCB geometry has not been engraved or altered by this branding pass.
+Create one closed-path SVG master from the selected Outline concept and derive the one-ink PCB mark and the case emboss/deboss from it. Check the PCB fabricator's silkscreen limits at the actual placement and size; keep clear of exposed pads, legends and holes. Check any case relief against its wall thickness, joining features and the chosen print process. The current case/PCB geometry has not been engraved or altered by this branding pass.
 
 The existing repository URL, native `Filo36.FCStd` filenames, configuration schema and saved-browser-storage key remain stable for compatibility. The visible project name and new viewer downloads use Flan36. Historical render captions and validation receipts retain the name used when they were produced.
 
