@@ -9,7 +9,7 @@
     "Explain current cover heights and distinguish a compact candidate from a proven minimum or physical fit.",
     "Offer names influenced by Flan and the user's creative references; retain the existing name until selected."
   ],
-  "status": "Digital corner correction and preliminary height study validated locally; public readback pending",
+  "status": "Published and verified digital corner correction; preliminary height study documented and name options supplied. Original physical keyboard remains partial.",
   "physical_acceptance": false,
   "verified_so_far": [
     "Both halves / all 12 native frame corners share R2.4 and reject the previous overhang.",
@@ -18,7 +18,8 @@
     "Preliminary left-half study at cover 15.6/display bottom 12.4 has no affected-pair nominal intersections; 14.8 cover intersects battery connector.",
     "Complete rebuilt native exports have no unallowed nominal component intersections; all six styles and both battery alternatives checked.",
     "Native configuration save/reopen, color variants, service checks, component readback, renders and browser/print exports passed.",
-    "Current-source left-half study: 15.6 mm cover has zero affected-pair intersections, 0.82 mm MCU/display clearance and 0.5 mm battery-connector roof gap."
+    "Current-source left-half study: 15.6 mm cover has zero affected-pair intersections, 0.82 mm MCU/display clearance and 0.5 mm battery-connector roof gap.",
+    "All 922 implementation files matched the anonymous archive; public Pages, corner image, desktop/touch UI and exact selected print exports matched the tested source."
   ],
   "native_source_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf",
   "viewer_sha256": "7081a0fc51e316b34eae2379fe1e7bb6ade586458a0dba7e095e4e75db684deb",
@@ -33,5 +34,7 @@
   ],
   "selected_name": null,
   "review_receipt": "validation/revI-corner-stack-review.json",
-  "stack_study_receipt": "validation/revI-stack-study.json"
+  "stack_study_receipt": "validation/revI-stack-study.json",
+  "implementation_commit": "14173893451f954eef4fb0621214fe9e5efb8a35",
+  "publication_receipt": "validation/revI-corner-stack-publication.json"
 }

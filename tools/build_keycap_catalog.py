@@ -13,7 +13,7 @@ manifest=json.loads((ROOT/'keycaps/variants-source.json').read_text())
 layout=json.loads((ROOT/'design/layout.json').read_text())['halves']
 frames={}
 for side,profile in json.loads((ROOT/'design/revI-profiles.json').read_text()).items():
-    # The rectangle contains the analytical R1.2 arcs and every themed relief;
+    # The rectangle contains the analytical frame arcs and every themed relief;
     # an inscribed tessellation alone would slightly underestimate curved edges.
     x0=min(p[0] for p in profile['hood']);x1=max(p[0] for p in profile['hood'])
     y0=min(p[1] for p in profile['hood']);y1=max(p[1] for p in profile['hood'])

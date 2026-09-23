@@ -1,0 +1,567 @@
+{
+  "verified_at": "2026-09-23T02:12:41.909395+00:00",
+  "status": "Published and independently read back: digital corner correction and documented height study. Overall keyboard remains a partial prototype.",
+  "request": "design/corner-stack-workflow.json",
+  "implementation_commit": "14173893451f954eef4fb0621214fe9e5efb8a35",
+  "public_delivery": {
+    "source_commit": "14173893451f954eef4fb0621214fe9e5efb8a35",
+    "archive_files_verified": 922,
+    "archive_sha256": "124779ca315e7917b7b814db45e324b8eee6f8b2686db956dc3c35f232259a0b",
+    "pages_url": "https://eduarbo.github.io/filo36/",
+    "pages_matches_committed_html": true,
+    "viewer_sha256": "7081a0fc51e316b34eae2379fe1e7bb6ade586458a0dba7e095e4e75db684deb",
+    "authenticated_requests": false,
+    "method": "All archive entries matched against Git blob IDs; public Pages bytes matched the committed viewer."
+  },
+  "native_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf",
+  "native_corner_checks": {
+    "source_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf",
+    "checker_sha256": "16d1259e074fc480d625a1abad1a9c1e1aa2940c1e7c35811599749112d56ca7",
+    "shared_corner_checks": [
+      {
+        "side": "left",
+        "style": "smooth",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "left",
+        "style": "bevel",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "left",
+        "style": "facet",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "left",
+        "style": "handheld",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "left",
+        "style": "tv",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "left",
+        "style": "cyberpunk",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "right",
+        "style": "smooth",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "right",
+        "style": "bevel",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "right",
+        "style": "facet",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "right",
+        "style": "handheld",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "right",
+        "style": "tv",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      },
+      {
+        "side": "right",
+        "style": "cyberpunk",
+        "radius_mm": 2.4,
+        "outside_case_corner_mm3": 0.0
+      }
+    ],
+    "previous_corner_rejected": true,
+    "scope": "Native corner geometry; physical fit remains untested"
+  },
+  "height_study": {
+    "source_sha256": "38733a3a9a5fb6add4df8e668b9ae5178f44b3f864c6ee9416bfb147b2053fdf",
+    "checker_sha256": "f4beabb8750b5f47f8b7533d758215144ca34818973b7805308304c6772c1a62",
+    "scope": "Read-only left-half affected-pair nominal height study; no source save, contact qualification, tolerance or release-path acceptance",
+    "current": {
+      "left-mcu": {
+        "zmin": 7.700000000000001,
+        "zmax": 10.900000000000002
+      },
+      "left-display": {
+        "zmin": 13.2,
+        "zmax": 16.099999999999998
+      },
+      "left-battery": {
+        "zmin": 2.0,
+        "zmax": 5.8
+      },
+      "left-jst": {
+        "zmin": 5.4,
+        "zmax": 13.9
+      },
+      "left-display-sled": {
+        "zmin": 5.4,
+        "zmax": 15.399999999999999
+      },
+      "left-electronics-lid": {
+        "zmin": 6.299999999999996,
+        "zmax": 16.6
+      }
+    },
+    "candidates": {
+      "14.8": {
+        "display_bottom": 12.4,
+        "frame_top": 14.8,
+        "raised_relief_top": 15.4,
+        "collisions_mm3": {
+          "electronics-lid / jst": 12.474,
+          "smooth / jst": 12.474,
+          "bevel / jst": 12.474,
+          "facet / jst": 12.474,
+          "handheld / jst": 12.474,
+          "tv / jst": 12.474,
+          "cyberpunk / jst": 12.474
+        },
+        "mcu_display_distance_mm": 0.8200000000000003,
+        "battery_connector_roof_gap_mm": -0.29999999999999893
+      },
+      "15.6": {
+        "display_bottom": 12.4,
+        "frame_top": 15.6,
+        "raised_relief_top": 16.2,
+        "collisions_mm3": {},
+        "mcu_display_distance_mm": 0.8200000000000003,
+        "battery_connector_roof_gap_mm": 0.5
+      }
+    },
+    "native_source_unchanged": true
+  },
+  "public_corner_image": {
+    "path": "docs/images/revI-corner.png",
+    "url": "https://eduarbo.github.io/filo36/images/revI-corner.png?rev=14173893451f954eef4fb0621214fe9e5efb8a35",
+    "sha256": "6b6d50d7fc11f33078d0b0592cf480599e3b23885dd6ea9f142da56fca332ae2",
+    "anonymous_exact_readback": true
+  },
+  "public_viewer": {
+    "viewer_sha256": "7081a0fc51e316b34eae2379fe1e7bb6ade586458a0dba7e095e4e75db684deb",
+    "target": "public URL",
+    "browser": "153.0.8010.53",
+    "desktop": true,
+    "narrow_viewport_emulation": true,
+    "physical_phone_tested": false,
+    "public_embedded_scene_matches_current": true,
+    "all_12_layer_filters": true,
+    "individual_visibility": true,
+    "individual_and_group_solo": true,
+    "show_all_recovery": true,
+    "occluded_hover_xray_pixel_verified": true,
+    "persistent_view_controls": true,
+    "fit_actual_pixels_after_zoom": true,
+    "fit_empty_feedback": true,
+    "full_row_hover": true,
+    "half_filters": true,
+    "orbit_drag": true,
+    "bottom_view": true,
+    "full_reset_pixel_identical": true,
+    "persistent_component_directory": true,
+    "sidebar_line_endpoints": true,
+    "directory_visible_during_scroll_and_collapse": true,
+    "keyboard_component_selection": true,
+    "direct_canvas_picking": true,
+    "labels_follow_camera": true,
+    "frame_click_reveals_hidden_cover": true,
+    "annotation_toggle": true,
+    "orbit_does_not_select": true,
+    "touch_orbit_and_pinch_do_not_select": true,
+    "small_320px_viewport": true,
+    "six_preview_cards": true,
+    "multicolor_glb_roles": true,
+    "one_click_frames": true,
+    "keyboard_frame_activation": true,
+    "mixed_style_and_color_state": true,
+    "theme_applies_palette_and_body_overrides_roundtrip": true,
+    "sidebar_hover_highlight": true,
+    "sidebar_opens_frame_explorer": true,
+    "touch_frame_cards_and_sidebar": true,
+    "hidden_layer_links_removed": true,
+    "highlight_excluded_from_glb": true,
+    "dual_battery_selection_and_exact_glb": true,
+    "captive_frame_pins_preserved": true,
+    "keycap_variant_selection": true,
+    "frame_style_and_color": true,
+    "three_distinct_themed_geometries": true,
+    "json_roundtrip": true,
+    "invalid_combination_rejected": true,
+    "glb_matches_custom_configuration": true,
+    "glb_selected_vertices_exact": true,
+    "glb_objects": 180,
+    "glb_keycaps": 36,
+    "glb_units": "metres",
+    "case_variants": 3,
+    "case_previews_distinct": true,
+    "case_glb_meshes_exact": true,
+    "open_cover_configuration": true,
+    "legacy_case_default": true,
+    "runtime_errors": [],
+    "offline_network_requests": 0
+  },
+  "public_customization": {
+    "viewer_sha256": "7081a0fc51e316b34eae2379fe1e7bb6ade586458a0dba7e095e4e75db684deb",
+    "target": "public URL",
+    "themes": 16,
+    "preview_images_distinct": 16,
+    "linked_colors_bidirectional": true,
+    "mixed_halves": true,
+    "preserve_shapes_cover_and_keycaps": true,
+    "json_and_reload_roundtrip": true,
+    "invalid_import_atomic": true,
+    "storage_failure_recoverable": true,
+    "keyboard_and_reduced_motion": true,
+    "mobile_widths": [
+      390,
+      320
+    ],
+    "individual_selection_ignored_by_printkit": true,
+    "custom_case_and_four_frame_colors_in_glb": true,
+    "runtime_errors": []
+  },
+  "public_print_kit": {
+    "passed": true,
+    "kits": [
+      {
+        "file": "complete.zip",
+        "parts": [
+          {
+            "id": "left-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12668,
+            "colors": [
+              "#cc5533",
+              "#cc5533",
+              "#cc5533",
+              "#cc5533"
+            ]
+          },
+          {
+            "id": "left-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#272737",
+              "#272737",
+              "#272737",
+              "#272737"
+            ]
+          },
+          {
+            "id": "left-frame-tv",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 5084,
+            "colors": [
+              "#cc5533",
+              "#313131",
+              "#eeee88",
+              "#6688ee"
+            ]
+          },
+          {
+            "id": "left-cradle",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 84,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-battery-retainer",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 100,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-mcu-riser",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3804,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-display-sled",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 2260,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-washer-1",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-washer-2",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-washer-3",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12666,
+            "colors": [
+              "#24444b",
+              "#24444b",
+              "#24444b",
+              "#24444b"
+            ]
+          },
+          {
+            "id": "right-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#19272f",
+              "#19272f",
+              "#19272f",
+              "#19272f"
+            ]
+          },
+          {
+            "id": "right-cradle",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 84,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-battery-retainer",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 100,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-mcu-riser",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3804,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-display-sled",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 2260,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-washer-1",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-washer-2",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-washer-3",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          }
+        ],
+        "eye_solo_explosion_do_not_remove_printables": true
+      },
+      {
+        "file": "left-shells.zip",
+        "parts": [
+          {
+            "id": "left-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12668,
+            "colors": [
+              "#cc5533",
+              "#cc5533",
+              "#cc5533",
+              "#cc5533"
+            ]
+          },
+          {
+            "id": "left-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#272737",
+              "#272737",
+              "#272737",
+              "#272737"
+            ]
+          },
+          {
+            "id": "left-frame-tv",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 5084,
+            "colors": [
+              "#cc5533",
+              "#313131",
+              "#eeee88",
+              "#6688ee"
+            ]
+          }
+        ],
+        "eye_solo_explosion_do_not_remove_printables": true
+      }
+    ],
+    "slicer_palette_automatic_import": "not accepted; explicit manual mapping required",
+    "no_manufacturing_acceptance": true
+  },
+  "local_receipts": {
+    "validation/revI-mechanical.json": "e661329f83a164754787fc60b133d21e5c434b4b2930441379ac01163d9fcb87",
+    "validation/revI-service.json": "1b5fbcf2de5713097f6a187e3dd2d83cd2853f51f067a4532573ef4eaa3eee29",
+    "validation/revI-freecad.json": "4b6ec1b06d341087f60891992c5ba337f87abef40627e8b0d1b0761c02b4d2c8",
+    "validation/revI-freecad-finishes.json": "257cdf77a88064c66335a3d5017e2015a05f220a47bc2fbeb5d29e66f18d2792",
+    "validation/revI-components.json": "75b15fd0b5a44ab0876d8f0c63d78a4b29d0867c845b87ee8514dae0fad18566",
+    "validation/revI-pcb-component-models.json": "7f4ca3559547c1b082cee9bff496726fe07d578469df26389eef181d4e232acb",
+    "validation/revI-cases.json": "d90d8fbb7409ea54cb2399233e8d3176589c6c6020b1eeaf0028a49f7f50b795",
+    "validation/revI-rim-solids.json": "0e6d395f1def923b053d695bf1503254b112d1a50a0a27510aa1a04fe90b0eb8",
+    "validation/revI-outline.json": "a72051e21c9014c698be25e8c5b173449d2f98a8920c8d483968ce6e18db6c44",
+    "validation/revI-render.json": "82d125869d9eef33e37344a45a0bdf36331902dd8f3017645ec687e23b7c9b2a"
+  },
+  "bounded_review": "Independent advice and finding dispositions are preserved in validation/revI-corner-stack-review.json. Actual source, export and public readbacks are separate acceptance evidence.",
+  "remaining": [
+    "Lower-height connector datums, engagement, tolerances, extraction paths and physical fit; lower candidate is not selected for printing.",
+    "Name options supplied; no rename selected."
+  ],
+  "physical_acceptance": false
+}

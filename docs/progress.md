@@ -18,6 +18,8 @@ The USB-side frame corner now uses the case's actual R2.4 arc. The previous R1.2
 
 The current 16.6 mm plain / 17.2 mm decorated cover is **not a proven minimum**. A preliminary left-half study lowers the display and evaluates 15.6 / 16.2 mm covers; actual connector engagement and tolerances remain open. A 14.8 mm plain cover intersects the existing battery-connector envelope. Printable source heights remain unchanged. [Study](../validation/revI-stack-study.json) · [Correction scope](../design/corner-stack-workflow.json) · [Independent review](../validation/revI-corner-stack-review.json).
 
+Publication verified: all **922 implementation files** matched the anonymous archive; public Pages, the corner image, desktop/touch UI and selected print exports matched the tested source. [Public readback](../validation/revI-corner-stack-publication.json).
+
 ## Revision I — linked colors, print kits and component models
 
 Sixteen color themes coordinate the frame with the case rim. Per-half body, plate and three detail colors survive JSON and local browser storage; applying a theme preserves the selected shapes and keycaps. Print kits include the selected native STL parts, generic color 3MF files, supports, washers and the actual screw/magnet instructions. No clip variant is claimed. [Themes and printing](themes-printing.md).

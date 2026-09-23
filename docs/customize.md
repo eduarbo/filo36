@@ -43,7 +43,7 @@ The controls are decorative. No logos, extra switches or LEDs are required. All 
 
 | Interface | Nominal dimension |
 |---|---:|
-| Frame envelope | 24 × 56 mm; 1.2 mm plan-view corner radius |
+| Frame envelope | 24 × 56 mm; R2.4 at the shared case corner beside USB, R1.2 at the other corners |
 | Plain top / themed relief top | 16.6 / 17.2 mm above the base datum |
 | Structural roof / side wall | 1.2 / 1.2 mm |
 | Glass margin, each side | 0.4 mm |
