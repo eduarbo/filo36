@@ -22,6 +22,8 @@ The offline explorer passed desktop/touch emulation down to 320 px, per-half con
 
 With 4× CPU throttling, orbit p95 is **16.7 ms**, frame choice **68 ms** and case choice **124 ms**, with no orbit long tasks. First readiness takes **8.7 s** in this local stress test; the self-contained viewer is about **45 MiB**. Physical-phone loading and timing remain unmeasured. [Measurement](../validation/revI-theme-performance.json).
 
+Publication verified: all **914 implementation files** matched the anonymous source archive. The actual public viewer passed desktop/touch emulation, 16 theme previews, linked colors, JSON/GLB and selected print-kit checks. All 11 relative KiCad STEP models passed geometry, footprint-placement and colored-surface readback. [Public verification](../validation/revI-themes-components-publication.json).
+
 **Still partial:** Bambu Studio needs manual palette mapping; GUI import/save/reopen has not been validated. Hotswap socket registration, actual connector contacts, the 7 versus 8.8 mm display connection and physical fit remain open. [Scope and review](../design/themes-components-workflow.json).
 
 ## Revision I — local curves and interchangeable cases

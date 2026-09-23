@@ -4,7 +4,7 @@
     "Improve commercial component shape, nominal dimensions and appearance, especially nice!nano v2."
   ],
   "baseline": "220fe5a241cbe3837869176c78a27af64eaff429",
-  "status": "Local digital validation passed. Publication and anonymous readback pending; Bambu color interoperability and physical assembly remain partial.",
+  "status": "Published digital update; anonymous implementation archive, Pages, browser interactions and downloaded print kits verified. Bambu palette interoperability and physical assembly remain partial.",
   "reviews": [
     {
       "decision": "themes-print",
@@ -81,7 +81,8 @@
       "part_bounds_max_difference_mm": 7.105427357601002e-15,
       "scope": "Bounding-box and parameter regression only; full nominal solid checks are separate."
     },
-    "full_source_rebuild": "Native assembly regenerated from source; component, parameter/save-reopen, finishes, cases, rim and service checks all passed for the new source digest."
+    "full_source_rebuild": "Native assembly regenerated from source; component, parameter/save-reopen, finishes, cases, rim and service checks all passed for the new source digest.",
+    "publication": "validation/revI-themes-components-publication.json"
   },
   "retrospective": {
     "trigger": "Actual component geometry exposed support and power-switch registration errors hidden by the earlier boxes.",
