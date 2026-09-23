@@ -9,12 +9,22 @@
     "Published repository and viewer match the accepted source, with functional public readback"
   ],
   "review_consensus": "Proceed with color/schema compatibility and bounded printable relief; evaluate 15.6 mm roof as separate nominal study; do not remove battery cage or load-bearing supports without replacement",
-  "status": "Local digital update accepted; public readback pending",
+  "status": "Requested digital customization and mount review published and verified; full keyboard remains a digital prototype",
   "local_acceptance": {
     "key_colors": "passed: all/row/column/individual, half targets, personal palette portability, 36-color JSON/GLB and native round trips",
     "frames": "passed: four added native designs on both halves; ten styles in viewer and selected print kits",
     "source_preservation": "1577 original objects preserved; document Label-only repair explicitly linked to geometry proof",
     "mount_review": "complete: 180 experimental geometry files; static and service failures retained; six or eight fewer loose supports at zero height reduction; 15.6 mm roof remains experimental",
-    "publication": "pending"
-  }
+    "publication": "passed: all 1013 implementation files match anonymous archive; public Pages, desktop/touch UI, palette persistence, JSON/GLB and six selected print kits verified"
+  },
+  "evidence": [
+    "validation/revI-customization.json",
+    "validation/revI-customization-publication.json",
+    "validation/revI-slim-mounts.json"
+  ],
+  "remaining_hardware_work": [
+    "Qualify battery-lead release/routing before joint display/sled removal.",
+    "Validate lower display connector engagement before adopting the experimental 15.6 mm roof.",
+    "Complete PCB routing, physical fit, electrical/charging/BLE and consumption acceptance."
+  ]
 }

@@ -20,6 +20,8 @@ Cartridge, Arcade, Mecha and Kintsugi bring the frame catalog to ten. Their reli
 
 The [measured support study](slim-mount-study.md) covers both halves, both batteries and all ten frames. Integrating plate washers removes six loose parts; optional integrated battery saddles remove two more. Neither changes height. A 15.6 mm plain roof clears modeled static geometry, but overall height stays **17.87 mm** with the selected caps, excluding feet. A 14.8 mm roof intersects the JST envelope. Display/sled extraction crosses modeled battery leads in all three recipes; cable routing, connector engagement and physical fit remain open. Separately named experimental STEP/STL files are included; the reference print kit keeps its original stack.
 
+Publication verified: all **1,013 implementation files** match the anonymous archive. The public viewer passes desktop/touch checks, per-key palettes, coordinated themes, configuration/GLB round trips and six selected print kits. [Public readback](../validation/revI-customization-publication.json). Physical keyboard acceptance remains open.
+
 ## Revision I — shared frame corner and height study
 
 The USB-side frame corner now uses the case's actual R2.4 arc. The previous R1.2 frame produced a roughly 0.497 mm diagonal overhang. The cavity, plate clearance and beveled profiles follow that shared definition. Case/PCB outlines and key positions are unchanged. [Close view and height comparison](design.md#can-the-stack-be-thinner) · [Native corner check](../validation/revI-frame-corner.json).
