@@ -10,7 +10,7 @@
 
 **[Themes and print kits](docs/themes-printing.md)** — Sixteen palettes, linked rim/frame colors and selected STL/3MF parts.
 
-**[Outline logo](docs/branding.md)** — The selected Flan36 identity, with color and one-ink concept references.
+**[Outline logo](docs/branding.md)** — Editable SVG kit with color, one-ink and reversed versions, plus a KiCad / FreeCAD import guide.
 
 **[Case variants](docs/cases.md)** — Solid, Color rim and Terrace; actual meshes in the explorer.
 

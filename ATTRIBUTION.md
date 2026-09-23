@@ -29,3 +29,5 @@ FreeCAD, StepUp, ZMK, Zephyr, nice!nano and nice!view retain their own names/lic
 ## Commercial component representations
 
 KiSwitch Choc v1 source CAD is used under its MIT option (copyright 2019–2022 keyswitch-kicad-library contributors). KiCad PCM12, TL3342 and SOD-123 assets use CC-BY-SA-4.0 with the KiCad library exception. See [per-file sources, transformations and limits](components/README.md) and [asset hashes](components/sources.json). nice!nano v2 is an original nominal reconstruction referenced to official photographs and the Woovie community drawing; no official photograph is embedded or relicensed.
+
+The `docs/branding/outline/flan36-*.svg` artwork is a deterministic vector conversion of the selected Outline board’s monochrome reference. Letterforms are traced paths, not a bundled or substituted font. Source, reference hash and contour checks are recorded in `tools/build_outline_logo.py`, `validation/branding-outline-trace.json` and `design/branding-outline-vectors.json`. The preview and SVG kit follow GPL-3.0-or-later to the extent applicable.

@@ -1,0 +1,19 @@
+{
+  "reference": "docs/images/branding/flan36-caramel-outline.png",
+  "reference_sha256": "5f128bcd8a3cd5054c11abf70743a63fd32c7d7cc3a3d417e3cb923cce280395",
+  "reference_region_xyxy": [
+    175,
+    800,
+    610,
+    1145
+  ],
+  "threshold_mean_rgb": 100,
+  "method": "Pixel boundaries, weighted subpixel smoothing and adaptive least-squares cubic fitting",
+  "components": 7,
+  "holes": 4,
+  "closed_rings": 11,
+  "cubic_nodes": 183,
+  "maximum_boundary_deviation_reference_pixels": 1.061740428929521,
+  "master_sha256": "47add933334ae193ceb266732cca63cabbfc1b5bc7632db5f81ac13ef9e4eec8",
+  "font_dependency": false
+}

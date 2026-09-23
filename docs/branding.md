@@ -4,6 +4,16 @@
 
 **[Open the visual gallery](https://eduarbo.github.io/filo36/branding.html)** · [3D explorer](https://eduarbo.github.io/filo36/)
 
+## Outline SVG kit
+
+**[Download all eight SVGs](https://eduarbo.github.io/filo36/branding/outline/flan36-outline-svg-kit.zip)** · [Editable master](branding/outline/flan36-outline-master.svg) · [KiCad / FreeCAD import guide](branding/outline/README.md)
+
+![Flan36 Outline: color, one ink and reversed vector exports](images/branding/flan36-outline-vector-preview.png)
+
+The selected **D — Outline** logo is now a closed-path vector. The complete logo and symbol come in color, black and white; the lettering is also available separately. All variants derive from one master, with no font dependency or embedded bitmap.
+
+The monochrome reference and vector masks overlap by 98.73% (intersection over union). FreeCAD 1.1.3 imports preserve seven separate faces and four holes; trial extrusions are valid. These checks cover the artwork, not a final PCB placement or case cut. [Vector checks](../validation/branding-outline-vectors.json) · [FreeCAD checks](../validation/branding-outline-freecad.json).
+
 ## Caramel refinements
 
 **D — Outline is the selected Flan36 logo.** It pairs an open flan contour with a solid lowercase wordmark. The other refinements remain here as design history.
@@ -58,7 +68,7 @@ A coarse pixel silhouette for Handheld, Retro TV and Cyberpunk themes.
 
 These PNG boards are **AI-generated identity concepts**, including illustrative PCB and case applications. They are not vector masters, measured CAD, PCB artwork or printable parts. Small differences between each board's color, monochrome and application samples must be resolved in the chosen vector master.
 
-Create one closed-path SVG master from the selected Outline concept and derive the one-ink PCB mark and the case emboss/deboss from it. Check the PCB fabricator's silkscreen limits at the actual placement and size; keep clear of exposed pads, legends and holes. Check any case relief against its wall thickness, joining features and the chosen print process. The current case/PCB geometry has not been engraved or altered by this branding pass.
+The SVG master above resolves the selected Outline concept into one shared contour. Use it as the source for the one-ink PCB mark and a future case emboss/deboss. Check the PCB fabricator's silkscreen limits at the actual placement and size; keep clear of exposed pads, legends and holes. Check any case relief against its wall thickness, joining features and the chosen print process. The current case/PCB geometry has not been engraved or altered by this branding pass.
 
 The existing repository URL, native `Filo36.FCStd` filenames, configuration schema and saved-browser-storage key remain stable for compatibility. The visible project name and new viewer downloads use Flan36. Historical render captions and validation receipts retain the name used when they were produced.
 

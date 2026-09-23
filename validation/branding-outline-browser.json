@@ -1,0 +1,18 @@
+{
+  "target": "local HTTP gallery",
+  "viewports": {
+    "320": {
+      "overflow": false,
+      "images": true
+    },
+    "390": {
+      "overflow": false,
+      "images": true
+    },
+    "1280": {
+      "overflow": false,
+      "images": true
+    }
+  },
+  "zip_download_sha256": "39aa31279af4d3c6ed8079b7ed6b23dd3c5cd6769a0a89568eb2e71e0053b9d0"
+}

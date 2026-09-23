@@ -1,0 +1,61 @@
+{
+  "master": "docs/branding/outline/flan36-outline-master.svg",
+  "master_sha256": "47add933334ae193ceb266732cca63cabbfc1b5bc7632db5f81ac13ef9e4eec8",
+  "exports": [
+    {
+      "path": "docs/branding/outline/flan36-outline-black.svg",
+      "sha256": "9e456f81f9d9aef6f8c340ae2c2ea29413ae3c14a72a00461e0e8eeec0847d7c",
+      "page_width_mm": 30,
+      "page_height_mm": 23.6714,
+      "path_count": 7
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-symbol-black.svg",
+      "sha256": "67c1007fa58490c324ffa2a7c24e5eb9463c1ffc09d25a992401d8136e20f4f3",
+      "page_width_mm": 12,
+      "page_height_mm": 7.3641,
+      "path_count": 1
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-white.svg",
+      "sha256": "b0662a267e707451f05fae650809f37d0e9361bc792be653fe1769e0ae9efe6a",
+      "page_width_mm": 30,
+      "page_height_mm": 23.6714,
+      "path_count": 7
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-symbol-white.svg",
+      "sha256": "07ea08d83f1c45e4858e206318ba193dde9e6c7b2d87dbfd7009be4eeccaf8d4",
+      "page_width_mm": 12,
+      "page_height_mm": 7.3641,
+      "path_count": 1
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-color.svg",
+      "sha256": "c6f7745722a878f6112ce50e09c4a4851bdacb4df10185e31383f7845558a461",
+      "page_width_mm": 30,
+      "page_height_mm": 23.6714,
+      "path_count": 9
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-symbol-color.svg",
+      "sha256": "9a7d174022aedefc5b27a19d77c465b79bc3b3bedcd9589004563feb7d0a1e0a",
+      "page_width_mm": 12,
+      "page_height_mm": 7.3641,
+      "path_count": 3
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-wordmark-black.svg",
+      "sha256": "4c6f678a6d0dcbc26a67d307140de30bfefdc705ae394563bcf3321aec5eb3ec",
+      "page_width_mm": 30,
+      "page_height_mm": 7.8225,
+      "path_count": 6
+    }
+  ],
+  "units": "mm",
+  "shared_contours": true,
+  "font_dependency": false,
+  "raster_embedded": false,
+  "manufacturing_qualified": false,
+  "scope": "Editable vector artwork only. No placement or relief cut in the keyboard CAD or PCB."
+}
