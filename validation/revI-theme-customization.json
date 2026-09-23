@@ -1,6 +1,6 @@
 {
-  "viewer_sha256": "aaa20eb800a7e38d28ff00b49bcf4949d43692adae64a5b6f353df6ce430e864",
-  "target": "local file",
+  "viewer_sha256": "5221cbd4002d56c34921039e1aab2c1ab331290734104fc0d9b071bf7cd4958e",
+  "target": "public URL",
   "themes": 16,
   "preview_images_distinct": 16,
   "linked_colors_bidirectional": true,

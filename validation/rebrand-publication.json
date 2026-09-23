@@ -1,0 +1,153 @@
+{
+  "source_commit": "31ffa02edd066681a3968b638926e04a92fa951d",
+  "archive_files_verified": 968,
+  "archive_sha256": "0ade9ff8e956d3add4f4543c9540ebca499885febb57747a82efbea561de8c54",
+  "pages_url": "https://eduarbo.github.io/flan36/",
+  "pages_matches_committed_html": true,
+  "viewer_sha256": "5221cbd4002d56c34921039e1aab2c1ab331290734104fc0d9b071bf7cd4958e",
+  "authenticated_requests": false,
+  "method": "All archive entries matched against Git blob IDs; public Pages bytes matched the committed viewer.",
+  "branding": {
+    "url": "https://eduarbo.github.io/flan36/branding.html?rev=31ffa02",
+    "single_selected_logo": true,
+    "mobile_width": 390,
+    "no_overflow": true,
+    "zip_download_verified": true,
+    "zip_sha256": "92ae6c0ea5f0d0af05e8d54953b180118b5bb94615755fe6d1b8e367c905dea1",
+    "assets": [
+      {
+        "path": "branding.html",
+        "sha256": "426447162646e566224b2fc879f0b1234b90e43a647cafcd138bc7336df8585d"
+      },
+      {
+        "path": "branding/outline/flan36-outline-black.svg",
+        "sha256": "9e456f81f9d9aef6f8c340ae2c2ea29413ae3c14a72a00461e0e8eeec0847d7c"
+      },
+      {
+        "path": "branding/outline/flan36-outline-master.svg",
+        "sha256": "47add933334ae193ceb266732cca63cabbfc1b5bc7632db5f81ac13ef9e4eec8"
+      },
+      {
+        "path": "branding/outline/flan36-outline-symbol-black.svg",
+        "sha256": "67c1007fa58490c324ffa2a7c24e5eb9463c1ffc09d25a992401d8136e20f4f3"
+      },
+      {
+        "path": "branding/outline/flan36-outline-wordmark-black.svg",
+        "sha256": "4c6f678a6d0dcbc26a67d307140de30bfefdc705ae394563bcf3321aec5eb3ec"
+      },
+      {
+        "path": "images/branding/flan36-outline-vector-preview.png",
+        "sha256": "61bf256752a66df3db71666ecad2d4c4128042295b303d9ea14c50e700aa8d6f"
+      }
+    ]
+  },
+  "repository": {
+    "default_branch": "main",
+    "full_name": "eduarbo/flan36",
+    "homepage": "https://eduarbo.github.io/flan36/",
+    "id": 1380608588
+  },
+  "pages": {
+    "html_url": "https://eduarbo.github.io/flan36/",
+    "source": {
+      "branch": "main",
+      "path": "/docs"
+    },
+    "status": "built"
+  },
+  "public_viewer_functional_checks": {
+    "viewer_sha256": "5221cbd4002d56c34921039e1aab2c1ab331290734104fc0d9b071bf7cd4958e",
+    "target": "public URL",
+    "browser": "153.0.8010.53",
+    "desktop": true,
+    "narrow_viewport_emulation": true,
+    "physical_phone_tested": false,
+    "public_embedded_scene_matches_current": true,
+    "all_12_layer_filters": true,
+    "individual_visibility": true,
+    "individual_and_group_solo": true,
+    "show_all_recovery": true,
+    "occluded_hover_xray_pixel_verified": true,
+    "persistent_view_controls": true,
+    "fit_actual_pixels_after_zoom": true,
+    "fit_empty_feedback": true,
+    "full_row_hover": true,
+    "half_filters": true,
+    "orbit_drag": true,
+    "bottom_view": true,
+    "full_reset_pixel_identical": true,
+    "persistent_component_directory": true,
+    "sidebar_line_endpoints": true,
+    "directory_visible_during_scroll_and_collapse": true,
+    "keyboard_component_selection": true,
+    "direct_canvas_picking": true,
+    "labels_follow_camera": true,
+    "frame_click_reveals_hidden_cover": true,
+    "annotation_toggle": true,
+    "orbit_does_not_select": true,
+    "touch_orbit_and_pinch_do_not_select": true,
+    "small_320px_viewport": true,
+    "six_preview_cards": true,
+    "multicolor_glb_roles": true,
+    "one_click_frames": true,
+    "keyboard_frame_activation": true,
+    "mixed_style_and_color_state": true,
+    "theme_applies_palette_and_body_overrides_roundtrip": true,
+    "sidebar_hover_highlight": true,
+    "sidebar_opens_frame_explorer": true,
+    "touch_frame_cards_and_sidebar": true,
+    "hidden_layer_links_removed": true,
+    "highlight_excluded_from_glb": true,
+    "dual_battery_selection_and_exact_glb": true,
+    "captive_frame_pins_preserved": true,
+    "keycap_variant_selection": true,
+    "frame_style_and_color": true,
+    "three_distinct_themed_geometries": true,
+    "json_roundtrip": true,
+    "invalid_combination_rejected": true,
+    "glb_matches_custom_configuration": true,
+    "glb_selected_vertices_exact": true,
+    "glb_objects": 180,
+    "glb_keycaps": 36,
+    "glb_units": "metres",
+    "case_variants": 3,
+    "case_previews_distinct": true,
+    "case_glb_meshes_exact": true,
+    "open_cover_configuration": true,
+    "legacy_case_default": true,
+    "runtime_errors": [],
+    "offline_network_requests": 0
+  },
+  "public_theme_checks": {
+    "viewer_sha256": "5221cbd4002d56c34921039e1aab2c1ab331290734104fc0d9b071bf7cd4958e",
+    "target": "public URL",
+    "themes": 16,
+    "preview_images_distinct": 16,
+    "linked_colors_bidirectional": true,
+    "mixed_halves": true,
+    "preserve_shapes_cover_and_keycaps": true,
+    "json_and_reload_roundtrip": true,
+    "invalid_import_atomic": true,
+    "storage_failure_recoverable": true,
+    "keyboard_and_reduced_motion": true,
+    "mobile_widths": [
+      390,
+      320
+    ],
+    "individual_selection_ignored_by_printkit": true,
+    "custom_case_and_four_frame_colors_in_glb": true,
+    "runtime_errors": []
+  },
+  "refreshed_documentation_screenshots": [
+    {
+      "path": "docs/images/revI-viewer.png",
+      "sha256": "1dca34ad756c155910d1ae3bf1b5c69de4295aed105f23b13721aa454833685a",
+      "source": "Unretouched screenshot of current public viewer"
+    },
+    {
+      "path": "docs/images/revI-themes.png",
+      "sha256": "ae8fc0c8c74efca705d485a417c6789253ae560da40ea88a407bce2120b7d907",
+      "source": "Unretouched screenshot of current public viewer"
+    }
+  ]
+}

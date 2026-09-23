@@ -76,12 +76,19 @@
     "Original generation prompts, selected raster reference and historical validation receipts",
     "Explicit legacy configuration import identifiers"
   ],
-  "status": "Local identity migration verified; remote rename and public readback pending",
+  "status": "Verified: canonical repository, public Pages, single selected logo and legacy configuration migration",
   "verification": [
     "validation/rebrand-native.json",
     "validation/rebrand-local.json",
     "validation/rebrand-config.json",
     "validation/rebrand-browser.json",
     "validation/rebrand-functional.json"
-  ]
+  ],
+  "publication_receipt": "validation/rebrand-publication.json",
+  "retrospective": {
+    "trigger": "User still saw multiple logo treatments and former project name",
+    "cause": "Earlier branding pass preserved old public URLs and displayed technical variants and historical concepts in the main gallery",
+    "correction": "One chosen logo; same-id repo rename, current native files and generated presentation updated",
+    "prevention": "Single-image gallery check, current-guide old-name scan, native identity-only comparison and live public readback"
+  }
 }

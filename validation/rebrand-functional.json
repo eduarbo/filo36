@@ -1,12 +1,12 @@
 {
   "viewer": {
-    "viewer_sha256": "026b62272efdcd24122cd2cd402cf02d7b69e5ff989163eb025c0550a861a457",
-    "target": "local file with all HTTP(S) requests blocked",
+    "viewer_sha256": "5221cbd4002d56c34921039e1aab2c1ab331290734104fc0d9b071bf7cd4958e",
+    "target": "public URL",
     "browser": "153.0.8010.53",
     "desktop": true,
     "narrow_viewport_emulation": true,
     "physical_phone_tested": false,
-    "public_embedded_scene_matches_current": false,
+    "public_embedded_scene_matches_current": true,
     "all_12_layer_filters": true,
     "individual_visibility": true,
     "individual_and_group_solo": true,
