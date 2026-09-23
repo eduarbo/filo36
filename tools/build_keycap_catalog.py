@@ -36,7 +36,7 @@ cases=json.loads((ROOT/'design/cases.json').read_text())
 byid={v['id']:v for v in variants};cfg={'schema':'flan36-config-1','revision':'I','keycaps':{},'frames':{},'batteries':{'left':'adafruit-1570','right':'adafruit-1570'}}
 cfg['cases']={side:{'style':cases['default'],'cover':True} for side in layout}
 for side,keys in layout.items():
-    cfg['keycaps'][side]={k['ref']:{'variant':'choc_stem_choc_size_'+('thumb' if k['row']==3 else 'normal_homing' if k['ref']=='K14' else 'normal'),'rotation_deg':0} for k in keys}
+    cfg['keycaps'][side]={k['ref']:{'variant':'choc_stem_choc_size_'+('thumb' if k['row']==3 else 'normal_homing' if k['ref']=='K14' else 'normal'),'rotation_deg':0,'color':'#45967b' if k['row']==3 else '#e9dfc6'} for k in keys}
     cfg['frames'][side]={'style':'bevel','color':'#304d4e'}
 base={s:{k['ref']:polygon(byid[cfg['keycaps'][s][k['ref']]['variant']]['hull_xy_mm'],k,0) for k in keys} for s,keys in layout.items()}
 for v in variants:
@@ -55,6 +55,7 @@ catalog={'schema':'flan36-klp-catalog-1','revision':'I','upstream':manifest['ups
     'case_styles':cases['styles'],
     'battery_profiles':json.loads((ROOT/'design/batteries.json').read_text())['profiles'],
     'layout':layout,'frame_envelopes':frames,'frame_styles':{'smooth':'Smooth','bevel':'Beveled','facet':'Faceted','handheld':'Handheld','tv':'Retro TV','cyberpunk':'Cyberpunk'},'variants':variants,'default_configuration':cfg}
+catalog['frame_styles'].update({k:v['label'] for k,v in json.loads((ROOT/'design/frame-extensions.json').read_text())['styles'].items()})
 (ROOT/'keycaps/catalog.json').write_text(json.dumps(catalog,indent=2,ensure_ascii=False)+'\n')
 (ROOT/'design/configurations').mkdir(exist_ok=True)
 (ROOT/'design/configurations/default.json').write_text(json.dumps(cfg,indent=2)+'\n')

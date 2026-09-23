@@ -1,0 +1,5468 @@
+{
+  "status": "saved_and_reopened",
+  "native_reopen_recompute_passed": true,
+  "gui_document_preserved": true,
+  "source_sha256": "60197835a81e125df4066694211d8983653e37282106257b837a3fe589529c07",
+  "output_sha256": "c8102e4744f0f2ad22820e69d5daf109f2ad5d1e77ced8a8a6ab2179f1dd6a0f",
+  "source_objects_preserved": 1577,
+  "original_geometry_appearance_unchanged": true,
+  "source_parameters_unchanged": true,
+  "halves": {
+    "left": {
+      "cartridge": {
+        "object": "L_ExtraFrame_cartridge_Final",
+        "source_object": "L_Frame_smooth_HeadRelief5",
+        "source_shape_sha256": "3a7551eb828eb1bcf8c6f0aa9e7d7e9a2bd9693467e479eb8432dfa8dfc654a4",
+        "shape_sha256": "e67420126fee75e6d7da8617ac01da0e7c809ba593f42d18547f889fb831dc75",
+        "connected_solids": 1,
+        "closed_mesh": true,
+        "unchanged_base": true,
+        "removed_source_volume_mm3": 0.0,
+        "added_roof_volume_mm3": 169.85999999999987,
+        "interface_added_volume_mm3": {
+          "GlassWindow": 0.0,
+          "ResetToolAccess": 0.0,
+          "USBPlugAccess": 0.0,
+          "MCUCornerClearance": 0.0,
+          "PowerAccess": 0.0
+        },
+        "bounds_mm": [
+          111.0,
+          -67.0,
+          6.299999999999995,
+          135.0,
+          -11.0,
+          17.2
+        ],
+        "max_roof_relief_mm": 0.5999999999999979,
+        "manufacturing_ready": false
+      },
+      "arcade": {
+        "object": "L_ExtraFrame_arcade_Final",
+        "source_object": "L_Frame_smooth_HeadRelief5",
+        "source_shape_sha256": "3a7551eb828eb1bcf8c6f0aa9e7d7e9a2bd9693467e479eb8432dfa8dfc654a4",
+        "shape_sha256": "805436003bb5961f5e3163baff87fb1fb187d7cfe6bf79291f3c1f6903bb852a",
+        "connected_solids": 1,
+        "closed_mesh": true,
+        "unchanged_base": true,
+        "removed_source_volume_mm3": 0.0,
+        "added_roof_volume_mm3": 108.81334130286234,
+        "interface_added_volume_mm3": {
+          "GlassWindow": 0.0,
+          "ResetToolAccess": 0.0,
+          "USBPlugAccess": 0.0,
+          "MCUCornerClearance": 0.0,
+          "PowerAccess": 0.0
+        },
+        "bounds_mm": [
+          111.0,
+          -67.0,
+          6.299999999999995,
+          135.0,
+          -11.0,
+          17.2
+        ],
+        "max_roof_relief_mm": 0.5999999999999979,
+        "manufacturing_ready": false
+      },
+      "mecha": {
+        "object": "L_ExtraFrame_mecha_Final",
+        "source_object": "L_Frame_smooth_HeadRelief5",
+        "source_shape_sha256": "3a7551eb828eb1bcf8c6f0aa9e7d7e9a2bd9693467e479eb8432dfa8dfc654a4",
+        "shape_sha256": "79a148623f00e0cceedb83f99b7653cf004e8b77afda0dccc1f88c5ea5ff81f9",
+        "connected_solids": 1,
+        "closed_mesh": true,
+        "unchanged_base": true,
+        "removed_source_volume_mm3": 0.0,
+        "added_roof_volume_mm3": 187.47444594190307,
+        "interface_added_volume_mm3": {
+          "GlassWindow": 0.0,
+          "ResetToolAccess": 0.0,
+          "USBPlugAccess": 0.0,
+          "MCUCornerClearance": 0.0,
+          "PowerAccess": 0.0
+        },
+        "bounds_mm": [
+          111.0,
+          -67.0,
+          6.299999999999995,
+          135.0,
+          -11.0,
+          17.2
+        ],
+        "max_roof_relief_mm": 0.5999999999999979,
+        "manufacturing_ready": false
+      },
+      "kintsugi": {
+        "object": "L_ExtraFrame_kintsugi_Final",
+        "source_object": "L_Frame_smooth_HeadRelief5",
+        "source_shape_sha256": "3a7551eb828eb1bcf8c6f0aa9e7d7e9a2bd9693467e479eb8432dfa8dfc654a4",
+        "shape_sha256": "4e4f784f291682c540b22278602f7d4c3c188ef7aa43ec11fabca22bf4e89773",
+        "connected_solids": 1,
+        "closed_mesh": true,
+        "unchanged_base": true,
+        "removed_source_volume_mm3": 0.0,
+        "added_roof_volume_mm3": 129.39554832946834,
+        "interface_added_volume_mm3": {
+          "GlassWindow": 0.0,
+          "ResetToolAccess": 0.0,
+          "USBPlugAccess": 0.0,
+          "MCUCornerClearance": 0.0,
+          "PowerAccess": 0.0
+        },
+        "bounds_mm": [
+          111.0,
+          -67.0,
+          6.299999999999995,
+          135.0,
+          -11.0,
+          17.200000000000003
+        ],
+        "max_roof_relief_mm": 0.6000000000000014,
+        "manufacturing_ready": false
+      }
+    },
+    "right": {
+      "cartridge": {
+        "object": "R_ExtraFrame_cartridge_Final",
+        "source_object": "R_Frame_smooth_HeadRelief5",
+        "source_shape_sha256": "493d90e91ca9b97deb53804f4a43ba846f30ff8011e916dea0e5865f29ae5eab",
+        "shape_sha256": "2bd0f081b506848f5c6516fc758bfb02cb63ee4db394f2c725e9eb2849e88b4a",
+        "connected_solids": 1,
+        "closed_mesh": true,
+        "unchanged_base": true,
+        "removed_source_volume_mm3": 0.0,
+        "added_roof_volume_mm3": 169.85999999999984,
+        "interface_added_volume_mm3": {
+          "GlassWindow": 0.0,
+          "ResetToolAccess": 0.0,
+          "USBPlugAccess": 0.0,
+          "MCUCornerClearance": 0.0,
+          "PowerAccess": 0.0
+        },
+        "bounds_mm": [
+          25.0,
+          -67.0,
+          6.299999999999996,
+          49.0,
+          -11.0,
+          17.2
+        ],
+        "max_roof_relief_mm": 0.5999999999999979,
+        "manufacturing_ready": false
+      },
+      "arcade": {
+        "object": "R_ExtraFrame_arcade_Final",
+        "source_object": "R_Frame_smooth_HeadRelief5",
+        "source_shape_sha256": "493d90e91ca9b97deb53804f4a43ba846f30ff8011e916dea0e5865f29ae5eab",
+        "shape_sha256": "4fe9021f3466941f9b75656f888f6796cc139055abf6f009adf64f127ed67160",
+        "connected_solids": 1,
+        "closed_mesh": true,
+        "unchanged_base": true,
+        "removed_source_volume_mm3": 0.0,
+        "added_roof_volume_mm3": 108.81334130286216,
+        "interface_added_volume_mm3": {
+          "GlassWindow": 0.0,
+          "ResetToolAccess": 0.0,
+          "USBPlugAccess": 0.0,
+          "MCUCornerClearance": 0.0,
+          "PowerAccess": 0.0
+        },
+        "bounds_mm": [
+          25.0,
+          -67.0,
+          6.299999999999996,
+          49.0,
+          -11.0,
+          17.2
+        ],
+        "max_roof_relief_mm": 0.5999999999999979,
+        "manufacturing_ready": false
+      },
+      "mecha": {
+        "object": "R_ExtraFrame_mecha_Final",
+        "source_object": "R_Frame_smooth_HeadRelief5",
+        "source_shape_sha256": "493d90e91ca9b97deb53804f4a43ba846f30ff8011e916dea0e5865f29ae5eab",
+        "shape_sha256": "ace59d4f8726181472c932cc9603ccaba3b756ce5f0071b7755cea718327d749",
+        "connected_solids": 1,
+        "closed_mesh": true,
+        "unchanged_base": true,
+        "removed_source_volume_mm3": 0.0,
+        "added_roof_volume_mm3": 187.47444594190307,
+        "interface_added_volume_mm3": {
+          "GlassWindow": 0.0,
+          "ResetToolAccess": 0.0,
+          "USBPlugAccess": 0.0,
+          "MCUCornerClearance": 0.0,
+          "PowerAccess": 0.0
+        },
+        "bounds_mm": [
+          25.0,
+          -67.0,
+          6.299999999999996,
+          49.0,
+          -11.0,
+          17.2
+        ],
+        "max_roof_relief_mm": 0.5999999999999979,
+        "manufacturing_ready": false
+      },
+      "kintsugi": {
+        "object": "R_ExtraFrame_kintsugi_Final",
+        "source_object": "R_Frame_smooth_HeadRelief5",
+        "source_shape_sha256": "493d90e91ca9b97deb53804f4a43ba846f30ff8011e916dea0e5865f29ae5eab",
+        "shape_sha256": "a0102d92c1765574b5e8839c35aceefc4b4be308cc8fee556a001457ab89428c",
+        "connected_solids": 1,
+        "closed_mesh": true,
+        "unchanged_base": true,
+        "removed_source_volume_mm3": 0.0,
+        "added_roof_volume_mm3": 129.39554832946814,
+        "interface_added_volume_mm3": {
+          "GlassWindow": 0.0,
+          "ResetToolAccess": 0.0,
+          "USBPlugAccess": 0.0,
+          "MCUCornerClearance": 0.0,
+          "PowerAccess": 0.0
+        },
+        "bounds_mm": [
+          25.0,
+          -67.0,
+          6.299999999999996,
+          49.0,
+          -11.0,
+          17.200000000000003
+        ],
+        "max_roof_relief_mm": 0.6000000000000014,
+        "manufacturing_ready": false
+      }
+    }
+  },
+  "equivalent_brep_hash_changes": {
+    "L_Half": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "6d09e9029f58d733f1be2681b9c96c896b6489d700881f2e6a76d564bf445d8c",
+      "after_brep_sha256": "6147a07f916c780f7646a76bc993410bf99fc67fcc1004f74daf150fab213f08",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 4,
+        "Shells": 10,
+        "Faces": 688,
+        "Wires": 757,
+        "Edges": 1965,
+        "Vertexes": 1310
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        },
+        {
+          "before_solid": 1,
+          "after_solid": 1,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        },
+        {
+          "before_solid": 2,
+          "after_solid": 2,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        },
+        {
+          "before_solid": 3,
+          "after_solid": 3,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_CavitySketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "82fa4cd27931867c65bc772e6300cc3d80f4a05f57be1ad3528621828e6d30fd",
+      "after_brep_sha256": "c4774b8e054aeaf22f2c71d5b592861d4d2a40ed35e30a6b57ebdf615d95687d",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 341,
+        "Vertexes": 341
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "L_Cavity": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "9d296b7b4fdef559aec41775331111be3076dbc53b88d68e4922a2da39198e00",
+      "after_brep_sha256": "2d5b6dc12610882fdf51e21aae9902e75a162d04c9a6aaea41dc0b13c1e9a055",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 343,
+        "Wires": 343,
+        "Edges": 1023,
+        "Vertexes": 682
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayShell": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "71eaaea83b04c30e3220b9c861dd1f6727e629984d5bf68ca536fa150b19dadb",
+      "after_brep_sha256": "225b4fffd847b2608ac4fa5266fd5ddb37f4e1803c96d35226f310f4ac7af632",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 386,
+        "Wires": 387,
+        "Edges": 1149,
+        "Vertexes": 766
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayPillar1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "b05d9a57848466a3a24d6a4c608df46eb9dd427d741470dc22117498c3be4d7b",
+      "after_brep_sha256": "34168687b01696e0b04e1a3c5d89a46e44bbc1be8199abaeaab9a68816955372",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 388,
+        "Wires": 390,
+        "Edges": 1152,
+        "Vertexes": 768
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayDrill1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "228d8b84f56f6fbc887a8ab5cd4d2db8d70920b299d31e449d715562efa2d369",
+      "after_brep_sha256": "195d2f484b7b1385368ab4c0d9db6e6214c805aa5a930f024db1a566352fe2c7",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 389,
+        "Wires": 393,
+        "Edges": 1155,
+        "Vertexes": 770
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_WasherSeat1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "15d8e50f958c43171b09d0d8aac5d5b0cb79c473b71203338d495485f384340c",
+      "after_brep_sha256": "22805624d4583aa3fd3aa375bbd09dd4e8d17b7a0ad0f5395666b42a09e37262",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 389,
+        "Wires": 393,
+        "Edges": 1155,
+        "Vertexes": 770
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayPillar2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f316cd9fb85b0811cb0ac25c87f86d0e0b161ffe4f50c8f3ef4ba8a47d2a3308",
+      "after_brep_sha256": "77653f427ac534ecb2d7a194199b569c630935385bc8bf73ac498ee445c11c0c",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 391,
+        "Wires": 396,
+        "Edges": 1158,
+        "Vertexes": 772
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayDrill2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f0c7fe2aa8077b91689c9e1e575e8e6dfa9fcea18f46c767d0c4217420987d64",
+      "after_brep_sha256": "cf9ee12af8d1424a9b1055cb94f2ac66ab6003da7e67f05c663570a4820e595b",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 392,
+        "Wires": 399,
+        "Edges": 1161,
+        "Vertexes": 774
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_WasherSeat2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "30cd8004f8d287978625663cdcb7e8a22e2d70672ceaa1c692b3325db19def54",
+      "after_brep_sha256": "0b599db9df59f11b0d4bcd0ff46a4c472b0f0df5840116b897607e8eaa6781c0",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 392,
+        "Wires": 399,
+        "Edges": 1161,
+        "Vertexes": 774
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayPillar3": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "cc36b0367b2511f0872c543608941399d0a1e9f5991161af16c4047ac421732f",
+      "after_brep_sha256": "22770b5e76944d6124ee9c75cb5613ed41568e0a7422e8179e09443ae8524dd5",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 394,
+        "Wires": 402,
+        "Edges": 1164,
+        "Vertexes": 776
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayDrill3": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "3894f5df7e5f7990ab3c87f9b4a9ce293c273c00be7f7e242351440283573de4",
+      "after_brep_sha256": "0be5ccd5a799a06dacc91e1b57ea1ce3b987bba9b91bdf2ec6842bb70c51d8fa",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 395,
+        "Wires": 405,
+        "Edges": 1167,
+        "Vertexes": 778
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_WasherSeat3": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "0207177926b80f6180d34f3361bf3a2cff1c3e2a7a10776662545611ec4a9f1b",
+      "after_brep_sha256": "8c40cc9c6f65f4ee2a9968f9b7c0d23a7d5e9636cc30cc38f18ab6b6e81e9de4",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 395,
+        "Wires": 405,
+        "Edges": 1167,
+        "Vertexes": 778
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayPillar4": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "88102bb7c0ee0193544d6782036d8114b6612ca917e37ffc5e4da46c0b234840",
+      "after_brep_sha256": "da14fdf8cb4c0ecb709c1772b8f6ec76bcdc8a741e5ca06f3156897d83d054f7",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 397,
+        "Wires": 408,
+        "Edges": 1170,
+        "Vertexes": 780
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayDrill4": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f56b8ef1449674475df21401718b4eaba938da5c2319a9114b2e4e3e788620a7",
+      "after_brep_sha256": "9430553feee99a914ab71173f07d8d60b2b9702f568d1c39e841594b7c11697d",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 398,
+        "Wires": 411,
+        "Edges": 1173,
+        "Vertexes": 782
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_WasherSeat4": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "e6b6afe36ebd050195ba75ddbe5f2dec846547fdb8950009c52efb7de0db96cd",
+      "after_brep_sha256": "ff6a79b2d2af00b4032edc80ac28a7720552557c57e2ee6e97184446b7417974",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 398,
+        "Wires": 411,
+        "Edges": 1173,
+        "Vertexes": 782
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayPillar5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "68bca9784e4b437d3dbe1af231a210e95a26f9a3dcf90ee847e0a4f5f83fad1b",
+      "after_brep_sha256": "fae25535afc4e3fc87dcb31c9b2515aa13d3f74f113d9c67d469c96e20b67cd9",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 400,
+        "Wires": 414,
+        "Edges": 1176,
+        "Vertexes": 784
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayDrill5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "2b58f50b9becd61c5d6ae97932511d195f61a598b57fd19401e42e03741676b0",
+      "after_brep_sha256": "1db792f14ce3f3ef01e41408bce391415c8bedfb0d77c664c8aad88c4cf984b1",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 401,
+        "Wires": 417,
+        "Edges": 1179,
+        "Vertexes": 786
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_WasherSeat5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "1ac50bf613c0c1e6519bf512c3c603978e3dd14b08c55ba569f2e4dd273fc30c",
+      "after_brep_sha256": "f6997216fad2cbb3b66292a1f74e8d00cfdb85af701fb3409f7d177dd48cb9dd",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 401,
+        "Wires": 417,
+        "Edges": 1179,
+        "Vertexes": 786
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayMagnetPost0": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f731ea97059fa1e36702dfe4181ce07d3962eac63cd1e78470358ed4b1899ab9",
+      "after_brep_sha256": "0cb56cfe1179fae2c2b776ff703803b30eb3e9c0e3089466b1490d78517bc7f2",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 405,
+        "Wires": 423,
+        "Edges": 1185,
+        "Vertexes": 790
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_MagnetPocket0": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "43691d13a9d8aec6d146683b8485d5cbe3acb800c231d1cdb77f6c2331a00bb8",
+      "after_brep_sha256": "afba95d34a7f393820356712aedca8d2606d6d57608346faadbd46a3e8dfa394",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 2,
+        "Faces": 408,
+        "Wires": 426,
+        "Edges": 1188,
+        "Vertexes": 792
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayMagnetPost1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "bb0798e069649995dc3a986ef77db542bd8307176027494e7c04de8edc42cc8a",
+      "after_brep_sha256": "998c6b2e30623defb45b6c5f48caa98ae6a81d594c611aeaea6d593325a1d2c8",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 2,
+        "Faces": 412,
+        "Wires": 431,
+        "Edges": 1199,
+        "Vertexes": 800
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_MagnetPocket1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "7258541b91cacafd1ef86b0c8bfabe97f53c14d5cda8db1ba6dd216cff25b57e",
+      "after_brep_sha256": "f0c6011db62e114649f4e2e547595cd5a78694f24d1be62fa48bdb1a8a8fffdc",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 3,
+        "Faces": 415,
+        "Wires": 434,
+        "Edges": 1202,
+        "Vertexes": 802
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayMagnetPost2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "854d6c45a070a5010aed71e2df3b43838ecd218444b2eb7d775ec3820c80df1e",
+      "after_brep_sha256": "39ab7fcae6a887cac2e3898c7d6a22962e663da0ada0a6679e2a54d4790a760c",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 3,
+        "Faces": 419,
+        "Wires": 440,
+        "Edges": 1208,
+        "Vertexes": 806
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_MagnetPocket2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f4d5a0a661cbd8e7bf3f3765c7cefc1756e664694cfaf51c848b3d8b09fb21a4",
+      "after_brep_sha256": "fe41c31e4a39c707192e55ea9dc9acabe00c1a8d4a98bee34d60b20559824de3",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 422,
+        "Wires": 443,
+        "Edges": 1211,
+        "Vertexes": 808
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PowerAccess": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "9bb79f7b6e7b2f825f69e9ffd601081daa0c1e2c55832c916c9b490ec030e60e",
+      "after_brep_sha256": "9dd33204bc3b3da0b0d7b81645374eebf047011ce10b419c88cbeccc81e5af78",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 6,
+        "Wires": 6,
+        "Edges": 12,
+        "Vertexes": 8
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TrayPowerCut": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "afbaa696713303e0104c6f1397c961ac09b13be5c4923ee422ab828bad559936",
+      "after_brep_sha256": "c472c8fdb293de099d12d0eddc4f858eeae7d44fa4801b3022bcfd93c5272fe7",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 425,
+        "Wires": 445,
+        "Edges": 1223,
+        "Vertexes": 816
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PlateFrameToolSketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "a75c52638953f8f6b58a66fe1a62086cce814404ebcaf7a2126ba0d88bc65432",
+      "after_brep_sha256": "761634378e15d652b442a423ea693f946a6ebe5b28ec3a5b6521a47e59c81cb9",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 68,
+        "Vertexes": 68
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "L_PlateFrameTool": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "e6ae1f4bea17c1698c0fb55eabf178a27482d161b1f985ff2d115afc93592d14",
+      "after_brep_sha256": "2dc663fe84676b205e89d897a68635652f48e8d6dfe4a38bcecdb7eff3cc2b2b",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 70,
+        "Wires": 70,
+        "Edges": 204,
+        "Vertexes": 136
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_RimInnerSketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "57d6abaf9ca9ee71ead16f0aff2540a8498a117314b0fe2a202b89d4dcc9ca37",
+      "after_brep_sha256": "b73657e4b1b6cbf3979af5129280e3826460a69febc3073d290386d816da60e0",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 357,
+        "Vertexes": 357
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "L_RimInner": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "3ce5dd399950226a17803c7499a476c0746f5c568b22546299e1d2f418d23316",
+      "after_brep_sha256": "c9ca1104995c9e351f227aec1f1a182b554ec5cbf2766a7fded807593c7a8d3a",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 359,
+        "Wires": 359,
+        "Edges": 1071,
+        "Vertexes": 714
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_RimTray": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "128a9b78f63eead857c0278e2e8b6173c9c3cba70d22f0d95259788ec9c3f6e1",
+      "after_brep_sha256": "176dc9b0981a0e85a06f689f92f169a4e540d33adc084c0ae67ab4e3ab1a3ec9",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 766,
+        "Wires": 786,
+        "Edges": 2246,
+        "Vertexes": 1498
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_RimPlate": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "a38baf413c9c62480e44f3e8d1151efba0dcf9a4df57564e17555b2565beb94c",
+      "after_brep_sha256": "ae3f7ef1a860bd9a7649ec40a1385e393cc1495c2e0e59517192d1f278752790",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 446,
+        "Wires": 488,
+        "Edges": 1332,
+        "Vertexes": 888
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_InsetPlateEnvelopeSketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "9aec1c7b46b7bedb21273fb7bed96c0d66b098fb1f0cc18cf02e821067bbf997",
+      "after_brep_sha256": "501cff8cab565541234aef8b0239a82a42202bdc5652cf0755d62799f8992735",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 357,
+        "Vertexes": 357
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "L_InsetPlateEnvelope": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "c790e54d101c8ccb6a5b21ea80bf7117062a3b5c7512fd9f215538e41d8f031c",
+      "after_brep_sha256": "0cd6dd02ba6c71167028e094f6952c5eb56eb659bb8cb57879db71534c6fa8c3",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 359,
+        "Wires": 359,
+        "Edges": 1071,
+        "Vertexes": 714
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TerraceInner0Sketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "7703890dd2ed793af28b7e05acbe4f4a27f5c8feec5576b14dbb5e5a2a16377a",
+      "after_brep_sha256": "c659ffbcda4971bacee83f26f80b5bdf3a20b2d0b5b148ca7d7c50af69ba077f",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 357,
+        "Vertexes": 357
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "L_TerraceInner0": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "00ba25f300efbf345620633023a96e45128703e6da9e02769a999ec1f430732d",
+      "after_brep_sha256": "34fe06a50008b4ea6d3a82eb2cba26eedf932c3de0aec915cd386caa5e59f231",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 359,
+        "Wires": 359,
+        "Edges": 1071,
+        "Vertexes": 714
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TerraceCut0": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "9e116d77b703b1fa0d5e31e20b792f9713245caa16a755a578d2d3c750ed054c",
+      "after_brep_sha256": "33f99f48b8be0c18803ce74daedb31afc3c7e4b0378cb052f8ee209c74708696",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 826,
+        "Wires": 848,
+        "Edges": 2420,
+        "Vertexes": 1614
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TerraceInner1Sketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "7703890dd2ed793af28b7e05acbe4f4a27f5c8feec5576b14dbb5e5a2a16377a",
+      "after_brep_sha256": "c659ffbcda4971bacee83f26f80b5bdf3a20b2d0b5b148ca7d7c50af69ba077f",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 357,
+        "Vertexes": 357
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "L_TerraceInner1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "1c553e099e10f936db65f43d7ef87b2c37c9c6ccbdc9bd3c44c1cf9580f2fb89",
+      "after_brep_sha256": "b4ebc3a3499a09e7546f24beefb3fe7eb0838357847b4765ec5806209120f8f6",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 359,
+        "Wires": 359,
+        "Edges": 1071,
+        "Vertexes": 714
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_TerraceCut1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "7935b42844ef50d871a1778f449aee15eb096f03d17a81ccaace6efc5b63c776",
+      "after_brep_sha256": "17b9097863b0b7a9e822853b323df8de54ba203c7f9bc3f60aa0f6a0c56d9c41",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 1227,
+        "Wires": 1251,
+        "Edges": 3617,
+        "Vertexes": 2412
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_Case_solid_base": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "a3fc663d2cc65f4913d5576910f4b248bf889140924a6995008040bc6df69591",
+      "after_brep_sha256": "718ae12b0e633974033b13ca595b71b85e82a3b34bbd90bb3d8341619c90f222",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 425,
+        "Wires": 445,
+        "Edges": 1223,
+        "Vertexes": 816
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_Case_rim_base": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "e2e5b25fa2ae740604b44efdc7433b2f10c2533fcbdb3ffe767ac5b5cea1de21",
+      "after_brep_sha256": "c05c267f842cb5b4dac73112c09e7b2bc24619f93d9cf1c5f0233232c3795c70",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 766,
+        "Wires": 786,
+        "Edges": 2246,
+        "Vertexes": 1498
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_Case_rim_plate": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "82a7030fbcd32295443977762abc827980e16f5d85183186d0a3e51212a86309",
+      "after_brep_sha256": "f8ae9d3dbf4f449b8cb0562eb104e62966c3f84faeccc0922d6c9db4e7beeb8e",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 446,
+        "Wires": 488,
+        "Edges": 1332,
+        "Vertexes": 888
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_Case_terrace_base": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "11a5a900dcd6a15379192b1b5031d83fe2d37058c100aa0593271d7bcf08d4ec",
+      "after_brep_sha256": "2c4b9553fbf42492e28b8394530e44d6f98a60f084ce6f0ee63f320f5eb6956f",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 1227,
+        "Wires": 1251,
+        "Edges": 3617,
+        "Vertexes": 2412
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_ActiveTray": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "e0d10646b6f1332a86a8f02f8dbb533205cae25f9335e9a7cb6583e3f0c44068",
+      "after_brep_sha256": "efb6ce17efa6642be7fe541a7547c5092c0c783bde1c0b8f29459f0607496a19",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 425,
+        "Wires": 445,
+        "Edges": 1223,
+        "Vertexes": 816
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBPadSketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "c99f64bd3e87d1f282e01bba49d017ee00e3217caeefbcab6a3c1f5b5cd7779c",
+      "after_brep_sha256": "2d9fa01f21525ef6d56c185aed375cfd876a223ce2ffc1e03c018e8027d2e60e",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 412,
+        "Vertexes": 412
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "L_PCBPad": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "6f8d65924b70cfd2770d24e445e2facdae92928735cc63548f5061b57e448f8e",
+      "after_brep_sha256": "c0cc4cc2a54c8db22d8a04ca3bd7f1b131ee2f07ac780e7398322da327914ebe",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 414,
+        "Wires": 414,
+        "Edges": 1236,
+        "Vertexes": 824
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBBatteryOpening": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "ede9759c9aa9f9f9ce82e793c153ec64cbf0a52d1586b5208f9976f428ebd2c6",
+      "after_brep_sha256": "be51f46a30a1d63f76396fdfa36da4dd8f8da40fe930d33d5b3646e3b3e29c75",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 418,
+        "Wires": 420,
+        "Edges": 1248,
+        "Vertexes": 832
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBMount1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "b3faa4beafdca4471ec2d09be0c78f7d9da9e55ee4698cd8ac618bf677adfc1e",
+      "after_brep_sha256": "0e659d294f83dc9b39224a1524b2c11a546dde7149f4f141464696f21a8b9b7b",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 419,
+        "Wires": 423,
+        "Edges": 1251,
+        "Vertexes": 834
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBMount2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "5192f7f484643e01bbbfe324eb0326734192ed4f98335e9feb936a5e21ef295c",
+      "after_brep_sha256": "0b5d9cea062d4bc078f9e511d8b5db42dcd2cf530275df352bd78a2ec701eba2",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 420,
+        "Wires": 426,
+        "Edges": 1254,
+        "Vertexes": 836
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBMount3": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "2b9b2f2e063302bc1c33e5fe057c935d66e4270054e325fd492fe744e4724088",
+      "after_brep_sha256": "da127f551de870a8367b9b30d7802e6d6b025da75b638989f0164b52063a2e50",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 421,
+        "Wires": 429,
+        "Edges": 1257,
+        "Vertexes": 838
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBMount4": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "c1fdd5c2bc69f7dfe85d8113554f88c0d481404bd79ff56bc073db8bd0968b59",
+      "after_brep_sha256": "3855289fedc7c4f18c086508529bbec9e9e5ea6a02fe86d3742ab3c352f31aff",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 422,
+        "Wires": 432,
+        "Edges": 1260,
+        "Vertexes": 840
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBMount5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "3038227fd5a46f0d060915fb04f8cb3e16ef12c13dd3139104aebbcd0af9ceb1",
+      "after_brep_sha256": "fc0f5f8f6bcb51fac3bd6ac541592fbb94a7897ceb4ee69dd2df026606dcf4e3",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 423,
+        "Wires": 435,
+        "Edges": 1263,
+        "Vertexes": 842
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBMount6": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "255f486873239a86e1a7983f93cea21e51e4e432eb8e879a001a5370b7a152bb",
+      "after_brep_sha256": "d099e39d5c23e0ae6e2db5aed78b98d9a44c580e3c0c07ce8f014922ab672fec",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 424,
+        "Wires": 438,
+        "Edges": 1266,
+        "Vertexes": 844
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBMount7": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "baa9b38272f40ca87b147ed177e92e8a4c8b3c0c046f2d2e2a6841109e6b495d",
+      "after_brep_sha256": "aef6102f6905f6c0881749c275d2e19619ed28599a264017947e1b17fa40d974",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 353,
+        "Wires": 367,
+        "Edges": 1195,
+        "Vertexes": 844
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBMount8": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "2e0f9ac7d7b9a54b585d8e863d8296223243ab591c4ab73a2ad84b9303bfa6ed",
+      "after_brep_sha256": "345b8ce09367df2b0cd14d8675439902ea5feb77093a1e739069775d91421757",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 354,
+        "Wires": 370,
+        "Edges": 1198,
+        "Vertexes": 846
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_PCBAllDrills": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "b68e14b7a1743b2056dd2c209878b14ab78228104313d694fc141ca6d1ceeafb",
+      "after_brep_sha256": "7deb0b9c09eefdb917dd0ed2dedb57ceb30010af0847b01571c0cf8110bc65bc",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 513,
+        "Wires": 847,
+        "Edges": 1675,
+        "Vertexes": 1164
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_GlassWindow": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "3944aaf2198a85a756cbe02decf62f425a2cb6317d298d80036ba30fd533e8a9",
+      "after_brep_sha256": "b38d7035d56b5b3cf6e681039df1b0ec1895d007966003543641637b466a0555",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 6,
+        "Wires": 6,
+        "Edges": 12,
+        "Vertexes": 8
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_USBPlugAccess": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "0213b4262c81ee8a968eb23957ce13334b2eadf27e33af68003a914616f0555e",
+      "after_brep_sha256": "5fce1c7d9b21d2d7372d0ea302b13d677a4ffc203b9c8f261756f39290cd85c0",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 6,
+        "Wires": 6,
+        "Edges": 12,
+        "Vertexes": 8
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_MCUCornerClearance": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f8c0a7730b180c611f891450bc9f7928e1c2bf18e628984789a1438640be3df6",
+      "after_brep_sha256": "edd96cfec557dadc369443845967970af04c553ce1bb32d4f5e9dd77255fa421",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 6,
+        "Wires": 6,
+        "Edges": 12,
+        "Vertexes": 8
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_ResetToolAccess": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "21e60325b5a709f95f30a8664cad5b7aa3b270a431c079b874db5ad744f02096",
+      "after_brep_sha256": "e50e52b0edb2c5a1ffde1593c16e5a40c30b56b4cf95029aad1881c9a8885750",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 3,
+        "Wires": 3,
+        "Edges": 3,
+        "Vertexes": 2
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "L_Frame_smooth_HeadRelief5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f97adb2db7ac3ee0fd27883b614af94d72f0c6c7f17f3a0415a98fc84d735171",
+      "after_brep_sha256": "3a7551eb828eb1bcf8c6f0aa9e7d7e9a2bd9693467e479eb8432dfa8dfc654a4",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 82,
+        "Wires": 89,
+        "Edges": 219,
+        "Vertexes": 148
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_Half": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "66ad39c349ae5d288c9800be0a4265d4592e09344057b9fadd4efd06967c8fb7",
+      "after_brep_sha256": "41942285802b7031cd30ee5f563bdc80a5611e1ff9e8550473e56612b462589c",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 4,
+        "Shells": 10,
+        "Faces": 688,
+        "Wires": 757,
+        "Edges": 1967,
+        "Vertexes": 1312
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        },
+        {
+          "before_solid": 1,
+          "after_solid": 1,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        },
+        {
+          "before_solid": 2,
+          "after_solid": 2,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        },
+        {
+          "before_solid": 3,
+          "after_solid": 3,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_CavitySketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "aa8776ea75733510d3a0b5bed702d3682899bba60ea2149a5b532d7bb50b0da9",
+      "after_brep_sha256": "34f6ba04c0365f046c4cce7351d7b2fad54fa06dc39e413513b844a137db2da7",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 341,
+        "Vertexes": 341
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "R_Cavity": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "ccc834fc33598b5b4cebe0728a9bd4e133a1b9a0ab90914499b6c420ab0a57ff",
+      "after_brep_sha256": "b6abad331539404ff317ecaec7214187745927cb004952b7d9d7ad0259e13af6",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 343,
+        "Wires": 343,
+        "Edges": 1023,
+        "Vertexes": 682
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayShell": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "6451ef22a5a464345ed68dc1847cc8eb41c555b4b4b7662285415d707a851e07",
+      "after_brep_sha256": "af4f59357ff96b2587ecdffe32c402206933d2062874d7cf7b183ee5ee6e7c3a",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 386,
+        "Wires": 387,
+        "Edges": 1149,
+        "Vertexes": 766
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayPillar1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "c4b5409724ff0f3c261e196e7c73e0753bce75de219c67d6abd48e65af9c7189",
+      "after_brep_sha256": "888b8fc26cd08d355cb3692bd0e74352cd5edf093b2769f0133c1de09bcb81c2",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 388,
+        "Wires": 390,
+        "Edges": 1152,
+        "Vertexes": 768
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayDrill1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "bbb24eab12269b8cde75511a0d2171e147e0208569576fff8deb3536d95a1662",
+      "after_brep_sha256": "89de6bed7a779c4fca85236b40c6bfd661a0a2486cc410271924970a220bfc6a",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 389,
+        "Wires": 393,
+        "Edges": 1155,
+        "Vertexes": 770
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_WasherSeat1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "3799aeeeae6db54894f45487a2fb184675fdcc874b2be5e34e93a7363d3dfbee",
+      "after_brep_sha256": "a93fbe0d251f09149cfb89bfac5050b076483716c13e56d9d20724fa6bb23986",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 389,
+        "Wires": 393,
+        "Edges": 1155,
+        "Vertexes": 770
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayPillar2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f0edbecf4491a4e147ac5da58a0e0c3777dde728b8d39add418817e8ccbe2661",
+      "after_brep_sha256": "f6fdff2cf77f4000705ade600b38885c343c076ef9cadfbcd11d8540d379657d",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 391,
+        "Wires": 396,
+        "Edges": 1158,
+        "Vertexes": 772
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayDrill2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "6c5655a4516c5d4ea238344493c41e711831d62497275cb27ad5c3756d302542",
+      "after_brep_sha256": "eb2291e007b105f229255f16801cb4da204f87dfa0de7c631c75e6c05fa1a99b",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 392,
+        "Wires": 399,
+        "Edges": 1161,
+        "Vertexes": 774
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_WasherSeat2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "aa3ed8d3f9e64d230db2464d4246cd79edc2573a1bb2d2631817e839a62b14a9",
+      "after_brep_sha256": "8a62c448f5f5ed880dc384e5e538c13b90198bafa8eaeed51fa58e46982f1eb4",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 392,
+        "Wires": 399,
+        "Edges": 1161,
+        "Vertexes": 774
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayPillar3": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "61ddd6dd75bef53acd5cbea63d0326f03f8d492479637d11cebeba590ed54d4e",
+      "after_brep_sha256": "fc6afa8ae604f7d17d94e4a8f60de345af0340e3c0dedbab4e8871c666d70e18",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 394,
+        "Wires": 402,
+        "Edges": 1164,
+        "Vertexes": 776
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayDrill3": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "a36eb131cd5e6d96e7be84422fba85c7d1424dfc73ca0ecbeee2f7f52da2c2bb",
+      "after_brep_sha256": "7c737ae191ff47797b0fc0c22bda74175a11cc2b1f582952451ed7d53ca48462",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 395,
+        "Wires": 405,
+        "Edges": 1167,
+        "Vertexes": 778
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_WasherSeat3": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "6c15e22d712f97af8deddb7f5e533e3b32ac1e1c918032879e9d37f00355f31e",
+      "after_brep_sha256": "3285e57b6aa4f58350e329d170141a60010dbe4770da042a722ba79868c92c5b",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 395,
+        "Wires": 405,
+        "Edges": 1167,
+        "Vertexes": 778
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayPillar4": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "742d009dbfb9304208e1f9b92dbd2192af999cf105a39909188a6fd8dd93517f",
+      "after_brep_sha256": "00eeb60da65d6183411453deed35cd95ca6c3dbea6677de12cb657f145de2875",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 397,
+        "Wires": 408,
+        "Edges": 1170,
+        "Vertexes": 780
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayDrill4": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "69cb85ba690366d54c3bff329e6c8622fe9ec0caf3c7be0694f98d179273a36c",
+      "after_brep_sha256": "9ec8006a0ddecf4557242e97f8d4bcff87554f4b91159078623d562831ffe5bc",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 398,
+        "Wires": 411,
+        "Edges": 1173,
+        "Vertexes": 782
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_WasherSeat4": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "a461264f11ec0aeda3a9de6995762d72382e34f54bde3c688b666ce443509c52",
+      "after_brep_sha256": "09b3157be278e93e4ccc3493f711e2fb553584794498583c296686d9da898f87",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 398,
+        "Wires": 411,
+        "Edges": 1173,
+        "Vertexes": 782
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayPillar5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "40e7f82a764fc854302fd53837b085c6ba2a9e741230b79676f85e836aeda55f",
+      "after_brep_sha256": "1cc4d15c57f7ca17bf34f8ee714c0f0ec3e5c0d98d2a247307f8f5c7a2948cf1",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 400,
+        "Wires": 414,
+        "Edges": 1176,
+        "Vertexes": 784
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayDrill5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "b43d495575d66c3e54633751e8cf02e6f423409a83aacda1e67ffceab2837ee5",
+      "after_brep_sha256": "f64a86b65d90b24ff57d08b0ded406fd30cc3ce8b1dca9900a825edf1d90b5b3",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 401,
+        "Wires": 417,
+        "Edges": 1179,
+        "Vertexes": 786
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_WasherSeat5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "1dcf8897cd602054460e0003d3fdf55d6b2cccf6e9b73839cd8f2f5c3763ce8f",
+      "after_brep_sha256": "3f9a918085ba52196d0cf649d511327b8cad8e44fac61e320599beaaadd09de4",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 401,
+        "Wires": 417,
+        "Edges": 1179,
+        "Vertexes": 786
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayMagnetPost0": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "e124f7527e67229b2124aa2060be6803a3a600c1ce63d1d43b03d2d4b2836b01",
+      "after_brep_sha256": "ee9ab322ba49677bf607e9affebfa5cd2db4024a35496999d70b2a9d971f236a",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 405,
+        "Wires": 423,
+        "Edges": 1185,
+        "Vertexes": 790
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_MagnetPocket0": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "2d11885aa7bf8b59bfedd3a2d0af0442b52fc7825ae94af3dfb5c966ea60c11b",
+      "after_brep_sha256": "3356468c89cbe56b7058fcc32265a7f353cd7aa2a91f1c4c1b745a1d63da8c09",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 2,
+        "Faces": 408,
+        "Wires": 426,
+        "Edges": 1188,
+        "Vertexes": 792
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayMagnetPost1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "a9a368aded3b4d52225d3f830469c446bfd035ee347fe6e7a6b94e32336bf436",
+      "after_brep_sha256": "080e9ed34172712c85ac81219b36ab76ca39322d17d270ba74f8016b4536e379",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 2,
+        "Faces": 412,
+        "Wires": 431,
+        "Edges": 1201,
+        "Vertexes": 802
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_MagnetPocket1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "76dd5ab2635e6cc2bbc1a1f36a9164ca6edef488f80d7cb661849b09f15a677b",
+      "after_brep_sha256": "6af32b426a3d150f849ec6cb82433c9bce4261fde2f4c7c60a83981329c829c1",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 3,
+        "Faces": 415,
+        "Wires": 434,
+        "Edges": 1204,
+        "Vertexes": 804
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayMagnetPost2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "460062b8986ab65cb88d6aff4bb3bd8d992dfc788d1419ab61015e7009f0821c",
+      "after_brep_sha256": "cee5d0fd4f6bf91c0de3fc46af7e3869d33b397107680ccd4028e429385c1baf",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 3,
+        "Faces": 419,
+        "Wires": 440,
+        "Edges": 1210,
+        "Vertexes": 808
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_MagnetPocket2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "3472dfbcfb8cbc9bb57cdd6f82b791623abc3f516e5cee114203d3e18820e843",
+      "after_brep_sha256": "bcd7fc59d275e8215b54012552a8925253d01ba8d3249f30d33382978a31c834",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 422,
+        "Wires": 443,
+        "Edges": 1213,
+        "Vertexes": 810
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PowerAccess": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "c71c0cb3faf050ddc91b051a903ec8e4e55bafa1b0e053d27a913f0cc50f1a26",
+      "after_brep_sha256": "819306a52d2ee1f16adc220aea52533b283a80f576ecb70ddc8f2f4ec3cfe617",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 6,
+        "Wires": 6,
+        "Edges": 12,
+        "Vertexes": 8
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TrayPowerCut": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "96a67de59faa8b72a6bb9207d20254df375aa9dfd829db922402fbee4374cbd8",
+      "after_brep_sha256": "fd84e783f47ff728ba857934a29133a450359a3303c10f71783923b1f82b5960",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 425,
+        "Wires": 445,
+        "Edges": 1225,
+        "Vertexes": 818
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PlateFrameToolSketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "2e4e754246ff527e669f07ef54b7343ae0ecad078d7cde03508fb42d71ed09f4",
+      "after_brep_sha256": "ce462740e610de440b8c3deed5c14895be14eb9a091d6ca67870e600be0f9a41",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 68,
+        "Vertexes": 68
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "R_PlateFrameTool": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "2a16b0aa93ee524c46343039b6c32a03886d0bf7b108852c193f2bab5330370e",
+      "after_brep_sha256": "9d067f8abf89eb264b6b64c32db7c65986c7966060332fa9f8aa5e62779301a8",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 70,
+        "Wires": 70,
+        "Edges": 204,
+        "Vertexes": 136
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_RimInnerSketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "afe6e0f37ce7296ce065fcdc438dee4b137d64ca314ab7648e6bc46beec69419",
+      "after_brep_sha256": "63efce2e42876d77abf329f70744fd61bc4938221b6d913ab1223618e8494d52",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 357,
+        "Vertexes": 357
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "R_RimInner": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "961e378de424a28408b15f7c6bb3ad6380af46b24b84e9751e44126fc8eaa1eb",
+      "after_brep_sha256": "fe8fdb896f715120b4643026abfda7067a06970690c2a5d3b655af2ce15f44ef",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 359,
+        "Wires": 359,
+        "Edges": 1071,
+        "Vertexes": 714
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_RimTray": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "2674efc214ab3fa84196d1917fff0cda896ac514a77e7f4ba946180060a7f49d",
+      "after_brep_sha256": "937cbca8ec7a602521c481e0eb90e6a71d23f6736501d6e7a98a3207c79561d0",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 766,
+        "Wires": 786,
+        "Edges": 2248,
+        "Vertexes": 1500
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_RimPlate": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "1b2eed0168524e3cc2f441899c511cc8c96af7f1539fac296cd4fe43fab829b6",
+      "after_brep_sha256": "28b47adcb86dbdb7c376d2971bbd7cd9dfc79d88006a70d77a02dcd44b5a5707",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 446,
+        "Wires": 488,
+        "Edges": 1332,
+        "Vertexes": 888
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_InsetPlateEnvelopeSketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "cde90a6391219e47277895914350a3d7ef14e5c8677145abe08abe99d99d72a5",
+      "after_brep_sha256": "e3a503ea6f6187477abefbf88910069cde63a7cd22c71d54dabdce733d896007",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 357,
+        "Vertexes": 357
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "R_InsetPlateEnvelope": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "143c3edc45d2f2ecaa00b8981eda1a2c5bb0b777c722258393d2892d59781a9c",
+      "after_brep_sha256": "5a45570901595b649e293fea9b4e41f24ca3dd86c848bb29f3b0460ead5ffe77",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 359,
+        "Wires": 359,
+        "Edges": 1071,
+        "Vertexes": 714
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TerraceInner0Sketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "c3b302847c85a2453e8d4643ac3705a031ee17dc83540a14e6cc946d83ab4325",
+      "after_brep_sha256": "1424b8ca789089edc4d9701a2cd6e50e3fdb214bb8fc98501b513d393a1120d6",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 357,
+        "Vertexes": 357
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "R_TerraceInner0": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "ad20c27a9114133a851b0359d8ce1a507188359a8b2c1124723761c56ff24094",
+      "after_brep_sha256": "e6bdfe92db4e919c055293244485832f958479a24cf38e4138303e34716868b2",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 359,
+        "Wires": 359,
+        "Edges": 1071,
+        "Vertexes": 714
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TerraceCut0": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "f1965e04de73cef4f0c16839e4eb260f9280cd9d6e0f29a64f7f4de39fffd74f",
+      "after_brep_sha256": "434335a4505366c1b57f9918405504cb9fb291df28ed51e801e1089414f23ba1",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 826,
+        "Wires": 848,
+        "Edges": 2422,
+        "Vertexes": 1616
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TerraceInner1Sketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "c3b302847c85a2453e8d4643ac3705a031ee17dc83540a14e6cc946d83ab4325",
+      "after_brep_sha256": "1424b8ca789089edc4d9701a2cd6e50e3fdb214bb8fc98501b513d393a1120d6",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 357,
+        "Vertexes": 357
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "R_TerraceInner1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "4114fad4b109c71cd167d49bea4cacab3d6307022481d8b9dcd5fc43082a80df",
+      "after_brep_sha256": "3825570f063110879bad86d01b1e547e7b1d911ba9bc89765c3f373d8ab0f45f",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 359,
+        "Wires": 359,
+        "Edges": 1071,
+        "Vertexes": 714
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_TerraceCut1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "e823f87f58a6d4c3f7f02c56ab6a882b1d68eb53bfb9413a95191b2240912d56",
+      "after_brep_sha256": "893eafb7709fb1259166533643954ceb102eb354bc7438a16a9daf88adaf2ed5",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 1227,
+        "Wires": 1251,
+        "Edges": 3619,
+        "Vertexes": 2414
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_Case_solid_base": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "6fe3baef32dc2b051d001530c1dacf7f19e95ce3b08a19b0493206035d5b7b93",
+      "after_brep_sha256": "2abae84198cb7774e3258fb0a139f88dda70708ec52690a58baa7546267eb3be",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 425,
+        "Wires": 445,
+        "Edges": 1225,
+        "Vertexes": 818
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_Case_rim_base": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "33a4ccabfb44cbe7ced3707863a5df893679bd31d75bc6411bbcd953650d4b08",
+      "after_brep_sha256": "dcc53269fa193ba6c5e6febaad9b56c611dc6d34a8a66e91a2f300e48dcc9594",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 766,
+        "Wires": 786,
+        "Edges": 2248,
+        "Vertexes": 1500
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_Case_rim_plate": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "6c7267791b260dde1a108533cd446df8583ff09502c832ea417fa6068dc9c874",
+      "after_brep_sha256": "8eb3a0bed5ada075aba13882735ec35664a918b5c4d4a4caa47c3c36b561c11f",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 446,
+        "Wires": 488,
+        "Edges": 1332,
+        "Vertexes": 888
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_Case_terrace_base": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "8c25c705f2d57f5ee52dbdb3256b433894fcd89358964c23b8fbc4909430a6a8",
+      "after_brep_sha256": "301d1816d08b4135143f473bec0e28f1b7116177cf8609c96534ef18dec69908",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 1227,
+        "Wires": 1251,
+        "Edges": 3619,
+        "Vertexes": 2414
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_ActiveTray": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "8106b12d4f6a4d8b990fc456d22673b8e6e20509db632f92163b001a71056d8c",
+      "after_brep_sha256": "7a2a2ef12da3e7422b63bdbb708314048128754115a01662dee028e042e56e18",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 425,
+        "Wires": 445,
+        "Edges": 1225,
+        "Vertexes": 818
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBPadSketch": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "dd1e380d20e3f5ecf69e0c8f0b2a85e0c0383b71c28dd05c4ea52e1ed209ed9f",
+      "after_brep_sha256": "fc20629c57a866e9b01f62cc9ea57ce02a919bf7cd1dba26cbf9cd426c30aa19",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 0,
+        "Shells": 0,
+        "Faces": 0,
+        "Wires": 1,
+        "Edges": 412,
+        "Vertexes": 412
+      },
+      "method": "whole_shape_fallback_including_nonsolid_residuals",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0,
+        "residual_area_mm2": 0.0,
+        "residual_length_mm": 0.0
+      },
+      "solid_pairs": []
+    },
+    "R_PCBPad": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "3038e864eada46449d982a92e26d3893b8eb656006fb15124ff284dfc215b01c",
+      "after_brep_sha256": "408378ec393105f5887f47964c3f8bd1ab89527a8a115c554aea67534ba2806c",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 414,
+        "Wires": 414,
+        "Edges": 1236,
+        "Vertexes": 824
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBBatteryOpening": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "70deb87928df01822842227451209058eb54f0d596dae4e01124ce6b2237af31",
+      "after_brep_sha256": "b6fda4a5d6cd319af4419794acd0ec17c1bc49244630c032500685e3703d935f",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 418,
+        "Wires": 420,
+        "Edges": 1248,
+        "Vertexes": 832
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBMount1": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "7b8a7b631f6e0d408a65abffea312b9c95b796d36dcc8cadff093a2875715777",
+      "after_brep_sha256": "b1270ce63a2167e19519d887b5476d35850439942b6ac66c57a9e74c7683e721",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 419,
+        "Wires": 423,
+        "Edges": 1251,
+        "Vertexes": 834
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBMount2": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "0ea1d42a94a33aaf3e8c55743275efbf29201cfe34cd6c8de335964010efd4d5",
+      "after_brep_sha256": "321fa6c885949dcd4848dab07521dd80463ff877a529fa81989045583d245f6e",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 420,
+        "Wires": 426,
+        "Edges": 1254,
+        "Vertexes": 836
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBMount3": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "218d26cca48adcc652a9ac9c8a043ffe342a67a4848c75cd9e69aeabd31225bc",
+      "after_brep_sha256": "f91cbc07d1d5260d1448fe7e7b7e1c02430abd9f913f96ac8af43c4b008fe6e1",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 421,
+        "Wires": 429,
+        "Edges": 1257,
+        "Vertexes": 838
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBMount4": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "45aeabf1f4375bfee26f724fcfd8ff97d1fbf9aa72da22705d7bbd7e6bea2089",
+      "after_brep_sha256": "be18f5080c869f22f5186f74da7947985ce52055385f2b8d05bd61e9d974aabb",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 422,
+        "Wires": 432,
+        "Edges": 1260,
+        "Vertexes": 840
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBMount5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "0657b8f0bba587599b9d13c00b91e17385c0c5b35b5354979b29cb43a51460d3",
+      "after_brep_sha256": "8212337ea1e4d222a0875e2046b7680ce26f01628c7cdcd44f1ab7525d65fb9f",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 423,
+        "Wires": 435,
+        "Edges": 1263,
+        "Vertexes": 842
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBMount6": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "c7e8ab3487b57a32c93e4eab45362aebd6f3f52a7a12411fcb16ddcdd24cfe38",
+      "after_brep_sha256": "d614d958035bb4dbdde620b472a1faeed5263f13379f717a2883523102b291f3",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 424,
+        "Wires": 438,
+        "Edges": 1266,
+        "Vertexes": 844
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBMount7": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "b7c78beb430f592981df12824c3dbd8d50afca720164b062a5daa9687246ef75",
+      "after_brep_sha256": "2ca79f4d5e0643f4675505c61f0b439d656ec543a72688dbf35f065ba477345c",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 353,
+        "Wires": 367,
+        "Edges": 1195,
+        "Vertexes": 844
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBMount8": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "e1e5a92289ba45988f03de4ae87a42ec5b94f81965c9049e7249277c66ebaffd",
+      "after_brep_sha256": "b6f942dd024d630dc34cff4dc3e44cb6fba753838f27a9b79feb6c3ac35c1d5f",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 354,
+        "Wires": 370,
+        "Edges": 1198,
+        "Vertexes": 846
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_PCBAllDrills": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "78037d1b3bf8dc65ef8a64d2264480dcef08d7a02295fbe5f9262ff7cadb1b24",
+      "after_brep_sha256": "ad6cec73404b87af9e7d11b44982b776b8d3fbb41f8663e7b03618a8aaa3488a",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 513,
+        "Wires": 847,
+        "Edges": 1675,
+        "Vertexes": 1164
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_GlassWindow": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "bfe326dbabd59a827c422921e5649f4f0499019da4b1062364d183faf63dc6a0",
+      "after_brep_sha256": "d5eda4127484cf364537947e85d8656c0c90a1500f52d7e43ba8fb41713d8198",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 6,
+        "Wires": 6,
+        "Edges": 12,
+        "Vertexes": 8
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_USBPlugAccess": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "aec9ea998b6428d9ea11c47f41245b6c48b2bf48943ef41ae22a86f52510b140",
+      "after_brep_sha256": "f4acc09645b5215fe275595501c1aab35c1505dcce2ab97e7394bc8d45ee7832",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 6,
+        "Wires": 6,
+        "Edges": 12,
+        "Vertexes": 8
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_MCUCornerClearance": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "2a5d2f765d242737bbc9313caa1dc0523305dfb4e3810cfda1dc5e220b0ad4d1",
+      "after_brep_sha256": "c4e8a25bb5ee2902a815798fd176979448fe00a319ed48f034ac5fa7f1faf912",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 6,
+        "Wires": 6,
+        "Edges": 12,
+        "Vertexes": 8
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_ResetToolAccess": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "39a300042e4983d8b97f75c771276d5f9774acf0b20debd4d48c460766b0e42d",
+      "after_brep_sha256": "e978cf51876136fb47632e17ed905f76ab11c4ce060c671c85e6fd4ca929e026",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 1,
+        "Faces": 3,
+        "Wires": 3,
+        "Edges": 3,
+        "Vertexes": 2
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    },
+    "R_Frame_smooth_HeadRelief5": {
+      "status": "hash_changed_but_geometrically_equivalent",
+      "before_brep_sha256": "92027c1f97eda99b897c3d82ed0af0c26ecfa15f9a51b56c8ac302ac154067d6",
+      "after_brep_sha256": "493d90e91ca9b97deb53804f4a43ba846f30ff8011e916dea0e5865f29ae5eab",
+      "byte_identity": false,
+      "tolerance_mm": 1e-07,
+      "tolerance_mm2": 1e-07,
+      "tolerance_mm3": 1e-07,
+      "topology_counts": {
+        "Solids": 1,
+        "Shells": 4,
+        "Faces": 82,
+        "Wires": 89,
+        "Edges": 219,
+        "Vertexes": 148
+      },
+      "method": "bijective_solid_pairs_with_global_residual_bound",
+      "differences": {
+        "max_bounds_delta_mm": 0.0,
+        "volume_delta_mm3": 0.0,
+        "area_delta_mm2": 0.0,
+        "length_delta_mm": 0.0,
+        "bidirectional_vertex_distance_mm": 0.0,
+        "before_minus_after_volume_mm3": 0.0,
+        "after_minus_before_volume_mm3": 0.0
+      },
+      "solid_pairs": [
+        {
+          "before_solid": 0,
+          "after_solid": 0,
+          "differences": {
+            "max_bounds_delta_mm": 0.0,
+            "volume_delta_mm3": 0.0,
+            "area_delta_mm2": 0.0,
+            "length_delta_mm": 0.0,
+            "bidirectional_vertex_distance_mm": 0.0,
+            "before_minus_after_volume_mm3": 0.0,
+            "after_minus_before_volume_mm3": 0.0
+          }
+        }
+      ]
+    }
+  },
+  "inputs": [
+    {
+      "path": "tools/freecad/check_frame_extensions.py",
+      "sha256": "49c3eed0b185c40ea54817a691c68b351dbd5ff40f60adfc4c01b442f256ffeb"
+    },
+    {
+      "path": "tools/freecad/install_extra_frames.py",
+      "sha256": "1e9f37e9f6e0747fd32f162d9b01d64c956744a0ff0f4924a3ac40bad42b0a3b"
+    },
+    {
+      "path": "tools/freecad/shape_equivalence.py",
+      "sha256": "cc32074ea615d322171d5ea57f0e6184c4cec5b19cd25825fdecbf01c5723a46"
+    },
+    {
+      "path": "tools/freecad/extra_frames.py",
+      "sha256": "94f10a43a2a5a1360f00ec340841696566778a188ba7f53b55a8f76c3d9bed14"
+    },
+    {
+      "path": "design/frame-extensions.json",
+      "sha256": "b328a3b8f45096d5a8cdd509e74ac81a28c0ca1b443ee28050faaa31ec35d344"
+    }
+  ],
+  "manufacturing_ready": false,
+  "physical_fit": "unqualified; digital geometry only"
+}

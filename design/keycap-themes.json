@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "palettes": [
+    {
+      "id": "original",
+      "name": "Original",
+      "base": "#e9dfc6",
+      "mods": "#e9dfc6",
+      "accent": "#45967b"
+    },
+    {
+      "id": "flan",
+      "name": "Caramel",
+      "base": "#f5dfa3",
+      "mods": "#b46737",
+      "accent": "#743e2d"
+    },
+    {
+      "id": "pocket",
+      "name": "Pocket",
+      "base": "#e5dfc8",
+      "mods": "#393941",
+      "accent": "#a83363"
+    },
+    {
+      "id": "matcha",
+      "name": "Matcha",
+      "base": "#e5e8cf",
+      "mods": "#7a9567",
+      "accent": "#385444"
+    },
+    {
+      "id": "sakura",
+      "name": "Sakura",
+      "base": "#f5e6eb",
+      "mods": "#cc8da5",
+      "accent": "#724b70"
+    },
+    {
+      "id": "ink",
+      "name": "Ink",
+      "base": "#303541",
+      "mods": "#555e6d",
+      "accent": "#b3d5cd"
+    },
+    {
+      "id": "sunset",
+      "name": "Sunset rows",
+      "pattern": "rows",
+      "colors": [
+        "#e8b467",
+        "#e99578",
+        "#c3657c",
+        "#634965"
+      ]
+    },
+    {
+      "id": "arcade",
+      "name": "Arcade columns",
+      "pattern": "columns",
+      "colors": [
+        "#d35b79",
+        "#daaa5a",
+        "#8daf78",
+        "#609eac",
+        "#8879ba"
+      ],
+      "accent": "#383c52"
+    }
+  ]
+}

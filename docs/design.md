@@ -17,7 +17,7 @@ The insulating saddle stays below the PCB. The cell and a narrow removable cage 
 
 The case is **116.75 × 94.57 mm per half**. Five stepped column tops, an orthogonal pinky foot and a shallow rounded recess follow the reference. Straight lower faces remain parallel to each thumb key, joined by **local tangent arcs**. The outside thumb flank stops at the LCD panel edge. The 21 control corners use locally bounded radii, including R2.4 finger corners where space permits. Straight exposed faces retain their **4.75 mm** copper allowance. Fasteners stay within existing material. Both halves are exact mirrors; all 36 switch centers and angles remain unchanged.
 
-Choose [Solid, Color rim or Terrace](cases.md). These are different base/plate geometries, compatible with the same stack and six display frames. The printed display cover can be omitted while retaining the display and structural supports.
+Choose [Solid, Color rim or Terrace](cases.md). These are different base/plate geometries, compatible with the same stack and ten display frames. The printed display cover can be omitted while retaining the display and structural supports.
 
 ![Measured exterior rim](images/revI-rim.png)
 
@@ -29,19 +29,35 @@ The frame now shares the case's **R2.4 north/outside corner** beside USB, includ
 
 ### Can the stack be thinner?
 
-**The current height is not a proven minimum.** Dimensions below start at the bottom of the case, excluding feet and keycaps.
+**The current height is not a proven minimum.** The completed
+[slim support study](slim-mount-study.md) supersedes the preliminary left-half
+height check: it covers both halves, all 10 frames and both battery profiles.
+Dimensions below start at the case bottom, excluding feet.
 
-| Configuration | Plain cover | Raised themed cover | Status |
-|---|---:|---:|---|
-| Current model | 16.6 mm | 17.2 mm | Published nominal assembly |
-| Lower display candidate | 15.6 mm | 16.2 mm | Preliminary nominal study; not selected for printing |
-| Full 1.8 mm reduction | 14.8 mm | 15.4 mm | Rejected with the current battery connector envelope |
+| Configuration | Plain cover | Decorated cover | Status |
+| --- | ---: | ---: | --- |
+| Reference | 16.6 mm | 17.2 mm | Static modeled checks clear; retained |
+| Lower display candidate | 15.6 mm | 16.2 mm | Static modeled checks clear; experimental |
+| Rejected limit | 14.8 mm | 15.4 mm | Roof intersects the JST connector by 0.3 mm |
 
-The display PCB currently sits 8.8 mm above the main PCB. [Typeractive's 5-pin connector](https://typeractive.xyz/products/5-pin-sockets) is described as 7 mm installed, suggesting a display-bottom candidate of **12.4 mm** instead of 14.2 mm. That interpretation still needs a measured mounting datum and qualified pin engagement.
+The lower candidate moves the display bottom from 14.2 to **12.4 mm**, leaving
+**0.82 mm** between the modeled MCU and display and **0.5 mm** above the JST.
+Actual header engagement and electrical continuity remain unqualified. With the
+selected KLP Lamé keycaps, total height remains **17.87 mm** in all three
+recipes; lowering the cover does not lower the highest point.
 
-The left-half study at 15.6 mm finds no intersections in the affected nominal component/frame pairs, with **0.82 mm** between the modeled MCU and display and **0.5 mm** above the battery connector. At 14.8 mm, the roof cuts **0.3 mm** into that connector envelope in every frame style. The connector is still an approximate block, so these numbers identify constraints, not final tolerances. [Reproducible study](../tools/freecad/study_stack_height.py) · [Measured results](../validation/revI-stack-study.json).
+All three recipes have a service conflict: lifting the display and sled together
+crosses the modeled battery leads at **0.5–2 mm**. Lead routing or the removal
+sequence must change and be rechecked before physical qualification. The native
+source retains the reference height.
 
-The Adafruit battery controls the required cell height (3.8 mm); the 301230 controls width (12 mm). Both remain supported. Final compactness depends on the actual sockets, solder, display backing, battery connector, leads and removable supports. The lower candidate has not passed connector engagement, extraction paths or physical fit; the printable source retains its current height.
+Fusing the three washers into each plate removes **six loose parts** across the
+keyboard while preserving their seats. Optional base/saddle fusion removes two
+more, at the cost of independent saddle replacement. Both changes have **zero
+height reduction**. [Study geometry and full findings](slim-mount-study.md) include
+the rejected limit for comparison; printed fit remains unqualified. The
+[earlier height report](../validation/revI-stack-study.json) remains as historical
+evidence.
 
 ### Magnetic frame, independent structure
 

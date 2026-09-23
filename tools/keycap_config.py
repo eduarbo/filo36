@@ -33,6 +33,8 @@ def default_config(catalog=None):
 
 def normalize(config,catalog=None):
     c=catalog or load();result=copy.deepcopy(config);result['schema']='flan36-config-1'
+    for side,keys in c['layout'].items():
+        for key in keys:result['keycaps'][side][key['ref']].setdefault('color','#45967b' if key['row']==3 else '#e9dfc6')
     if 'cases' not in result:result['cases']=copy.deepcopy(c['default_configuration']['cases'])
     for side in ['left','right']:
         case=result['cases'][side];style=c['case_styles'][case['style']]
@@ -73,6 +75,7 @@ def check(config,catalog=None):
         shapes[side]={}
         for k in keys:
             x=config['keycaps'][side][k['ref']];v=variants.get(x.get('variant'));turn=x.get('rotation_deg')
+            if 'color' in x and not valid_color(x['color']):return ['Invalid keycap color.'],None
             if not v or turn not in v['rotations_deg'] or not v['qualified_reference_positions']:
                 errors.append(f"{side} {k['ref']}: unqualified variant or orientation.");continue
             p=polygon(v['hull_xy_mm'],k,turn);shapes[side][k['ref']]=p

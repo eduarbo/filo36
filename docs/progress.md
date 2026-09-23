@@ -6,11 +6,19 @@
 |---|---|---|
 | 36 Piantor key centers and angles | Checked | [Layout](../design/layout.json), upstream files and checker |
 | Editable source and CAD exchange | Available | Native FCStd, parameters and [FreeCAD/StepUp examples](freecad.md) |
-| KLP catalog and themed frames | RevI digital study | 38 source variants, 28 with qualified positions; six frame styles, configuration export/import |
+| KLP catalog and themed frames | RevI digital study | 38 source variants, 28 with qualified positions; ten frame styles, per-key colors and configuration export/import |
 | Wireless electronics and displays | Placement only | Unrouted revI PCBs; 0 geometric DRC violations, 104 unconnected items each; exact connectors pending |
 | Final BOM and manufacturing files | Pending | Close routing, clearances, retention and exact supplied parts |
 | Printing and assembly | Pending | Fit coupon, sample caps and actual component measurements |
 | Working keyboard | Pending | All keys, BLE, charging, sleep/wake and measured consumption |
+
+## Revision I — keycap palettes and creative frames
+
+Color all keys, a row, a column or one key, on either half or both. Eight keycap palettes and sixteen coordinated global themes provide starting points. Personal palettes can be saved, imported and exported; configurations retain all 36 colors without changing key shapes or rotations. [Color editor](customize.md#keycap-colors).
+
+Cartridge, Arcade, Mecha and Kintsugi bring the frame catalog to ten. Their relief is actual printable geometry; previews and print kits use the corresponding meshes. Native FreeCAD preserves custom colors through save/reopen. [Frame guide](frames-extra.md).
+
+The [measured support study](slim-mount-study.md) covers both halves, both batteries and all ten frames. Integrating plate washers removes six loose parts; optional integrated battery saddles remove two more. Neither changes height. A 15.6 mm plain roof clears modeled static geometry, but overall height stays **17.87 mm** with the selected caps, excluding feet. A 14.8 mm roof intersects the JST envelope. Display/sled extraction crosses modeled battery leads in all three recipes; cable routing, connector engagement and physical fit remain open. Separately named experimental STEP/STL files are included; the reference print kit keeps its original stack.
 
 ## Revision I — shared frame corner and height study
 

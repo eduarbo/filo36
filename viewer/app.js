@@ -7,6 +7,7 @@ import {copy,check,normalize} from './config.js';
 import {printKit} from './printing.js';
 import {createAppearance,setColor,savedKey} from './appearance.js';
 import {restoreConfiguration} from './storage.js';
+import {createKeycapColors} from './keycap-colors.js';
 import {createExplorer,partInfo} from './explorer.js';
 import {createPreviewRenderer} from './previews.js';
 import {createFrameFinishes,framePalette,finishes} from './finishes.js';
@@ -82,7 +83,7 @@ for(const part of data.parts){
   objects.push(mesh);scene.add(mesh);
 }
 // Runtime scene uses x=CAD x, y=CAD z, z=CAD y; right-hand meshes are not mirrored again.
-let explorer,appearance,renderFrame=0;
+let explorer,appearance,keycapColors,renderFrame=0;
 function render(){if(renderFrame)return;renderFrame=requestAnimationFrame(()=>{renderFrame=0;explorer?.update();renderer.render(scene,camera);});}
 let orbiting=false;
 controls.addEventListener('start',()=>{orbiting=true;explorer?.motion(true);});controls.addEventListener('end',()=>{orbiting=false;explorer?.motion(false);});
@@ -154,7 +155,7 @@ function openPanel(id,section=id){
   for(const name of ['cases','frames','themes','keycaps','battery','files','about'])$('panel-'+name).hidden=id!==name;
   for(const button of document.querySelectorAll('.part-item'))button.setAttribute('aria-expanded',String(button.dataset.group===section));
   for(const name of ['themes','files','about'])$('nav-'+name).setAttribute('aria-expanded',String(name===section));
-  $('inspector').scrollTop=0;appearance?.sync();
+  $('inspector').scrollTop=0;appearance?.sync();keycapColors?.sync();
 }
 $('collapse-detail').onclick=()=>setCollapsed($('collapse-detail').getAttribute('aria-expanded')==='true');
 for(const name of ['themes','files','about'])$('nav-'+name).onclick=()=>{if(name!=='files')explorer?.clear();openPanel(name);};
@@ -213,7 +214,7 @@ for(const [value,label] of [['all','All keys'],['row-0','Top row'],['row-1','Hom
 for(const [side,keys] of Object.entries(catalog.layout))for(const k of keys)$('key-target').add(new Option(`${side==='left'?'Left':'Right'} ${k.ref}`,`${side}:${k.ref}`));
 for(const v of catalog.variants)$('key-variant').add(new Option(v.label+(v.status==='unqualified'?' · no qualified position':''),v.id));
 $('key-variant').value='choc_stem_choc_size_normal';
-function candidate(id,turn){const cfg=copy(configuration);for(const [side,k] of targetKeys())cfg.keycaps[side][k.ref]={variant:id,rotation_deg:turn};return cfg;}
+function candidate(id,turn){const cfg=copy(configuration);for(const [side,k] of targetKeys())cfg.keycaps[side][k.ref]={...cfg.keycaps[side][k.ref],variant:id,rotation_deg:turn};return cfg;}
 function updateChoices(){
   const v=variants.get($('key-variant').value),old=Number($('key-rotation').value);
   $('key-rotation').replaceChildren(...v.rotations_deg.map(a=>new Option(a+'°',String(a))));
@@ -236,7 +237,7 @@ function applyConfiguration(next){
     if(group==='lid')o.userData.installed=next.cases[side].cover;
     if(group==='keycaps'){
       const choice=next.keycaps[side][key],v=variants.get(choice.variant),k=catalog.layout[side].find(k=>k.ref===key);
-      o.geometry=geometryFor(v.path);o.rotation.y=THREE.MathUtils.degToRad(k.angle+choice.rotation_deg);o.userData.base[1]=v.seating_z_mm;
+      o.material=material(choice.color);o.userData.color=choice.color;o.geometry=geometryFor(v.path);o.rotation.y=THREE.MathUtils.degToRad(k.angle+choice.rotation_deg);o.userData.base[1]=v.seating_z_mm;
       o.userData.variant=v.id;o.userData.cap_rotation_deg=choice.rotation_deg;
     }
     if(group==='lid'&&o.userData.frame_style!==undefined){
@@ -280,7 +281,7 @@ for(const [id,spec] of Object.entries(catalog.case_styles)){
 }
 for(const button of $('case-target').children)button.onclick=()=>{caseSide=button.dataset.side;syncConfigurationUI();};
 $('case-cover').onchange=e=>{const cfg=copy(configuration);for(const side of caseTargets())cfg.cases[side].cover=e.target.checked;applyConfiguration(cfg);};
-for(const id of ['handheld','tv','cyberpunk','smooth','bevel','facet']){
+for(const id of ['cartridge','arcade','mecha','kintsugi','handheld','tv','cyberpunk','smooth','bevel','facet']){
   const finish=frameFinish(id,'left'),button=card(id,catalog.frame_styles[id],preview.image([finish],[0,1,.16],{width:220,height:360,up:[0,0,-1]}));button.dataset.style=id;
   const img=button.querySelector('img');img.width=220;img.height=360;img.alt=catalog.frame_styles[id]+' frame in its original palette';
   button.onclick=()=>applyFrame({style:id});$('frame-grid').append(button);
@@ -294,7 +295,7 @@ $('theme-colors').onclick=()=>{const cfg=copy(configuration);for(const side of f
 for(const [id,label] of [['default','Original'],['normal-sculpted','Sculpted Normal'],['saddle-sculpted','Sculpted Saddle']]){
   const entries=['K01','K11','K21'].map((key,i)=>({path:variants.get(data.presets[id].keycaps.left[key].variant).path,rotation:data.presets[id].keycaps.left[key].rotation_deg,center:[(i-1)*20,0,0]}));
   const button=card(id,label,preview.image(entries,[.5,1,2]));button.dataset.preset=id;
-  button.onclick=()=>{const cfg=copy(configuration);cfg.keycaps=copy(data.presets[id].keycaps);try{applyConfiguration(cfg);}catch(e){message(e.message,true);}};$('key-presets').append(button);
+  button.onclick=()=>{const cfg=copy(configuration);for(const [side,keys] of Object.entries(cfg.keycaps))for(const ref of Object.keys(keys))cfg.keycaps[side][ref]={...data.presets[id].keycaps[side][ref],color:keys[ref].color};try{applyConfiguration(cfg);}catch(e){message(e.message,true);}};$('key-presets').append(button);
 }
 preview.finish();
 for(const [id,spec] of Object.entries(catalog.battery_profiles)){const b=document.createElement('button');b.type='button';b.dataset.battery=id;b.textContent=spec.label;b.title=`${spec.width} × ${spec.length} × ${spec.height} mm`;b.onclick=()=>{const c=copy(configuration);for(const side of ['left','right'])c.batteries[side]=id;applyConfiguration(c);};$('battery-options').append(b);}
@@ -314,7 +315,7 @@ function syncConfigurationUI(){
   for(const button of $('swatches').children)button.setAttribute('aria-pressed',String(colors.size===1&&colors.has(button.dataset.color)));
   // The color input has no mixed state: its visible companion explicitly names it.
   $('frame-color').value=frames[0].color;$('frame-color').setAttribute('aria-label',colors.size===1?'Custom frame color':'Custom frame color; mixed colors, changing this applies to both halves');
-  appearance?.sync();
+  appearance?.sync();keycapColors?.sync();
   for(const button of $('key-presets').children){const preset=data.presets[button.dataset.preset];const same=Object.entries(configuration.keycaps).every(([side,keys])=>Object.entries(keys).every(([ref,c])=>c.variant===preset.keycaps[side][ref].variant&&c.rotation_deg===preset.keycaps[side][ref].rotation_deg));button.setAttribute('aria-pressed',String(same));}
 }
 function refreshPartVisibility(){
@@ -360,7 +361,7 @@ explorer=createExplorer({scene,camera,canvas,objects,requestRender:render,
     populatePartVisibility(ref);
     $('selection-title').textContent=partInfo[ref.group].name;$('selection-info').textContent=partInfo[ref.group].info;
     if(ref.group==='lid'){setFrameSide(ref.side||'both');openPanel('frames','lid');}
-    else if(ref.group==='keycaps'){openPanel('keycaps','keycaps');$('key-details').open=true;if(ref.key)$('key-target').value=ref.side+':'+ref.key;else $('key-target').value='all';chooseKeyTarget();}
+    else if(ref.group==='keycaps'){openPanel('keycaps','keycaps');$('key-details').open=true;if(ref.key)$('key-target').value=ref.side+':'+ref.key;else $('key-target').value='all';chooseKeyTarget();keycapColors?.focus(ref.side,ref.key);}
     else if(['base','plate'].includes(ref.group)){caseSide=ref.side||'both';syncConfigurationUI();openPanel('cases',ref.group);}
     else if(ref.group==='battery')openPanel('battery','battery');
     else openPanel('none',ref.group);
@@ -371,9 +372,11 @@ function downloadJSON(){const url=URL.createObjectURL(new Blob([JSON.stringify(c
 $('save-config').onclick=downloadJSON;
 $('load-config').onchange=async e=>{try{const f=e.target.files[0];if(f){if(f.size>100000)throw Error('File too large. Choose a configuration JSON.');applyConfiguration(JSON.parse(await f.text()));}}catch(error){message(error.message,true);}finally{e.target.value='';}};
 $('default-config').onclick=()=>applyConfiguration(catalog.default_configuration);
-appearance=createAppearance({$,get:()=>configuration,apply:applyConfiguration,targets:kind=>kind==='case'?caseTargets():frameTargets(),preview,frameFinish,material,resize});
+appearance=createAppearance({$,get:()=>configuration,apply:applyConfiguration,targets:kind=>kind==='case'?caseTargets():frameTargets(),preview,frameFinish,material,resize,catalog,geometryFor});
+keycapColors=createKeycapColors({$,catalog,get:()=>configuration,apply:applyConfiguration,message});
 applyConfiguration(configuration);
 if(storageMessage)message(storageMessage,true);else if(restored)message('Restored your saved configuration.');
+if(keycapColors.initialWarning)message(keycapColors.initialWarning,true);
 
 
 resize();reset();openPanel('cases','base');

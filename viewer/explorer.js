@@ -3,7 +3,7 @@ import * as THREE from 'three';
 
 export const partInfo={
   lid:{name:'Display frame',short:'Frame',info:'Magnetic frame with captive steel targets and vertical release. Pick a design below; PCB and battery remain mechanically secured.'},
-  keycaps:{name:'KLP Lamé keycaps',short:'Caps',info:'Original Choc-stem meshes. Choose a preset or edit a key, row or thumb cluster.'},
+  keycaps:{name:'KLP Lamé keycaps',short:'Caps',info:'Original Choc-stem meshes. Choose a shape preset; color all keys, rows, columns or individual keys.'},
   display:{name:'nice!view display',short:'Display',info:'14 × 36 × 2.9 mm nominal nice!view, with the Sharp active area. Screen content is illustrative; the 7 / 8.8 mm connector-height difference remains open.'},
   base:{name:'Printed base',short:'Base',info:'Key-aligned local curves and a shared contour. Pick a real case variant below; native parts are editable in FreeCAD.'},
   plate:{name:'Switch plate',short:'Plate',info:'Holds the 36 Piantor switch positions and angles. Nominal plate height: 7.6 mm.'},
@@ -85,8 +85,8 @@ export function createExplorer({scene,camera,canvas,objects,onSelect,onClear,req
   $('annotations').onclick=()=>{enabled=!enabled;$('annotations').setAttribute('aria-pressed',String(enabled));scheduleAnchor();$('view-feedback').textContent=!enabled?'Part links hidden.':!(hovered||selected)?'Part links on. Hover or select a visible component.':'Part links on. The line appears when the selected surface is visible.';requestRender();};
   new ResizeObserver(()=>{layoutDirty=true;requestRender();}).observe(main);
   function update(){
-    // Keep a selected frame's palette visible; hover still highlights its surface.
-    const active=hovered||selected,highlighted=hovered||(selected?.group==='lid'?null:selected),stamp=key(active)+':'+key(highlighted)+':'+revision;
+    // Keep selected frame and keycap palettes visible; hover still highlights its surface.
+    const active=hovered||selected,highlighted=hovered||(['lid','keycaps'].includes(selected?.group)?null:selected),stamp=key(active)+':'+key(highlighted)+':'+revision;
     if(stamp!==highlightStamp){
       highlightStamp=stamp;for(const mesh of highlights.values())mesh.visible=false;
       for(const o of objects)if((o.visible||hovered)&&match(o,highlighted)){

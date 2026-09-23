@@ -23,7 +23,7 @@ Heights exclude the illustrative 1.2 mm feet. USB is only 0.045 mm behind the ad
 - `mechanical/revI/Flan36.FCStd`: editable assembly.
 - `mechanical/revI/*-case-{solid,rim,terrace}-{base,plate}.{step,stl}`: [three real case variants](cases.md).
 - `mechanical/revI/*-assembly.step`: installed solid parts per half; no KLP mesh bodies.
-- `mechanical/revI/*-frame-{smooth,bevel,facet,handheld,tv,cyberpunk}.{step,stl}`: all interchangeable cover styles.
+- `mechanical/revI/*-frame-{smooth,bevel,facet,handheld,tv,cyberpunk,cartridge,arcade,mecha,kintsugi}.{step,stl}`: all interchangeable cover styles.
 - `mechanical/revI/*.step`, `*.stl`: individual prototype parts and identified envelopes.
 - `mechanical/revI/*-battery-{adafruit-1570,301230}.stl`: selectable nominal cell envelopes.
 - `mechanical/revI/coupon-*.{step,stl}`: actual magnetic/thread interface samples.
@@ -84,7 +84,7 @@ To regenerate the current PCB without replacing existing work, use `python3 tool
 
 For a fresh PCB reconstruction, run `python3 tools/build_revI_pcb.py` only when `hardware/revI/` does not exist. Run KiCad CLI DRC for both boards with JSON outputs at `build/revI/drc-left.json` and `drc-right.json`, then run `tools/check_revI_pcb.py` with KiCad Python. It checks the explicitly allowed footprint changes, preserved keys/nets and exact new outline, and writes the actual pad polygons. Then run `python tools/check_revI_outline.py` to measure every pad-to-edge clearance. Run these PCB checks before the final delivery check.
 
-The macOS helper uses an existing FreeCAD installation. It disables optional `flatmesh` only in its subprocess because that installed extension crashes on import; it does not modify application preferences. Cocoa is used because that runtime’s offscreen Qt backend failed on mesh recompute. On other systems, run the scripts through the equivalent installed FreeCAD Python environment.
+The macOS helper uses an existing FreeCAD installation. It disables optional `flatmesh` only in its subprocess because that installed extension crashes on import; it does not modify application preferences. The helper defaults to offscreen Qt. The full-rebuild commands above retain the earlier explicit Cocoa path; the current frame installer and key-color roundtrip use offscreen GUI support to preserve native appearance without showing a window. On other systems, run the scripts through the equivalent installed FreeCAD Python environment.
 
 After an authorized publication, `python3 tools/check_public_delivery.py COMMIT_SHA` checks an anonymous full source ZIP against every Git blob and compares public Pages with that commit. Its ZIP and receipt are reproducible under `build/revI/`; it does not publish anything.
 
@@ -94,7 +94,7 @@ The browser check needs Playwright and a Chromium-compatible browser. Set `FLAN3
 
 The native configuration test also uses the scoped subprocess exit after its assertions, file writes and save/reopen readback to avoid the same Qt teardown crash. It does not suppress failed assertions or change installed FreeCAD.
 
-The catalog build verifies SHA-256 and Git blob hashes of every pinned upstream STL. The geometry exporter checks closed printable solids, pair intersections, all three case pairs, both cell variants and all six cover variants against components and a nominal USB plug corridor. The case checker measures the actual saved solids at the side bands, floor and raised-rim joint. The separate keycap checker includes complete-configuration envelopes and a travel/plate bound. The service checker samples frame lift, checks closed insert capture, cage capture and the cell-motion bound against lead paths. These tests do not measure force or print tolerances. Source hashes and results are under `validation/revI-*`.
+The catalog build verifies SHA-256 and Git blob hashes of every pinned upstream STL. The geometry exporter checks closed printable solids, pair intersections, all three case pairs, both cell variants and all ten cover variants against components and a nominal USB plug corridor. The case checker measures the actual saved solids at the side bands, floor and raised-rim joint. The separate keycap checker includes complete-configuration envelopes and a travel/plate bound. The service checker samples frame lift, checks closed insert capture, cage capture and the cell-motion bound against lead paths. These tests do not measure force or print tolerances. Source hashes and results are under `validation/revI-*`.
 
 `build/` is ignored and reproducible: native save/reopen trials come from `check_revI.py`; screenshots, test GLB/JSON and UI receipts from `viewer/check.cjs`; the viewer scene from `build_viewer_revI.py`. Source generations should be compared geometrically because STEP/FCStd metadata may vary. DRC JSON and pad polygons regenerate with the PCB checks above; service coupons regenerate with `check_revI_service.py`. The rim checker rejects the retained former contour, measures 216 preserved finger/outer-thumb normal samples, verifies native local tangent arcs and LCD-aligned flanks in the actual plate solids, and compares mirrored tray/plate volumes. `tools/check_revI_fasteners.py` clips actual KLP triangles to each screw-height travel slab for all 756 qualified reference choices. `build/case-variants/`, `build/lcd-curve/` and `build/uniform-contour/` contain reproducible logs/staging from these commands; review decisions are retained in the public receipt. The disposable contour study and reference copy in `build/case-variants/` are removed after acceptance; case screenshots and selected JSON/GLB regenerate with `viewer/check.cjs`. `viewer/performance.cjs` regenerates the current interaction timing receipt under `build/viewer-sidebar/`; `viewer/finishes-check.cjs` checks triangle/material identity. The native finish checker saves its current readback under `build/viewer-multicolor/freecad.json`.
 
@@ -119,3 +119,20 @@ The battery opening now leaves approximately **0.524 mm minimum measured pad cle
 Exact cable terminals, sockets/contact lengths, magnetic retention, printed fits, keycap insertion, screw access with real tools, RF, charging and consumption still need verification. [Revision review](revI-review.md).
 
 The September 23 identity migration preserves the original geometry. Native metadata and current filenames use Flan36; previous generation receipts keep their original source hashes. [Rename checks](../validation/rebrand-file-map.json) bind the previous snapshot to the current files.
+
+## Color and frame update checks
+
+The additive [frame installer](frames-extra.md) preserves manually edited source geometry. The color and print checks run after rebuilding the viewer:
+
+```sh
+node viewer/keycolors-check.cjs
+node viewer/capture-customization.cjs
+node viewer/customize-check.cjs
+python tools/check_print_kit.py
+python3 tools/freecad/run_macos.py tools/freecad/check_keycolors.py
+python3 tools/check_customization_delivery.py
+```
+
+`build/keycolors/` and `build/themes-print/` are ignored, reproducible test outputs: JSON/GLB downloads, palette collections, print ZIPs, screenshots and a native save/reopen copy. Native frame comparisons use `check_frame_extensions.py --source ORIGINAL.FCStd --candidate CANDIDATE.FCStd --report REPORT.json`; this reads both files without replacing either. The [mount study](slim-mount-study.md) produces separately named experimental geometry and a measured report under `build/`.
+
+The current [delivery check](../validation/revI-customization.json) binds colors, native geometry, print exports and the measured study. Its [Label-only identity receipt](../validation/revI-document-label.json) preserves the original geometry checks' hashes: FreeCAD's temporary `saveAs` name was corrected without changing any geometry or GUI member. The installer now preserves that label automatically. These digital checks do not qualify the keyboard for manufacturing.

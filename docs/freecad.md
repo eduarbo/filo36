@@ -13,7 +13,7 @@ The source opens and recomputes without StepUp, CadQuery or custom Python proxie
 
 ## Navigate the assembly
 
-The tree contains **Parameters**, **Left** and **Right**. Select a part and press **Space** to hide or show it. Expand **Construction** for sketches and operations. Each half has an **ActiveFrame** link to one of six cover bodies; an **ActiveBattery** link selects Adafruit 1570 or 301230. Hidden alternatives do not represent extra installed parts.
+The tree contains **Parameters**, **Left** and **Right**. Select a part and press **Space** to hide or show it. Expand **Construction** for sketches and operations. Each half has an **ActiveFrame** link to one of ten cover bodies; an **ActiveBattery** link selects Adafruit 1570 or 301230. Hidden alternatives do not represent extra installed parts.
 
 For keycaps, frame styles and colors, use the [configurator and companion macro](customize.md#save-a-configuration-for-freecad). Keep a personal copy with **File → Save As** before editing dimensions.
 
@@ -52,7 +52,7 @@ The native assembly uses **X = KiCad X, Y = −KiCad Y**, with PCB top at **Z 5.
 | STEP | Solid geometry for other CAD tools; no full feature history or KLP meshes |
 | STL | Individual part for slicing; check orientation and fit first |
 | GLB from the viewer | Visual assembly with selected keycaps and frames, in meters |
-| Configuration JSON | Keycap variants/rotations, frame styles/colors and battery profile; not manual shape edits |
+| Configuration JSON | Keycap variants, rotations and individual colors; case/frame colors and battery profile; not manual shape edits |
 
 Select a part and use **File → Export**. Store exports outside the reference folders and keep the edited FCStd. The generation scripts rebuild the reference from scratch and overwrite its files; do not run them over manual work.
 

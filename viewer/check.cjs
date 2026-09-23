@@ -178,16 +178,16 @@ async function checkLink(page,group){
   assert.equal(await page.locator('#key-rotation').inputValue(),'90');
   await page.click('#apply-keys');
   await page.click('#part-lid');await page.click('#frame-target [data-side=left]');
-  assert.equal(await page.locator('#frame-grid button').count(),6);
-  assert.equal(new Set(await page.locator('#frame-grid img').evaluateAll(imgs=>imgs.map(i=>i.src))).size,6,'Six previews use distinct actual geometries');
+  assert.equal(await page.locator('#frame-grid button').count(),10);
+  assert.equal(new Set(await page.locator('#frame-grid img').evaluateAll(imgs=>imgs.map(i=>i.src))).size,10,'Ten previews use distinct actual geometries');
   const themePixels=[];
-  for(const theme of ['smooth','bevel','facet','handheld','tv','cyberpunk']){
+  for(const theme of ['smooth','bevel','facet','handheld','tv','cyberpunk','cartridge','arcade','mecha','kintsugi']){
     await page.click(`[data-style=${theme}]`);
     assert.equal(await page.locator(`[data-style=${theme}]`).getAttribute('aria-pressed'),'true');
     assert.equal(await page.locator('#config-status').getAttribute('data-error'),'false');
     themePixels.push(hash(await page.locator('#canvas').screenshot({style:'.stage > :not(canvas),#leader-lines{opacity:0!important}'})));
   }
-  assert.equal(new Set(themePixels).size,6,'All six covers must change actual rendered geometry');
+  assert.equal(new Set(themePixels).size,10,'All ten covers must change actual rendered geometry');
   await page.locator('#frame-color').fill('#ad7656');
   await page.click('#frame-target [data-side=right]');await page.click('[data-color="#ded8c6"]');
   await page.click('#frame-target [data-side=both]');
@@ -380,7 +380,7 @@ async function checkLink(page,group){
     browser:await browser.version(),desktop:true,narrow_viewport_emulation:true,physical_phone_tested:false,public_embedded_scene_matches_current:!offline,
     all_12_layer_filters:true,individual_visibility:true,individual_and_group_solo:true,show_all_recovery:true,occluded_hover_xray_pixel_verified:true,persistent_view_controls:true,fit_actual_pixels_after_zoom:true,fit_empty_feedback:true,full_row_hover:true,half_filters:true,orbit_drag:true,bottom_view:true,full_reset_pixel_identical:true,
     persistent_component_directory:true,sidebar_line_endpoints:true,directory_visible_during_scroll_and_collapse:true,keyboard_component_selection:true,direct_canvas_picking:true,labels_follow_camera:true,frame_click_reveals_hidden_cover:true,annotation_toggle:true,orbit_does_not_select:true,touch_orbit_and_pinch_do_not_select:true,small_320px_viewport:true,
-    six_preview_cards:true,multicolor_glb_roles:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,theme_applies_palette_and_body_overrides_roundtrip:true,sidebar_hover_highlight:true,sidebar_opens_frame_explorer:true,touch_frame_cards_and_sidebar:true,hidden_layer_links_removed:true,highlight_excluded_from_glb:true,
+    ten_preview_cards:true,multicolor_glb_roles:true,one_click_frames:true,keyboard_frame_activation:true,mixed_style_and_color_state:true,theme_applies_palette_and_body_overrides_roundtrip:true,sidebar_hover_highlight:true,sidebar_opens_frame_explorer:true,touch_frame_cards_and_sidebar:true,hidden_layer_links_removed:true,highlight_excluded_from_glb:true,
     dual_battery_selection_and_exact_glb:true,captive_frame_pins_preserved:true,keycap_variant_selection:true,frame_style_and_color:true,three_distinct_themed_geometries:true,json_roundtrip:true,invalid_combination_rejected:true,glb_matches_custom_configuration:true,glb_selected_vertices_exact:true,glb_objects:180,glb_keycaps:36,glb_units:'metres',case_variants:3,case_previews_distinct:true,case_glb_meshes_exact:true,open_cover_configuration:true,legacy_case_default:true,runtime_errors:errors,offline_network_requests:requests.length};
   const caseImages={};for(const [name,source] of [['solid','solid'],['rim','rim'],['terrace','terrace'],['rim-open','rim-open-top']]){const buffer=fs.readFileSync(path.join(root,`build/case-variants/${source}.png`));fs.writeFileSync(path.join(root,`docs/images/revI-case-${name}.png`),buffer);caseImages[name]=hash(buffer);}
   fs.writeFileSync(path.join(root,'validation/revI-cases-render.json'),JSON.stringify({viewer_sha256:hash(Buffer.from(html)),checker_sha256:hash(fs.readFileSync(__filename)),images:caseImages,source:'Unretouched screenshots of the actual selected native STL meshes in the viewer'},null,2)+'\n');

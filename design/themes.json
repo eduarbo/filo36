@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "description": "Color-only palettes: preserve all case/frame shapes, cover installation, keycaps and joining interfaces.",
+  "description": "Coordinated case, frame and keycap colors; preserve geometry, rotation and joining interfaces.",
   "themes": [
     {
       "id": "piantor-red",
@@ -12,6 +12,11 @@
         "detail": "#161c25",
         "accent": "#f3deab",
         "secondary": "#82918c"
+      },
+      "keycaps": {
+        "base": "#e9dfc6",
+        "mods": "#353741",
+        "accent": "#f3deab"
       }
     },
     {
@@ -24,6 +29,11 @@
         "detail": "#33343e",
         "accent": "#9b3056",
         "secondary": "#777780"
+      },
+      "keycaps": {
+        "base": "#e9dfc6",
+        "mods": "#353741",
+        "accent": "#9b3056"
       }
     },
     {
@@ -36,6 +46,11 @@
         "detail": "#365c44",
         "accent": "#ead5a2",
         "secondary": "#70876c"
+      },
+      "keycaps": {
+        "base": "#e5e8cf",
+        "mods": "#7a9567",
+        "accent": "#385444"
       }
     },
     {
@@ -48,6 +63,11 @@
         "detail": "#74536d",
         "accent": "#fff0d9",
         "secondary": "#b87797"
+      },
+      "keycaps": {
+        "base": "#f5e6eb",
+        "mods": "#cc8da5",
+        "accent": "#724b70"
       }
     },
     {
@@ -60,6 +80,11 @@
         "detail": "#4a7d95",
         "accent": "#f0c977",
         "secondary": "#94b9c2"
+      },
+      "keycaps": {
+        "base": "#f0c977",
+        "mods": "#4a7d95",
+        "accent": "#94b9c2"
       }
     },
     {
@@ -72,6 +97,11 @@
         "detail": "#4b6553",
         "accent": "#e8d9a8",
         "secondary": "#b65445"
+      },
+      "keycaps": {
+        "base": "#e8d9a8",
+        "mods": "#4b6553",
+        "accent": "#b65445"
       }
     },
     {
@@ -84,6 +114,11 @@
         "detail": "#b3d3cb",
         "accent": "#e7b976",
         "secondary": "#427c7a"
+      },
+      "keycaps": {
+        "base": "#e7b976",
+        "mods": "#b3d3cb",
+        "accent": "#427c7a"
       }
     },
     {
@@ -96,6 +131,11 @@
         "detail": "#77818e",
         "accent": "#bbc8c9",
         "secondary": "#576778"
+      },
+      "keycaps": {
+        "base": "#bbc8c9",
+        "mods": "#77818e",
+        "accent": "#576778"
       }
     },
     {
@@ -108,6 +148,11 @@
         "detail": "#5e7d85",
         "accent": "#42e3ba",
         "secondary": "#e098bf"
+      },
+      "keycaps": {
+        "base": "#42e3ba",
+        "mods": "#5e7d85",
+        "accent": "#e098bf"
       }
     },
     {
@@ -120,6 +165,11 @@
         "detail": "#827d9e",
         "accent": "#60d5d7",
         "secondary": "#ee6aa4"
+      },
+      "keycaps": {
+        "base": "#60d5d7",
+        "mods": "#827d9e",
+        "accent": "#ee6aa4"
       }
     },
     {
@@ -132,6 +182,11 @@
         "detail": "#e2d5ae",
         "accent": "#c69543",
         "secondary": "#34373b"
+      },
+      "keycaps": {
+        "base": "#c69543",
+        "mods": "#e2d5ae",
+        "accent": "#34373b"
       }
     },
     {
@@ -144,6 +199,11 @@
         "detail": "#8d9d7c",
         "accent": "#d28d72",
         "secondary": "#b9aa83"
+      },
+      "keycaps": {
+        "base": "#d28d72",
+        "mods": "#8d9d7c",
+        "accent": "#b9aa83"
       }
     },
     {
@@ -156,6 +216,11 @@
         "detail": "#7a8873",
         "accent": "#c37753",
         "secondary": "#dbc998"
+      },
+      "keycaps": {
+        "base": "#c37753",
+        "mods": "#7a8873",
+        "accent": "#dbc998"
       }
     },
     {
@@ -168,6 +233,11 @@
         "detail": "#676093",
         "accent": "#efbaad",
         "secondary": "#d5cfeb"
+      },
+      "keycaps": {
+        "base": "#efbaad",
+        "mods": "#676093",
+        "accent": "#d5cfeb"
       }
     },
     {
@@ -180,6 +250,11 @@
         "detail": "#454b50",
         "accent": "#939e96",
         "secondary": "#c4c5b9"
+      },
+      "keycaps": {
+        "base": "#939e96",
+        "mods": "#454b50",
+        "accent": "#c4c5b9"
       }
     },
     {
@@ -192,6 +267,11 @@
         "detail": "#616e77",
         "accent": "#e7d9b3",
         "secondary": "#d25c58"
+      },
+      "keycaps": {
+        "base": "#e7d9b3",
+        "mods": "#616e77",
+        "accent": "#d25c58"
       }
     }
   ]

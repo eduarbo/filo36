@@ -39,7 +39,7 @@ def apply(doc,config):
         for side,prefix in [('left','L_'),('right','R_')]:
             for key in catalog['layout'][side]:
                 choice=config['keycaps'][side][key['ref']];v=variants[choice['variant']];obj=doc.getObject(prefix+key['ref'])
-                obj.Mesh=meshes[v['id']];obj.KeycapVariant=v['id'];obj.CapRotation=choice['rotation_deg']
+                obj.ViewObject.ShapeColor=rgb(choice['color']);obj.Mesh=meshes[v['id']];obj.KeycapVariant=v['id'];obj.CapRotation=choice['rotation_deg']
                 obj.Placement=A.Placement(A.Vector(key['x'],-key['y'],v['seating_z_mm']),A.Rotation(A.Vector(0,0,1),key['angle']+choice['rotation_deg']))
             battery=next(o for o in doc.Objects if o.Name.startswith(prefix) and o.TypeId!='App::Link' and getattr(o,'BatteryStyle',None)==config['batteries'][side])
             doc.getObject(prefix+'ActiveBattery').setLink(battery)
@@ -63,7 +63,12 @@ def apply(doc,config):
                 if o.Name.startswith(prefix) and hasattr(o,'FrameStyle'):o.Visibility=False
             doc.getObject(prefix+'ActiveFrame').Visibility=case['cover']
             for i in range(3):doc.getObject(prefix+'SteelTarget'+str(i)).Visibility=case['cover']
-        doc.recompute();doc.commitTransaction()
+        doc.recompute()
+        # Native boolean view providers remap face colors during recompute.
+        # Apply the explicit palette after their geometry has settled.
+        for side,prefix in [('left','L_'),('right','R_')]:
+            f=config['frames'][side];apply_finish(doc,doc.getObject(prefix+'ActiveFrame').LinkedObject,side,f['color'],f['accents'])
+        doc.commitTransaction()
     except Exception:
         doc.abortTransaction();raise
     return clearance
@@ -74,7 +79,7 @@ def extract(doc):
         hexcolor=lambda o:'#'+''.join(f'{round(v*255):02x}' for v in o.ViewObject.ShapeColor[:3])
         result['cases'][side]={'style':doc.getObject(prefix+'ActiveTray').LinkedObject.CaseStyle,'cover':doc.getObject(prefix+'Half').DisplayCoverInstalled,'base_color':hexcolor(doc.getObject(prefix+'ActiveTray').LinkedObject),'plate_color':hexcolor(doc.getObject(prefix+'ActivePlate').LinkedObject),'match_frame':getattr(doc.getObject(prefix+'Half'),'MatchFrameColor',False)}
         result['batteries'][side]=doc.getObject(prefix+'ActiveBattery').LinkedObject.BatteryStyle
-        result['keycaps'][side]={o.KeyReference:{'variant':o.KeycapVariant,'rotation_deg':int(round(o.CapRotation.Value))%360} for o in doc.Objects if hasattr(o,'KeyReference') and o.Side==side}
+        result['keycaps'][side]={o.KeyReference:{'variant':o.KeycapVariant,'rotation_deg':int(round(o.CapRotation.Value))%360,'color':hexcolor(o)} for o in doc.Objects if hasattr(o,'KeyReference') and o.Side==side}
         cover=doc.getObject(prefix+'ActiveFrame').LinkedObject
         color='#'+''.join(f'{round(v*255):02x}' for v in cover.ViewObject.ShapeColor[:3])
         result['frames'][side]={'style':cover.FrameStyle,'color':color,'accents':{k:v for k,v in palette(cover.FrameStyle,color,json.loads(getattr(cover,'PaletteAccents','{}'))).items() if k!='body'}}

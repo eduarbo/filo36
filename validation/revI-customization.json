@@ -1,0 +1,762 @@
+{
+  "digital_update_accepted": true,
+  "manufacturing_qualified": false,
+  "native_source_sha256": "621d03fd572bf04bd8eeaa452c1dbc56f0ef23d16b875e03b37bfdb2cdccd6c2",
+  "inputs": [
+    {
+      "path": "docs/index.html",
+      "sha256": "d408f0a5d82b006bb4d96c1475ab16933aee097dd59fd7fa62473ed8d3f9355a"
+    },
+    {
+      "path": "keycaps/catalog.json",
+      "sha256": "a2f461be0342cb75b2595c3b8fd90048ad81833cb8656094b1cd375c61afbf04"
+    },
+    {
+      "path": "design/keycap-themes.json",
+      "sha256": "c2abd59276e72b29b1fb5fd0eb7617b35ed48f9b1984da0daa5d47c630f3092d"
+    },
+    {
+      "path": "design/themes.json",
+      "sha256": "3ca7926bae2afa5f46cae8fd9f2fc9984f040f75103135bb86f0e739f3ab50ce"
+    },
+    {
+      "path": "viewer/keycap-colors.js",
+      "sha256": "7c697954e8df523f9c46bd030cd4af78a2142479af76c40fd9d8eb492c4ae6de"
+    },
+    {
+      "path": "viewer/keycolors-check.cjs",
+      "sha256": "a3a948c9c60fb8038e1541b1e238664d11e296bd994a5cdb1b1738df518fc796"
+    },
+    {
+      "path": "viewer/customize-check.cjs",
+      "sha256": "d305ef70f59dae7159a42f0c66748ed4d7c140eef715ae456ef51178fbba4194"
+    },
+    {
+      "path": "tools/check_print_kit.py",
+      "sha256": "3e95e26ddbbd008c954a39ef436d5efcbf518c574963c055939cfc0322e13513"
+    },
+    {
+      "path": "tools/freecad/check_keycolors.py",
+      "sha256": "9926c0d6b1301e09b9ca5c2d51e57c2a702146e71db03c407de9d917a5da32c3"
+    },
+    {
+      "path": "tools/freecad/configuration.py",
+      "sha256": "5972d841493a3400db495ad0e5d47071f713ef2f78a88e6dc57bc18b6c148797"
+    },
+    {
+      "path": "tools/package_slim_study.py",
+      "sha256": "bbceecf18d6b0e21ee4cfc1944e91fc6887d9579cd25f9c2911eab346c5efbc3"
+    },
+    {
+      "path": "validation/revI-frame-extensions.json",
+      "sha256": "6cc1b4dc6e12c03ac35aef0b3e30b4b83537ffb28ffab7894173eabf7a693ea3"
+    },
+    {
+      "path": "validation/revI-document-label.json",
+      "sha256": "24df5df2e77bb82e43c78c1a41d45c142eaadf8ec186ffb3b2c4d426a91c3d3e"
+    },
+    {
+      "path": "validation/revI-native-export.json",
+      "sha256": "31e807e21c5165c9ad2c9e410ff4ba22e8262fd147efd6a2131f6cd9dc1b9edf"
+    },
+    {
+      "path": "tools/freecad/preserve_document_label.py",
+      "sha256": "55bd07fec3d1b30882a5a1f8fc2b7cc264ac678c96f2f96aec4e328da4167d60"
+    },
+    {
+      "path": "tools/freecad/install_extra_frames.py",
+      "sha256": "7c905b33b9db1ca9c53ad1f3ad509fbb2b0d7f20a69043c6c0784ca7bd9bf1c6"
+    },
+    {
+      "path": "validation/revI-mechanical.json",
+      "sha256": "a97152516a97ab5d612d51517f647ab1a9b8f455c0ad7141ae26db682a91aada"
+    },
+    {
+      "path": "validation/revI-slim-mounts.json",
+      "sha256": "1bcb8e79275e6ef1f739060fa457cfb0641c78d330541f32ea8a463d5cbe6575"
+    },
+    {
+      "path": "mechanical/studies/slim-mounts.zip",
+      "sha256": "ce61994b0e9b2e53c206505c6ee031b06d9063b66d5256b6e557af6e6278b7c8"
+    }
+  ],
+  "key_colors": {
+    "target": "local generated viewer",
+    "viewer_sha256": "d408f0a5d82b006bb4d96c1475ab16933aee097dd59fd7fa62473ed8d3f9355a",
+    "checks": [
+      "36 normalized key colors in exported configuration",
+      "paint both/all/",
+      "paint left/all/",
+      "paint right/all/",
+      "paint both/row/0",
+      "paint left/row/1",
+      "paint right/row/2",
+      "paint both/row/3",
+      "paint both/column/1",
+      "paint left/column/3",
+      "paint right/column/5",
+      "paint left/key/K11",
+      "paint right/key/K11",
+      "columns exclude every thumb on both halves",
+      "selected key map displays actual colors",
+      "geometry preset preserves all colors",
+      "global themes color caps and preserve every selected geometry",
+      "paint right/all/",
+      "dedicated cap palette honors half and preserves geometry",
+      "paint left/key/K01",
+      "paint left/key/K01",
+      "paint both/all/",
+      "custom palette restores all 36 colors without geometry changes",
+      "palette export and valid import",
+      "invalid palette import is atomic across collection and keyboard",
+      "36 distinct colors survive configuration import/export",
+      "invalid keycap color import is atomic",
+      "GLB contains exact 36 configured colors",
+      "final reload matches exported configuration and palette collection"
+    ],
+    "keycaps": 36,
+    "distinct_glb_colors": 36,
+    "glb_sha256": "68e3ee48a757c2459bf0b909cab5cc200c380ba28d2136635d82db30ce962cce",
+    "runtime_errors": []
+  },
+  "native_colors": {
+    "passed": true,
+    "source_unchanged": true,
+    "source_sha256": "621d03fd572bf04bd8eeaa452c1dbc56f0ef23d16b875e03b37bfdb2cdccd6c2",
+    "distinct_key_colors": 36,
+    "native_save_reopen_roundtrip": true,
+    "frames": [
+      "mecha",
+      "kintsugi"
+    ],
+    "physical_acceptance": false
+  },
+  "viewer": {
+    "viewer_sha256": "d408f0a5d82b006bb4d96c1475ab16933aee097dd59fd7fa62473ed8d3f9355a",
+    "target": "local file with all HTTP(S) requests blocked",
+    "browser": "153.0.8010.53",
+    "desktop": true,
+    "narrow_viewport_emulation": true,
+    "physical_phone_tested": false,
+    "public_embedded_scene_matches_current": false,
+    "all_12_layer_filters": true,
+    "individual_visibility": true,
+    "individual_and_group_solo": true,
+    "show_all_recovery": true,
+    "occluded_hover_xray_pixel_verified": true,
+    "persistent_view_controls": true,
+    "fit_actual_pixels_after_zoom": true,
+    "fit_empty_feedback": true,
+    "full_row_hover": true,
+    "half_filters": true,
+    "orbit_drag": true,
+    "bottom_view": true,
+    "full_reset_pixel_identical": true,
+    "persistent_component_directory": true,
+    "sidebar_line_endpoints": true,
+    "directory_visible_during_scroll_and_collapse": true,
+    "keyboard_component_selection": true,
+    "direct_canvas_picking": true,
+    "labels_follow_camera": true,
+    "frame_click_reveals_hidden_cover": true,
+    "annotation_toggle": true,
+    "orbit_does_not_select": true,
+    "touch_orbit_and_pinch_do_not_select": true,
+    "small_320px_viewport": true,
+    "ten_preview_cards": true,
+    "multicolor_glb_roles": true,
+    "one_click_frames": true,
+    "keyboard_frame_activation": true,
+    "mixed_style_and_color_state": true,
+    "theme_applies_palette_and_body_overrides_roundtrip": true,
+    "sidebar_hover_highlight": true,
+    "sidebar_opens_frame_explorer": true,
+    "touch_frame_cards_and_sidebar": true,
+    "hidden_layer_links_removed": true,
+    "highlight_excluded_from_glb": true,
+    "dual_battery_selection_and_exact_glb": true,
+    "captive_frame_pins_preserved": true,
+    "keycap_variant_selection": true,
+    "frame_style_and_color": true,
+    "three_distinct_themed_geometries": true,
+    "json_roundtrip": true,
+    "invalid_combination_rejected": true,
+    "glb_matches_custom_configuration": true,
+    "glb_selected_vertices_exact": true,
+    "glb_objects": 180,
+    "glb_keycaps": 36,
+    "glb_units": "metres",
+    "case_variants": 3,
+    "case_previews_distinct": true,
+    "case_glb_meshes_exact": true,
+    "open_cover_configuration": true,
+    "legacy_case_default": true,
+    "runtime_errors": [],
+    "offline_network_requests": 0
+  },
+  "themes": {
+    "viewer_sha256": "d408f0a5d82b006bb4d96c1475ab16933aee097dd59fd7fa62473ed8d3f9355a",
+    "target": "local file",
+    "themes": 16,
+    "preview_images_distinct": 16,
+    "linked_colors_bidirectional": true,
+    "mixed_halves": true,
+    "preserve_shapes_cover_and_keycap_geometry": true,
+    "global_keycap_colors": true,
+    "json_and_reload_roundtrip": true,
+    "invalid_import_atomic": true,
+    "storage_failure_recoverable": true,
+    "keyboard_and_reduced_motion": true,
+    "mobile_widths": [
+      390,
+      320
+    ],
+    "individual_selection_ignored_by_printkit": true,
+    "custom_case_and_four_frame_colors_in_glb": true,
+    "new_frame_print_kits": [
+      "cartridge",
+      "arcade",
+      "mecha",
+      "kintsugi"
+    ],
+    "runtime_errors": []
+  },
+  "print_kits": {
+    "passed": true,
+    "kits": [
+      {
+        "file": "complete.zip",
+        "parts": [
+          {
+            "id": "left-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12668,
+            "colors": [
+              "#cc5533",
+              "#cc5533",
+              "#cc5533",
+              "#cc5533"
+            ]
+          },
+          {
+            "id": "left-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#272737",
+              "#272737",
+              "#272737",
+              "#272737"
+            ]
+          },
+          {
+            "id": "left-frame-tv",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 5084,
+            "colors": [
+              "#cc5533",
+              "#313131",
+              "#eeee88",
+              "#6688ee"
+            ]
+          },
+          {
+            "id": "left-cradle",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 84,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-battery-retainer",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 100,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-mcu-riser",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3804,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-display-sled",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 2260,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-washer-1",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-washer-2",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "left-washer-3",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12666,
+            "colors": [
+              "#24444b",
+              "#24444b",
+              "#24444b",
+              "#24444b"
+            ]
+          },
+          {
+            "id": "right-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#19272f",
+              "#19272f",
+              "#19272f",
+              "#19272f"
+            ]
+          },
+          {
+            "id": "right-cradle",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 84,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-battery-retainer",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 100,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-mcu-riser",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3804,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-display-sled",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 2260,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-washer-1",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-washer-2",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          },
+          {
+            "id": "right-washer-3",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 840,
+            "colors": [
+              "#78908a",
+              "#78908a",
+              "#78908a",
+              "#78908a"
+            ]
+          }
+        ],
+        "eye_solo_explosion_do_not_remove_printables": true
+      },
+      {
+        "file": "left-shells.zip",
+        "parts": [
+          {
+            "id": "left-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12668,
+            "colors": [
+              "#cc5533",
+              "#cc5533",
+              "#cc5533",
+              "#cc5533"
+            ]
+          },
+          {
+            "id": "left-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#272737",
+              "#272737",
+              "#272737",
+              "#272737"
+            ]
+          },
+          {
+            "id": "left-frame-tv",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 5084,
+            "colors": [
+              "#cc5533",
+              "#313131",
+              "#eeee88",
+              "#6688ee"
+            ]
+          }
+        ],
+        "eye_solo_explosion_do_not_remove_printables": true
+      },
+      {
+        "file": "cartridge-shells.zip",
+        "parts": [
+          {
+            "id": "left-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12668,
+            "colors": [
+              "#cc5533",
+              "#cc5533",
+              "#cc5533",
+              "#cc5533"
+            ]
+          },
+          {
+            "id": "left-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#272737",
+              "#272737",
+              "#272737",
+              "#272737"
+            ]
+          },
+          {
+            "id": "left-frame-cartridge",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 4928,
+            "colors": [
+              "#cc5533",
+              "#313131",
+              "#eeee88",
+              "#6688ee"
+            ]
+          }
+        ],
+        "eye_solo_explosion_do_not_remove_printables": true
+      },
+      {
+        "file": "arcade-shells.zip",
+        "parts": [
+          {
+            "id": "left-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12668,
+            "colors": [
+              "#cc5533",
+              "#cc5533",
+              "#cc5533",
+              "#cc5533"
+            ]
+          },
+          {
+            "id": "left-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#272737",
+              "#272737",
+              "#272737",
+              "#272737"
+            ]
+          },
+          {
+            "id": "left-frame-arcade",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 6790,
+            "colors": [
+              "#cc5533",
+              "#313131",
+              "#eeee88",
+              "#6688ee"
+            ]
+          }
+        ],
+        "eye_solo_explosion_do_not_remove_printables": true
+      },
+      {
+        "file": "mecha-shells.zip",
+        "parts": [
+          {
+            "id": "left-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12668,
+            "colors": [
+              "#cc5533",
+              "#cc5533",
+              "#cc5533",
+              "#cc5533"
+            ]
+          },
+          {
+            "id": "left-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#272737",
+              "#272737",
+              "#272737",
+              "#272737"
+            ]
+          },
+          {
+            "id": "left-frame-mecha",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 5260,
+            "colors": [
+              "#cc5533",
+              "#313131",
+              "#eeee88",
+              "#6688ee"
+            ]
+          }
+        ],
+        "eye_solo_explosion_do_not_remove_printables": true
+      },
+      {
+        "file": "kintsugi-shells.zip",
+        "parts": [
+          {
+            "id": "left-case-rim-base",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 12668,
+            "colors": [
+              "#cc5533",
+              "#cc5533",
+              "#cc5533",
+              "#cc5533"
+            ]
+          },
+          {
+            "id": "left-case-rim-plate",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 3356,
+            "colors": [
+              "#272737",
+              "#272737",
+              "#272737",
+              "#272737"
+            ]
+          },
+          {
+            "id": "left-frame-kintsugi",
+            "stl_bytes_identical": true,
+            "oriented_surface_preserved": true,
+            "closed": true,
+            "triangles": 7714,
+            "colors": [
+              "#cc5533",
+              "#313131",
+              "#eeee88",
+              "#6688ee"
+            ]
+          }
+        ],
+        "eye_solo_explosion_do_not_remove_printables": true
+      }
+    ],
+    "slicer_palette_automatic_import": "not accepted; explicit manual mapping required",
+    "no_manufacturing_acceptance": true
+  },
+  "mount_study_summaries": {
+    "reference-16p6": {
+      "unexpected_component_pair_collisions": 0,
+      "battery_component_collisions": 0,
+      "frame_component_collisions": 0,
+      "usb_corridor_collisions": 0,
+      "sampled_frame_lift_collisions": 0,
+      "failed_target_capture_probes": 0,
+      "driver_collisions": 0,
+      "pcb_lift_collisions": 0,
+      "display_lift_collisions": 28,
+      "cell_motion_lead_collisions": 0,
+      "failed_cage_capture_probes": 0,
+      "failed_base_capture_probes": 0,
+      "static_geometry_pass": true,
+      "service_samples_pass": false,
+      "nominal_checks_pass": false
+    },
+    "nominal-15p6": {
+      "unexpected_component_pair_collisions": 0,
+      "battery_component_collisions": 0,
+      "frame_component_collisions": 0,
+      "usb_corridor_collisions": 0,
+      "sampled_frame_lift_collisions": 0,
+      "failed_target_capture_probes": 0,
+      "driver_collisions": 0,
+      "pcb_lift_collisions": 0,
+      "display_lift_collisions": 28,
+      "cell_motion_lead_collisions": 0,
+      "failed_cage_capture_probes": 0,
+      "failed_base_capture_probes": 0,
+      "static_geometry_pass": true,
+      "service_samples_pass": false,
+      "nominal_checks_pass": false
+    },
+    "limit-14p8": {
+      "unexpected_component_pair_collisions": 2,
+      "battery_component_collisions": 0,
+      "frame_component_collisions": 20,
+      "usb_corridor_collisions": 0,
+      "sampled_frame_lift_collisions": 120,
+      "failed_target_capture_probes": 0,
+      "driver_collisions": 0,
+      "pcb_lift_collisions": 0,
+      "display_lift_collisions": 28,
+      "cell_motion_lead_collisions": 0,
+      "failed_cage_capture_probes": 0,
+      "failed_base_capture_probes": 0,
+      "static_geometry_pass": false,
+      "service_samples_pass": false,
+      "nominal_checks_pass": false
+    }
+  }
+}

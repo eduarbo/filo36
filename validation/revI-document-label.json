@@ -1,0 +1,87 @@
+{
+  "field": "Document.xml / Document / Properties / Property[name=Label] / String@value",
+  "input_label": ".flan36-extra-5ja38z9e",
+  "output_label": "Flan36",
+  "value_start_byte": 1464,
+  "old_value_bytes": 22,
+  "new_value_bytes": 6,
+  "member_count": 8287,
+  "changed_members": [
+    "Document.xml"
+  ],
+  "unchanged_member_count": 8286,
+  "member_order_preserved": true,
+  "member_attributes_preserved": [
+    "filename",
+    "date_time",
+    "compress_type",
+    "comment",
+    "extra",
+    "create_system",
+    "create_version",
+    "extract_version",
+    "reserved",
+    "flag_bits",
+    "volume",
+    "internal_attr",
+    "external_attr"
+  ],
+  "archive_comment_preserved": true,
+  "all_other_uncompressed_members_identical": true,
+  "all_other_compressed_members_identical": true,
+  "aggregate_format": "SHA-256 of UTF-8 compact JSON: sorted [member_name, member_sha256] pairs, excluding Document.xml",
+  "unchanged_members_aggregate_sha256": "7350952d028816f705ec4e8b757595776f5e54d49e9e539518fb8c3a1599ac6c",
+  "unchanged_compressed_members_aggregate_sha256": "6edcda1aa19cbea205c5966cc15fd9021221bb65d57dee31f42654d9de5647b6",
+  "source_xml_sha256": "3a78007a01e9f2e6c3f12c6d617abc5fa207a48d1680b95d7785aec28b21d8cb",
+  "output_xml_sha256": "8dbf52b9156a04ebdeaded3c7f1d605e4021487864bbd591593b09e5b5b39965",
+  "label_normalized_xml_sha256": "def8f33797e9ab5a33f722a90efb89bcfe3e57749228318e28a13e2c311abb5b",
+  "label_normalized_xml_equal": true,
+  "gui_document_sha256": "e0a1b42a5e30907f8ccac2da54eb23befb6d6130cd17c5ea8bde9a9a1aeaf6a1",
+  "source_sha256": "c8102e4744f0f2ad22820e69d5daf109f2ad5d1e77ced8a8a6ab2179f1dd6a0f",
+  "output_sha256": "621d03fd572bf04bd8eeaa452c1dbc56f0ef23d16b875e03b37bfdb2cdccd6c2",
+  "passed": true,
+  "physical_acceptance": false,
+  "source_unchanged": true,
+  "output_unchanged_on_open": true,
+  "native_open": {
+    "opened": true,
+    "label": "Flan36",
+    "object_count": 1935,
+    "document_errors": [],
+    "explicit_recompute_requested": false,
+    "save_requested": false,
+    "geometry_revalidation_claimed": false,
+    "freecad_version": "1.1.3"
+  },
+  "source": "build/slim-source/Flan36.FCStd",
+  "output": "build/label-preserved/Flan36.FCStd",
+  "scope": "Root document label only. All other uncompressed and compressed ZIP member bytes, including geometry and GUI, are identical to the analyzed source; no new full geometry recompute validation.",
+  "inputs": [
+    {
+      "path": "tools/freecad/preserve_document_label.py",
+      "sha256": "55bd07fec3d1b30882a5a1f8fc2b7cc264ac678c96f2f96aec4e328da4167d60"
+    },
+    {
+      "path": "tools/freecad/check_document_label.py",
+      "sha256": "5065321178d81cf7c5ae37543f52e8e9d10e7c8fcc2e44b7b526f1007822bb95"
+    }
+  ],
+  "reproduce": [
+    "python3 tools/freecad/preserve_document_label.py --source build/slim-source/Flan36.FCStd --output build/label-preserved/Flan36.FCStd --label Flan36",
+    "python3 tools/freecad/run_macos.py tools/freecad/check_document_label.py --source build/slim-source/Flan36.FCStd --output build/label-preserved/Flan36.FCStd --label Flan36 --report validation/revI-document-label.json"
+  ],
+  "installer_prevention": {
+    "path": "tools/freecad/install_extra_frames.py",
+    "before_sha256": "1e9f37e9f6e0747fd32f162d9b01d64c956744a0ff0f4924a3ac40bad42b0a3b",
+    "after_sha256": "7c905b33b9db1ca9c53ad1f3ad509fbb2b0d7f20a69043c6c0784ca7bd9bf1c6",
+    "scope": "Preserve the source document Label after temporary saveAs closes, before original native reopen checks; hash the helper input and assert the reopened label. Existing geometry validation is unchanged. Full installer was not rerun for this metadata-only prevention.",
+    "targeted_validation": "Actual c8102 candidate repaired and reopened with expected Label, no object error states, byte-identical non-document members and exact root-label XML delta. Python syntax validation passed.",
+    "patch": "--- a/tools/freecad/install_extra_frames.py\n+++ b/tools/freecad/install_extra_frames.py\n@@ -21,6 +21,7 @@\n sys.path.insert(0, str(Path(__file__).resolve().parent))\n from extra_frames import (OWNER, STYLES, build_for_half, digest, find_smooth,\n                           fingerprint, load_spec, validate_variant)\n+from preserve_document_label import preserve_document_label\n \n \n def snapshot(doc, names=None):\n@@ -248,6 +249,7 @@\n     inputs = {str(source): source_hash,\n               str(spec_root/'design/frame-extensions.json'): digest(spec_root/'design/frame-extensions.json'),\n               str(Path(__file__).resolve()): digest(__file__),\n+              str(Path(__file__).with_name('preserve_document_label.py').resolve()): digest(Path(__file__).with_name('preserve_document_label.py')),\n               str(Path(__file__).with_name('extra_frames.py').resolve()): digest(Path(__file__).with_name('extra_frames.py'))}\n     backup = None\n     if source == output:\n@@ -258,6 +260,7 @@\n         if digest(backup) != source_hash:\n             raise ValueError('Backup integrity mismatch')\n     doc = A.openDocument(str(source))\n+    original_document_label = doc.Label\n     tmp = None\n     try:\n         report = install(doc, root, spec=spec)\n@@ -271,12 +274,20 @@\n         doc.saveAs(str(tmp))\n         A.closeDocument(doc.Name)\n         doc = None\n+        # saveAs can substitute the temporary filename for the document label.\n+        # Restore only that XML value after close; retain all CAD and GUI bytes.\n+        with tempfile.TemporaryDirectory(prefix='.flan36-label-', dir=output.parent) as label_dir:\n+            labeled = Path(label_dir)/'Flan36.FCStd'\n+            report['document_label_preservation'] = preserve_document_label(tmp, labeled, original_document_label)\n+            os.replace(labeled, tmp)\n         with zipfile.ZipFile(tmp) as saved:\n             if 'GuiDocument.xml' not in saved.namelist():\n                 raise ValueError('Saved file lost GuiDocument')\n         # Native-only reopen and recompute are part of acceptance before replace.\n         reopened = A.openDocument(str(tmp))\n         try:\n+            if reopened.Label != original_document_label:\n+                raise ValueError('Document label changed on save/reopen')\n             reopened.recompute()\n             equivalent_hash_changes = {}\n             changes = snapshot_changes(original, snapshot(reopened, original_names), equivalent_hash_changes)\n"
+  },
+  "prior_geometry_validation": {
+    "path": "validation/revI-frame-extensions.json",
+    "receipt_sha256": "6cc1b4dc6e12c03ac35aef0b3e30b4b83537ffb28ffab7894173eabf7a693ea3",
+    "analyzed_candidate_sha256": "c8102e4744f0f2ad22820e69d5daf109f2ad5d1e77ced8a8a6ab2179f1dd6a0f",
+    "note": "Receipt left unchanged; repaired candidate differs solely in its root document Label XML value."
+  }
+}

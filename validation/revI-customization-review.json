@@ -1,0 +1,65 @@
+{
+  "scope": "Bounded read-only audit of document-label preservation and acceptance provenance, following original color/frame and mechanical study review.",
+  "baseline_commit": "08e78e29bf34ed816234735d16031dd077e4c553",
+  "reviewed_files": [
+    {
+      "path": "tools/check_customization_delivery.py",
+      "sha256": "bb47f47be613177bb1cbeec1504a3c263cb0664e5f665dceec92865c98b28c98"
+    },
+    {
+      "path": "tools/freecad/preserve_document_label.py",
+      "sha256": "55bd07fec3d1b30882a5a1f8fc2b7cc264ac678c96f2f96aec4e328da4167d60"
+    },
+    {
+      "path": "tools/freecad/check_document_label.py",
+      "sha256": "5065321178d81cf7c5ae37543f52e8e9d10e7c8fcc2e44b7b526f1007822bb95"
+    },
+    {
+      "path": "tools/freecad/install_extra_frames.py",
+      "sha256": "7c905b33b9db1ca9c53ad1f3ad509fbb2b0d7f20a69043c6c0784ca7bd9bf1c6"
+    },
+    {
+      "path": "validation/revI-frame-extensions.json",
+      "sha256": "6cc1b4dc6e12c03ac35aef0b3e30b4b83537ffb28ffab7894173eabf7a693ea3"
+    },
+    {
+      "path": "validation/revI-document-label.json",
+      "sha256": "24df5df2e77bb82e43c78c1a41d45c142eaadf8ec186ffb3b2c4d426a91c3d3e"
+    },
+    {
+      "path": "validation/revI-native-export.json",
+      "sha256": "31e807e21c5165c9ad2c9e410ff4ba22e8262fd147efd6a2131f6cd9dc1b9edf"
+    }
+  ],
+  "reviewer_effects": "Read-only; no edits, external effects or subdelegation.",
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "finding": "Mechanical JSON was not hash-bound to the native export receipt.",
+      "disposition": "Fixed: final delivery checker now requires its hash to equal export.mechanical_report_sha256."
+    }
+  ],
+  "independent_checks": [
+    "Reversed the recorded installer patch in memory; reconstructed source matches the historical execution hash.",
+    "Verified original geometry receipt, Label-only identity bridge, and installed native-source hashes form an explicit chain."
+  ],
+  "post_review_changes": [
+    {
+      "path": "tools/check_customization_delivery.py",
+      "sha256": "66e4db065efe3d6152fd8c9add7dfe98e2d4d80e2dc35297e2c63afd64194aab",
+      "reason": "Add requested mechanical-report hash equality."
+    }
+  ],
+  "remaining_material_objections": [],
+  "physical_acceptance": false,
+  "publication_scan_correction": {
+    "finding": "The generic-api-key scanner matched a public localStorage slot name, not a credential.",
+    "verified_use": "Literal flan36.keycap-palettes.v1 is used only by localStorage.getItem/setItem.",
+    "correction": "Rename storageKey to paletteStorageSlot; stored name and data unchanged; no scanner suppression.",
+    "before_source_sha256": "dcc99de1fb4da25a725bb5e2d54ceaa34777609fb2f57f6122f190e6e1d14d60",
+    "viewer_sha256_before": "d408f0a5d82b006bb4d96c1475ab16933aee097dd59fd7fa62473ed8d3f9355a",
+    "after_source_sha256": "7c697954e8df523f9c46bd030cd4af78a2142479af76c40fd9d8eb492c4ae6de",
+    "viewer_sha256_after": "d408f0a5d82b006bb4d96c1475ab16933aee097dd59fd7fa62473ed8d3f9355a",
+    "viewer_bytes_unchanged": true
+  }
+}

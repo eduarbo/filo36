@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import * as THREE from 'three';
 import finishes from '../design/frame-finishes.json';
+import extensions from '../design/frame-extensions.json';
+for(const [id,spec] of Object.entries(extensions.styles))finishes.styles[id]={colors:spec.colors,labels:spec.labels,zones:spec.zones};
 export {finishes};
 
 // Color the actual fused relief, without extra meshes or changes to its surface.

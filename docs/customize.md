@@ -2,6 +2,16 @@
 
 Open the **[3D configurator](https://eduarbo.github.io/flan36/)**. No account or paid software is required.
 
+## Keycap colors
+
+![Keycap color editor using the actual KLP meshes](images/revI-key-colors.png)
+
+Open **Caps → Colors**. Choose **Both / Left / Right**, then **All keys, Row, Column or Individual key**. Tap the key map to select a key or its group; pick a color to apply it immediately. Finger columns exclude thumbs. The **Thumbs** row colors all three thumb keys on the selected halves.
+
+Eight keycap palettes provide starting points, including row and column patterns. They change key colors only. **My palettes** saves the exact colors of all 36 keys, with JSON import/export for sharing or another device. **Themes** applies a coordinated palette to the case, frame and keys. Changing keycap shape or rotation preserves its color.
+
+Configuration JSON, GLB and the FreeCAD import/export macro retain individual key colors. STL has no color data: assign filament per key or paint in the slicer. The case/frame print kit does not include keycap toolpaths; use the unchanged KLP source meshes for those.
+
 ## KLP Lamé
 
 Open **Caps** in the directory, then click a preset preview to apply a complete set. Open **Edit keys** to choose a row, all thumbs or one key. Select a variant and rotation, then **Apply to these keys**. Each change checks the complete configuration, including neighboring keycaps and the frame.
@@ -28,7 +38,7 @@ Presets: **Original**, **Sculpted Normal** and **Sculpted Saddle**. The sculpted
 
 ## Print a themed display frame
 
-![Actual printable Handheld, Retro TV and Cyberpunk frames](images/revI-frames.png)
+![Ten actual native frame previews](images/revI-frame-gallery.png)
 
 Open **Frame** in the directory, then choose Both halves, Left or Right, then click a theme thumbnail to apply it immediately. Each preview shows that actual mesh with its original palette. A click applies the design and its colors together. **Body** changes the shell color without changing the accent colors; **Restore design colors** restores the palette for the selected half or halves. You can also select the frame directly on the model to open its sidebar options for that half.
 
@@ -37,9 +47,13 @@ Open **Frame** in the directory, then choose Both halves, Left or Right, then cl
 | **Handheld** | Warm cream | Charcoal D-pad, berry buttons, gray speaker bars |
 | **Retro TV** | Walnut brown | Ivory CRT bezel, brass tuning knob, charcoal speaker grille |
 | **Cyberpunk** | Graphite | Steel vents, cyan traces, magenta panel and node |
+| **Cartridge** | Saffron | Violet grip ribs, gold contacts, coral label |
+| **Arcade** | Midnight blue | Violet marquee, pink buttons, yellow joystick |
+| **Mecha** | Ivory | Slate armor, orange hazards, cyan reactor |
+| **Kintsugi** | Blue glaze | Porcelain shards and gold repair lines |
 | Plain options | Your chosen body color | Smooth, Beveled and Faceted |
 
-The controls are decorative. No logos, extra switches or LEDs are required. All six styles use the same window, cavity, three magnetic stations and independent display support. Each exports as one closed solid per half. Relief stays within the 24 mm bay, without antennas or side wings.
+The controls are decorative. No logos, extra switches or LEDs are required. All ten styles use the same window, cavity, three magnetic stations and independent display support. Each exports as one closed solid per half. Relief stays within the 24 mm bay, without antennas or side wings.
 
 | Interface | Nominal dimension |
 |---|---:|
@@ -59,7 +73,7 @@ Open the native source and expand **Construction**. Duplicate a supplied theme, 
 
 Keep decorations within the common envelope. Preserve the magnetic stations at left **(113, 52.8)**, **(133, 52.8)** and **(122.8, 64.7)**, the hidden structural screw reliefs at **(114.5, 65.5)** and **(130.6, 66.5)**, the reset tool opening at **(123, 59.5)**, and the glass window. Right-half coordinates mirror across X=80 mm. Relief adds material above the roof; cutting through it changes the validated wall thickness.
 
-Use the viewer’s JSON for the six supplied shapes. To share a new shape, save your FCStd, export STEP/STL, rebuild the viewer and repeat collision checks; JSON alone cannot carry arbitrary geometry.
+Use the viewer’s JSON for the ten supplied shapes. To share a new shape, save your FCStd, export STEP/STL, rebuild the viewer and repeat collision checks; JSON alone cannot carry arbitrary geometry.
 
 ### First print
 
@@ -68,6 +82,8 @@ Start with **one frame in PLA Basic** as a fit sample. Use 0.16 mm layers as a s
 For contrasting accents, paint raised faces in the slicer if your printer setup supports multiple colors, or paint them after printing. The table above is the color map. STL contains geometry only; it does not retain these colors. GLB preserves the visual materials, and importing the JSON with the current FreeCAD macro applies matching face colors. No multicolor printer accessory is assumed. These are one-piece frames; separate colored inserts and ready-to-print multicolor toolpaths are not included.
 
 Print capture, magnet temperature, holding force and extraction still require a physical trial. Use the [small coupons and assembly sequence](build.md#magnetic-frame-and-service) first. The reset opening takes a tool. A nominal 12 × 5 mm USB plug and straight insertion corridor clear each theme; cable housings vary.
+
+The [new frame recipes](frames-extra.md) are editable native features. The [slim support study](slim-mount-study.md) separates fewer loose parts from lower stack height.
 
 ## Save a configuration for FreeCAD
 

@@ -8,21 +8,21 @@
           "connected_solids": true,
           "component_collisions_mm3": {},
           "base_volume_mm3": 14523.01672069014,
-          "plate_volume_mm3": 4478.289143638063
+          "plate_volume_mm3": 4478.289143638066
         },
         "rim": {
           "closed_meshes": true,
           "connected_solids": true,
           "component_collisions_mm3": {},
-          "base_volume_mm3": 14917.96159008106,
-          "plate_volume_mm3": 3996.5630626589023
+          "base_volume_mm3": 14917.961590081068,
+          "plate_volume_mm3": 3996.5630626589004
         },
         "terrace": {
           "closed_meshes": true,
           "connected_solids": true,
           "component_collisions_mm3": {},
           "base_volume_mm3": 14398.422083818456,
-          "plate_volume_mm3": 4478.289143638063
+          "plate_volume_mm3": 4478.289143638066
         }
       },
       "display_cover_installed": true,
@@ -66,7 +66,7 @@
         "facet": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2578.0908110410874,
+          "volume_mm3": 2578.0908110410883,
           "closed_mesh": true
         },
         "handheld": {
@@ -78,13 +78,37 @@
         "tv": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2767.9376639676702,
+          "volume_mm3": 2767.93766396767,
           "closed_mesh": true
         },
         "cyberpunk": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
           "volume_mm3": 2679.533412335087,
+          "closed_mesh": true
+        },
+        "cartridge": {
+          "component_collisions_mm3": {},
+          "usb_envelope_collision_mm3": 0.0,
+          "volume_mm3": 2822.710456742932,
+          "closed_mesh": true
+        },
+        "arcade": {
+          "component_collisions_mm3": {},
+          "usb_envelope_collision_mm3": 0.0,
+          "volume_mm3": 2761.663798045803,
+          "closed_mesh": true
+        },
+        "mecha": {
+          "component_collisions_mm3": {},
+          "usb_envelope_collision_mm3": 0.0,
+          "volume_mm3": 2840.3249026848375,
+          "closed_mesh": true
+        },
+        "kintsugi": {
+          "component_collisions_mm3": {},
+          "usb_envelope_collision_mm3": 0.0,
+          "volume_mm3": 2782.2460050724007,
           "closed_mesh": true
         }
       },
@@ -561,7 +585,7 @@
         -94.8244432362655,
         0.0,
         135.0,
-        -0.2499999999999989,
+        -0.249999999999999,
         16.6
       ],
       "case_bounds_mm": [
@@ -569,7 +593,7 @@
         -94.8244432362655,
         0.0,
         135.0,
-        -0.2499999999999989,
+        -0.249999999999999,
         6.6
       ],
       "electronics_north_kicad_y_mm": 11.0,
@@ -587,7 +611,7 @@
           "closed_meshes": true,
           "connected_solids": true,
           "component_collisions_mm3": {},
-          "base_volume_mm3": 14523.016720690073,
+          "base_volume_mm3": 14523.016720690075,
           "plate_volume_mm3": 4478.289143638064
         },
         "rim": {
@@ -595,13 +619,13 @@
           "connected_solids": true,
           "component_collisions_mm3": {},
           "base_volume_mm3": 14917.961590081117,
-          "plate_volume_mm3": 3996.5630626589004
+          "plate_volume_mm3": 3996.563062658895
         },
         "terrace": {
           "closed_meshes": true,
           "connected_solids": true,
           "component_collisions_mm3": {},
-          "base_volume_mm3": 14398.422083818557,
+          "base_volume_mm3": 14398.42208381856,
           "plate_volume_mm3": 4478.289143638064
         }
       },
@@ -646,7 +670,7 @@
         "facet": {
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
-          "volume_mm3": 2578.090811041092,
+          "volume_mm3": 2578.090811041093,
           "closed_mesh": true
         },
         "handheld": {
@@ -665,6 +689,30 @@
           "component_collisions_mm3": {},
           "usb_envelope_collision_mm3": 0.0,
           "volume_mm3": 2679.5334123350935,
+          "closed_mesh": true
+        },
+        "cartridge": {
+          "component_collisions_mm3": {},
+          "usb_envelope_collision_mm3": 0.0,
+          "volume_mm3": 2822.710456742936,
+          "closed_mesh": true
+        },
+        "arcade": {
+          "component_collisions_mm3": {},
+          "usb_envelope_collision_mm3": 0.0,
+          "volume_mm3": 2761.663798045806,
+          "closed_mesh": true
+        },
+        "mecha": {
+          "component_collisions_mm3": {},
+          "usb_envelope_collision_mm3": 0.0,
+          "volume_mm3": 2840.3249026848407,
+          "closed_mesh": true
+        },
+        "kintsugi": {
+          "component_collisions_mm3": {},
+          "usb_envelope_collision_mm3": 0.0,
+          "volume_mm3": 2782.2460050724044,
           "closed_mesh": true
         }
       },
@@ -1141,7 +1189,7 @@
         -94.8244432362655,
         0.0,
         141.75,
-        -0.2499999999999989,
+        -0.249999999999999,
         16.6
       ],
       "case_bounds_mm": [
@@ -1149,7 +1197,7 @@
         -94.8244432362655,
         0.0,
         141.75,
-        -0.2499999999999989,
+        -0.249999999999999,
         6.6
       ],
       "electronics_north_kicad_y_mm": 11.0,

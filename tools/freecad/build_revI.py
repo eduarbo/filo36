@@ -57,6 +57,8 @@ print('Parameters ready',flush=True)
 frame_profiles=json.loads((ROOT/'design/revI-frame-profiles.json').read_text())
 sys.path.insert(0,str(ROOT/'tools'));from keycap_config import load,default_config,check
 sys.path.insert(0,str(ROOT/'tools/freecad'));import components
+import extra_frames
+extension_spec=extra_frames.load_spec(ROOT)
 catalog=load();configuration=default_config(catalog);assert not check(configuration,catalog)[0]
 variants={v['id']:v for v in catalog['variants']}
 finals = {}
@@ -390,6 +392,7 @@ for side in ('left', 'right'):
     reset_access=cyl('ResetToolAccess',123,59.5,7.8,1.4,12)
     styles={}
     for style,label in catalog['frame_styles'].items():
+        if style in extension_spec['styles']:continue
         if style in ('bevel','facet'):
             sections=[]
             for j,(z,contour) in enumerate([(6.3,'outer'),(15.4,'outer'),(16.6,style)]):
@@ -453,6 +456,7 @@ for side in ('left', 'right'):
         cover.Label='Frame · '+label+' · variant'
         cover.addProperty('App::PropertyString','FrameStyle','Flan36');cover.FrameStyle=style
         cover.ViewObject.ShapeColor=(.16,.25,.23);styles[style]=cover
+    styles.update(extra_frames.build_for_half(doc,side,smooth=styles['smooth'],history=history,spec=extension_spec))
     active=doc.addObject('App::Link',prefix+'ActiveFrame');active.setLink(styles[configuration['frames'][side]['style']])
     done('electronics-lid',active,'Magnetic frame · vertical lift','lid',tuple(int(configuration['frames'][side]['color'][i:i+2],16)/255 for i in (1,3,5)),True)
 
@@ -467,7 +471,7 @@ for side in ('left', 'right'):
         o=doc.addObject('Mesh::Feature',prefix+key['ref']); keygroup.addObject(o)
         mesh=Mesh.Mesh(str(ROOT/v['path'])); mat=A.Matrix();mat.A22=-1;mesh.transform(mat);mesh.flipNormals();o.Mesh=mesh
         o.Placement=A.Placement(A.Vector(key['x'],-key['y'],v['seating_z_mm']),A.Rotation(A.Vector(0,0,1),key['angle']+choice['rotation_deg']))
-        o.Label='KLP '+key['ref'];o.ViewObject.ShapeColor=(.25,.55,.45) if key['row']==3 else (.91,.878,.783)
+        o.Label='KLP '+key['ref'];o.ViewObject.ShapeColor=tuple(int(choice['color'][i:i+2],16)/255 for i in (1,3,5))
         for prop,value in [('KeycapVariant',v['id']),('KeyReference',key['ref']),('Side',side),('Source','KLP Lame / braindefender / CC-BY-SA-4.0 / unchanged mesh; nominal stem-tip datum')]:
             o.addProperty('App::PropertyString',prop,'Flan36');setattr(o,prop,value)
         o.addProperty('App::PropertyAngle','CapRotation','Flan36');o.CapRotation=choice['rotation_deg']

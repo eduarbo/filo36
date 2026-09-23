@@ -13,7 +13,7 @@ export function gap(a,b){
  }
  return result;
 }
-export function normalize(config,c){const result=copy(config);result.schema="flan36-config-1";if(!('cases' in result))result.cases=copy(c.default_configuration.cases);for(const side of ['left','right']){const cs=result.cases[side],style=c.case_styles[cs.style];cs.base_color??=style.base_color;cs.plate_color??=style.plate_color;cs.match_frame??=false;const f=result.frames[side],p=framePalette(f.style,f.color,f.accents);f.accents=Object.fromEntries(['detail','accent','secondary'].map(k=>[k,p[k]]));}return result;}
+export function normalize(config,c){const result=copy(config);result.schema="flan36-config-1";for(const [side,keys] of Object.entries(c.layout))for(const key of keys)result.keycaps[side][key.ref].color??=key.row===3?'#45967b':'#e9dfc6';if(!('cases' in result))result.cases=copy(c.default_configuration.cases);for(const side of ['left','right']){const cs=result.cases[side],style=c.case_styles[cs.style];cs.base_color??=style.base_color;cs.plate_color??=style.plate_color;cs.match_frame??=false;const f=result.frames[side],p=framePalette(f.style,f.color,f.accents);f.accents=Object.fromEntries(['detail','accent','secondary'].map(k=>[k,p[k]]));}return result;}
 export function check(config,c){
  const errors=[],variants=new Map(c.variants.map(v=>[v.id,v]));let minimum=Infinity;
  if(!['flan36-config-1','filo36-config-1'].includes(config?.schema)||config?.revision!=='I')return {errors:['Unsupported configuration format or revision.']};
@@ -29,6 +29,7 @@ export function check(config,c){
    const shapes=[];
    for(const k of keys){
      const x=config.keycaps[side][k.ref],v=variants.get(x?.variant);
+     if(x&&'color' in x&&(typeof x.color!=='string'||!/^#[0-9a-f]{6}$/i.test(x.color)))return {errors:['Invalid keycap color.']};
      if(!v||!v.rotations_deg.includes(x?.rotation_deg)||!v.qualified_reference_positions.length){errors.push(`${side} ${k.ref}: unqualified variant or orientation.`);continue;}
      const p=polygon(v.hull_xy_mm,k,x.rotation_deg);shapes.push([k.ref,p]);const d=gap(p,c.frame_envelopes[side]);minimum=Math.min(minimum,d);
      if(d<c.minimum_clearance_mm-1e-7)errors.push(`${side} ${k.ref}: violates the frame clearance.`);

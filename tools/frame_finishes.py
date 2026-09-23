@@ -5,6 +5,9 @@ import json
 from pathlib import Path
 FINISHES=json.loads((Path(__file__).resolve().parents[1]/'design/frame-finishes.json').read_text())
 
+EXTENSIONS=json.loads((Path(__file__).resolve().parents[1]/'design/frame-extensions.json').read_text())
+FINISHES['styles'].update({k:{f:v[f] for f in ['colors','labels','zones']} for k,v in EXTENSIONS['styles'].items()})
+
 def role(style,side,x,y,height,roof=None):
     theme=FINISHES['styles'].get(style)
     if not theme or height<=(FINISHES['roof_mm'] if roof is None else roof)+1e-4:return 'body'
