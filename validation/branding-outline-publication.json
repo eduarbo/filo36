@@ -1,0 +1,176 @@
+{
+  "commit": "7037aaccfcbdc29ca53b507431acb48e61df6225",
+  "checked_at": "2026-09-23T03:13:11.070561+00:00",
+  "repository": "https://github.com/eduarbo/filo36",
+  "ref": "main",
+  "anonymous_files": [
+    {
+      "path": "ATTRIBUTION.md",
+      "sha256": "d639a05187f48ac692c6345f1fd42a1d0e1f314b3dbc594af88d307cccdc4d31"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3e378de834ceef42d1ef4303c9aa2a1adf1840a2d4abc4618d680a59b3bbe805"
+    },
+    {
+      "path": "design/branding-outline-vectors.json",
+      "sha256": "931e738a1dcb0bbedc6ec1d7a12f9396ad1aea06468d9057b245d3595b361d03"
+    },
+    {
+      "path": "design/branding.json",
+      "sha256": "75afd0c6a92f6b7f5d9992c0111b97b01a7e174fe737bd4b3e65caaa3d845a5b"
+    },
+    {
+      "path": "docs/branding.html",
+      "sha256": "a8e20291024a12d9519b05cacd6a47b741e45a760dd290e4f6036696bb669b26"
+    },
+    {
+      "path": "docs/branding.md",
+      "sha256": "35ed5ff93eb40aea5454cce5e53e9efd20dceaaf4be0314a955796da8fca9a19"
+    },
+    {
+      "path": "docs/branding/outline/README.md",
+      "sha256": "df69277a61529447826df9b1b32308e293302fb1f740db8f90ae03761aca9743"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-black.svg",
+      "sha256": "9e456f81f9d9aef6f8c340ae2c2ea29413ae3c14a72a00461e0e8eeec0847d7c"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-color.svg",
+      "sha256": "c6f7745722a878f6112ce50e09c4a4851bdacb4df10185e31383f7845558a461"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-master.svg",
+      "sha256": "47add933334ae193ceb266732cca63cabbfc1b5bc7632db5f81ac13ef9e4eec8"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-svg-kit.zip",
+      "sha256": "39aa31279af4d3c6ed8079b7ed6b23dd3c5cd6769a0a89568eb2e71e0053b9d0"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-symbol-black.svg",
+      "sha256": "67c1007fa58490c324ffa2a7c24e5eb9463c1ffc09d25a992401d8136e20f4f3"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-symbol-color.svg",
+      "sha256": "9a7d174022aedefc5b27a19d77c465b79bc3b3bedcd9589004563feb7d0a1e0a"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-symbol-white.svg",
+      "sha256": "07ea08d83f1c45e4858e206318ba193dde9e6c7b2d87dbfd7009be4eeccaf8d4"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-white.svg",
+      "sha256": "b0662a267e707451f05fae650809f37d0e9361bc792be653fe1769e0ae9efe6a"
+    },
+    {
+      "path": "docs/branding/outline/flan36-outline-wordmark-black.svg",
+      "sha256": "4c6f678a6d0dcbc26a67d307140de30bfefdc705ae394563bcf3321aec5eb3ec"
+    },
+    {
+      "path": "docs/branding/outline/preview.svg",
+      "sha256": "55611a4f2227ed49a86432a8c8cf5e1ed91ce78d949eb744a7b7c55bedbfb3ca"
+    },
+    {
+      "path": "docs/images/branding/flan36-outline-vector-preview.png",
+      "sha256": "c66daa7523531afcf4bd657c7854319b213e0e4741f2365d081f5ea1a53554c5"
+    },
+    {
+      "path": "tools/build_outline_logo.py",
+      "sha256": "a9734de2cb8bdffc742196700b1f84aa41c92537f29b6eaf0c44e69aa55bce79"
+    },
+    {
+      "path": "tools/check_outline_logo.py",
+      "sha256": "8139cbf155e279e7ffe4a4630cf680776438ee00ac9351272869dd226081ba3d"
+    },
+    {
+      "path": "tools/freecad/check_outline_logo.py",
+      "sha256": "7e4b9252dacc0e84fe7f7437f6373031ad09fae7eb7e90546a7a937a08c2eb9c"
+    },
+    {
+      "path": "tools/requirements-branding.txt",
+      "sha256": "ae0a0ff445d46cf1f6ec790b9cf696084f4ccf9f84dee071ddd6bf504d62e1a7"
+    },
+    {
+      "path": "validation/branding-outline-browser.json",
+      "sha256": "197f9813dbcea8f22d3245f6f9aa93f04973c721e20bff583d7bfb5704f05dc8"
+    },
+    {
+      "path": "validation/branding-outline-freecad.json",
+      "sha256": "50dd0cb0afa7efa5298e37d42ba91b6dc0d456e2e6936496f3d8206904bff2bc"
+    },
+    {
+      "path": "validation/branding-outline-trace.json",
+      "sha256": "88c879e571e28153e971af263bfc0da698c5ed09fa2caa69a5a11adc5b632dfe"
+    },
+    {
+      "path": "validation/branding-outline-vectors.json",
+      "sha256": "fa1482bf2a8ebf83474115bdbac2af46f5eb379cda18153d7767b83336d38516"
+    }
+  ],
+  "browser": {
+    "url": "https://eduarbo.github.io/filo36/branding.html?rev=7037aaccfcbdc29ca53b507431acb48e61df6225",
+    "no_overflow": true,
+    "three_vectors_loaded": true,
+    "mobile_width": 390,
+    "zip_download_verified": true
+  },
+  "pages": [
+    {
+      "path": "branding.html",
+      "sha256": "a8e20291024a12d9519b05cacd6a47b741e45a760dd290e4f6036696bb669b26",
+      "matches": true
+    },
+    {
+      "path": "images/branding/flan36-outline-vector-preview.png",
+      "sha256": "c66daa7523531afcf4bd657c7854319b213e0e4741f2365d081f5ea1a53554c5",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/flan36-outline-black.svg",
+      "sha256": "9e456f81f9d9aef6f8c340ae2c2ea29413ae3c14a72a00461e0e8eeec0847d7c",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/flan36-outline-color.svg",
+      "sha256": "c6f7745722a878f6112ce50e09c4a4851bdacb4df10185e31383f7845558a461",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/flan36-outline-master.svg",
+      "sha256": "47add933334ae193ceb266732cca63cabbfc1b5bc7632db5f81ac13ef9e4eec8",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/flan36-outline-symbol-black.svg",
+      "sha256": "67c1007fa58490c324ffa2a7c24e5eb9463c1ffc09d25a992401d8136e20f4f3",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/flan36-outline-symbol-color.svg",
+      "sha256": "9a7d174022aedefc5b27a19d77c465b79bc3b3bedcd9589004563feb7d0a1e0a",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/flan36-outline-symbol-white.svg",
+      "sha256": "07ea08d83f1c45e4858e206318ba193dde9e6c7b2d87dbfd7009be4eeccaf8d4",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/flan36-outline-white.svg",
+      "sha256": "b0662a267e707451f05fae650809f37d0e9361bc792be653fe1769e0ae9efe6a",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/flan36-outline-wordmark-black.svg",
+      "sha256": "4c6f678a6d0dcbc26a67d307140de30bfefdc705ae394563bcf3321aec5eb3ec",
+      "matches": true
+    },
+    {
+      "path": "branding/outline/preview.svg",
+      "sha256": "55611a4f2227ed49a86432a8c8cf5e1ed91ce78d949eb744a7b7c55bedbfb3ca",
+      "matches": true
+    }
+  ]
+}
